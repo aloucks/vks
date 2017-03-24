@@ -714,6 +714,9 @@ pub enum VkSamplerAddressMode {
     VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 1,
     VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE = 2,
     VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 3,
+
+    #[cfg(any(all(feature = "core_1_0_3", not(feature = "core_1_0_4")),
+              all(feature = "core_1_0_4", feature = "khr_sampler_mirror_clamp_to_edge_1")))]
     VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
 }
 

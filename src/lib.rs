@@ -100,6 +100,12 @@ mod khr_win32_surface;
 #[cfg(feature = "khr_win32_surface_5")]
 pub use khr_win32_surface::*;
 
+#[cfg(feature = "khr_sampler_mirror_clamp_to_edge_1")]
+mod khr_sampler_mirror_clamp_to_edge;
+
+#[cfg(feature = "khr_sampler_mirror_clamp_to_edge_1")]
+pub use khr_sampler_mirror_clamp_to_edge::*;
+
 #[cfg(feature = "ext_debug_report_1")]
 mod ext_debug_report;
 
