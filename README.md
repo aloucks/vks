@@ -1,5 +1,7 @@
 # vk-sys
 
+[![build status](https://gitlab.com/dennis-hamester/vk-sys/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vk-sys/commits/master)
+
 Vulkan bindings and symbol loader for Rust
 
 Latest supported Vulkan specification: 1.0.4 + all extensions
