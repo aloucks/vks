@@ -266,7 +266,10 @@ pub enum VkStructureType {
     #[cfg(feature = "khr_win32_surface_5")]
     VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR = 1000009000,
 
-    #[cfg(feature = "ext_debug_report_1")]
+    #[cfg(feature = "ext_debug_report_2")]
+    VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT = 1000011000,
+
+    #[cfg(all(feature = "ext_debug_report_1", not(feature = "ext_debug_report_2")))]
     VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT = 1000011000,
 }
 
