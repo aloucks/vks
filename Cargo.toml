@@ -82,3 +82,4 @@ img_filter_cubic_1 = [ "core_1_0_3" ]
 [dependencies]
 libc = "0.2.21"
 bitflags = "0.8.0"
+clippy = { version = "*", optional = true }

@@ -14,6 +14,8 @@
 
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![cfg_attr(feature = "clippy", feature(plugin))]
+#![cfg_attr(feature = "clippy", plugin(clippy))]
 #![feature(struct_field_attributes)]
 #![feature(untagged_unions)]
 
