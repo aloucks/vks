@@ -1,7 +1,7 @@
 # vk-sys Changelog
 
 ## Current Git Master Branch
- * Vulkan 1.0.12, 1.0.13, 1.0.14
+ * Vulkan 1.0.12, 1.0.13, 1.0.14, 1.0.15
  * `VK_AMD_rasterization_order` revision 1
  * `VK_KHR_surface`: Rename `VK_COLORSPACE_SRGB_NONLINEAR_KHR` to `VK_COLOR_SPACE_SRGB_NONLINEAR_KHR`
  * `VK_EXT_debug_marker` revision 3
