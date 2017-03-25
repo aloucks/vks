@@ -430,8 +430,8 @@ addr_proc_struct!(KHR_xlib_surface, {
 
 #[cfg(feature = "khr_xcb_surface_6")]
 addr_proc_struct!(KHR_xcb_surface, {
-    ["khr_xlib_surface_6"] vkCreateXcbSurfaceKHR: PFN_vkCreateXcbSurfaceKHR,
-    ["khr_xlib_surface_6"] vkGetPhysicalDeviceXcbPresentationSupportKHR: PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR
+    ["khr_xcb_surface_6"] vkCreateXcbSurfaceKHR: PFN_vkCreateXcbSurfaceKHR,
+    ["khr_xcb_surface_6"] vkGetPhysicalDeviceXcbPresentationSupportKHR: PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR
 });
 
 #[cfg(feature = "khr_wayland_surface_5")]
