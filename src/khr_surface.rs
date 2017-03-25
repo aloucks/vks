@@ -26,6 +26,10 @@ pub type VkSurfaceKHR = *mut VkSurfaceKHR_T;
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum VkColorSpaceKHR {
+    #[cfg(feature = "core_1_0_13")]
+    VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
+
+    #[cfg(all(feature = "core_1_0_3", not(feature = "core_1_0_13")))]
     VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0,
 }
 

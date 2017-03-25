@@ -3,6 +3,7 @@
 ## Current Git Master Branch
  * Vulkan 1.0.12, 1.0.13
  * `VK_AMD_rasterization_order` revision 1
+ * `VK_KHR_surface`: Rename `VK_COLORSPACE_SRGB_NONLINEAR_KHR` to `VK_COLOR_SPACE_SRGB_NONLINEAR_KHR`
 
 ## Version 0.3.0, released on 25.03.2017
 
