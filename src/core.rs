@@ -1112,7 +1112,7 @@ bitflags! {
         const VK_SHADER_STAGE_GEOMETRY_BIT = 0x00000008,
         const VK_SHADER_STAGE_FRAGMENT_BIT = 0x00000010,
         const VK_SHADER_STAGE_COMPUTE_BIT = 0x00000020,
-        const VK_SHADER_STAGE_ALL_GRAPHICS = 0x1F,
+        const VK_SHADER_STAGE_ALL_GRAPHICS = 0x0000001F,
         const VK_SHADER_STAGE_ALL = 0x7FFFFFFF,
     }
 }
@@ -1164,7 +1164,7 @@ bitflags! {
         const VK_CULL_MODE_NONE = 0,
         const VK_CULL_MODE_FRONT_BIT = 0x00000001,
         const VK_CULL_MODE_BACK_BIT = 0x00000002,
-        const VK_CULL_MODE_FRONT_AND_BACK = 0x3,
+        const VK_CULL_MODE_FRONT_AND_BACK = 0x00000003,
     }
 }
 pub type VkCullModeFlagBits = VkCullModeFlags;
@@ -1364,7 +1364,7 @@ bitflags! {
     pub flags VkStencilFaceFlags: u32 {
         const VK_STENCIL_FACE_FRONT_BIT = 0x00000001,
         const VK_STENCIL_FACE_BACK_BIT = 0x00000002,
-        const VK_STENCIL_FRONT_AND_BACK = 0x3,
+        const VK_STENCIL_FRONT_AND_BACK = 0x00000003,
     }
 }
 pub type VkStencilFaceFlagBits = VkStencilFaceFlags;
