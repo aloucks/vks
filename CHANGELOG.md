@@ -5,6 +5,7 @@
  * Vulkan 1.0.6, 1.0.7
  * `VK_IMG_filter_cubic` revision 1
  * `instance_proc_addr_loader`: Implement Default for generated structs
+ * `device_proc_addr_loader`: Implement Default for generated structs
 
 ## Version 0.2.0, released on 25.03.2017
 
