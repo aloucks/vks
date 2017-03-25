@@ -14,7 +14,7 @@ license = "ISC"
 gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 
 [features]
-default = [ "vk_1_0_11" ]
+default = [ "vk_1_0_12" ]
 
 vk_1_0_12 = [ "vk_1_0_11", "core_1_0_12", "amd_rasterization_order_1" ]
 
