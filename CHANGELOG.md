@@ -3,6 +3,7 @@
 ## Current Git Master Branch
 
  * Vulkan 1.0.5 (use `core` or `core_1_0_5` feature)
+ * Add `*_SPEC_VERSION` constant to all extensions.
 
 ## Version 0.1.0, released on 25.03.2017
 
