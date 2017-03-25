@@ -6,11 +6,11 @@ PROJECTROOT=`realpath "${SCRIPTPATH}"/..`
 
 function test_build() {
     echo "Building feature $1"
-    cargo build -v --no-default-features --features $1 || exit 1
+    cargo build --no-default-features --features $1 || exit 1
     echo ""
 
     echo "Building feature $1 + clippy"
-    cargo build -v --no-default-features --features "$1 clippy" || exit 1
+    cargo build --no-default-features --features "$1 clippy" || exit 1
     echo ""
 }
 
