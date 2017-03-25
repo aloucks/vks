@@ -229,6 +229,12 @@ macro_rules! addr_proc_struct {
             }
         }
 
+        impl Default for $name {
+            fn default() -> Self {
+                $name::new()
+            }
+        }
+
         impl $name {
             pub fn new() -> Self {
                 $name {
