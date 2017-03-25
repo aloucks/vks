@@ -274,6 +274,9 @@ pub enum VkStructureType {
 
     #[cfg(all(feature = "ext_debug_report_1", not(feature = "ext_debug_report_2")))]
     VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT = 1000011000,
+
+    #[cfg(feature = "amd_rasterization_order_1")]
+    VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000,
 }
 
 #[repr(u32)]

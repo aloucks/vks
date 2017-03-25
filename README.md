@@ -61,6 +61,8 @@ other dependencies.
 
 | Feature | Description |
 | --- | --- |
+| `amd_rasterization_order_1` | `VK_AMD_rasterization_order` revision 1 |
+| `amd_rasterization_order` | Latest `VK_AMD_rasterization_order` revision |
 | `ext_debug_report_1` | `VK_EXT_debug_report` revision 1 |
 | `ext_debug_report_2` | `VK_EXT_debug_report` revision 2 |
 | `ext_debug_report` | Latest `VK_EXT_debug_report` revision |
@@ -146,6 +148,12 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_IMG_filter_cubic` | 1 |
+
+### `AMD` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_AMD_rasterization_order` | 1 |
 
 ## License
 

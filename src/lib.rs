@@ -126,6 +126,12 @@ mod img_filter_cubic;
 #[cfg(feature = "img_filter_cubic_1")]
 pub use img_filter_cubic::*;
 
+#[cfg(feature = "amd_rasterization_order_1")]
+mod amd_rasterization_order;
+
+#[cfg(feature = "amd_rasterization_order_1")]
+pub use amd_rasterization_order::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 
