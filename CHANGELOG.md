@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.6, 1.0.7, 1.0.8, 1.0.9
+ * Vulkan 1.0.6, 1.0.7, 1.0.8, 1.0.9, 1.0.10
  * `VK_IMG_filter_cubic` revision 1
  * `instance_proc_addr_loader`: Implement Default for generated structs
  * `device_proc_addr_loader`: Implement Default for generated structs
