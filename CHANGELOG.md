@@ -1,5 +1,9 @@
 # vk-sys Changelog
 
+## Current Git Master Branch
+
+ * Vulkan 1.0.5 (use `core` or `core_1_0_5` feature)
+
 ## Version 0.1.0, released on 25.03.2017
 
  * Initial release
