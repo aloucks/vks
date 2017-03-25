@@ -52,6 +52,9 @@ pub struct InstanceProcAddrLoader {
 
     #[cfg(feature = "ext_debug_report_1")]
     pub ext_debug_report: EXT_debug_report,
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    pub ext_debug_marker: EXT_debug_marker,
 }
 
 impl Copy for InstanceProcAddrLoader { }
@@ -99,6 +102,9 @@ impl fmt::Debug for InstanceProcAddrLoader {
         #[cfg(feature = "ext_debug_report_1")]
         debug_struct.field("ext_debug_report", &self.ext_debug_report);
 
+        #[cfg(feature = "ext_debug_marker_3")]
+        debug_struct.field("ext_debug_marker", &self.ext_debug_marker);
+
         debug_struct.finish()
     }
 }
@@ -139,6 +145,9 @@ impl InstanceProcAddrLoader {
 
             #[cfg(feature = "ext_debug_report_1")]
             ext_debug_report: EXT_debug_report::new(),
+
+            #[cfg(feature = "ext_debug_marker_3")]
+            ext_debug_marker: EXT_debug_marker::new(),
         }
     }
 
@@ -198,6 +207,11 @@ impl InstanceProcAddrLoader {
     #[cfg(feature = "ext_debug_report_1")]
     pub unsafe fn load_ext_debug_report(&mut self, instance: VkInstance) {
         self.ext_debug_report.load(self.vkGetInstanceProcAddr, instance);
+    }
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    pub unsafe fn load_ext_debug_marker(&mut self, instance: VkInstance) {
+        self.ext_debug_marker.load(self.vkGetInstanceProcAddr, instance);
     }
 }
 
@@ -462,4 +476,13 @@ addr_proc_struct!(EXT_debug_report, {
     ["ext_debug_report_1"] vkCreateDebugReportCallbackEXT: PFN_vkCreateDebugReportCallbackEXT,
     ["ext_debug_report_1"] vkDestroyDebugReportCallbackEXT: PFN_vkDestroyDebugReportCallbackEXT,
     ["ext_debug_report_1"] vkDebugReportMessageEXT: PFN_vkDebugReportMessageEXT
+});
+
+#[cfg(feature = "ext_debug_marker_3")]
+addr_proc_struct!(EXT_debug_marker, {
+    ["ext_debug_marker_3"] vkDebugMarkerSetObjectTagEXT: PFN_vkDebugMarkerSetObjectTagEXT,
+    ["ext_debug_marker_3"] vkDebugMarkerSetObjectNameEXT: PFN_vkDebugMarkerSetObjectNameEXT,
+    ["ext_debug_marker_3"] vkCmdDebugMarkerBeginEXT: PFN_vkCmdDebugMarkerBeginEXT,
+    ["ext_debug_marker_3"] vkCmdDebugMarkerEndEXT: PFN_vkCmdDebugMarkerEndEXT,
+    ["ext_debug_marker_3"] vkCmdDebugMarkerInsertEXT: PFN_vkCmdDebugMarkerInsertEXT
 });

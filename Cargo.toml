@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_12" ]
 
-vk_1_0_13 = [ "vk_1_0_12", "core_1_0_13" ]
+vk_1_0_13 = [ "vk_1_0_12", "core_1_0_13", "ext_debug_marker_3" ]
 
 vk_1_0_12 = [ "vk_1_0_11", "core_1_0_12", "amd_rasterization_order_1" ]
 
@@ -100,6 +100,9 @@ img_filter_cubic_1 = [ "core_1_0_3" ]
 
 amd_rasterization_order = [ "amd_rasterization_order_1" ]
 amd_rasterization_order_1 = [ "core_1_0_3" ]
+
+ext_debug_marker = [ "ext_debug_marker_3" ]
+ext_debug_marker_3 = [ "core_1_0_11" ]
 
 [dependencies]
 libc = "0.2.21"

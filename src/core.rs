@@ -277,6 +277,15 @@ pub enum VkStructureType {
 
     #[cfg(feature = "amd_rasterization_order_1")]
     VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000,
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT = 1000022000,
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT = 1000022001,
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT = 1000022002,
 }
 
 #[repr(u32)]

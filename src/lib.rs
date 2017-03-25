@@ -132,6 +132,12 @@ mod amd_rasterization_order;
 #[cfg(feature = "amd_rasterization_order_1")]
 pub use amd_rasterization_order::*;
 
+#[cfg(feature = "ext_debug_marker_3")]
+mod ext_debug_marker;
+
+#[cfg(feature = "ext_debug_marker_3")]
+pub use ext_debug_marker::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

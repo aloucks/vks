@@ -23,6 +23,9 @@ pub struct DeviceProcAddrLoader {
 
     #[cfg(feature = "khr_display_swapchain_9")]
     pub khr_display_swapchain: KHR_display_swapchain,
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    pub ext_debug_marker: EXT_debug_marker,
 }
 
 impl Copy for DeviceProcAddrLoader { }
@@ -42,6 +45,9 @@ impl fmt::Debug for DeviceProcAddrLoader {
         #[cfg(feature = "khr_display_swapchain_9")]
         debug_struct.field("khr_display_swapchain", &self.khr_display_swapchain);
 
+        #[cfg(feature = "ext_debug_marker_3")]
+        debug_struct.field("ext_debug_marker", &self.ext_debug_marker);
+
         debug_struct.finish()
     }
 }
@@ -54,6 +60,9 @@ impl DeviceProcAddrLoader {
 
             #[cfg(feature = "khr_display_swapchain_9")]
             khr_display_swapchain: KHR_display_swapchain::new(),
+
+            #[cfg(feature = "ext_debug_marker_3")]
+            ext_debug_marker: EXT_debug_marker::new(),
         }
     }
 
@@ -64,6 +73,11 @@ impl DeviceProcAddrLoader {
     #[cfg(feature = "khr_display_swapchain_9")]
     pub unsafe fn load_khr_display_swapchain(&mut self, device: VkDevice) {
         self.khr_display_swapchain.load(self.vkGetDeviceProcAddr, device);
+    }
+
+    #[cfg(feature = "ext_debug_marker_3")]
+    pub unsafe fn load_ext_debug_marker(&mut self, device: VkDevice) {
+        self.ext_debug_marker.load(self.vkGetDeviceProcAddr, device);
     }
 }
 
@@ -248,4 +262,13 @@ addr_proc_struct!(Core, {
 #[cfg(feature = "khr_display_swapchain_9")]
 addr_proc_struct!(KHR_display_swapchain, {
     ["khr_display_swapchain_9"] vkCreateSharedSwapchainsKHR: PFN_vkCreateSharedSwapchainsKHR
+});
+
+#[cfg(feature = "ext_debug_marker_3")]
+addr_proc_struct!(EXT_debug_marker, {
+    ["ext_debug_marker_3"] vkDebugMarkerSetObjectTagEXT: PFN_vkDebugMarkerSetObjectTagEXT,
+    ["ext_debug_marker_3"] vkDebugMarkerSetObjectNameEXT: PFN_vkDebugMarkerSetObjectNameEXT,
+    ["ext_debug_marker_3"] vkCmdDebugMarkerBeginEXT: PFN_vkCmdDebugMarkerBeginEXT,
+    ["ext_debug_marker_3"] vkCmdDebugMarkerEndEXT: PFN_vkCmdDebugMarkerEndEXT,
+    ["ext_debug_marker_3"] vkCmdDebugMarkerInsertEXT: PFN_vkCmdDebugMarkerInsertEXT
 });
