@@ -3,6 +3,7 @@
 ## Current Git Master Branch
 
  * Vulkan 1.0.6 (use feature `vk_1_0_6` or `core_1_0_6`)
+ * `VK_IMG_filter_cubic` revision 1
 
 ## Version 0.2.0, released on 25.03.2017
 

@@ -701,6 +701,9 @@ pub enum VkDynamicState {
 pub enum VkFilter {
     VK_FILTER_NEAREST = 0,
     VK_FILTER_LINEAR = 1,
+
+    #[cfg(feature = "img_filter_cubic_1")]
+    VK_FILTER_CUBIC_IMG = 1000015000,
 }
 
 #[repr(u32)]
@@ -816,6 +819,9 @@ bitflags! {
         const VK_FORMAT_FEATURE_BLIT_SRC_BIT = 0x00000400,
         const VK_FORMAT_FEATURE_BLIT_DST_BIT = 0x00000800,
         const VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x00001000,
+
+        #[cfg(feature = "img_filter_cubic_1")]
+        const VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG = 0x00002000,
     }
 }
 pub type VkFormatFeatureFlagBits = VkFormatFeatureFlags;

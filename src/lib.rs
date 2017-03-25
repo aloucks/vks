@@ -118,6 +118,12 @@ mod nv_glsl_shader;
 #[cfg(feature = "nv_glsl_shader_1")]
 pub use nv_glsl_shader::*;
 
+#[cfg(feature = "img_filter_cubic_1")]
+mod img_filter_cubic;
+
+#[cfg(feature = "img_filter_cubic_1")]
+pub use img_filter_cubic::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 
