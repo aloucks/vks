@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.2.0, released on 25.03.2017
 
  * Vulkan 1.0.5
  * Add `*_SPEC_VERSION` constant to all extensions.
