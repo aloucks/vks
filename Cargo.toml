@@ -64,7 +64,7 @@ khr_sampler_mirror_clamp_to_edge = [ "khr_sampler_mirror_clamp_to_edge_1" ]
 khr_sampler_mirror_clamp_to_edge_1 = [ "core_1_0_4" ]
 
 ext_debug_report = [ "ext_debug_report_2" ]
-ext_debug_report_2 = [ "core_1_0_4", "ext_debug_report_1" ]
+ext_debug_report_2 = [ "ext_debug_report_1" ]
 ext_debug_report_1 = [ "core_1_0_3" ]
 
 nv_glsl_shader = [ "nv_glsl_shader_1" ]

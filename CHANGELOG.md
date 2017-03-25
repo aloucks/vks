@@ -5,6 +5,7 @@
  * Vulkan 1.0.5
  * Add `*_SPEC_VERSION` constant to all extensions.
  * `VK_NV_glsl_shader` revision 1
+ * Reduce required core version of `VK_EXT_debug_report` revision 2 from 1.0.4 to 1.0.3.
 
 ## Version 0.1.0, released on 25.03.2017
 
