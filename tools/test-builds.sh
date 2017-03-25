@@ -22,3 +22,4 @@ test_build vk_1_0_5
 test_build vk_1_0_6
 test_build vk_1_0_7
 test_build vk_1_0_8
+test_build vk_1_0_9
