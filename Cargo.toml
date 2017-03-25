@@ -10,6 +10,9 @@ keywords = [ "vulkan", "graphics" ]
 categories = [ "external-ffi-bindings", "rendering", "rendering::graphics-api" ]
 license = "ISC"
 
+[badges]
+gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
+
 [features]
 default = [ "vk_1_0_4" ]
 
