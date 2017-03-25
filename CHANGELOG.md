@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.5 (use `core` or `core_1_0_5` feature)
+ * Vulkan 1.0.5
  * Add `*_SPEC_VERSION` constant to all extensions.
  * `VK_NV_glsl_shader` revision 1
 
