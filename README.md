@@ -1,6 +1,6 @@
 # vk-sys
 
-[![build status](https://gitlab.com/dennis-hamester/vk-sys/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vk-sys/commits/master)
+[![build status](https://gitlab.com/dennis-hamester/vk-sys/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vk-sys)
 
 Vulkan bindings and symbol loader for Rust
 
