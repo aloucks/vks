@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.3.0, released on 25.03.2017
 
  * Vulkan 1.0.6, 1.0.7, 1.0.8, 1.0.9, 1.0.10, 1.0.11
  * `VK_IMG_filter_cubic` revision 1
