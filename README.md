@@ -4,7 +4,7 @@
 
 Vulkan bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.10 + all extensions
+Latest supported Vulkan specification: 1.0.11 + all extensions
 
 For the time being, vk-sys requires a nightly version of the Rust compiler, because we use the
 `struct_field_attributes` and `untagged_unions` features.
@@ -27,6 +27,7 @@ All of these features select all extensions, that where defined up that point.
 
 | Feature | Description |
 | --- | --- |
+| `vk_1_0_11` | Vulkan 1.0.11 + all extensions |
 | `vk_1_0_10` | Vulkan 1.0.10 + all extensions |
 | `vk_1_0_9` | Vulkan 1.0.9 + all extensions |
 | `vk_1_0_8` | Vulkan 1.0.8 + all extensions |
@@ -43,7 +44,7 @@ These features do not select any extensions.
 | Feature | Description |
 | --- | --- |
 | `core` | Latest supported Vulkan specification |
-| `core_1_0_10` | Vulkan 1.0.10 |
+| `core_1_0_11` | Vulkan 1.0.11 |
 | `core_1_0_9` | Vulkan 1.0.9 |
 | `core_1_0_8` | Vulkan 1.0.8 |
 | `core_1_0_7` | Vulkan 1.0.7 |
@@ -76,6 +77,7 @@ other dependencies.
 | `khr_surface_25` | `VK_KHR_surface` revision 25 |
 | `khr_surface` | Latest `VK_KHR_surface` revision |
 | `khr_swapchain_67` | `VK_KHR_swapchain` revision 67 |
+| `khr_swapchain_68` | `VK_KHR_swapchain` revision 68 |
 | `khr_swapchain` | Latest `VK_KHR_surface` revision |
 | `khr_wayland_surface_5` | `VK_KHR_wayland_s` revision 5 |
 | `khr_wayland_surface` | Latest `VK_KHR_wayland_surface` revision |
@@ -96,6 +98,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
+ * 1.0.11
  * 1.0.10
  * 1.0.9
  * 1.0.8
@@ -117,7 +120,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | `VK_KHR_mir_surface` | 4 |
 | `VK_KHR_sampler_mirror_clamp_to_edge` | 1 |
 | `VK_KHR_surface` | 25 |
-| `VK_KHR_swapchain` | 67 |
+| `VK_KHR_swapchain` | 67, 68 |
 | `VK_KHR_wayland_surface` | 5 |
 | `VK_KHR_win32_surface` | 5 |
 | `VK_KHR_xcb_surface` | 6 |

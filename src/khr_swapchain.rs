@@ -15,7 +15,12 @@
 use ::*;
 use libc::c_void;
 
+#[cfg(feature = "khr_swapchain_68")]
+pub const VK_KHR_SWAPCHAIN_EXTENSION_SPEC_VERSION: u32 = 68;
+
+#[cfg(all(feature = "khr_swapchain_67", not(feature = "khr_swapchain_68")))]
 pub const VK_KHR_SWAPCHAIN_EXTENSION_SPEC_VERSION: u32 = 67;
+
 pub const VK_KHR_SWAPCHAIN_EXTENSION_NAME: &'static [u8; 17] = b"VK_KHR_swapchain\x00";
 pub const VK_KHR_SWAPCHAIN_EXTENSION_NAME_STR: &'static str = "VK_KHR_swapchain";
 

@@ -2,11 +2,12 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.6, 1.0.7, 1.0.8, 1.0.9, 1.0.10
+ * Vulkan 1.0.6, 1.0.7, 1.0.8, 1.0.9, 1.0.10, 1.0.11
  * `VK_IMG_filter_cubic` revision 1
  * `instance_proc_addr_loader`: Implement Default for generated structs
  * `device_proc_addr_loader`: Implement Default for generated structs
  * Add support for [clippy](https://github.com/Manishearth/rust-clippy).
+ * `VK_KHR_swapchain` revision 68
 
 ## Version 0.2.0, released on 25.03.2017
 
