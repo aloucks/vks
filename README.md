@@ -73,6 +73,8 @@ other dependencies.
 | `khr_xcb_surface` | Latest `VK_KHR_xcb_surface` revision |
 | `khr_xlib_surface_6` | `VK_KHR_xlib_surface` revision 6 |
 | `khr_xlib_surface` | Latest `VK_KHR_xlib_surface` revision |
+| `nv_glsl_shader_1` | `VK_NV_glsl_shader` revision 1 |
+| `nv_glsl_shader` | Latest `VK_NV_glsl_shader` revision |
 
 ## Loader
 
@@ -109,6 +111,12 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_EXT_debug_report` | 1, 2 |
+
+### `NV` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_NV_glsl_shader` | 1 |
 
 ## License
 

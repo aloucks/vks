@@ -112,6 +112,12 @@ mod ext_debug_report;
 #[cfg(feature = "ext_debug_report_1")]
 pub use ext_debug_report::*;
 
+#[cfg(feature = "nv_glsl_shader_1")]
+mod nv_glsl_shader;
+
+#[cfg(feature = "nv_glsl_shader_1")]
+pub use nv_glsl_shader::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

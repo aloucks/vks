@@ -178,6 +178,9 @@ pub enum VkResult {
 
     #[cfg(feature = "ext_debug_report_1")]
     VK_ERROR_VALIDATION_FAILED_EXT = -1000011001,
+
+    #[cfg(feature = "nv_glsl_shader_1")]
+    VK_ERROR_INVALID_SHADER_NV = -1000012000,
 }
 
 #[repr(u32)]
