@@ -36,3 +36,4 @@ test_build vk_1_0_19
 test_build vk_1_0_20
 test_build vk_1_0_21
 test_build vk_1_0_22
+test_build vk_1_0_23
