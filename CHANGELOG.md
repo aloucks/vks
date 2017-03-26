@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.4.0, released on 26.03.2017
 
  * Vulkan 1.0.16, 1.0.17, 1.0.18, 1.0.19, 1.0.20
  * New extension `VK_AMD_shader_trinary_minmax` (revision 1)
