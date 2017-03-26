@@ -23,24 +23,19 @@ pub const VK_KHR_SURFACE_EXTENSION_NAME_STR: &'static str  = "VK_KHR_surface";
 pub struct VkSurfaceKHR_T(c_void);
 pub type VkSurfaceKHR = *mut VkSurfaceKHR_T;
 
-#[repr(u32)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum VkColorSpaceKHR {
+cenum!(VkColorSpaceKHR: u32 {
+    const VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0,
+
     #[cfg(feature = "core_1_0_13")]
-    VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
+    const VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
+});
 
-    #[cfg(all(feature = "core_1_0_3", not(feature = "core_1_0_13")))]
-    VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0,
-}
-
-#[repr(u32)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum VkPresentModeKHR {
-    VK_PRESENT_MODE_IMMEDIATE_KHR = 0,
-    VK_PRESENT_MODE_MAILBOX_KHR = 1,
-    VK_PRESENT_MODE_FIFO_KHR = 2,
-    VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3,
-}
+cenum!(VkPresentModeKHR: u32 {
+    const VK_PRESENT_MODE_IMMEDIATE_KHR = 0,
+    const VK_PRESENT_MODE_MAILBOX_KHR = 1,
+    const VK_PRESENT_MODE_FIFO_KHR = 2,
+    const VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3,
+});
 
 bitflags! {
     #[repr(C)]

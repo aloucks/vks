@@ -14,6 +14,7 @@
 
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(non_upper_case_globals)]
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
 #![feature(struct_field_attributes)]
@@ -23,6 +24,9 @@ extern crate libc;
 
 #[macro_use]
 extern crate bitflags;
+
+#[macro_use]
+mod cenum;
 
 #[cfg(feature = "core_1_0_3")]
 mod core;

@@ -19,12 +19,10 @@ pub const VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME: &'static [u8; 27] = b"VK_AMD_rasterization_order\x00";
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME_STR: &'static str = "VK_AMD_rasterization_order";
 
-#[repr(u32)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum VkRasterizationOrderAMD {
-    VK_RASTERIZATION_ORDER_STRICT_AMD = 0,
-    VK_RASTERIZATION_ORDER_RELAXED_AMD = 1,
-}
+cenum!(VkRasterizationOrderAMD: u32 {
+    const VK_RASTERIZATION_ORDER_STRICT_AMD = 0,
+    const VK_RASTERIZATION_ORDER_RELAXED_AMD = 1,
+});
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
