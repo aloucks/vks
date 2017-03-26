@@ -87,6 +87,8 @@ other dependencies.
 
 | Feature | Description |
 | --- | --- |
+| `amd_draw_indirect_count_1` | `VK_AMD_draw_indirect_count` revision 1 |
+| `amd_draw_indirect_count` | Latest `VK_AMD_draw_indirect_count` revision |
 | `amd_gcn_shader_1` | `VK_AMD_gcn_shader` revision 1 |
 | `amd_gcn_shader` | Latest `VK_AMD_gcn_shader` revision |
 | `amd_rasterization_order_1` | `VK_AMD_rasterization_order` revision 1 |
@@ -209,6 +211,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 | Extension | Revision(s) |
 | --- | --- |
+| `VK_AMD_draw_indirect_count` | 1 |
 | `VK_AMD_gcn_shader` | 1 |
 | `VK_AMD_rasterization_order` | 1 |
 | `VK_AMD_shader_explicit_vertex_parameter` | 1 |

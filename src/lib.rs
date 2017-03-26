@@ -166,6 +166,12 @@ mod nv_dedicated_allocation;
 #[cfg(feature = "nv_dedicated_allocation_1")]
 pub use nv_dedicated_allocation::*;
 
+#[cfg(feature = "amd_draw_indirect_count_1")]
+mod amd_draw_indirect_count;
+
+#[cfg(feature = "amd_draw_indirect_count_1")]
+pub use amd_draw_indirect_count::*;
+
 #[cfg(feature = "img_format_pvrtc_1")]
 mod img_format_pvrtc;
 

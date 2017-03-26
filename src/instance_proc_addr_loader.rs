@@ -55,6 +55,9 @@ pub struct InstanceProcAddrLoader {
 
     #[cfg(feature = "ext_debug_marker_3")]
     pub ext_debug_marker: EXT_debug_marker,
+
+    #[cfg(feature = "amd_draw_indirect_count_1")]
+    pub amd_draw_indirect_count: AMD_draw_indirect_count,
 }
 
 impl Copy for InstanceProcAddrLoader { }
@@ -105,6 +108,9 @@ impl fmt::Debug for InstanceProcAddrLoader {
         #[cfg(feature = "ext_debug_marker_3")]
         debug_struct.field("ext_debug_marker", &self.ext_debug_marker);
 
+        #[cfg(feature = "amd_draw_indirect_count_1")]
+        debug_struct.field("amd_draw_indirect_count", &self.amd_draw_indirect_count);
+
         debug_struct.finish()
     }
 }
@@ -148,6 +154,9 @@ impl InstanceProcAddrLoader {
 
             #[cfg(feature = "ext_debug_marker_3")]
             ext_debug_marker: EXT_debug_marker::new(),
+
+            #[cfg(feature = "amd_draw_indirect_count_1")]
+            amd_draw_indirect_count: AMD_draw_indirect_count::new(),
         }
     }
 
@@ -212,6 +221,11 @@ impl InstanceProcAddrLoader {
     #[cfg(feature = "ext_debug_marker_3")]
     pub unsafe fn load_ext_debug_marker(&mut self, instance: VkInstance) {
         self.ext_debug_marker.load(self.vkGetInstanceProcAddr, instance);
+    }
+
+    #[cfg(feature = "amd_draw_indirect_count_1")]
+    pub unsafe fn load_amd_draw_indirect_count(&mut self, instance: VkInstance) {
+        self.amd_draw_indirect_count.load(self.vkGetInstanceProcAddr, instance);
     }
 }
 
@@ -486,4 +500,10 @@ addr_proc_struct!(EXT_debug_marker {
     pfn vkCmdDebugMarkerBeginEXT: PFN_vkCmdDebugMarkerBeginEXT,
     pfn vkCmdDebugMarkerEndEXT: PFN_vkCmdDebugMarkerEndEXT,
     pfn vkCmdDebugMarkerInsertEXT: PFN_vkCmdDebugMarkerInsertEXT,
+});
+
+#[cfg(feature = "amd_draw_indirect_count_1")]
+addr_proc_struct!(AMD_draw_indirect_count {
+    pfn vkCmdDrawIndirectCountAMD: PFN_vkCmdDrawIndirectCountAMD,
+    pfn vkCmdDrawIndexedIndirectCountAMD: PFN_vkCmdDrawIndexedIndirectCountAMD,
 });

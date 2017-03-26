@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_24" ]
 
-vk_1_0_25 = [ "vk_1_0_24", "core_1_0_25", "ext_debug_report_4" ]
+vk_1_0_25 = [ "vk_1_0_24", "core_1_0_25", "ext_debug_report_4", "amd_draw_indirect_count_1" ]
 
 vk_1_0_24 = [ "vk_1_0_23", "core_1_0_24", "img_format_pvrtc_1" ]
 
@@ -154,6 +154,9 @@ amd_gcn_shader_1 = [ "core_1_0_3" ]
 
 nv_dedicated_allocation = [ "nv_dedicated_allocation_1" ]
 nv_dedicated_allocation_1 = [ "core_1_0_3" ]
+
+amd_draw_indirect_count = [ "amd_draw_indirect_count_1" ]
+amd_draw_indirect_count_1 = [ "core_1_0_3" ]
 
 img_format_pvrtc = [ "img_format_pvrtc_1" ]
 img_format_pvrtc_1 = [ "core_1_0_3" ]
