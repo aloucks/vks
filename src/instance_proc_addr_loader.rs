@@ -18,242 +18,65 @@ use std::fmt;
 use std::mem;
 use std::ptr;
 
-pub struct InstanceProcAddrLoader {
-    pub vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr,
-    pub core_null_instance: CoreNullInstance,
-    pub core: Core,
+macro_rules! gen_instance_proc_addr_loader {
+    ( $( $cond:expr => $field:ident: $ty:ident [fn $load:ident], )* ) => {
+        pub struct InstanceProcAddrLoader {
+            pub vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr,
+            pub core_null_instance: CoreNullInstance,
 
-    #[cfg(feature = "khr_surface_25")]
-    pub khr_surface: KHR_surface,
-
-    #[cfg(feature = "khr_display_21")]
-    pub khr_display: KHR_display,
-
-    #[cfg(feature = "khr_display_swapchain_9")]
-    pub khr_display_swapchain: KHR_display_swapchain,
-
-    #[cfg(feature = "khr_xlib_surface_6")]
-    pub khr_xlib_surface: KHR_xlib_surface,
-
-    #[cfg(feature = "khr_xcb_surface_6")]
-    pub khr_xcb_surface: KHR_xcb_surface,
-
-    #[cfg(feature = "khr_wayland_surface_5")]
-    pub khr_wayland_surface: KHR_wayland_surface,
-
-    #[cfg(feature = "khr_mir_surface_4")]
-    pub khr_mir_surface: KHR_mir_surface,
-
-    #[cfg(feature = "khr_android_surface_6")]
-    pub khr_android_surface: KHR_android_surface,
-
-    #[cfg(feature = "khr_win32_surface_5")]
-    pub khr_win32_surface: KHR_win32_surface,
-
-    #[cfg(feature = "ext_debug_report_1")]
-    pub ext_debug_report: EXT_debug_report,
-
-    #[cfg(feature = "ext_debug_marker_3")]
-    pub ext_debug_marker: EXT_debug_marker,
-
-    #[cfg(feature = "amd_draw_indirect_count_1")]
-    pub amd_draw_indirect_count: AMD_draw_indirect_count,
-
-    #[cfg(feature = "nv_external_memory_capabilities_1")]
-    pub nv_external_memory_capabilities: NV_external_memory_capabilities,
-
-    #[cfg(feature = "nv_external_memory_win32_1")]
-    pub nv_external_memory_win32: NV_external_memory_win32,
-}
-
-impl Copy for InstanceProcAddrLoader { }
-
-impl Clone for InstanceProcAddrLoader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-impl fmt::Debug for InstanceProcAddrLoader {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let mut debug_struct = f.debug_struct("InstanceProcAddrLoader");
-        debug_struct.field("vkGetInstanceProcAddr", &(self.vkGetInstanceProcAddr as *mut c_void));
-        debug_struct.field("core_null_instance", &self.core_null_instance);
-        debug_struct.field("core", &self.core);
-
-        #[cfg(feature = "khr_surface_25")]
-        debug_struct.field("khr_surface", &self.khr_surface);
-
-        #[cfg(feature = "khr_display_21")]
-        debug_struct.field("khr_display", &self.khr_display);
-
-        #[cfg(feature = "khr_display_swapchain_9")]
-        debug_struct.field("khr_display_swapchain", &self.khr_display_swapchain);
-
-        #[cfg(feature = "khr_xlib_surface_6")]
-        debug_struct.field("khr_xlib_surface", &self.khr_xlib_surface);
-
-        #[cfg(feature = "khr_xcb_surface_6")]
-        debug_struct.field("khr_xcb_surface", &self.khr_xcb_surface);
-
-        #[cfg(feature = "khr_wayland_surface_5")]
-        debug_struct.field("khr_wayland_surface", &self.khr_wayland_surface);
-
-        #[cfg(feature = "khr_mir_surface_4")]
-        debug_struct.field("khr_mir_surface", &self.khr_mir_surface);
-
-        #[cfg(feature = "khr_android_surface_6")]
-        debug_struct.field("khr_android_surface", &self.khr_android_surface);
-
-        #[cfg(feature = "khr_win32_surface_5")]
-        debug_struct.field("khr_win32_surface", &self.khr_win32_surface);
-
-        #[cfg(feature = "ext_debug_report_1")]
-        debug_struct.field("ext_debug_report", &self.ext_debug_report);
-
-        #[cfg(feature = "ext_debug_marker_3")]
-        debug_struct.field("ext_debug_marker", &self.ext_debug_marker);
-
-        #[cfg(feature = "amd_draw_indirect_count_1")]
-        debug_struct.field("amd_draw_indirect_count", &self.amd_draw_indirect_count);
-
-        #[cfg(feature = "nv_external_memory_capabilities_1")]
-        debug_struct.field("nv_external_memory_capabilities", &self.nv_external_memory_capabilities);
-
-        #[cfg(feature = "nv_external_memory_win32_1")]
-        debug_struct.field("nv_external_memory_win32", &self.nv_external_memory_win32);
-
-        debug_struct.finish()
-    }
-}
-
-impl InstanceProcAddrLoader {
-    pub fn new(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
-        InstanceProcAddrLoader {
-            vkGetInstanceProcAddr: vkGetInstanceProcAddr,
-            core_null_instance: CoreNullInstance::new(),
-            core: Core::new(),
-
-            #[cfg(feature = "khr_surface_25")]
-            khr_surface: KHR_surface::new(),
-
-            #[cfg(feature = "khr_display_21")]
-            khr_display: KHR_display::new(),
-
-            #[cfg(feature = "khr_display_swapchain_9")]
-            khr_display_swapchain: KHR_display_swapchain::new(),
-
-            #[cfg(feature = "khr_xlib_surface_6")]
-            khr_xlib_surface: KHR_xlib_surface::new(),
-
-            #[cfg(feature = "khr_xcb_surface_6")]
-            khr_xcb_surface: KHR_xcb_surface::new(),
-
-            #[cfg(feature = "khr_wayland_surface_5")]
-            khr_wayland_surface: KHR_wayland_surface::new(),
-
-            #[cfg(feature = "khr_mir_surface_4")]
-            khr_mir_surface: KHR_mir_surface::new(),
-
-            #[cfg(feature = "khr_android_surface_6")]
-            khr_android_surface: KHR_android_surface::new(),
-
-            #[cfg(feature = "khr_win32_surface_5")]
-            khr_win32_surface: KHR_win32_surface::new(),
-
-            #[cfg(feature = "ext_debug_report_1")]
-            ext_debug_report: EXT_debug_report::new(),
-
-            #[cfg(feature = "ext_debug_marker_3")]
-            ext_debug_marker: EXT_debug_marker::new(),
-
-            #[cfg(feature = "amd_draw_indirect_count_1")]
-            amd_draw_indirect_count: AMD_draw_indirect_count::new(),
-
-            #[cfg(feature = "nv_external_memory_capabilities_1")]
-            nv_external_memory_capabilities: NV_external_memory_capabilities::new(),
-
-            #[cfg(feature = "nv_external_memory_win32_1")]
-            nv_external_memory_win32: NV_external_memory_win32::new(),
+            $(
+                #[cfg(feature = $cond)]
+                pub $field: $ty,
+            )*
         }
-    }
 
-    pub unsafe fn load_core_null_instance(&mut self) {
-        self.core_null_instance.load(self.vkGetInstanceProcAddr, ptr::null_mut());
-    }
+        impl Copy for InstanceProcAddrLoader { }
 
-    pub unsafe fn load_core(&mut self, instance: VkInstance) {
-        self.core.load(self.vkGetInstanceProcAddr, instance);
-    }
+        impl Clone for InstanceProcAddrLoader {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
 
-    #[cfg(feature = "khr_surface_25")]
-    pub unsafe fn load_khr_surface(&mut self, instance: VkInstance) {
-        self.khr_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
+        impl fmt::Debug for InstanceProcAddrLoader {
+            fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+                let mut debug_struct = f.debug_struct("InstanceProcAddrLoader");
+                debug_struct.field("vkGetInstanceProcAddr", &(self.vkGetInstanceProcAddr as *mut c_void));
+                debug_struct.field("core_null_instance", &self.core_null_instance);
 
-    #[cfg(feature = "khr_display_21")]
-    pub unsafe fn load_khr_display(&mut self, instance: VkInstance) {
-        self.khr_display.load(self.vkGetInstanceProcAddr, instance);
-    }
+                $(
+                    #[cfg(feature = $cond)]
+                    debug_struct.field(stringify!($field), &self.$field);
+                )*
 
-    #[cfg(feature = "khr_display_swapchain_9")]
-    pub unsafe fn load_khr_display_swapchain(&mut self, instance: VkInstance) {
-        self.khr_display_swapchain.load(self.vkGetInstanceProcAddr, instance);
-    }
+                debug_struct.finish()
+            }
+        }
 
-    #[cfg(feature = "khr_xlib_surface_6")]
-    pub unsafe fn load_khr_xlib_surface(&mut self, instance: VkInstance) {
-        self.khr_xlib_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
+        impl InstanceProcAddrLoader {
+            pub fn new(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
+                InstanceProcAddrLoader {
+                    vkGetInstanceProcAddr: vkGetInstanceProcAddr,
+                    core_null_instance: CoreNullInstance::new(),
 
-    #[cfg(feature = "khr_xcb_surface_6")]
-    pub unsafe fn load_khr_xcb_surface(&mut self, instance: VkInstance) {
-        self.khr_xcb_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
+                    $(
+                        #[cfg(feature = $cond)]
+                        $field: $ty::new(),
+                    )*
+                }
+            }
 
-    #[cfg(feature = "khr_wayland_surface_5")]
-    pub unsafe fn load_khr_wayland_surface(&mut self, instance: VkInstance) {
-        self.khr_wayland_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
+            pub unsafe fn load_core_null_instance(&mut self) {
+                self.core_null_instance.load(self.vkGetInstanceProcAddr, ptr::null_mut());
+            }
 
-    #[cfg(feature = "khr_mir_surface_4")]
-    pub unsafe fn load_khr_mir_surface(&mut self, instance: VkInstance) {
-        self.khr_mir_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "khr_android_surface_6")]
-    pub unsafe fn load_khr_android_surface(&mut self, instance: VkInstance) {
-        self.khr_android_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "khr_win32_surface_5")]
-    pub unsafe fn load_khr_win32_surface(&mut self, instance: VkInstance) {
-        self.khr_win32_surface.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "ext_debug_report_1")]
-    pub unsafe fn load_ext_debug_report(&mut self, instance: VkInstance) {
-        self.ext_debug_report.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "ext_debug_marker_3")]
-    pub unsafe fn load_ext_debug_marker(&mut self, instance: VkInstance) {
-        self.ext_debug_marker.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "amd_draw_indirect_count_1")]
-    pub unsafe fn load_amd_draw_indirect_count(&mut self, instance: VkInstance) {
-        self.amd_draw_indirect_count.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "nv_external_memory_capabilities_1")]
-    pub unsafe fn load_nv_external_memory_capabilities(&mut self, instance: VkInstance) {
-        self.nv_external_memory_capabilities.load(self.vkGetInstanceProcAddr, instance);
-    }
-
-    #[cfg(feature = "nv_external_memory_win32_1")]
-    pub unsafe fn load_nv_external_memory_win32(&mut self, instance: VkInstance) {
-        self.nv_external_memory_win32.load(self.vkGetInstanceProcAddr, instance);
+            $(
+                #[cfg(feature = $cond)]
+                pub unsafe fn $load(&mut self, instance: VkInstance) {
+                    self.$field.load(self.vkGetInstanceProcAddr, instance);
+                }
+            )*
+        }
     }
 }
 
@@ -311,6 +134,24 @@ macro_rules! addr_proc_struct {
         }
     )
 }
+
+gen_instance_proc_addr_loader!(
+    "core_1_0_3" => core: Core [fn load_core],
+    "khr_surface_25" => khr_surface: KHR_surface [fn load_khr_surface],
+    "khr_display_21" => khr_display: KHR_display [fn load_khr_display],
+    "khr_display_swapchain_9" => khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
+    "khr_xlib_surface_6" => khr_xlib_surface: KHR_xlib_surface [fn load_khr_xlib_surface],
+    "khr_xcb_surface_6" => khr_xcb_surface: KHR_xcb_surface [fn load_khr_xcb_surface],
+    "khr_wayland_surface_5" => khr_wayland_surface: KHR_wayland_surface [fn load_khr_wayland_surface],
+    "khr_mir_surface_4" => khr_mir_surface: KHR_mir_surface [fn load_khr_mir_surface],
+    "khr_android_surface_6" => khr_android_surface: KHR_android_surface [fn load_khr_android_surface],
+    "khr_win32_surface_5" => khr_win32_surface: KHR_win32_surface [fn load_khr_win32_surface],
+    "ext_debug_report_1" => ext_debug_report: EXT_debug_report [fn load_ext_debug_report],
+    "ext_debug_marker_3" => ext_debug_marker: EXT_debug_marker [fn load_ext_debug_marker],
+    "amd_draw_indirect_count_1" => amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
+    "nv_external_memory_capabilities_1" => nv_external_memory_capabilities: NV_external_memory_capabilities [fn load_nv_external_memory_capabilities],
+    "nv_external_memory_win32_1" => nv_external_memory_win32: NV_external_memory_win32 [fn load_nv_external_memory_win32],
+);
 
 addr_proc_struct!(CoreNullInstance {
     pfn vkEnumerateInstanceExtensionProperties: PFN_vkEnumerateInstanceExtensionProperties,
