@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.6.0, released on 26.03.2017
 
  * Vulkan 1.0.21, 1.0.22, 1.0.23, 1.0.24, 1.0.25
  * All enums have been converted to newtype structs and their values are now global constants.
