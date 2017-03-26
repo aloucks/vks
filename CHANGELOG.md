@@ -2,12 +2,14 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.16, 1.0.17, 1.0.18
+ * Vulkan 1.0.16, 1.0.17, 1.0.18, 1.0.19
  * New extension `VK_AMD_shader_trinary_minmax` (revision 1)
  * New extension `VK_AMD_shader_explicit_vertex_parameter` (revision 1)
  * New extension `VK_AMD_gcn_shader` (revision 1)
  * All extensions now depend on the core 1.0.3 specification, instead of something higher.
  * Support revision 3 of `VK_EXT_debug_report`
+ * Vulkan 1.0.19: Changed type of parameter `pData` from `*const u32` to `*const c_void` in function
+   `vkCmdUpdateBuffer`.
 
 ## Version 0.4.0, released on 25.03.2017
 
