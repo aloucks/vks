@@ -12,6 +12,7 @@
  * New extension `VK_AMD_draw_indirect_count` (revision 1)
  * New extension `VK_NV_external_memory_capabilities` (revision 1)
  * New extension `VK_NV_external_memory` (revision 1)
+ * New extension `VK_NV_external_memory_win32` (revision 1)
 
 ## Version 0.5.0, released on 26.03.2017
 

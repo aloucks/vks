@@ -17,7 +17,8 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 default = [ "vk_1_0_24" ]
 
 vk_1_0_25 = [ "vk_1_0_24", "core_1_0_25", "ext_debug_report_4", "amd_draw_indirect_count_1",
-              "nv_external_memory_capabilities_1", "nv_external_memory_1" ]
+              "nv_external_memory_capabilities_1", "nv_external_memory_1",
+              "nv_external_memory_win32_1" ]
 
 vk_1_0_24 = [ "vk_1_0_23", "core_1_0_24", "img_format_pvrtc_1" ]
 
@@ -167,6 +168,10 @@ nv_external_memory_capabilities_1 = [ "core_1_0_3" ]
 
 nv_external_memory = [ "nv_external_memory_1" ]
 nv_external_memory_1 = [ "core_1_0_3", "nv_external_memory_capabilities_1" ]
+
+nv_external_memory_win32 = [ "nv_external_memory_win32_1" ]
+nv_external_memory_win32_1 = [ "core_1_0_3", "nv_external_memory_capabilities_1",
+                               "nv_external_memory_1" ]
 
 [dependencies]
 libc = "0.2.21"

@@ -61,6 +61,9 @@ pub struct InstanceProcAddrLoader {
 
     #[cfg(feature = "nv_external_memory_capabilities_1")]
     pub nv_external_memory_capabilities: NV_external_memory_capabilities,
+
+    #[cfg(feature = "nv_external_memory_win32_1")]
+    pub nv_external_memory_win32: NV_external_memory_win32,
 }
 
 impl Copy for InstanceProcAddrLoader { }
@@ -117,6 +120,9 @@ impl fmt::Debug for InstanceProcAddrLoader {
         #[cfg(feature = "nv_external_memory_capabilities_1")]
         debug_struct.field("nv_external_memory_capabilities", &self.nv_external_memory_capabilities);
 
+        #[cfg(feature = "nv_external_memory_win32_1")]
+        debug_struct.field("nv_external_memory_win32", &self.nv_external_memory_win32);
+
         debug_struct.finish()
     }
 }
@@ -166,6 +172,9 @@ impl InstanceProcAddrLoader {
 
             #[cfg(feature = "nv_external_memory_capabilities_1")]
             nv_external_memory_capabilities: NV_external_memory_capabilities::new(),
+
+            #[cfg(feature = "nv_external_memory_win32_1")]
+            nv_external_memory_win32: NV_external_memory_win32::new(),
         }
     }
 
@@ -240,6 +249,11 @@ impl InstanceProcAddrLoader {
     #[cfg(feature = "nv_external_memory_capabilities_1")]
     pub unsafe fn load_nv_external_memory_capabilities(&mut self, instance: VkInstance) {
         self.nv_external_memory_capabilities.load(self.vkGetInstanceProcAddr, instance);
+    }
+
+    #[cfg(feature = "nv_external_memory_win32_1")]
+    pub unsafe fn load_nv_external_memory_win32(&mut self, instance: VkInstance) {
+        self.nv_external_memory_win32.load(self.vkGetInstanceProcAddr, instance);
     }
 }
 
@@ -525,4 +539,9 @@ addr_proc_struct!(AMD_draw_indirect_count {
 #[cfg(feature = "nv_external_memory_capabilities_1")]
 addr_proc_struct!(NV_external_memory_capabilities {
     pfn vkGetPhysicalDeviceExternalImageFormatPropertiesNV: PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
+});
+
+#[cfg(feature = "nv_external_memory_win32_1")]
+addr_proc_struct!(NV_external_memory_win32 {
+    pfn vkGetMemoryWin32HandleNV: PFN_vkGetMemoryWin32HandleNV,
 });

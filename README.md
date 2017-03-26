@@ -135,6 +135,8 @@ other dependencies.
 | `nv_dedicated_allocation` | Latest `VK_NV_dedicated_allocation` revision |
 | `nv_external_memory_capabilities_1` | `VK_NV_external_memory_capabilities` revision 1 |
 | `nv_external_memory_capabilities` | Latest `VK_NV_external_memory_capabilities` revision |
+| `nv_external_memory_win32_1` | `VK_NV_external_memory_win32` revision 1 |
+| `nv_external_memory_win32` | Latest `VK_NV_external_memory_win32` revision |
 | `nv_external_memory` | Latest `VK_NV_external_memory` revision |
 | `nv_external_memory` | `VK_NV_external_memory` revision 1 |
 | `nv_glsl_shader_1` | `VK_NV_glsl_shader` revision 1 |
@@ -203,6 +205,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | --- | --- |
 | `VK_NV_dedicated_allocation` | 1 |
 | `VK_NV_external_memory_capabilities` | 1 |
+| `VK_NV_external_memory_win32` | 1 |
 | `VK_NV_external_memory` | 1 |
 | `VK_NV_glsl_shader` | 1 |
 

@@ -190,6 +190,12 @@ mod nv_external_memory;
 #[cfg(feature = "nv_external_memory_1")]
 pub use nv_external_memory::*;
 
+#[cfg(feature = "nv_external_memory_win32_1")]
+mod nv_external_memory_win32;
+
+#[cfg(feature = "nv_external_memory_win32_1")]
+pub use nv_external_memory_win32::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

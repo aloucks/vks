@@ -21,3 +21,12 @@ pub type HINSTANCE = *mut HINSTANCE_T;
 #[repr(C)]
 pub struct HWND_T(c_void);
 pub type HWND = *mut HWND_T;
+
+#[repr(C)]
+pub struct HANDLE_T(c_void);
+pub type HANDLE = *mut HANDLE_T;
+
+#[repr(C)]
+pub struct SECURITY_ATTRIBUTES(c_void);
+
+pub type DWORD = u32;
