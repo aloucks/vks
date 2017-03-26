@@ -132,6 +132,12 @@ mod amd_rasterization_order;
 #[cfg(feature = "amd_rasterization_order_1")]
 pub use amd_rasterization_order::*;
 
+#[cfg(feature = "amd_shader_trinary_minmax_1")]
+mod amd_shader_trinary_minmax;
+
+#[cfg(feature = "amd_shader_trinary_minmax_1")]
+pub use amd_shader_trinary_minmax::*;
+
 #[cfg(feature = "ext_debug_marker_3")]
 mod ext_debug_marker;
 
