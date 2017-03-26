@@ -58,6 +58,9 @@ pub struct InstanceProcAddrLoader {
 
     #[cfg(feature = "amd_draw_indirect_count_1")]
     pub amd_draw_indirect_count: AMD_draw_indirect_count,
+
+    #[cfg(feature = "nv_external_memory_capabilities_1")]
+    pub nv_external_memory_capabilities: NV_external_memory_capabilities,
 }
 
 impl Copy for InstanceProcAddrLoader { }
@@ -111,6 +114,9 @@ impl fmt::Debug for InstanceProcAddrLoader {
         #[cfg(feature = "amd_draw_indirect_count_1")]
         debug_struct.field("amd_draw_indirect_count", &self.amd_draw_indirect_count);
 
+        #[cfg(feature = "nv_external_memory_capabilities_1")]
+        debug_struct.field("nv_external_memory_capabilities", &self.nv_external_memory_capabilities);
+
         debug_struct.finish()
     }
 }
@@ -157,6 +163,9 @@ impl InstanceProcAddrLoader {
 
             #[cfg(feature = "amd_draw_indirect_count_1")]
             amd_draw_indirect_count: AMD_draw_indirect_count::new(),
+
+            #[cfg(feature = "nv_external_memory_capabilities_1")]
+            nv_external_memory_capabilities: NV_external_memory_capabilities::new(),
         }
     }
 
@@ -226,6 +235,11 @@ impl InstanceProcAddrLoader {
     #[cfg(feature = "amd_draw_indirect_count_1")]
     pub unsafe fn load_amd_draw_indirect_count(&mut self, instance: VkInstance) {
         self.amd_draw_indirect_count.load(self.vkGetInstanceProcAddr, instance);
+    }
+
+    #[cfg(feature = "nv_external_memory_capabilities_1")]
+    pub unsafe fn load_nv_external_memory_capabilities(&mut self, instance: VkInstance) {
+        self.nv_external_memory_capabilities.load(self.vkGetInstanceProcAddr, instance);
     }
 }
 
@@ -506,4 +520,9 @@ addr_proc_struct!(EXT_debug_marker {
 addr_proc_struct!(AMD_draw_indirect_count {
     pfn vkCmdDrawIndirectCountAMD: PFN_vkCmdDrawIndirectCountAMD,
     pfn vkCmdDrawIndexedIndirectCountAMD: PFN_vkCmdDrawIndexedIndirectCountAMD,
+});
+
+#[cfg(feature = "nv_external_memory_capabilities_1")]
+addr_proc_struct!(NV_external_memory_capabilities {
+    pfn vkGetPhysicalDeviceExternalImageFormatPropertiesNV: PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
 });

@@ -10,6 +10,7 @@
  * New extension `VK_IMG_format_pvrtc` (revision 1)
  * Support revision 4 of `VK_EXT_debug_report`
  * New extension `VK_AMD_draw_indirect_count` (revision 1)
+ * New extension `VK_NV_external_memory_capabilities` (revision 1)
 
 ## Version 0.5.0, released on 26.03.2017
 

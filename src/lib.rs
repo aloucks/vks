@@ -178,6 +178,12 @@ mod img_format_pvrtc;
 #[cfg(feature = "img_format_pvrtc_1")]
 pub use img_format_pvrtc::*;
 
+#[cfg(feature = "nv_external_memory_capabilities_1")]
+mod nv_external_memory_capabilities;
+
+#[cfg(feature = "nv_external_memory_capabilities_1")]
+pub use nv_external_memory_capabilities::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 
