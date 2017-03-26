@@ -101,6 +101,8 @@ other dependencies.
 | `ext_debug_report` | Latest `VK_EXT_debug_report` revision |
 | `img_filter_cubic_1` | `VK_IMG_filter_cubic` revision 1 |
 | `img_filter_cubic` | Latest `VK_IMG_filter_cubic` revision |
+| `img_format_pvrtc_1` | `VK_IMG_format_pvrtc` revision 1 |
+| `img_format_pvrtc` | Latest `VK_IMG_format_pvrtc` revision |
 | `khr_android_surface_6` | `VK_KHR_android_surface` revision 6 |
 | `khr_android_surface` | Latest `VK_KHR_android_surface` revision |
 | `khr_display_21` | `VK_KHR_display` revision 21 |
@@ -197,6 +199,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_IMG_filter_cubic` | 1 |
+| `VK_IMG_format_pvrtc` | 1 |
 
 ### `AMD` Extensions
 

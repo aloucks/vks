@@ -492,6 +492,30 @@ cenum!(VkFormat: u32 {
     const VK_FORMAT_ASTC_12x10_SRGB_BLOCK = 182,
     const VK_FORMAT_ASTC_12x12_UNORM_BLOCK = 183,
     const VK_FORMAT_ASTC_12x12_SRGB_BLOCK = 184,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC2_2BPP_UNORM_BLOCK_IMG = 1000054002,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC2_4BPP_UNORM_BLOCK_IMG = 1000054003,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC1_2BPP_SRGB_BLOCK_IMG = 1000054004,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC1_4BPP_SRGB_BLOCK_IMG = 1000054005,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC2_2BPP_SRGB_BLOCK_IMG = 1000054006,
+
+    #[cfg(feature = "img_format_pvrtc_1")]
+    const VK_FORMAT_PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
 });
 
 cenum!(VkImageType: u32 {

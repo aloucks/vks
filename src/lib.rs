@@ -166,6 +166,12 @@ mod nv_dedicated_allocation;
 #[cfg(feature = "nv_dedicated_allocation_1")]
 pub use nv_dedicated_allocation::*;
 
+#[cfg(feature = "img_format_pvrtc_1")]
+mod img_format_pvrtc;
+
+#[cfg(feature = "img_format_pvrtc_1")]
+pub use img_format_pvrtc::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 
