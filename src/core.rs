@@ -307,6 +307,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "nv_external_memory_win32_1")]
     const VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057001,
+
+    #[cfg(feature = "nv_win32_keyed_mutex_1")]
+    const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV = 1000058000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {

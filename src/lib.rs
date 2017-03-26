@@ -196,6 +196,12 @@ mod nv_external_memory_win32;
 #[cfg(feature = "nv_external_memory_win32_1")]
 pub use nv_external_memory_win32::*;
 
+#[cfg(feature = "nv_win32_keyed_mutex_1")]
+mod nv_win32_keyed_mutex;
+
+#[cfg(feature = "nv_win32_keyed_mutex_1")]
+pub use nv_win32_keyed_mutex::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

@@ -141,6 +141,8 @@ other dependencies.
 | `nv_external_memory` | `VK_NV_external_memory` revision 1 |
 | `nv_glsl_shader_1` | `VK_NV_glsl_shader` revision 1 |
 | `nv_glsl_shader` | Latest `VK_NV_glsl_shader` revision |
+| `nv_win32_keyed_mutex_1` | `VK_NV_win32_keyed_mutex` revision 1 |
+| `nv_win32_keyed_mutex` | Latest `VK_NV_win32_keyed_mutex` revision |
 
 ## Loader
 
@@ -208,6 +210,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | `VK_NV_external_memory_win32` | 1 |
 | `VK_NV_external_memory` | 1 |
 | `VK_NV_glsl_shader` | 1 |
+| `VK_NV_win32_keyed_mutex` | 1 |
 
 ### `IMG` Extensions
 
