@@ -4,6 +4,11 @@ before_script:
     - rustc --version
     - cargo --version
 
+build:vk_1_0_24:
+    stage: build
+    script:
+        - cargo build --verbose --jobs 1 --release --no-default-features --features vk_1_0_24
+
 build:vk_1_0_23:
     stage: build
     script:
