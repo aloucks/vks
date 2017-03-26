@@ -295,6 +295,12 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "nv_dedicated_allocation_1")]
     const VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV = 1000026002,
+
+    #[cfg(feature = "nv_external_memory_1")]
+    const VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV = 1000056000,
+
+    #[cfg(feature = "nv_external_memory_1")]
+    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV = 1000056001,
 });
 
 cenum!(VkSystemAllocationScope: u32 {

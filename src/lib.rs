@@ -184,6 +184,12 @@ mod nv_external_memory_capabilities;
 #[cfg(feature = "nv_external_memory_capabilities_1")]
 pub use nv_external_memory_capabilities::*;
 
+#[cfg(feature = "nv_external_memory_1")]
+mod nv_external_memory;
+
+#[cfg(feature = "nv_external_memory_1")]
+pub use nv_external_memory::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 
