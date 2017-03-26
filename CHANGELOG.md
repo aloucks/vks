@@ -6,6 +6,7 @@
  * New extension `VK_AMD_shader_trinary_minmax` (revision 1)
  * New extension `VK_AMD_shader_explicit_vertex_parameter` (revision 1)
  * New extension `VK_AMD_gcn_shader` (revision 1)
+ * All extensions now depend on the core 1.0.3 specification, instead of something higher.
 
 ## Version 0.4.0, released on 25.03.2017
 
