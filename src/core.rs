@@ -161,6 +161,9 @@ pub enum VkResult {
     VK_ERROR_TOO_MANY_OBJECTS = -10,
     VK_ERROR_FORMAT_NOT_SUPPORTED = -11,
 
+    #[cfg(feature = "core_1_0_22")]
+    VK_ERROR_FRAGMENTED_POOL = -12,
+
     #[cfg(feature = "khr_surface_25")]
     VK_ERROR_SURFACE_LOST_KHR = -1000000000,
 
