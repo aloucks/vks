@@ -4,7 +4,7 @@
 
 Vulkan bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.16 + all extensions
+Latest supported Vulkan specification: 1.0.17 + all extensions
 
 For the time being, vk-sys requires a nightly version of the Rust compiler, because we use the
 `struct_field_attributes` and `untagged_unions` features.
@@ -27,6 +27,7 @@ All of these features select all extensions, that where defined up that point.
 
 | Feature | Description |
 | --- | --- |
+| `vk_1_0_17` | Vulkan 1.0.17 + all extensions |
 | `vk_1_0_16` | Vulkan 1.0.16 + all extensions |
 | `vk_1_0_15` | Vulkan 1.0.15 + all extensions |
 | `vk_1_0_14` | Vulkan 1.0.14 + all extensions |
@@ -49,6 +50,7 @@ These features do not select any extensions.
 | Feature | Description |
 | --- | --- |
 | `core` | Latest supported Vulkan specification |
+| `core_1_0_17` | Vulkan 1.0.17 |
 | `core_1_0_16` | Vulkan 1.0.16 |
 | `core_1_0_15` | Vulkan 1.0.15 |
 | `core_1_0_14` | Vulkan 1.0.14 |
@@ -81,6 +83,7 @@ other dependencies.
 | `ext_debug_marker` | Latest `VK_EXT_debug_marker` revision |
 | `ext_debug_report_1` | `VK_EXT_debug_report` revision 1 |
 | `ext_debug_report_2` | `VK_EXT_debug_report` revision 2 |
+| `ext_debug_report_3` | `VK_EXT_debug_report` revision 3 |
 | `ext_debug_report` | Latest `VK_EXT_debug_report` revision |
 | `img_filter_cubic_1` | `VK_IMG_filter_cubic` revision 1 |
 | `img_filter_cubic` | Latest `VK_IMG_filter_cubic` revision |
@@ -118,6 +121,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
+ * 1.0.17
  * 1.0.16
  * 1.0.15
  * 1.0.14
@@ -156,7 +160,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_EXT_debug_marker` | 3 |
-| `VK_EXT_debug_report` | 1, 2 |
+| `VK_EXT_debug_report` | 1, 2, 3 |
 
 ### `NV` Extensions
 
