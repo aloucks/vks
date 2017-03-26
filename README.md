@@ -116,6 +116,8 @@ other dependencies.
 | `khr_xcb_surface` | Latest `VK_KHR_xcb_surface` revision |
 | `khr_xlib_surface_6` | `VK_KHR_xlib_surface` revision 6 |
 | `khr_xlib_surface` | Latest `VK_KHR_xlib_surface` revision |
+| `nv_dedicated_allocation_1` | `VK_NV_dedicated_allocation` revision 1 |
+| `nv_dedicated_allocation` | Latest `VK_NV_dedicated_allocation` revision |
 | `nv_glsl_shader_1` | `VK_NV_glsl_shader` revision 1 |
 | `nv_glsl_shader` | Latest `VK_NV_glsl_shader` revision |
 
@@ -175,6 +177,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 | Extension | Revision(s) |
 | --- | --- |
+| `VK_NV_dedicated_allocation` | 1 |
 | `VK_NV_glsl_shader` | 1 |
 
 ### `IMG` Extensions

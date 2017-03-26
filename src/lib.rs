@@ -156,6 +156,12 @@ mod amd_gcn_shader;
 #[cfg(feature = "amd_gcn_shader_1")]
 pub use amd_gcn_shader::*;
 
+#[cfg(feature = "nv_dedicated_allocation_1")]
+mod nv_dedicated_allocation;
+
+#[cfg(feature = "nv_dedicated_allocation_1")]
+pub use nv_dedicated_allocation::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

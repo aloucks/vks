@@ -286,6 +286,15 @@ pub enum VkStructureType {
 
     #[cfg(feature = "ext_debug_marker_3")]
     VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT = 1000022002,
+
+    #[cfg(feature = "nv_dedicated_allocation_1")]
+    VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV = 1000026000,
+
+    #[cfg(feature = "nv_dedicated_allocation_1")]
+    VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV = 1000026001,
+
+    #[cfg(feature = "nv_dedicated_allocation_1")]
+    VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV = 1000026002,
 }
 
 #[repr(u32)]

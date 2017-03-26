@@ -10,6 +10,7 @@
  * Support revision 3 of `VK_EXT_debug_report`
  * Vulkan 1.0.19: Changed type of parameter `pData` from `*const u32` to `*const c_void` in function
    `vkCmdUpdateBuffer`.
+ * New extension `VK_NV_dedicated_allocation` (revision 1)
 
 ## Version 0.4.0, released on 25.03.2017
 

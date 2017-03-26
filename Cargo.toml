@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_19" ]
 
-vk_1_0_20 = [ "vk_1_0_19", "core_1_0_20" ]
+vk_1_0_20 = [ "vk_1_0_19", "core_1_0_20", "nv_dedicated_allocation_1" ]
 
 vk_1_0_19 = [ "vk_1_0_18", "core_1_0_19" ]
 
@@ -135,6 +135,9 @@ ext_debug_marker_3 = [ "core_1_0_3" ]
 
 amd_gcn_shader = [ "amd_gcn_shader_1" ]
 amd_gcn_shader_1 = [ "core_1_0_3" ]
+
+nv_dedicated_allocation = [ "nv_dedicated_allocation_1" ]
+nv_dedicated_allocation_1 = [ "core_1_0_3" ]
 
 [dependencies]
 libc = "0.2.21"
