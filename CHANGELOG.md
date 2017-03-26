@@ -8,6 +8,7 @@
    also brings back some backwards compatibility, because we don't have to remove old values, when
    an enum value gets renamed.
  * New extension `VK_IMG_format_pvrtc` (revision 1)
+ * Support revision 4 of `VK_EXT_debug_report`
 
 ## Version 0.5.0, released on 26.03.2017
 
