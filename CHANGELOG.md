@@ -5,6 +5,7 @@
  * Vulkan 1.0.16
  * New extension `VK_AMD_shader_trinary_minmax` (revision 1)
  * New extension `VK_AMD_shader_explicit_vertex_parameter` (revision 1)
+ * New extension `VK_AMD_gcn_shader` (revision 1)
 
 ## Version 0.4.0, released on 25.03.2017
 

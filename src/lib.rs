@@ -150,6 +150,12 @@ mod ext_debug_marker;
 #[cfg(feature = "ext_debug_marker_3")]
 pub use ext_debug_marker::*;
 
+#[cfg(feature = "amd_gcn_shader_1")]
+mod amd_gcn_shader;
+
+#[cfg(feature = "amd_gcn_shader_1")]
+pub use amd_gcn_shader::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 
