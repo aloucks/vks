@@ -17,81 +17,58 @@ use libc::{c_char, c_void};
 use std::fmt;
 use std::mem;
 
-pub struct DeviceProcAddrLoader {
-    pub vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr,
-    pub core: Core,
+macro_rules! gen_device_proc_addr_loader {
+    ( $( $cond:expr => $field:ident: $ty:ident [fn $load:ident], )* ) => {
+        pub struct DeviceProcAddrLoader {
+            pub vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr,
 
-    #[cfg(feature = "khr_display_swapchain_9")]
-    pub khr_display_swapchain: KHR_display_swapchain,
-
-    #[cfg(feature = "ext_debug_marker_3")]
-    pub ext_debug_marker: EXT_debug_marker,
-
-    #[cfg(feature = "amd_draw_indirect_count_1")]
-    pub amd_draw_indirect_count: AMD_draw_indirect_count,
-}
-
-impl Copy for DeviceProcAddrLoader { }
-
-impl Clone for DeviceProcAddrLoader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-impl fmt::Debug for DeviceProcAddrLoader {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let mut debug_struct = f.debug_struct("DeviceProcAddrLoader");
-        debug_struct.field("vkGetDeviceProcAddr", &(self.vkGetDeviceProcAddr as *mut c_void));
-        debug_struct.field("core", &self.core);
-
-        #[cfg(feature = "khr_display_swapchain_9")]
-        debug_struct.field("khr_display_swapchain", &self.khr_display_swapchain);
-
-        #[cfg(feature = "ext_debug_marker_3")]
-        debug_struct.field("ext_debug_marker", &self.ext_debug_marker);
-
-        #[cfg(feature = "amd_draw_indirect_count_1")]
-        debug_struct.field("amd_draw_indirect_count", &self.amd_draw_indirect_count);
-
-        debug_struct.finish()
-    }
-}
-
-impl DeviceProcAddrLoader {
-    pub fn new(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
-        DeviceProcAddrLoader {
-            vkGetDeviceProcAddr: vkGetDeviceProcAddr,
-            core: Core::new(),
-
-            #[cfg(feature = "khr_display_swapchain_9")]
-            khr_display_swapchain: KHR_display_swapchain::new(),
-
-            #[cfg(feature = "ext_debug_marker_3")]
-            ext_debug_marker: EXT_debug_marker::new(),
-
-            #[cfg(feature = "amd_draw_indirect_count_1")]
-            amd_draw_indirect_count: AMD_draw_indirect_count::new(),
+            $(
+                #[cfg(feature = $cond)]
+                pub $field: $ty,
+            )*
         }
-    }
 
-    pub unsafe fn load_core(&mut self, device: VkDevice) {
-        self.core.load(self.vkGetDeviceProcAddr, device);
-    }
+        impl Copy for DeviceProcAddrLoader { }
 
-    #[cfg(feature = "khr_display_swapchain_9")]
-    pub unsafe fn load_khr_display_swapchain(&mut self, device: VkDevice) {
-        self.khr_display_swapchain.load(self.vkGetDeviceProcAddr, device);
-    }
+        impl Clone for DeviceProcAddrLoader {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
 
-    #[cfg(feature = "ext_debug_marker_3")]
-    pub unsafe fn load_ext_debug_marker(&mut self, device: VkDevice) {
-        self.ext_debug_marker.load(self.vkGetDeviceProcAddr, device);
-    }
+        impl fmt::Debug for DeviceProcAddrLoader {
+            fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+                let mut debug_struct = f.debug_struct("DeviceProcAddrLoader");
+                debug_struct.field("vkGetDeviceProcAddr", &(self.vkGetDeviceProcAddr as *mut c_void));
 
-    #[cfg(feature = "amd_draw_indirect_count_1")]
-    pub unsafe fn load_amd_draw_indirect_count(&mut self, device: VkDevice) {
-        self.amd_draw_indirect_count.load(self.vkGetDeviceProcAddr, device);
+                $(
+                    #[cfg(feature = $cond)]
+                    debug_struct.field(stringify!($field), &self.$field);
+                )*
+
+                debug_struct.finish()
+            }
+        }
+
+        impl DeviceProcAddrLoader {
+            pub fn new(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
+                DeviceProcAddrLoader {
+                    vkGetDeviceProcAddr: vkGetDeviceProcAddr,
+
+                    $(
+                        #[cfg(feature = $cond)]
+                        $field: $ty::new(),
+                    )*
+                }
+            }
+
+            $(
+                #[cfg(feature = $cond)]
+                pub unsafe fn $load(&mut self, device: VkDevice) {
+                    self.$field.load(self.vkGetDeviceProcAddr, device);
+                }
+            )*
+        }
     }
 }
 
@@ -149,6 +126,13 @@ macro_rules! addr_proc_struct {
         }
     )
 }
+
+gen_device_proc_addr_loader!(
+    "core_1_0_3" => core: Core [fn load_core],
+    "khr_display_swapchain_9" => khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
+    "ext_debug_marker_3" => ext_debug_marker: EXT_debug_marker [fn load_ext_debug_marker],
+    "amd_draw_indirect_count_1" => amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
+);
 
 addr_proc_struct!(Core {
     pfn vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr,
