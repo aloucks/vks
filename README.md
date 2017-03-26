@@ -71,6 +71,8 @@ other dependencies.
 | --- | --- |
 | `amd_rasterization_order_1` | `VK_AMD_rasterization_order` revision 1 |
 | `amd_rasterization_order` | Latest `VK_AMD_rasterization_order` revision |
+| `amd_shader_explicit_vertex_parameter_1` | `VK_AMD_shader_explicit_vertex_parameter` revision 1 |
+| `amd_shader_explicit_vertex_parameter` | Latest `VK_AMD_shader_explicit_vertex_parameter` revision |
 | `amd_shader_trinary_minmax_1` | `VK_AMD_shader_trinary_minmax` revision 1 |
 | `amd_shader_trinary_minmax` | Latest `VK_AMD_shader_trinary_minmax` revision |
 | `ext_debug_marker_3` | `VK_EXT_debug_marker` revision 3 |
@@ -171,6 +173,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_AMD_rasterization_order` | 1 |
+| `VK_AMD_shader_explicit_vertex_parameter` | 1 |
 | `VK_AMD_shader_trinary_minmax` | 1 |
 
 ## License
