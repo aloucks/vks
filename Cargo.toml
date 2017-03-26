@@ -14,7 +14,7 @@ license = "ISC"
 gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 
 [features]
-default = [ "vk_1_0_24" ]
+default = [ "vk_1_0_25" ]
 
 vk_1_0_25 = [ "vk_1_0_24", "core_1_0_25", "ext_debug_report_4", "amd_draw_indirect_count_1",
               "nv_external_memory_capabilities_1", "nv_external_memory_1",

@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.21, 1.0.22, 1.0.23, 1.0.24
+ * Vulkan 1.0.21, 1.0.22, 1.0.23, 1.0.24, 1.0.25
  * All enums have been converted to newtype structs and their values are now global constants.
    Unknown values can now be handled properly (without causing undefined behaviour). This change
    also brings back some backwards compatibility, because we don't have to remove old values, when
