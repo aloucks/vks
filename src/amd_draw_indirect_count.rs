@@ -14,9 +14,9 @@
 
 use ::*;
 
-pub const VK_AMD_EXTENSION_DRAW_INDIRECT_COUNT_SPEC_VERSION: u32 = 1;
-pub const VK_AMD_EXTENSION_DRAW_INDIRECT_COUNT_EXTENSION_NAME: &'static [u8; 27] = b"VK_AMD_draw_indirect_count\x00";
-pub const VK_AMD_EXTENSION_DRAW_INDIRECT_COUNT_EXTENSION_NAME_STR: &'static str = "VK_AMD_draw_indirect_count";
+pub const VK_AMD_DRAW_INDIRECT_COUNT_SPEC_VERSION: u32 = 1;
+pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME: &'static [u8; 27] = b"VK_AMD_draw_indirect_count\x00";
+pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME_STR: &'static str = "VK_AMD_draw_indirect_count";
 
 pub type PFN_vkCmdDrawIndirectCountAMD = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, buffer: VkBuffer, offset: VkDeviceSize, countBuffer: VkBuffer, countBufferOffset: VkDeviceSize, maxDrawCount: u32, stride: u32);
 pub type PFN_vkCmdDrawIndexedIndirectCountAMD = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, buffer: VkBuffer, offset: VkDeviceSize, countBuffer: VkBuffer, countBufferOffset: VkDeviceSize, maxDrawCount: u32, stride: u32);

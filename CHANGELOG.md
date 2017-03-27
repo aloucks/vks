@@ -3,6 +3,7 @@
 ## Current Git Master Branch
  * Revert `VK_EXT_debug_report` back to revision 3. It seems this was an accident in the Vulkan
    1.0.25 specification, which was corrected in 1.0.26.
+ * Fix version and name constants for `VK_AMD_draw_indirect_count`.
 
 ## Version 0.6.0, released on 26.03.2017
 
