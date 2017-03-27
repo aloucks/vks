@@ -307,6 +307,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "nv_win32_keyed_mutex_1")]
     const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV = 1000058000,
+
+    #[cfg(feature = "ext_validation_flags_1")]
+    const VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT = 1000061000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {

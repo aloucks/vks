@@ -202,6 +202,12 @@ mod nv_win32_keyed_mutex;
 #[cfg(feature = "nv_win32_keyed_mutex_1")]
 pub use nv_win32_keyed_mutex::*;
 
+#[cfg(feature = "ext_validation_flags_1")]
+mod ext_validation_flags;
+
+#[cfg(feature = "ext_validation_flags_1")]
+pub use ext_validation_flags::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

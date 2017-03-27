@@ -107,6 +107,8 @@ other dependencies.
 | `ext_debug_report_2` | `VK_EXT_debug_report` revision 2 |
 | `ext_debug_report_3` | `VK_EXT_debug_report` revision 3 |
 | `ext_debug_report` | Latest `VK_EXT_debug_report` revision |
+| `ext_validation_flags_1` | `VK_EXT_validation_flags` revision 1 |
+| `ext_validation_flags` | Latest `VK_EXT_validation_flags` revision |
 | `img_filter_cubic_1` | `VK_IMG_filter_cubic` revision 1 |
 | `img_filter_cubic` | Latest `VK_IMG_filter_cubic` revision |
 | `img_format_pvrtc_1` | `VK_IMG_format_pvrtc` revision 1 |
@@ -205,6 +207,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | --- | --- |
 | `VK_EXT_debug_marker` | 3 |
 | `VK_EXT_debug_report` | 1, 2, 3 |
+| `VK_EXT_validation_flags` | 1 |
 
 ### `NV` Extensions
 

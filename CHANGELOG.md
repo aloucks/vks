@@ -3,6 +3,7 @@
 ## Current Git Master Branch
 
  * Vulkan 1.0.26
+ * New extension `VK_EXT_validation_flags` (revision 1)
 
 ## Version 0.6.1, released on 27.03.2017
 
