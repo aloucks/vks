@@ -4,7 +4,7 @@
 
 Vulkan bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.29 + all extensions
+Latest supported Vulkan specification: 1.0.30 + all extensions
 
 For the time being, vk-sys requires a nightly version of the Rust compiler, because we use the
 `struct_field_attributes` and `untagged_unions` features.
@@ -27,6 +27,7 @@ All of these features select all extensions, that where defined up that point.
 
 | Feature | Description |
 | --- | --- |
+| `vk_1_0_30` | Vulkan 1.0.30 + all extensions |
 | `vk_1_0_29` | Vulkan 1.0.29 + all extensions |
 | `vk_1_0_28` | Vulkan 1.0.28 + all extensions |
 | `vk_1_0_27` | Vulkan 1.0.27 + all extensions |
@@ -62,6 +63,7 @@ These features do not select any extensions.
 | Feature | Description |
 | --- | --- |
 | `core` | Latest supported Vulkan specification |
+| `core_1_0_30` | Vulkan 1.0.30 |
 | `core_1_0_29` | Vulkan 1.0.29 |
 | `core_1_0_28` | Vulkan 1.0.28 |
 | `core_1_0_27` | Vulkan 1.0.27 |
@@ -163,6 +165,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
+ * 1.0.30
  * 1.0.29
  * 1.0.28
  * 1.0.27
