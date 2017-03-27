@@ -15,10 +15,7 @@
 use ::*;
 use libc::{c_char, c_void};
 
-#[cfg(feature = "ext_debug_report_4")]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 4;
-
-#[cfg(all(feature = "ext_debug_report_3", not(feature = "ext_debug_report_4")))]
+#[cfg(feature = "ext_debug_report_3")]
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 3;
 
 #[cfg(all(feature = "ext_debug_report_2", not(feature = "ext_debug_report_3")))]
@@ -84,15 +81,6 @@ bitflags! {
 pub type VkDebugReportFlagBitsEXT = VkDebugReportFlagsEXT;
 
 pub type PFN_vkDebugReportCallbackEXT = unsafe extern "system" fn(flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char, pUserData: *mut c_void) -> VkBool32;
-
-#[cfg(feature = "ext_debug_report_4")]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct VkDebugReportLayerFlagsEXT {
-    pub sType: VkStructureType,
-    pub pNext: *const c_void,
-    pub enabledValidationFlags: u64,
-}
 
 #[repr(C)]
 pub struct VkDebugReportCallbackCreateInfoEXT {

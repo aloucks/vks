@@ -1,5 +1,9 @@
 # vk-sys Changelog
 
+## Current Git Master Branch
+ * Revert `VK_EXT_debug_report` back to revision 3. It seems this was an accident in the Vulkan
+   1.0.25 specification, which was corrected in 1.0.26.
+
 ## Version 0.6.0, released on 26.03.2017
 
  * Vulkan 1.0.21, 1.0.22, 1.0.23, 1.0.24, 1.0.25
