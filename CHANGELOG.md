@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.7.0, released on 27.03.2017
 
  * Vulkan 1.0.26, 1.0.27, 1.0.28, 1.0.29, 1.0.30
  * New extension `VK_EXT_validation_flags` (revision 1)
