@@ -172,6 +172,12 @@ mod amd_draw_indirect_count;
 #[cfg(feature = "amd_draw_indirect_count_1")]
 pub use amd_draw_indirect_count::*;
 
+#[cfg(feature = "amd_gpu_shader_half_float_1")]
+mod amd_gpu_shader_half_float;
+
+#[cfg(feature = "amd_gpu_shader_half_float_1")]
+pub use amd_gpu_shader_half_float::*;
+
 #[cfg(feature = "img_format_pvrtc_1")]
 mod img_format_pvrtc;
 

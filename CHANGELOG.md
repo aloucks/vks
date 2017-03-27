@@ -4,6 +4,7 @@
 
  * Vulkan 1.0.26, 1.0.27
  * New extension `VK_EXT_validation_flags` (revision 1)
+ * New extension `VK_AMD_gpu_shader_half_float` (revision 1)
 
 ## Version 0.6.1, released on 27.03.2017
 

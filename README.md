@@ -97,6 +97,8 @@ other dependencies.
 | `amd_draw_indirect_count` | Latest `VK_AMD_draw_indirect_count` revision |
 | `amd_gcn_shader_1` | `VK_AMD_gcn_shader` revision 1 |
 | `amd_gcn_shader` | Latest `VK_AMD_gcn_shader` revision |
+| `amd_gpu_shader_half_float_1` | `VK_AMD_gpu_shader_half_float` revision 1 |
+| `amd_gpu_shader_half_float` | Latest `VK_AMD_gpu_shader_half_float` revision |
 | `amd_rasterization_order_1` | `VK_AMD_rasterization_order` revision 1 |
 | `amd_rasterization_order` | Latest `VK_AMD_rasterization_order` revision |
 | `amd_shader_explicit_vertex_parameter_1` | `VK_AMD_shader_explicit_vertex_parameter` revision 1 |
@@ -236,6 +238,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | --- | --- |
 | `VK_AMD_draw_indirect_count` | 1 |
 | `VK_AMD_gcn_shader` | 1 |
+| `VK_AMD_gpu_shader_half_float` | 1 |
 | `VK_AMD_rasterization_order` | 1 |
 | `VK_AMD_shader_explicit_vertex_parameter` | 1 |
 | `VK_AMD_shader_trinary_minmax` | 1 |
