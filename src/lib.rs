@@ -172,11 +172,23 @@ mod amd_draw_indirect_count;
 #[cfg(feature = "amd_draw_indirect_count_1")]
 pub use amd_draw_indirect_count::*;
 
+#[cfg(feature = "amd_negative_viewport_height_1")]
+mod amd_negative_viewport_height;
+
+#[cfg(feature = "amd_negative_viewport_height_1")]
+pub use amd_negative_viewport_height::*;
+
 #[cfg(feature = "amd_gpu_shader_half_float_1")]
 mod amd_gpu_shader_half_float;
 
 #[cfg(feature = "amd_gpu_shader_half_float_1")]
 pub use amd_gpu_shader_half_float::*;
+
+#[cfg(feature = "amd_shader_ballot_1")]
+mod amd_shader_ballot;
+
+#[cfg(feature = "amd_shader_ballot_1")]
+pub use amd_shader_ballot::*;
 
 #[cfg(feature = "img_format_pvrtc_1")]
 mod img_format_pvrtc;

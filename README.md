@@ -4,7 +4,7 @@
 
 Vulkan bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.30 + all extensions
+Latest supported Vulkan specification: 1.0.32 + all extensions
 
 For the time being, vk-sys requires a nightly version of the Rust compiler, because we use the
 `struct_field_attributes` and `untagged_unions` features.
@@ -27,6 +27,8 @@ All of these features select all extensions, that where defined up that point.
 
 | Feature | Description |
 | --- | --- |
+| `vk_1_0_32` | Vulkan 1.0.32 + all extensions |
+| `vk_1_0_31` | Vulkan 1.0.31 + all extensions |
 | `vk_1_0_30` | Vulkan 1.0.30 + all extensions |
 | `vk_1_0_29` | Vulkan 1.0.29 + all extensions |
 | `vk_1_0_28` | Vulkan 1.0.28 + all extensions |
@@ -63,6 +65,8 @@ These features do not select any extensions.
 | Feature | Description |
 | --- | --- |
 | `core` | Latest supported Vulkan specification |
+| `core_1_0_32` | Vulkan 1.0.32 |
+| `core_1_0_31` | Vulkan 1.0.31 |
 | `core_1_0_30` | Vulkan 1.0.30 |
 | `core_1_0_29` | Vulkan 1.0.29 |
 | `core_1_0_28` | Vulkan 1.0.28 |
@@ -103,8 +107,12 @@ other dependencies.
 | `amd_gcn_shader` | Latest `VK_AMD_gcn_shader` revision |
 | `amd_gpu_shader_half_float_1` | `VK_AMD_gpu_shader_half_float` revision 1 |
 | `amd_gpu_shader_half_float` | Latest `VK_AMD_gpu_shader_half_float` revision |
+| `amd_negative_viewport_height_1` | `VK_AMD_negative_viewport_height` revision 1 |
+| `amd_negative_viewport_height` | Latest `VK_AMD_negative_viewport_height` revision |
 | `amd_rasterization_order_1` | `VK_AMD_rasterization_order` revision 1 |
 | `amd_rasterization_order` | Latest `VK_AMD_rasterization_order` revision |
+| `amd_shader_ballot_1` | Latest `VK_AMD_shader_ballot` revision |
+| `amd_shader_ballot` | `VK_AMD_shader_ballot` revision 1 |
 | `amd_shader_explicit_vertex_parameter_1` | `VK_AMD_shader_explicit_vertex_parameter` revision 1 |
 | `amd_shader_explicit_vertex_parameter` | Latest `VK_AMD_shader_explicit_vertex_parameter` revision |
 | `amd_shader_trinary_minmax_1` | `VK_AMD_shader_trinary_minmax` revision 1 |
@@ -165,6 +173,8 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
+ * 1.0.32
+ * 1.0.31
  * 1.0.30
  * 1.0.29
  * 1.0.28
@@ -245,7 +255,9 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | `VK_AMD_draw_indirect_count` | 1 |
 | `VK_AMD_gcn_shader` | 1 |
 | `VK_AMD_gpu_shader_half_float` | 1 |
+| `VK_AMD_negative_viewport_height` | 1 |
 | `VK_AMD_rasterization_order` | 1 |
+| `VK_AMD_shader_ballot` | 1 |
 | `VK_AMD_shader_explicit_vertex_parameter` | 1 |
 | `VK_AMD_shader_trinary_minmax` | 1 |
 
