@@ -310,6 +310,24 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "ext_validation_flags_1")]
     const VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT = 1000061000,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    const VK_STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX = 1000086000,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    const VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NVX = 1000086001,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    const VK_STRUCTURE_TYPE_CMD_PROCESS_COMMANDS_INFO_NVX = 1000086002,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    const VK_STRUCTURE_TYPE_CMD_RESERVE_SPACE_FOR_COMMANDS_INFO_NVX = 1000086003,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_LIMITS_NVX = 1000086004,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_FEATURES_NVX = 1000086005,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
@@ -930,6 +948,9 @@ bitflags! {
         const VK_PIPELINE_STAGE_HOST_BIT = 0x00004000,
         const VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT = 0x00008000,
         const VK_PIPELINE_STAGE_ALL_COMMANDS_BIT = 0x00010000,
+
+        #[cfg(feature = "nvx_device_generated_commands_1")]
+        const VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX = 0x00020000,
     }
 }
 pub type VkPipelineStageFlagBits = VkPipelineStageFlags;
@@ -1309,6 +1330,12 @@ bitflags! {
         const VK_ACCESS_HOST_WRITE_BIT = 0x00004000,
         const VK_ACCESS_MEMORY_READ_BIT = 0x00008000,
         const VK_ACCESS_MEMORY_WRITE_BIT = 0x00010000,
+
+        #[cfg(feature = "nvx_device_generated_commands_1")]
+        const VK_ACCESS_COMMAND_PROCESS_READ_BIT_NVX = 0x00020000,
+
+        #[cfg(feature = "nvx_device_generated_commands_1")]
+        const VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX = 0x00040000,
     }
 }
 pub type VkAccessFlagBits = VkAccessFlags;

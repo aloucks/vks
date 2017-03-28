@@ -170,6 +170,8 @@ other dependencies.
 | `nv_glsl_shader` | Latest `VK_NV_glsl_shader` revision |
 | `nv_win32_keyed_mutex_1` | `VK_NV_win32_keyed_mutex` revision 1 |
 | `nv_win32_keyed_mutex` | Latest `VK_NV_win32_keyed_mutex` revision |
+| `nvx_device_generated_commands_1` | `VK_NVX_device_generated_commands` revision 1 |
+| `nvx_device_generated_commands` | Latest `VK_NVX_device_generated_commands` revision |
 
 ## Loader
 
@@ -268,6 +270,12 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | `VK_AMD_shader_ballot` | 1 |
 | `VK_AMD_shader_explicit_vertex_parameter` | 1 |
 | `VK_AMD_shader_trinary_minmax` | 1 |
+
+### `NVX` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_NVX_device_generated_commands` | 1 |
 
 ## License
 

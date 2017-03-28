@@ -226,6 +226,12 @@ mod ext_validation_flags;
 #[cfg(feature = "ext_validation_flags_1")]
 pub use ext_validation_flags::*;
 
+#[cfg(feature = "nvx_device_generated_commands_1")]
+mod nvx_device_generated_commands;
+
+#[cfg(feature = "nvx_device_generated_commands_1")]
+pub use nvx_device_generated_commands::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

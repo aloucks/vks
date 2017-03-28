@@ -5,6 +5,7 @@
  * Vulkan 1.0.31, 1.0.32, 1.0.33, 1.0.34
  * New extension `VK_AMD_negative_viewport_height` (revision 1)
  * New extension `VK_AMD_shader_ballot` (revision 1)
+ * New extension `VK_NVX_device_generated_commands` (revision 1)
 
 ## Version 0.7.0, released on 27.03.2017
 
