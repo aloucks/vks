@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.8.0, released on 28.03.2017
 
  * Vulkan 1.0.31, 1.0.32, 1.0.33, 1.0.34, 1.0.35
  * New extension `VK_AMD_negative_viewport_height` (revision 1)
