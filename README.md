@@ -27,6 +27,7 @@ All of these features select all extensions, that where defined up that point.
 
 | Feature | Description |
 | --- | --- |
+| `vk_1_0_35` | Vulkan 1.0.35 + all extensions |
 | `vk_1_0_34` | Vulkan 1.0.34 + all extensions |
 | `vk_1_0_33` | Vulkan 1.0.33 + all extensions |
 | `vk_1_0_32` | Vulkan 1.0.32 + all extensions |
@@ -67,6 +68,7 @@ These features do not select any extensions.
 | Feature | Description |
 | --- | --- |
 | `core` | Latest supported Vulkan specification |
+| `core_1_0_35` | Vulkan 1.0.35 |
 | `core_1_0_34` | Vulkan 1.0.34 |
 | `core_1_0_33` | Vulkan 1.0.33 |
 | `core_1_0_32` | Vulkan 1.0.32 |
