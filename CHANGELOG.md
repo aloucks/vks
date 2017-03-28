@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.31, 1.0.32, 1.0.33
+ * Vulkan 1.0.31, 1.0.32, 1.0.33, 1.0.34
  * New extension `VK_AMD_negative_viewport_height` (revision 1)
  * New extension `VK_AMD_shader_ballot` (revision 1)
 
