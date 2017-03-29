@@ -151,6 +151,7 @@ gen_instance_proc_addr_loader!(
     "amd_draw_indirect_count_1" => amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
     "nv_external_memory_capabilities_1" => nv_external_memory_capabilities: NV_external_memory_capabilities [fn load_nv_external_memory_capabilities],
     "nv_external_memory_win32_1" => nv_external_memory_win32: NV_external_memory_win32 [fn load_nv_external_memory_win32],
+    "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -385,4 +386,17 @@ addr_proc_struct!(NV_external_memory_capabilities {
 #[cfg(feature = "nv_external_memory_win32_1")]
 addr_proc_struct!(NV_external_memory_win32 {
     pfn vkGetMemoryWin32HandleNV: PFN_vkGetMemoryWin32HandleNV,
+});
+
+#[cfg(feature = "nvx_device_generated_commands_1")]
+addr_proc_struct!(NVX_device_generated_commands {
+    pfn vkCmdProcessCommandsNVX: PFN_vkCmdProcessCommandsNVX,
+    pfn vkCmdReserveSpaceForCommandsNVX: PFN_vkCmdReserveSpaceForCommandsNVX,
+    pfn vkCreateIndirectCommandsLayoutNVX: PFN_vkCreateIndirectCommandsLayoutNVX,
+    pfn vkDestroyIndirectCommandsLayoutNVX: PFN_vkDestroyIndirectCommandsLayoutNVX,
+    pfn vkCreateObjectTableNVX: PFN_vkCreateObjectTableNVX,
+    pfn vkDestroyObjectTableNVX: PFN_vkDestroyObjectTableNVX,
+    pfn vkRegisterObjectsNVX: PFN_vkRegisterObjectsNVX,
+    pfn vkUnregisterObjectsNVX: PFN_vkUnregisterObjectsNVX,
+    pfn vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX: PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX,
 });
