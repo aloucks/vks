@@ -50,3 +50,4 @@ test_build vk_1_0_33
 test_build vk_1_0_34
 test_build vk_1_0_35
 test_build vk_1_0_36
+test_build vk_1_0_37

@@ -27,6 +27,7 @@ All of these features select all extensions, that where defined up that point.
 
 | Feature | Description |
 | --- | --- |
+| `vk_1_0_37` | Vulkan 1.0.37 + all extensions |
 | `vk_1_0_36` | Vulkan 1.0.36 + all extensions |
 | `vk_1_0_35` | Vulkan 1.0.35 + all extensions |
 | `vk_1_0_34` | Vulkan 1.0.34 + all extensions |
@@ -69,6 +70,7 @@ These features do not select any extensions.
 | Feature | Description |
 | --- | --- |
 | `core` | Latest supported Vulkan specification |
+| `core_1_0_37` | Vulkan 1.0.37 |
 | `core_1_0_36` | Vulkan 1.0.36 |
 | `core_1_0_35` | Vulkan 1.0.35 |
 | `core_1_0_34` | Vulkan 1.0.34 |
@@ -183,6 +185,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
+ * 1.0.37
  * 1.0.36
  * 1.0.35
  * 1.0.34
