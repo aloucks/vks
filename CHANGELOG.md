@@ -3,6 +3,7 @@
 ## Current Git Master Branch
 
  * Add functions from `NVX_device_generated_commands` to InstanceProcAddrLoader
+ * Add functions from `NVX_device_generated_commands` to DeviceProcAddrLoader
 
 ## Version 0.8.0, released on 28.03.2017
 

@@ -132,6 +132,7 @@ gen_device_proc_addr_loader!(
     "khr_display_swapchain_9" => khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
     "ext_debug_marker_3" => ext_debug_marker: EXT_debug_marker [fn load_ext_debug_marker],
     "amd_draw_indirect_count_1" => amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
+    "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
 );
 
 addr_proc_struct!(Core {
@@ -276,4 +277,16 @@ addr_proc_struct!(EXT_debug_marker {
 addr_proc_struct!(AMD_draw_indirect_count {
     pfn vkCmdDrawIndirectCountAMD: PFN_vkCmdDrawIndirectCountAMD,
     pfn vkCmdDrawIndexedIndirectCountAMD: PFN_vkCmdDrawIndexedIndirectCountAMD,
+});
+
+#[cfg(feature = "nvx_device_generated_commands_1")]
+addr_proc_struct!(NVX_device_generated_commands {
+    pfn vkCmdProcessCommandsNVX: PFN_vkCmdProcessCommandsNVX,
+    pfn vkCmdReserveSpaceForCommandsNVX: PFN_vkCmdReserveSpaceForCommandsNVX,
+    pfn vkCreateIndirectCommandsLayoutNVX: PFN_vkCreateIndirectCommandsLayoutNVX,
+    pfn vkDestroyIndirectCommandsLayoutNVX: PFN_vkDestroyIndirectCommandsLayoutNVX,
+    pfn vkCreateObjectTableNVX: PFN_vkCreateObjectTableNVX,
+    pfn vkDestroyObjectTableNVX: PFN_vkDestroyObjectTableNVX,
+    pfn vkRegisterObjectsNVX: PFN_vkRegisterObjectsNVX,
+    pfn vkUnregisterObjectsNVX: PFN_vkUnregisterObjectsNVX,
 });
