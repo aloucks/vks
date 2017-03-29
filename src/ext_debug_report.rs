@@ -15,7 +15,10 @@
 use ::*;
 use libc::{c_char, c_void};
 
-#[cfg(feature = "ext_debug_report_3")]
+#[cfg(feature = "ext_debug_report_4")]
+pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 4;
+
+#[cfg(all(feature = "ext_debug_report_3", not(feature = "ext_debug_report_4")))]
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 3;
 
 #[cfg(all(feature = "ext_debug_report_2", not(feature = "ext_debug_report_3")))]
@@ -61,6 +64,18 @@ cenum!(VkDebugReportObjectTypeEXT: u32 {
     const VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT = 26,
     const VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT = 27,
     const VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT = 28,
+
+    #[cfg(all(feature = "ext_debug_report_4", feature = "khr_display_21"))]
+    const VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT = 29,
+
+    #[cfg(all(feature = "ext_debug_report_4", feature = "khr_display_21"))]
+    const VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT = 30,
+
+    #[cfg(all(feature = "ext_debug_report_4", feature = "nvx_device_generated_commands_1"))]
+    const VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT = 31,
+
+    #[cfg(all(feature = "ext_debug_report_4", feature = "nvx_device_generated_commands_1"))]
+    const VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32,
 });
 
 cenum!(VkDebugReportErrorEXT: u32 {
