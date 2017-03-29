@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.8.1, released on 29.03.2017
 
  * Add functions from `NVX_device_generated_commands` to InstanceProcAddrLoader
  * Add functions from `NVX_device_generated_commands` to DeviceProcAddrLoader
