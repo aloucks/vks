@@ -152,6 +152,7 @@ gen_instance_proc_addr_loader!(
     "nv_external_memory_capabilities_1" => nv_external_memory_capabilities: NV_external_memory_capabilities [fn load_nv_external_memory_capabilities],
     "nv_external_memory_win32_1" => nv_external_memory_win32: NV_external_memory_win32 [fn load_nv_external_memory_win32],
     "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
+    "khr_get_physical_device_properties2_1" => khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -399,4 +400,15 @@ addr_proc_struct!(NVX_device_generated_commands {
     pfn vkRegisterObjectsNVX: PFN_vkRegisterObjectsNVX,
     pfn vkUnregisterObjectsNVX: PFN_vkUnregisterObjectsNVX,
     pfn vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX: PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX,
+});
+
+#[cfg(feature = "khr_get_physical_device_properties2_1")]
+addr_proc_struct!(KHR_get_physical_device_properties2 {
+    pfn vkGetPhysicalDeviceFeatures2KHR: PFN_vkGetPhysicalDeviceFeatures2KHR,
+    pfn vkGetPhysicalDeviceProperties2KHR: PFN_vkGetPhysicalDeviceProperties2KHR,
+    pfn vkGetPhysicalDeviceFormatProperties2KHR: PFN_vkGetPhysicalDeviceFormatProperties2KHR,
+    pfn vkGetPhysicalDeviceImageFormatProperties2KHR: PFN_vkGetPhysicalDeviceImageFormatProperties2KHR,
+    pfn vkGetPhysicalDeviceQueueFamilyProperties2KHR: PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR,
+    pfn vkGetPhysicalDeviceMemoryProperties2KHR: PFN_vkGetPhysicalDeviceMemoryProperties2KHR,
+    pfn vkGetPhysicalDeviceSparseImageFormatProperties2KHR: PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR,
 });

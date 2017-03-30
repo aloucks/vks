@@ -150,6 +150,8 @@ other dependencies.
 | `khr_display_swapchain_9` | `VK_KHR_display_swapchain` revision 9 |
 | `khr_display_swapchain` | Latest `VK_KHR_display_swapchain` revision |
 | `khr_display` | Latest `VK_KHR_display` revision |
+| `khr_get_physical_device_properties2_1` | `VK_KHR_get_physical_device_properties2` revision 1 |
+| `khr_get_physical_device_properties2` | Latest `VK_KHR_get_physical_device_properties2` revision |
 | `khr_mir_surface_4` | `VK_KHR_mir_surface` revision 4 |
 | `khr_mir_surface` | Latest `VK_KHR_mir_surface` revision |
 | `khr_sampler_mirror_clamp_to_edge_1` | `VK_KHR_sampler_mirror_clamp_to_edge` revision 1 |
@@ -237,6 +239,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | `VK_KHR_android_surface` | 6 |
 | `VK_KHR_display_swapchain` | 9 |
 | `VK_KHR_display` | 21 |
+| `VK_KHR_get_physical_device_properties2` | 1 |
 | `VK_KHR_mir_surface` | 4 |
 | `VK_KHR_sampler_mirror_clamp_to_edge` | 1 |
 | `VK_KHR_surface` | 25 |

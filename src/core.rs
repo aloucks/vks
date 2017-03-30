@@ -308,6 +308,33 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "nv_win32_keyed_mutex_1")]
     const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV = 1000058000,
 
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR = 1000059000,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR = 1000059001,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR = 1000059002,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR = 1000059003,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR = 1000059004,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR = 1000059005,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR = 1000059006,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR = 1000059007,
+
+    #[cfg(feature = "khr_get_physical_device_properties2_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR = 1000059008,
+
     #[cfg(feature = "ext_validation_flags_1")]
     const VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT = 1000061000,
 

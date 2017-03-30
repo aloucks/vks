@@ -112,6 +112,12 @@ mod khr_sampler_mirror_clamp_to_edge;
 #[cfg(feature = "khr_sampler_mirror_clamp_to_edge_1")]
 pub use khr_sampler_mirror_clamp_to_edge::*;
 
+#[cfg(feature = "khr_get_physical_device_properties2_1")]
+mod khr_get_physical_device_properties2;
+
+#[cfg(feature = "khr_get_physical_device_properties2_1")]
+pub use khr_get_physical_device_properties2::*;
+
 #[cfg(feature = "ext_debug_report_1")]
 mod ext_debug_report;
 
