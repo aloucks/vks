@@ -118,6 +118,12 @@ mod khr_get_physical_device_properties2;
 #[cfg(feature = "khr_get_physical_device_properties2_1")]
 pub use khr_get_physical_device_properties2::*;
 
+#[cfg(feature = "khr_shader_draw_parameters_1")]
+mod khr_shader_draw_parameters;
+
+#[cfg(feature = "khr_shader_draw_parameters_1")]
+pub use khr_shader_draw_parameters::*;
+
 #[cfg(feature = "ext_debug_report_1")]
 mod ext_debug_report;
 

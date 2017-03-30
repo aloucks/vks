@@ -156,6 +156,8 @@ other dependencies.
 | `khr_mir_surface` | Latest `VK_KHR_mir_surface` revision |
 | `khr_sampler_mirror_clamp_to_edge_1` | `VK_KHR_sampler_mirror_clamp_to_edge` revision 1 |
 | `khr_sampler_mirror_clamp_to_edge` | Latest `VK_KHR_sampler_mirror_clamp_to_edge` revision |
+| `khr_shader_draw_parameters_1` | `VK_KHR_shader_draw_parameters` revision 1 |
+| `khr_shader_draw_parameters` | Latest `VK_KHR_shader_draw_parameters` revision |
 | `khr_surface_25` | `VK_KHR_surface` revision 25 |
 | `khr_surface` | Latest `VK_KHR_surface` revision |
 | `khr_swapchain_67` | `VK_KHR_swapchain` revision 67 |
@@ -242,6 +244,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | `VK_KHR_get_physical_device_properties2` | 1 |
 | `VK_KHR_mir_surface` | 4 |
 | `VK_KHR_sampler_mirror_clamp_to_edge` | 1 |
+| `VK_KHR_shader_draw_parameters` | 1 |
 | `VK_KHR_surface` | 25 |
 | `VK_KHR_swapchain` | 67, 68 |
 | `VK_KHR_wayland_surface` | 5 |
