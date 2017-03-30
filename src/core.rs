@@ -341,6 +341,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "ext_validation_flags_1")]
     const VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT = 1000061000,
 
+    #[cfg(feature = "nn_vi_surface_1")]
+    const VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN = 1000062000,
+
     #[cfg(feature = "nvx_device_generated_commands_1")]
     const VK_STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX = 1000086000,
 

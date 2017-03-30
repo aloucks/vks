@@ -154,6 +154,7 @@ gen_instance_proc_addr_loader!(
     "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
     "khr_get_physical_device_properties2_1" => khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
     "khr_maintenance1_1" => khr_maintenance1: KHR_maintenance1 [fn load_khr_maintenance1],
+    "nn_vi_surface_1" => nn_vi_surface: NN_vi_surface [fn load_nn_vi_surface],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -417,4 +418,9 @@ addr_proc_struct!(KHR_get_physical_device_properties2 {
 #[cfg(feature = "khr_maintenance1_1")]
 addr_proc_struct!(KHR_maintenance1 {
     pfn vkTrimCommandPoolKHR: PFN_vkTrimCommandPoolKHR,
+});
+
+#[cfg(feature = "nn_vi_surface_1")]
+addr_proc_struct!(NN_vi_surface {
+    pfn vkCreateViSurfaceNN: PFN_vkCreateViSurfaceNN,
 });

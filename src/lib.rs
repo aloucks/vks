@@ -250,6 +250,12 @@ mod nvx_device_generated_commands;
 #[cfg(feature = "nvx_device_generated_commands_1")]
 pub use nvx_device_generated_commands::*;
 
+#[cfg(feature = "nn_vi_surface_1")]
+mod nn_vi_surface;
+
+#[cfg(feature = "nn_vi_surface_1")]
+pub use nn_vi_surface::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

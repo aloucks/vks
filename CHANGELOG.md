@@ -7,6 +7,7 @@
  * Add extension `VK_KHR_get_physical_device_properties2` (revision 1)
  * Add extension `VK_KHR_shader_draw_parameters` (revision 1)
  * Add extension `VK_KHR_maintenance1` (revision 1)
+ * Add extension `VK_NN_vi_surface` (revision 1)
 
 ## Version 0.8.1, released on 29.03.2017
 

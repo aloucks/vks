@@ -173,6 +173,8 @@ other dependencies.
 | `khr_xcb_surface` | Latest `VK_KHR_xcb_surface` revision |
 | `khr_xlib_surface_6` | `VK_KHR_xlib_surface` revision 6 |
 | `khr_xlib_surface` | Latest `VK_KHR_xlib_surface` revision |
+| `nn_vi_surface_1` | `VK_NN_vi_surface` revision 1 |
+| `nn_vi_surface` | Latest `VK_NN_vi_surface` revision |
 | `nv_dedicated_allocation_1` | `VK_NV_dedicated_allocation` revision 1 |
 | `nv_dedicated_allocation` | Latest `VK_NV_dedicated_allocation` revision |
 | `nv_external_memory_capabilities_1` | `VK_NV_external_memory_capabilities` revision 1 |
@@ -299,6 +301,12 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_NVX_device_generated_commands` | 1 |
+
+### `NN` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_NN_vi_surface` | 1 |
 
 ## License
 
