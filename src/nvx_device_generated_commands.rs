@@ -195,6 +195,7 @@ pub struct VkObjectTableIndexBufferEntryNVX {
     pub type_: VkObjectEntryTypeNVX,
     pub flags: VkObjectEntryUsageFlagsNVX,
     pub buffer: VkBuffer,
+    pub indexType: VkIndexType,
 }
 
 #[repr(C)]

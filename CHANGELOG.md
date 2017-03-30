@@ -1,5 +1,9 @@
 # vk-sys Changelog
 
+## Current Git 0.8.x Branch
+
+ * Add missing field `indexType` to `VkObjectTableIndexBufferEntryNVX`
+
 ## Version 0.8.1, released on 29.03.2017
 
  * Add functions from `NVX_device_generated_commands` to InstanceProcAddrLoader
