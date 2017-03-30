@@ -133,6 +133,7 @@ gen_device_proc_addr_loader!(
     "ext_debug_marker_3" => ext_debug_marker: EXT_debug_marker [fn load_ext_debug_marker],
     "amd_draw_indirect_count_1" => amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
     "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
+    "khr_maintenance1_1" => khr_maintenance1: KHR_maintenance1 [fn load_khr_maintenance1],
 );
 
 addr_proc_struct!(Core {
@@ -289,4 +290,9 @@ addr_proc_struct!(NVX_device_generated_commands {
     pfn vkDestroyObjectTableNVX: PFN_vkDestroyObjectTableNVX,
     pfn vkRegisterObjectsNVX: PFN_vkRegisterObjectsNVX,
     pfn vkUnregisterObjectsNVX: PFN_vkUnregisterObjectsNVX,
+});
+
+#[cfg(feature = "khr_maintenance1_1")]
+addr_proc_struct!(KHR_maintenance1 {
+    pfn vkTrimCommandPoolKHR: PFN_vkTrimCommandPoolKHR,
 });

@@ -180,6 +180,9 @@ cenum!(VkResult: i32 {
 
     #[cfg(feature = "nv_glsl_shader_1")]
     const VK_ERROR_INVALID_SHADER_NV = -1000012000,
+
+    #[cfg(feature = "khr_maintenance1_1")]
+    const VK_ERROR_OUT_OF_POOL_MEMORY_KHR = -1000069000,
 });
 
 cenum!(VkStructureType: u32 {
@@ -863,6 +866,12 @@ bitflags! {
 
         #[cfg(feature = "img_filter_cubic_1")]
         const VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG = 0x00002000,
+
+        #[cfg(feature = "khr_maintenance1_1")]
+        const VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR = 0x00004000,
+
+        #[cfg(feature = "khr_maintenance1_1")]
+        const VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR = 0x00008000,
     }
 }
 pub type VkFormatFeatureFlagBits = VkFormatFeatureFlags;
@@ -890,6 +899,9 @@ bitflags! {
         const VK_IMAGE_CREATE_SPARSE_ALIASED_BIT = 0x00000004,
         const VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT = 0x00000008,
         const VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT = 0x00000010,
+
+        #[cfg(feature = "khr_maintenance1_1")]
+        const VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR = 0x00000020,
     }
 }
 pub type VkImageCreateFlagBits = VkImageCreateFlags;

@@ -124,6 +124,12 @@ mod khr_shader_draw_parameters;
 #[cfg(feature = "khr_shader_draw_parameters_1")]
 pub use khr_shader_draw_parameters::*;
 
+#[cfg(feature = "khr_maintenance1_1")]
+mod khr_maintenance1;
+
+#[cfg(feature = "khr_maintenance1_1")]
+pub use khr_maintenance1::*;
+
 #[cfg(feature = "ext_debug_report_1")]
 mod ext_debug_report;
 
