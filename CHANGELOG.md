@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git 0.8.x Branch
+## Version 0.8.2, released on 30.03.2017
 
  * Add missing field `indexType` to `VkObjectTableIndexBufferEntryNVX`
 
