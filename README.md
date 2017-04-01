@@ -147,6 +147,7 @@ Every version in between is supported as well.
 
 | Extension | Revision(s) |
 | --- | --- |
+| `VK_KHX_device_group` | 1 |
 | `VK_KHX_multiview` | 1 |
 
 ## License

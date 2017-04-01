@@ -347,6 +347,45 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khr_get_physical_device_properties2_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR = 1000059008,
 
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX = 1000060000,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX = 1000060001,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX = 1000060002,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX = 1000060003,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHX = 1000060004,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX = 1000060005,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX = 1000060006,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX = 1000060007,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX = 1000060008,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX = 1000060009,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX = 1000060010,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX = 1000060011,
+
+    #[cfg(feature = "khx_device_group_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX = 1000060012,
+
     #[cfg(feature = "ext_validation_flags_1")]
     const VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT = 1000061000,
 
@@ -933,6 +972,9 @@ bitflags! {
         const VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT = 0x00000008,
         const VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT = 0x00000010,
 
+        #[cfg(feature = "khx_device_group_1")]
+        const VK_IMAGE_CREATE_BIND_SFR_BIT_KHX = 0x00000040,
+
         #[cfg(feature = "khr_maintenance1_1")]
         const VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR = 0x00000020,
     }
@@ -1189,6 +1231,12 @@ bitflags! {
         const VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x00000001,
         const VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x00000002,
         const VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x00000004,
+
+        #[cfg(feature = "khx_device_group_1")]
+        const VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX = 0x00000008,
+
+        #[cfg(feature = "khx_device_group_1")]
+        const VK_PIPELINE_CREATE_DISPATCH_BASE_KHX = 0x00000010,
     }
 }
 pub type VkPipelineCreateFlagBits = VkPipelineCreateFlags;
@@ -1423,6 +1471,9 @@ bitflags! {
 
         #[cfg(feature = "khx_multiview_1")]
         const VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX = 0x00000002,
+
+        #[cfg(feature = "khx_device_group_1")]
+        const VK_DEPENDENCY_DEVICE_GROUP_BIT_KHX = 0x00000004,
     }
 }
 pub type VkDependencyFlagBits = VkDependencyFlags;

@@ -31,7 +31,11 @@ pub type VkSwapchainKHR = *mut VkSwapchainKHR_T;
 bitflags! {
     #[repr(C)]
     pub flags VkSwapchainCreateFlagsKHR: u32 {
+        #[cfg(not(feature = "khx_device_group_1"))]
         const VK_SWAPCHAIN_CREATE_DUMMY_KHR = 0x00000000,
+
+        #[cfg(feature = "khx_device_group_1")]
+        const VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX = 0x00000001,
     }
 }
 pub type VkSwapchainCreateFlagBitsKHR = VkSwapchainCreateFlagsKHR;

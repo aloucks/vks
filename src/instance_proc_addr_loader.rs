@@ -161,6 +161,7 @@ gen_instance_proc_addr_loader!(
     "ext_display_control_1" => ext_display_control: EXT_display_control [fn load_ext_display_control],
     "khr_push_descriptor_1" => khr_push_descriptor: KHR_push_descriptor [fn load_khr_push_descriptor],
     "khr_descriptor_update_template_1" => khr_descriptor_update_template: KHR_descriptor_update_template [fn load_khr_descriptor_update_template],
+    "khx_device_group_1" => khx_device_group: KHX_device_group [fn load_khx_device_group],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -466,4 +467,17 @@ addr_proc_struct!(KHR_descriptor_update_template {
     pfn vkDestroyDescriptorUpdateTemplateKHR: PFN_vkDestroyDescriptorUpdateTemplateKHR,
     pfn vkUpdateDescriptorSetWithTemplateKHR: PFN_vkUpdateDescriptorSetWithTemplateKHR,
     pfn vkCmdPushDescriptorSetWithTemplateKHR: PFN_vkCmdPushDescriptorSetWithTemplateKHR,
+});
+
+#[cfg(feature = "khx_device_group_1")]
+addr_proc_struct!(KHX_device_group {
+    pfn vkGetDeviceGroupPeerMemoryFeaturesKHX: PFN_vkGetDeviceGroupPeerMemoryFeaturesKHX,
+    pfn vkBindBufferMemory2KHX: PFN_vkBindBufferMemory2KHX,
+    pfn vkBindImageMemory2KHX: PFN_vkBindImageMemory2KHX,
+    pfn vkCmdSetDeviceMaskKHX: PFN_vkCmdSetDeviceMaskKHX,
+    pfn vkGetDeviceGroupPresentCapabilitiesKHX: PFN_vkGetDeviceGroupPresentCapabilitiesKHX,
+    pfn vkGetDeviceGroupSurfacePresentModesKHX: PFN_vkGetDeviceGroupSurfacePresentModesKHX,
+    pfn vkAcquireNextImage2KHX: PFN_vkAcquireNextImage2KHX,
+    pfn vkCmdDispatchBaseKHX: PFN_vkCmdDispatchBaseKHX,
+    pfn vkGetPhysicalDevicePresentRectanglesKHX: PFN_vkGetPhysicalDevicePresentRectanglesKHX,
 });
