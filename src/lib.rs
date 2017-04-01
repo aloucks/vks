@@ -256,6 +256,12 @@ mod nn_vi_surface;
 #[cfg(feature = "nn_vi_surface_1")]
 pub use nn_vi_surface::*;
 
+#[cfg(feature = "ext_shader_subgroup_ballot_1")]
+mod ext_shader_subgroup_ballot;
+
+#[cfg(feature = "ext_shader_subgroup_ballot_1")]
+pub use ext_shader_subgroup_ballot::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

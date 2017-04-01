@@ -17,7 +17,8 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 default = [ "vk_1_0_38" ]
 
 vk_1_0_39 = [ "vk_1_0_38", "core_1_0_39", "khr_get_physical_device_properties2_1",
-              "khr_shader_draw_parameters_1", "khr_maintenance1_1", "nn_vi_surface_1" ]
+              "khr_shader_draw_parameters_1", "khr_maintenance1_1", "nn_vi_surface_1",
+              "ext_shader_subgroup_ballot_1" ]
 
 vk_1_0_38 = [ "vk_1_0_37", "core_1_0_38" ]
 
@@ -243,6 +244,9 @@ ext_validation_flags_1 = [ "core_1_0_3" ]
 
 nn_vi_surface = [ "nn_vi_surface_1" ]
 nn_vi_surface_1 = [ "core_1_0_3", "khr_surface_25" ]
+
+ext_shader_subgroup_ballot = [ "ext_shader_subgroup_ballot_1" ]
+ext_shader_subgroup_ballot_1 = [ "core_1_0_3" ]
 
 nvx_device_generated_commands = [ "nvx_device_generated_commands_1" ]
 nvx_device_generated_commands_1 = [ "core_1_0_3" ]

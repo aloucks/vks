@@ -90,6 +90,7 @@ Every version in between is supported as well.
 | --- | --- |
 | `VK_EXT_debug_marker` | 3 |
 | `VK_EXT_debug_report` | 1, 2, 3, 4 |
+| `VK_EXT_shader_subgroup_ballot` | 1 |
 | `VK_EXT_validation_flags` | 1 |
 
 ### `NV` Extensions
