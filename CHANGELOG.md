@@ -22,6 +22,7 @@
  * Add extension `VK_NV_clip_space_w_scaling` (revision 1)
  * Add extension `VK_NV_sample_mask_override_coverage` (revision 1)
  * Add extension `VK_NV_geometry_shader_passthrough` (revision 1)
+ * Add extension `VK_NV_viewport_array2` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 
