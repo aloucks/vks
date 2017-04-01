@@ -142,6 +142,7 @@ gen_device_proc_addr_loader!(
     "khx_external_memory_fd_1" => khx_external_memory_fd: KHX_external_memory_fd [fn load_khx_external_memory_fd],
     "khx_external_semaphore_win32_1" => khx_external_semaphore_win32: KHX_external_semaphore_win32 [fn load_khx_external_semaphore_win32],
     "khx_external_semaphore_fd_1" => khx_external_semaphore_fd: KHX_external_semaphore_fd [fn load_khx_external_semaphore_fd],
+    "nv_clip_space_w_scaling_1" => nv_clip_space_w_scaling: NV_clip_space_w_scaling [fn load_nv_clip_space_w_scaling],
 );
 
 addr_proc_struct!(Core {
@@ -360,4 +361,9 @@ addr_proc_struct!(KHX_external_semaphore_win32 {
 addr_proc_struct!(KHX_external_semaphore_fd {
     pfn vkImportSemaphoreFdKHX: PFN_vkImportSemaphoreFdKHX,
     pfn vkGetSemaphoreFdKHX: PFN_vkGetSemaphoreFdKHX,
+});
+
+#[cfg(feature = "nv_clip_space_w_scaling_1")]
+addr_proc_struct!(NV_clip_space_w_scaling {
+    pfn vkCmdSetViewportWScalingNV: PFN_vkCmdSetViewportWScalingNV,
 });

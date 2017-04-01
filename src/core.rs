@@ -488,6 +488,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "nvx_device_generated_commands_1")]
     const VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_FEATURES_NVX = 1000086005,
 
+    #[cfg(feature = "nv_clip_space_w_scaling_1")]
+    const VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV = 1000087000,
+
     #[cfg(feature = "ext_display_surface_counter_1")]
     const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT = 1000090000,
 
@@ -904,6 +907,9 @@ cenum!(VkDynamicState: u32 {
     const VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 6,
     const VK_DYNAMIC_STATE_STENCIL_WRITE_MASK = 7,
     const VK_DYNAMIC_STATE_STENCIL_REFERENCE = 8,
+
+    #[cfg(feature = "nv_clip_space_w_scaling_1")]
+    const VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV = 1000087000,
 });
 
 cenum!(VkFilter: u32 {

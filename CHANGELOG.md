@@ -19,6 +19,7 @@
  * Add extension `VK_KHX_external_semaphore` (revision 1)
  * Add extension `VK_KHX_external_semaphore_win32` (revision 1)
  * Add extension `VK_KHX_external_semaphore_fd` (revision 1)
+ * Add extension `VK_NV_clip_space_w_scaling` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 

@@ -137,6 +137,8 @@ mod cenum;
 #[cfg(feature = "khx_win32_keyed_mutex_1")] pub use khx_win32_keyed_mutex::*;
 #[cfg(feature = "nn_vi_surface_1")] mod nn_vi_surface;
 #[cfg(feature = "nn_vi_surface_1")] pub use nn_vi_surface::*;
+#[cfg(feature = "nv_clip_space_w_scaling_1")] mod nv_clip_space_w_scaling;
+#[cfg(feature = "nv_clip_space_w_scaling_1")] pub use nv_clip_space_w_scaling::*;
 #[cfg(feature = "nv_dedicated_allocation_1")] mod nv_dedicated_allocation;
 #[cfg(feature = "nv_dedicated_allocation_1")] pub use nv_dedicated_allocation::*;
 #[cfg(feature = "nv_external_memory_1")] mod nv_external_memory;

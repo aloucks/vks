@@ -104,6 +104,7 @@ Every version in between is supported as well.
 
 | Extension | Revision(s) |
 | --- | --- |
+| `VK_NV_clip_space_w_scaling` | 1 |
 | `VK_NV_dedicated_allocation` | 1 |
 | `VK_NV_external_memory_capabilities` | 1 |
 | `VK_NV_external_memory_win32` | 1 |
