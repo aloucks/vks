@@ -164,6 +164,7 @@ gen_instance_proc_addr_loader!(
     "khx_device_group_1" => khx_device_group: KHX_device_group [fn load_khx_device_group],
     "khx_device_group_creation_1" => khx_device_group_creation: KHX_device_group_creation [fn load_khx_device_group_creation],
     "khx_external_memory_capabilities_1" => khx_external_memory_capabilities: KHX_external_memory_capabilities [fn load_khx_external_memory_capabilities],
+    "khx_external_memory_win32_1" => khx_external_memory_win32: KHX_external_memory_win32 [fn load_khx_external_memory_win32],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -492,4 +493,10 @@ addr_proc_struct!(KHX_device_group_creation {
 #[cfg(feature = "khx_external_memory_capabilities_1")]
 addr_proc_struct!(KHX_external_memory_capabilities {
     pfn vkGetPhysicalDeviceExternalBufferPropertiesKHX: PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHX,
+});
+
+#[cfg(feature = "khx_external_memory_win32_1")]
+addr_proc_struct!(KHX_external_memory_win32 {
+    pfn vkGetMemoryWin32HandleKHX: PFN_vkGetMemoryWin32HandleKHX,
+    pfn vkGetMemoryWin32HandlePropertiesKHX: PFN_vkGetMemoryWin32HandlePropertiesKHX,
 });

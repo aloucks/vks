@@ -425,6 +425,15 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khx_external_memory_1")]
     const VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX = 1000072002,
 
+    #[cfg(feature = "khx_external_memory_win32_1")]
+    const VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHX = 1000073000,
+
+    #[cfg(feature = "khx_external_memory_win32_1")]
+    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHX = 1000073001,
+
+    #[cfg(feature = "khx_external_memory_win32_1")]
+    const VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHX = 1000073002,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 

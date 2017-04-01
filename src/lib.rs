@@ -119,6 +119,8 @@ mod cenum;
 #[cfg(feature = "khx_external_memory_1")] pub use khx_external_memory::*;
 #[cfg(feature = "khx_external_memory_capabilities_1")] mod khx_external_memory_capabilities;
 #[cfg(feature = "khx_external_memory_capabilities_1")] pub use khx_external_memory_capabilities::*;
+#[cfg(feature = "khx_external_memory_win32_1")] mod khx_external_memory_win32;
+#[cfg(feature = "khx_external_memory_win32_1")] pub use khx_external_memory_win32::*;
 #[cfg(feature = "khx_multiview_1")] mod khx_multiview;
 #[cfg(feature = "khx_multiview_1")] pub use khx_multiview::*;
 #[cfg(feature = "nn_vi_surface_1")] mod nn_vi_surface;

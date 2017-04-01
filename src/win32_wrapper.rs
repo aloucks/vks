@@ -30,3 +30,4 @@ pub type HANDLE = *mut HANDLE_T;
 pub struct SECURITY_ATTRIBUTES(c_void);
 
 pub type DWORD = u32;
+pub type LPCWSTR = *const u16;

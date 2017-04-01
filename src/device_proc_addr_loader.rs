@@ -138,6 +138,7 @@ gen_device_proc_addr_loader!(
     "khr_push_descriptor_1" => khr_push_descriptor: KHR_push_descriptor [fn load_khr_push_descriptor],
     "khr_descriptor_update_template_1" => khr_descriptor_update_template: KHR_descriptor_update_template [fn load_khr_descriptor_update_template],
     "khx_device_group_1" => khx_device_group: KHX_device_group [fn load_khx_device_group],
+    "khx_external_memory_win32_1" => khx_external_memory_win32: KHX_external_memory_win32 [fn load_khx_external_memory_win32],
 );
 
 addr_proc_struct!(Core {
@@ -332,4 +333,10 @@ addr_proc_struct!(KHX_device_group {
     pfn vkGetDeviceGroupSurfacePresentModesKHX: PFN_vkGetDeviceGroupSurfacePresentModesKHX,
     pfn vkAcquireNextImage2KHX: PFN_vkAcquireNextImage2KHX,
     pfn vkCmdDispatchBaseKHX: PFN_vkCmdDispatchBaseKHX,
+});
+
+#[cfg(feature = "khx_external_memory_win32_1")]
+addr_proc_struct!(KHX_external_memory_win32 {
+    pfn vkGetMemoryWin32HandleKHX: PFN_vkGetMemoryWin32HandleKHX,
+    pfn vkGetMemoryWin32HandlePropertiesKHX: PFN_vkGetMemoryWin32HandlePropertiesKHX,
 });
