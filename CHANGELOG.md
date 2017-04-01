@@ -3,6 +3,8 @@
 ## Current Git Master Branch
 
  * Vulkan 1.0.41
+ * The parameters `x`, `y`, and `z` of `vkCmdDispatch` have been renamed to `groupCountX`,
+   `groupCountY`, and `groupCountZ`.
 
 ## Version 0.9.0, released on 01.04.2017
 
