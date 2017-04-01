@@ -113,6 +113,8 @@ mod cenum;
 #[cfg(feature = "khr_xlib_surface_6")] pub use khr_xlib_surface::*;
 #[cfg(feature = "khx_device_group_1")] mod khx_device_group;
 #[cfg(feature = "khx_device_group_1")] pub use khx_device_group::*;
+#[cfg(feature = "khx_device_group_creation_1")] mod khx_device_group_creation;
+#[cfg(feature = "khx_device_group_creation_1")] pub use khx_device_group_creation::*;
 #[cfg(feature = "khx_multiview_1")] mod khx_multiview;
 #[cfg(feature = "khx_multiview_1")] pub use khx_multiview::*;
 #[cfg(feature = "nn_vi_surface_1")] mod nn_vi_surface;

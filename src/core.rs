@@ -392,6 +392,12 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "nn_vi_surface_1")]
     const VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN = 1000062000,
 
+    #[cfg(feature = "khx_device_group_creation_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX = 1000070000,
+
+    #[cfg(feature = "khx_device_group_creation_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX = 1000070001,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 
@@ -1022,6 +1028,9 @@ bitflags! {
     #[repr(C)]
     pub flags VkMemoryHeapFlags: u32 {
         const VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
+
+        #[cfg(feature = "khx_device_group_creation_1")]
+        const VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX = 0x00000002,
     }
 }
 pub type VkMemoryHeapFlagBits = VkMemoryHeapFlags;

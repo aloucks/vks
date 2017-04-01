@@ -17,7 +17,8 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 default = [ "vk_1_0_41" ]
 
 vk_1_0_42 = [ "vk_1_0_41", "core_1_0_42", "khr_push_descriptor_1",
-              "khr_descriptor_update_template_1", "khx_multiview_1", "khx_device_group_1" ]
+              "khr_descriptor_update_template_1", "khx_multiview_1", "khx_device_group_1",
+              "khx_device_group_creation_1" ]
 
 vk_1_0_41 = [ "vk_1_0_40", "core_1_0_41" ]
 
@@ -276,6 +277,9 @@ ext_shader_subgroup_ballot_1 = [ "core_1_0_3" ]
 
 ext_shader_subgroup_vote = [ "ext_shader_subgroup_vote_1" ]
 ext_shader_subgroup_vote_1 = [ "core_1_0_3" ]
+
+khx_device_group_creation = [ "khx_device_group_creation_1" ]
+khx_device_group_creation_1 = [ "core_1_0_3", "khx_device_group_1" ]
 
 nvx_device_generated_commands = [ "nvx_device_generated_commands_1" ]
 nvx_device_generated_commands_1 = [ "core_1_0_3" ]

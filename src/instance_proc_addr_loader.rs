@@ -162,6 +162,7 @@ gen_instance_proc_addr_loader!(
     "khr_push_descriptor_1" => khr_push_descriptor: KHR_push_descriptor [fn load_khr_push_descriptor],
     "khr_descriptor_update_template_1" => khr_descriptor_update_template: KHR_descriptor_update_template [fn load_khr_descriptor_update_template],
     "khx_device_group_1" => khx_device_group: KHX_device_group [fn load_khx_device_group],
+    "khx_device_group_creation_1" => khx_device_group_creation: KHX_device_group_creation [fn load_khx_device_group_creation],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -480,4 +481,9 @@ addr_proc_struct!(KHX_device_group {
     pfn vkAcquireNextImage2KHX: PFN_vkAcquireNextImage2KHX,
     pfn vkCmdDispatchBaseKHX: PFN_vkCmdDispatchBaseKHX,
     pfn vkGetPhysicalDevicePresentRectanglesKHX: PFN_vkGetPhysicalDevicePresentRectanglesKHX,
+});
+
+#[cfg(feature = "khx_device_group_creation_1")]
+addr_proc_struct!(KHX_device_group_creation {
+    pfn vkEnumeratePhysicalDeviceGroupsKHX: PFN_vkEnumeratePhysicalDeviceGroupsKHX,
 });
