@@ -1,5 +1,9 @@
 # vk-sys Changelog
 
+## Current Git Master Branch
+
+ * Vulkan 1.0.41
+
 ## Version 0.9.0, released on 01.04.2017
 
  * Vulkan 1.0.36, 1.0.37, 1.0.38, 1.0.39, 1.0.40

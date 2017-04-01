@@ -14,7 +14,9 @@ license = "ISC"
 gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 
 [features]
-default = [ "vk_1_0_40" ]
+default = [ "vk_1_0_41" ]
+
+vk_1_0_41 = [ "vk_1_0_40", "core_1_0_41" ]
 
 vk_1_0_40 = [ "vk_1_0_39", "core_1_0_40", "ext_debug_marker_4", "ext_debug_report_5" ]
 
@@ -102,7 +104,8 @@ vk_1_0_3 = [ "core_1_0_3", "khr_surface_25", "khr_swapchain_67", "khr_display_21
              "khr_wayland_surface_5", "khr_mir_surface_4", "khr_android_surface_6",
              "khr_win32_surface_5", "ext_debug_report_1" ]
 
-core = [ "core_1_0_40" ]
+core = [ "core_1_0_41" ]
+core_1_0_41 = [ "core_1_0_40" ]
 core_1_0_40 = [ "core_1_0_39" ]
 core_1_0_39 = [ "core_1_0_38" ]
 core_1_0_38 = [ "core_1_0_37" ]
