@@ -10,6 +10,7 @@
  * Add extension `VK_KHX_multiview` (revision 1)
  * Add extension `VK_KHX_device_group` (revision 1)
  * Add extension `VK_KHX_device_group_creation` (revision 1)
+ * Add extension `VK_KHX_external_memory_capabilities` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 

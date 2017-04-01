@@ -163,6 +163,7 @@ gen_instance_proc_addr_loader!(
     "khr_descriptor_update_template_1" => khr_descriptor_update_template: KHR_descriptor_update_template [fn load_khr_descriptor_update_template],
     "khx_device_group_1" => khx_device_group: KHX_device_group [fn load_khx_device_group],
     "khx_device_group_creation_1" => khx_device_group_creation: KHX_device_group_creation [fn load_khx_device_group_creation],
+    "khx_external_memory_capabilities_1" => khx_external_memory_capabilities: KHX_external_memory_capabilities [fn load_khx_external_memory_capabilities],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -486,4 +487,9 @@ addr_proc_struct!(KHX_device_group {
 #[cfg(feature = "khx_device_group_creation_1")]
 addr_proc_struct!(KHX_device_group_creation {
     pfn vkEnumeratePhysicalDeviceGroupsKHX: PFN_vkEnumeratePhysicalDeviceGroupsKHX,
+});
+
+#[cfg(feature = "khx_external_memory_capabilities_1")]
+addr_proc_struct!(KHX_external_memory_capabilities {
+    pfn vkGetPhysicalDeviceExternalBufferPropertiesKHX: PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHX,
 });

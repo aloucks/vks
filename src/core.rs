@@ -398,6 +398,21 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khx_device_group_creation_1")]
     const VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX = 1000070001,
 
+    #[cfg(feature = "khx_external_memory_capabilities_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHX = 1000071000,
+
+    #[cfg(feature = "khx_external_memory_capabilities_1")]
+    const VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHX = 1000071001,
+
+    #[cfg(feature = "khx_external_memory_capabilities_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHX = 1000071002,
+
+    #[cfg(feature = "khx_external_memory_capabilities_1")]
+    const VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHX = 1000071003,
+
+    #[cfg(feature = "khx_external_memory_capabilities_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX = 1000071004,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 

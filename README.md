@@ -149,6 +149,7 @@ Every version in between is supported as well.
 | --- | --- |
 | `VK_KHX_device_group_creation` | 1 |
 | `VK_KHX_device_group` | 1 |
+| `VK_KHX_external_memory_capabilities` | 1 |
 | `VK_KHX_multiview` | 1 |
 
 ## License
