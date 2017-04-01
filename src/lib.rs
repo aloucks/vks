@@ -155,6 +155,8 @@ mod cenum;
 #[cfg(feature = "nv_sample_mask_override_coverage_1")] pub use nv_sample_mask_override_coverage::*;
 #[cfg(feature = "nv_viewport_array2_1")] mod nv_viewport_array2;
 #[cfg(feature = "nv_viewport_array2_1")] pub use nv_viewport_array2::*;
+#[cfg(feature = "nv_viewport_swizzle_1")] mod nv_viewport_swizzle;
+#[cfg(feature = "nv_viewport_swizzle_1")] pub use nv_viewport_swizzle::*;
 #[cfg(feature = "nv_win32_keyed_mutex_1")] mod nv_win32_keyed_mutex;
 #[cfg(feature = "nv_win32_keyed_mutex_1")] pub use nv_win32_keyed_mutex::*;
 #[cfg(feature = "nvx_device_generated_commands_1")] mod nvx_device_generated_commands;

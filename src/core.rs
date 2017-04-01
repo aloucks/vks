@@ -508,6 +508,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "nvx_multiview_per_view_attributes_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX = 1000097000,
+
+    #[cfg(feature = "nv_viewport_swizzle_1")]
+    const VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
