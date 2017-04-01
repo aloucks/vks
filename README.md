@@ -167,6 +167,12 @@ Every version in between is supported as well.
 | `VK_KHX_multiview` | 1 |
 | `VK_KHX_win32_keyed_mutex` | 1 |
 
+### `MVK` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_MVK_ios_surface` | 2 |
+
 ## License
 
 vk-sys is licensed under the ISC license:

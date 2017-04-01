@@ -517,6 +517,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "ext_discard_rectangles_1")]
     const VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT = 1000099001,
+
+    #[cfg(feature = "mvk_ios_surface_2")]
+    const VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK = 1000122000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
