@@ -361,6 +361,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "nvx_device_generated_commands_1")]
     const VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_FEATURES_NVX = 1000086005,
+
+    #[cfg(feature = "ext_display_surface_counter_1")]
+    const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT = 1000090000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {

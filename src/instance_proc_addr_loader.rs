@@ -157,6 +157,7 @@ gen_instance_proc_addr_loader!(
     "nn_vi_surface_1" => nn_vi_surface: NN_vi_surface [fn load_nn_vi_surface],
     "ext_direct_mode_display_1" => ext_direct_mode_display: EXT_direct_mode_display [fn load_ext_direct_mode_display],
     "ext_acquire_xlib_display_1" => ext_acquire_xlib_display: EXT_acquire_xlib_display [fn load_ext_acquire_xlib_display],
+    "ext_display_surface_counter_1" => ext_display_surface_counter: EXT_display_surface_counter [fn load_ext_display_surface_counter],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -436,4 +437,9 @@ addr_proc_struct!(EXT_direct_mode_display {
 addr_proc_struct!(EXT_acquire_xlib_display {
     pfn vkAcquireXlibDisplayEXT: PFN_vkAcquireXlibDisplayEXT,
     pfn vkGetRandROutputDisplayEXT: PFN_vkGetRandROutputDisplayEXT,
+});
+
+#[cfg(feature = "ext_display_surface_counter_1")]
+addr_proc_struct!(EXT_display_surface_counter {
+    pfn vkGetPhysicalDeviceSurfaceCapabilities2EXT: PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT,
 });
