@@ -55,6 +55,8 @@ mod cenum;
 #[cfg(feature = "ext_debug_marker_3")] pub use ext_debug_marker::*;
 #[cfg(feature = "ext_debug_report_1")] mod ext_debug_report;
 #[cfg(feature = "ext_debug_report_1")] pub use ext_debug_report::*;
+#[cfg(feature = "ext_direct_mode_display_1")] mod ext_direct_mode_display;
+#[cfg(feature = "ext_direct_mode_display_1")] pub use ext_direct_mode_display::*;
 #[cfg(feature = "ext_shader_subgroup_ballot_1")] mod ext_shader_subgroup_ballot;
 #[cfg(feature = "ext_shader_subgroup_ballot_1")] pub use ext_shader_subgroup_ballot::*;
 #[cfg(feature = "ext_shader_subgroup_vote_1")] mod ext_shader_subgroup_vote;

@@ -155,6 +155,7 @@ gen_instance_proc_addr_loader!(
     "khr_get_physical_device_properties2_1" => khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
     "khr_maintenance1_1" => khr_maintenance1: KHR_maintenance1 [fn load_khr_maintenance1],
     "nn_vi_surface_1" => nn_vi_surface: NN_vi_surface [fn load_nn_vi_surface],
+    "ext_direct_mode_display_1" => ext_direct_mode_display: EXT_direct_mode_display [fn load_ext_direct_mode_display],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -423,4 +424,9 @@ addr_proc_struct!(KHR_maintenance1 {
 #[cfg(feature = "nn_vi_surface_1")]
 addr_proc_struct!(NN_vi_surface {
     pfn vkCreateViSurfaceNN: PFN_vkCreateViSurfaceNN,
+});
+
+#[cfg(feature = "ext_direct_mode_display_1")]
+addr_proc_struct!(EXT_direct_mode_display {
+    pfn vkReleaseDisplayEXT: PFN_vkReleaseDisplayEXT,
 });
