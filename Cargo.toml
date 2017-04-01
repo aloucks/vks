@@ -14,7 +14,7 @@ license = "ISC"
 gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 
 [features]
-default = [ "vk_1_0_38" ]
+default = [ "vk_1_0_39" ]
 
 vk_1_0_39 = [ "vk_1_0_38", "core_1_0_39", "khr_get_physical_device_properties2_1",
               "khr_shader_draw_parameters_1", "khr_maintenance1_1", "nn_vi_surface_1",
