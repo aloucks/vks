@@ -158,6 +158,7 @@ gen_instance_proc_addr_loader!(
     "ext_direct_mode_display_1" => ext_direct_mode_display: EXT_direct_mode_display [fn load_ext_direct_mode_display],
     "ext_acquire_xlib_display_1" => ext_acquire_xlib_display: EXT_acquire_xlib_display [fn load_ext_acquire_xlib_display],
     "ext_display_surface_counter_1" => ext_display_surface_counter: EXT_display_surface_counter [fn load_ext_display_surface_counter],
+    "ext_display_control_1" => ext_display_control: EXT_display_control [fn load_ext_display_control],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -442,4 +443,12 @@ addr_proc_struct!(EXT_acquire_xlib_display {
 #[cfg(feature = "ext_display_surface_counter_1")]
 addr_proc_struct!(EXT_display_surface_counter {
     pfn vkGetPhysicalDeviceSurfaceCapabilities2EXT: PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT,
+});
+
+#[cfg(feature = "ext_display_control_1")]
+addr_proc_struct!(EXT_display_control {
+    pfn vkDisplayPowerControlEXT: PFN_vkDisplayPowerControlEXT,
+    pfn vkRegisterDeviceEventEXT: PFN_vkRegisterDeviceEventEXT,
+    pfn vkRegisterDisplayEventEXT: PFN_vkRegisterDisplayEventEXT,
+    pfn vkGetSwapchainCounterEXT: PFN_vkGetSwapchainCounterEXT,
 });

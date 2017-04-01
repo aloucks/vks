@@ -20,7 +20,7 @@ vk_1_0_39 = [ "vk_1_0_38", "core_1_0_39", "khr_get_physical_device_properties2_1
               "khr_shader_draw_parameters_1", "khr_maintenance1_1", "nn_vi_surface_1",
               "ext_shader_subgroup_ballot_1", "ext_shader_subgroup_vote_1",
               "ext_direct_mode_display_1", "ext_acquire_xlib_display_1",
-              "ext_display_surface_counter_1" ]
+              "ext_display_surface_counter_1", "ext_display_control_1" ]
 
 vk_1_0_38 = [ "vk_1_0_37", "core_1_0_38" ]
 
@@ -264,6 +264,10 @@ ext_acquire_xlib_display_1 = [ "core_1_0_3", "khr_display_21", "ext_direct_mode_
 
 ext_display_surface_counter = [ "ext_display_surface_counter_1" ]
 ext_display_surface_counter_1 = [ "core_1_0_3", "khr_display_21" ]
+
+ext_display_control = [ "ext_display_control_1" ]
+ext_display_control_1 = [ "core_1_0_3", "khr_display_21", "ext_display_surface_counter_1",
+                          "khr_swapchain_67" ]
 
 [dependencies]
 libc = "0.2.21"

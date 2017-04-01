@@ -364,6 +364,18 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "ext_display_surface_counter_1")]
     const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT = 1000090000,
+
+    #[cfg(feature = "ext_display_control_1")]
+    const VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT = 1000091000,
+
+    #[cfg(feature = "ext_display_control_1")]
+    const VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT = 1000091001,
+
+    #[cfg(feature = "ext_display_control_1")]
+    const VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT = 1000091002,
+
+    #[cfg(feature = "ext_display_control_1")]
+    const VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT = 1000091003,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
