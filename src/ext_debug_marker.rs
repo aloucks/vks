@@ -15,7 +15,12 @@
 use ::*;
 use libc::{c_char, c_void};
 
+#[cfg(feature = "ext_debug_marker_4")]
+pub const VK_EXT_DEBUG_MARKER_SPEC_VERSION: u32 = 4;
+
+#[cfg(all(feature = "ext_debug_marker_3", not(feature = "ext_debug_marker_4")))]
 pub const VK_EXT_DEBUG_MARKER_SPEC_VERSION: u32 = 3;
+
 pub const VK_EXT_DEBUG_MARKER_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_debug_marker\x00";
 pub const VK_EXT_DEBUG_MARKER_EXTENSION_NAME_STR: &'static str = "VK_EXT_debug_marker";
 

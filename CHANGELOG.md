@@ -14,6 +14,7 @@
  * Add extension `VK_EXT_acquire_xlib_display` (revision 1)
  * Add extension `VK_EXT_display_surface_counter` (revision 1)
  * Add extension `VK_EXT_display_control` (revision 1)
+ * Support revision 4 of `VK_EXT_debug_marker`
 
 ## Version 0.8.2, released on 30.03.2017
 
