@@ -125,6 +125,8 @@ mod cenum;
 #[cfg(feature = "khx_external_memory_win32_1")] pub use khx_external_memory_win32::*;
 #[cfg(feature = "khx_multiview_1")] mod khx_multiview;
 #[cfg(feature = "khx_multiview_1")] pub use khx_multiview::*;
+#[cfg(feature = "khx_win32_keyed_mutex_1")] mod khx_win32_keyed_mutex;
+#[cfg(feature = "khx_win32_keyed_mutex_1")] pub use khx_win32_keyed_mutex::*;
 #[cfg(feature = "nn_vi_surface_1")] mod nn_vi_surface;
 #[cfg(feature = "nn_vi_surface_1")] pub use nn_vi_surface::*;
 #[cfg(feature = "nv_dedicated_allocation_1")] mod nv_dedicated_allocation;

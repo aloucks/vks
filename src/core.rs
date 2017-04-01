@@ -440,6 +440,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khx_external_memory_fd_1")]
     const VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHX = 1000074001,
 
+    #[cfg(feature = "khx_win32_keyed_mutex_1")]
+    const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHX = 1000075000,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 

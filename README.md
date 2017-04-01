@@ -154,6 +154,7 @@ Every version in between is supported as well.
 | `VK_KHX_external_memory_win32` | 1 |
 | `VK_KHX_external_memory` | 1 |
 | `VK_KHX_multiview` | 1 |
+| `VK_KHX_win32_keyed_mutex` | 1 |
 
 ## License
 
