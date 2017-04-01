@@ -22,7 +22,7 @@
 
 extern crate libc;
 
-#[macro_use]
+#[cfg_attr(feature = "core_1_0_3", macro_use)]
 extern crate bitflags;
 
 #[macro_use]
