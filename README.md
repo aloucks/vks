@@ -14,181 +14,41 @@ For the time being, vk-sys requires a nightly version of the Rust compiler, beca
 vk-sys supports very fine grained compile-time configuration via Cargo features. The version of the
 core specification and the revision for each extension can be selected individually. Dependencies
 between available features are modelled as well. This means, selecting nothing but a single
-extension revision (i.e. via `cargo build --no-default-extensions --features khr_wayland_surface_5`)
+extension revision (i.e. via `cargo build --no-default-features --features khr_wayland_surface_5`)
 will still pull in the lowest core specification, that supported that extension (i.e. `core_1_0_3`),
 as well as possibly other dependencies (i.e. `khr_surface_25`).
 
 The `default` feature will always select the latest fully supported core Vulkan specification as
-well as all extensions, that are supported and have been defined up to that point.
+well as all extensions, that are supported and have been defined up to that point. Basically,
+`default` will select everything, except for features, which are incomplete and still in
+development.
 
 ### `vk_*` Features
 
-All of these features select all extensions, that where defined up that point.
-
-| Feature | Description |
-| --- | --- |
-| `vk_1_0_39` | Vulkan 1.0.39 + all extensions |
-| `vk_1_0_38` | Vulkan 1.0.38 + all extensions |
-| `vk_1_0_37` | Vulkan 1.0.37 + all extensions |
-| `vk_1_0_36` | Vulkan 1.0.36 + all extensions |
-| `vk_1_0_35` | Vulkan 1.0.35 + all extensions |
-| `vk_1_0_34` | Vulkan 1.0.34 + all extensions |
-| `vk_1_0_33` | Vulkan 1.0.33 + all extensions |
-| `vk_1_0_32` | Vulkan 1.0.32 + all extensions |
-| `vk_1_0_31` | Vulkan 1.0.31 + all extensions |
-| `vk_1_0_30` | Vulkan 1.0.30 + all extensions |
-| `vk_1_0_29` | Vulkan 1.0.29 + all extensions |
-| `vk_1_0_28` | Vulkan 1.0.28 + all extensions |
-| `vk_1_0_27` | Vulkan 1.0.27 + all extensions |
-| `vk_1_0_26` | Vulkan 1.0.26 + all extensions |
-| `vk_1_0_25` | Vulkan 1.0.25 + all extensions |
-| `vk_1_0_24` | Vulkan 1.0.24 + all extensions |
-| `vk_1_0_23` | Vulkan 1.0.23 + all extensions |
-| `vk_1_0_22` | Vulkan 1.0.22 + all extensions |
-| `vk_1_0_21` | Vulkan 1.0.21 + all extensions |
-| `vk_1_0_20` | Vulkan 1.0.20 + all extensions |
-| `vk_1_0_19` | Vulkan 1.0.19 + all extensions |
-| `vk_1_0_18` | Vulkan 1.0.18 + all extensions |
-| `vk_1_0_17` | Vulkan 1.0.17 + all extensions |
-| `vk_1_0_16` | Vulkan 1.0.16 + all extensions |
-| `vk_1_0_15` | Vulkan 1.0.15 + all extensions |
-| `vk_1_0_14` | Vulkan 1.0.14 + all extensions |
-| `vk_1_0_13` | Vulkan 1.0.13 + all extensions |
-| `vk_1_0_12` | Vulkan 1.0.12 + all extensions |
-| `vk_1_0_11` | Vulkan 1.0.11 + all extensions |
-| `vk_1_0_10` | Vulkan 1.0.10 + all extensions |
-| `vk_1_0_9` | Vulkan 1.0.9 + all extensions |
-| `vk_1_0_8` | Vulkan 1.0.8 + all extensions |
-| `vk_1_0_7` | Vulkan 1.0.7 + all extensions |
-| `vk_1_0_6` | Vulkan 1.0.6 + all extensions |
-| `vk_1_0_5` | Vulkan 1.0.5 + all extensions |
-| `vk_1_0_4` | Vulkan 1.0.4 + all extensions |
-| `vk_1_0_3` | Vulkan 1.0.3 + all extensions |
+All of these features select a specific core specification as well as all extensions, that were
+defined up that point. Features in this category have the form `vk_a_b_c`, where `a`, `b`, and `c`
+refer to the Vulkan specification. For example, `vk_1_0_32` will select the core Vulkan 1.0.32
+specification and all extensions, that existed at that point. The earliest version that can be
+selected is 1.0.3 (via `vk_1_0_3`). The most recent version is selected by the `default` feature.
 
 ### `core_*` Features
 
-These features do not select any extensions.
-
-| Feature | Description |
-| --- | --- |
-| `core` | Latest supported Vulkan specification |
-| `core_1_0_39` | Vulkan 1.0.39 |
-| `core_1_0_38` | Vulkan 1.0.38 |
-| `core_1_0_37` | Vulkan 1.0.37 |
-| `core_1_0_36` | Vulkan 1.0.36 |
-| `core_1_0_35` | Vulkan 1.0.35 |
-| `core_1_0_34` | Vulkan 1.0.34 |
-| `core_1_0_33` | Vulkan 1.0.33 |
-| `core_1_0_32` | Vulkan 1.0.32 |
-| `core_1_0_31` | Vulkan 1.0.31 |
-| `core_1_0_30` | Vulkan 1.0.30 |
-| `core_1_0_29` | Vulkan 1.0.29 |
-| `core_1_0_28` | Vulkan 1.0.28 |
-| `core_1_0_27` | Vulkan 1.0.27 |
-| `core_1_0_26` | Vulkan 1.0.26 |
-| `core_1_0_25` | Vulkan 1.0.25 |
-| `core_1_0_24` | Vulkan 1.0.24 |
-| `core_1_0_23` | Vulkan 1.0.23 |
-| `core_1_0_22` | Vulkan 1.0.22 |
-| `core_1_0_21` | Vulkan 1.0.21 |
-| `core_1_0_20` | Vulkan 1.0.20 |
-| `core_1_0_19` | Vulkan 1.0.19 |
-| `core_1_0_18` | Vulkan 1.0.18 |
-| `core_1_0_17` | Vulkan 1.0.17 |
-| `core_1_0_16` | Vulkan 1.0.16 |
-| `core_1_0_15` | Vulkan 1.0.15 |
-| `core_1_0_14` | Vulkan 1.0.14 |
-| `core_1_0_13` | Vulkan 1.0.13 |
-| `core_1_0_12` | Vulkan 1.0.12 |
-| `core_1_0_11` | Vulkan 1.0.11 |
-| `core_1_0_9` | Vulkan 1.0.9 |
-| `core_1_0_8` | Vulkan 1.0.8 |
-| `core_1_0_7` | Vulkan 1.0.7 |
-| `core_1_0_6` | Vulkan 1.0.6 |
-| `core_1_0_5` | Vulkan 1.0.5 |
-| `core_1_0_4` | Vulkan 1.0.4 |
-| `core_1_0_3` | Vulkan 1.0.3 |
+These features select only the core specification without any extensions. They have the same form
+and range of valid versions as the `vk_*` features, except for the `core_` prefix. The earliest
+version that can be selected is 1.0.3 (via `core_1_0_3`). The most recent version is selected by the
+`core` feature.
 
 ### Extension Features
-All of these features will (at least) select the lowest required Vulkan specification and possibly
-other dependencies.
 
-| Feature | Description |
-| --- | --- |
-| `amd_draw_indirect_count_1` | `VK_AMD_draw_indirect_count` revision 1 |
-| `amd_draw_indirect_count` | Latest `VK_AMD_draw_indirect_count` revision |
-| `amd_gcn_shader_1` | `VK_AMD_gcn_shader` revision 1 |
-| `amd_gcn_shader` | Latest `VK_AMD_gcn_shader` revision |
-| `amd_gpu_shader_half_float_1` | `VK_AMD_gpu_shader_half_float` revision 1 |
-| `amd_gpu_shader_half_float` | Latest `VK_AMD_gpu_shader_half_float` revision |
-| `amd_negative_viewport_height_1` | `VK_AMD_negative_viewport_height` revision 1 |
-| `amd_negative_viewport_height` | Latest `VK_AMD_negative_viewport_height` revision |
-| `amd_rasterization_order_1` | `VK_AMD_rasterization_order` revision 1 |
-| `amd_rasterization_order` | Latest `VK_AMD_rasterization_order` revision |
-| `amd_shader_ballot_1` | Latest `VK_AMD_shader_ballot` revision |
-| `amd_shader_ballot` | `VK_AMD_shader_ballot` revision 1 |
-| `amd_shader_explicit_vertex_parameter_1` | `VK_AMD_shader_explicit_vertex_parameter` revision 1 |
-| `amd_shader_explicit_vertex_parameter` | Latest `VK_AMD_shader_explicit_vertex_parameter` revision |
-| `amd_shader_trinary_minmax_1` | `VK_AMD_shader_trinary_minmax` revision 1 |
-| `amd_shader_trinary_minmax` | Latest `VK_AMD_shader_trinary_minmax` revision |
-| `ext_debug_marker_3` | `VK_EXT_debug_marker` revision 3 |
-| `ext_debug_marker` | Latest `VK_EXT_debug_marker` revision |
-| `ext_debug_report_1` | `VK_EXT_debug_report` revision 1 |
-| `ext_debug_report_2` | `VK_EXT_debug_report` revision 2 |
-| `ext_debug_report_3` | `VK_EXT_debug_report` revision 3 |
-| `ext_debug_report_4` | `VK_EXT_debug_report` revision 4 |
-| `ext_debug_report` | Latest `VK_EXT_debug_report` revision |
-| `ext_validation_flags_1` | `VK_EXT_validation_flags` revision 1 |
-| `ext_validation_flags` | Latest `VK_EXT_validation_flags` revision |
-| `img_filter_cubic_1` | `VK_IMG_filter_cubic` revision 1 |
-| `img_filter_cubic` | Latest `VK_IMG_filter_cubic` revision |
-| `img_format_pvrtc_1` | `VK_IMG_format_pvrtc` revision 1 |
-| `img_format_pvrtc` | Latest `VK_IMG_format_pvrtc` revision |
-| `khr_android_surface_6` | `VK_KHR_android_surface` revision 6 |
-| `khr_android_surface` | Latest `VK_KHR_android_surface` revision |
-| `khr_display_21` | `VK_KHR_display` revision 21 |
-| `khr_display_swapchain_9` | `VK_KHR_display_swapchain` revision 9 |
-| `khr_display_swapchain` | Latest `VK_KHR_display_swapchain` revision |
-| `khr_display` | Latest `VK_KHR_display` revision |
-| `khr_get_physical_device_properties2_1` | `VK_KHR_get_physical_device_properties2` revision 1 |
-| `khr_get_physical_device_properties2` | Latest `VK_KHR_get_physical_device_properties2` revision |
-| `khr_maintenance1_1` | `VK_KHR_maintenance1` revision 1 |
-| `khr_maintenance1` | Latest `VK_KHR_maintenance1` revision |
-| `khr_mir_surface_4` | `VK_KHR_mir_surface` revision 4 |
-| `khr_mir_surface` | Latest `VK_KHR_mir_surface` revision |
-| `khr_sampler_mirror_clamp_to_edge_1` | `VK_KHR_sampler_mirror_clamp_to_edge` revision 1 |
-| `khr_sampler_mirror_clamp_to_edge` | Latest `VK_KHR_sampler_mirror_clamp_to_edge` revision |
-| `khr_shader_draw_parameters_1` | `VK_KHR_shader_draw_parameters` revision 1 |
-| `khr_shader_draw_parameters` | Latest `VK_KHR_shader_draw_parameters` revision |
-| `khr_surface_25` | `VK_KHR_surface` revision 25 |
-| `khr_surface` | Latest `VK_KHR_surface` revision |
-| `khr_swapchain_67` | `VK_KHR_swapchain` revision 67 |
-| `khr_swapchain_68` | `VK_KHR_swapchain` revision 68 |
-| `khr_swapchain` | Latest `VK_KHR_surface` revision |
-| `khr_wayland_surface_5` | `VK_KHR_wayland_s` revision 5 |
-| `khr_wayland_surface` | Latest `VK_KHR_wayland_surface` revision |
-| `khr_win32_surface_5` | `VK_KHR_win32_surface` revision 5 |
-| `khr_win32_surface` | Latest `VK_KHR_win32_surface` revision |
-| `khr_xcb_surface_6` | `VK_KHR_xcb_surface` revision 6 |
-| `khr_xcb_surface` | Latest `VK_KHR_xcb_surface` revision |
-| `khr_xlib_surface_6` | `VK_KHR_xlib_surface` revision 6 |
-| `khr_xlib_surface` | Latest `VK_KHR_xlib_surface` revision |
-| `nn_vi_surface_1` | `VK_NN_vi_surface` revision 1 |
-| `nn_vi_surface` | Latest `VK_NN_vi_surface` revision |
-| `nv_dedicated_allocation_1` | `VK_NV_dedicated_allocation` revision 1 |
-| `nv_dedicated_allocation` | Latest `VK_NV_dedicated_allocation` revision |
-| `nv_external_memory_capabilities_1` | `VK_NV_external_memory_capabilities` revision 1 |
-| `nv_external_memory_capabilities` | Latest `VK_NV_external_memory_capabilities` revision |
-| `nv_external_memory_win32_1` | `VK_NV_external_memory_win32` revision 1 |
-| `nv_external_memory_win32` | Latest `VK_NV_external_memory_win32` revision |
-| `nv_external_memory` | Latest `VK_NV_external_memory` revision |
-| `nv_external_memory` | `VK_NV_external_memory` revision 1 |
-| `nv_glsl_shader_1` | `VK_NV_glsl_shader` revision 1 |
-| `nv_glsl_shader` | Latest `VK_NV_glsl_shader` revision |
-| `nv_win32_keyed_mutex_1` | `VK_NV_win32_keyed_mutex` revision 1 |
-| `nv_win32_keyed_mutex` | Latest `VK_NV_win32_keyed_mutex` revision |
-| `nvx_device_generated_commands_1` | `VK_NVX_device_generated_commands` revision 1 |
-| `nvx_device_generated_commands` | Latest `VK_NVX_device_generated_commands` revision |
+Every extension maps to a Cargo feature by removing the `VK_` prefix from its lowercase name. For
+example, the feature `amd_negative_viewport_height` corresponds to the extension
+`VK_AMD_negative_viewport_height`. Features that are formed this way, will always select the most recent
+extension revision, as well as the lowest compatible core specification (usually 1.0.3 via
+`core_1_0_3`) and possibly other dependencies.
+
+Specific revisions can be selected by appending `_x` to the feature, where `x` is the desired
+revision. For example, `ext_debug_report_3` selects revision 3 of `VK_EXT_debug_report`, instead of
+the newest revision.
 
 ## Loader
 
@@ -198,43 +58,10 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
- * 1.0.39
- * 1.0.38
- * 1.0.37
- * 1.0.36
- * 1.0.35
- * 1.0.34
- * 1.0.33
- * 1.0.32
- * 1.0.31
- * 1.0.30
- * 1.0.29
- * 1.0.28
- * 1.0.27
- * 1.0.26
- * 1.0.25
- * 1.0.24
- * 1.0.23
- * 1.0.22
- * 1.0.21
- * 1.0.20
- * 1.0.19
- * 1.0.18
- * 1.0.17
- * 1.0.16
- * 1.0.15
- * 1.0.14
- * 1.0.13
- * 1.0.12
- * 1.0.11
- * 1.0.10
- * 1.0.9
- * 1.0.8
- * 1.0.7
- * 1.0.6
- * 1.0.5
- * 1.0.4
- * 1.0.3
+ * Latest: 1.0.39
+ * Earliest: 1.0.3
+
+Every version in between is supported as well.
 
 ## Supported Extensions
 
