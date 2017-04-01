@@ -147,6 +147,8 @@ mod cenum;
 #[cfg(feature = "nv_external_memory_capabilities_1")] pub use nv_external_memory_capabilities::*;
 #[cfg(feature = "nv_external_memory_win32_1")] mod nv_external_memory_win32;
 #[cfg(feature = "nv_external_memory_win32_1")] pub use nv_external_memory_win32::*;
+#[cfg(feature = "nv_geometry_shader_passthrough_1")] mod nv_geometry_shader_passthrough;
+#[cfg(feature = "nv_geometry_shader_passthrough_1")] pub use nv_geometry_shader_passthrough::*;
 #[cfg(feature = "nv_glsl_shader_1")] mod nv_glsl_shader;
 #[cfg(feature = "nv_glsl_shader_1")] pub use nv_glsl_shader::*;
 #[cfg(feature = "nv_sample_mask_override_coverage_1")] mod nv_sample_mask_override_coverage;
