@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.9.0, released on 01.04.2017
 
  * Vulkan 1.0.36, 1.0.37, 1.0.38, 1.0.39, 1.0.40
  * Support revision 4 of `VK_EXT_debug_report`
