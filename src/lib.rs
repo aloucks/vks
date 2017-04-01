@@ -262,6 +262,12 @@ mod ext_shader_subgroup_ballot;
 #[cfg(feature = "ext_shader_subgroup_ballot_1")]
 pub use ext_shader_subgroup_ballot::*;
 
+#[cfg(feature = "ext_shader_subgroup_vote_1")]
+mod ext_shader_subgroup_vote;
+
+#[cfg(feature = "ext_shader_subgroup_vote_1")]
+pub use ext_shader_subgroup_vote::*;
+
 #[cfg(feature = "khr_xlib_surface_6")]
 pub mod xlib_wrapper;
 

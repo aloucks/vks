@@ -9,6 +9,7 @@
  * Add extension `VK_KHR_maintenance1` (revision 1)
  * Add extension `VK_NN_vi_surface` (revision 1)
  * Add extension `VK_EXT_shader_subgroup_ballot` (revision 1)
+ * Add extension `VK_EXT_shader_subgroup_vote` (revision 1)
 
 ## Version 0.8.2, released on 30.03.2017
 
