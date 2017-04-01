@@ -70,6 +70,7 @@ Every version in between is supported as well.
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_KHR_android_surface` | 6 |
+| `VK_KHR_descriptor_update_template` | 1 |
 | `VK_KHR_display_swapchain` | 9 |
 | `VK_KHR_display` | 21 |
 | `VK_KHR_get_physical_device_properties2` | 1 |

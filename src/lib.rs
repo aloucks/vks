@@ -76,6 +76,8 @@ mod cenum;
 #[cfg(feature = "khr_android_surface_6")] mod khr_android_surface;
 #[cfg(feature = "khr_android_surface_6")] pub mod android_wrapper;
 #[cfg(feature = "khr_android_surface_6")] pub use khr_android_surface::*;
+#[cfg(feature = "khr_descriptor_update_template_1")] mod khr_descriptor_update_template;
+#[cfg(feature = "khr_descriptor_update_template_1")] pub use khr_descriptor_update_template::*;
 #[cfg(feature = "khr_display_21")] mod khr_display;
 #[cfg(feature = "khr_display_21")] pub use khr_display::*;
 #[cfg(feature = "khr_display_swapchain_9")] mod khr_display_swapchain;

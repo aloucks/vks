@@ -6,6 +6,7 @@
  * The parameters `x`, `y`, and `z` of `vkCmdDispatch` have been renamed to `groupCountX`,
    `groupCountY`, and `groupCountZ`.
  * Add extension `VK_KHR_push_descriptor` (revision 1)
+ * Add extension `VK_KHR_descriptor_update_template` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 
