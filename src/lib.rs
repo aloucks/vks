@@ -115,6 +115,8 @@ mod cenum;
 #[cfg(feature = "khx_device_group_1")] pub use khx_device_group::*;
 #[cfg(feature = "khx_device_group_creation_1")] mod khx_device_group_creation;
 #[cfg(feature = "khx_device_group_creation_1")] pub use khx_device_group_creation::*;
+#[cfg(feature = "khx_external_memory_1")] mod khx_external_memory;
+#[cfg(feature = "khx_external_memory_1")] pub use khx_external_memory::*;
 #[cfg(feature = "khx_external_memory_capabilities_1")] mod khx_external_memory_capabilities;
 #[cfg(feature = "khx_external_memory_capabilities_1")] pub use khx_external_memory_capabilities::*;
 #[cfg(feature = "khx_multiview_1")] mod khx_multiview;

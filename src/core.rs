@@ -183,6 +183,9 @@ cenum!(VkResult: i32 {
 
     #[cfg(feature = "khr_maintenance1_1")]
     const VK_ERROR_OUT_OF_POOL_MEMORY_KHR = -1000069000,
+
+    #[cfg(feature = "khx_external_memory_1")]
+    const VK_ERROR_INVALID_EXTERNAL_HANDLE_KHX = -1000072003,
 });
 
 cenum!(VkStructureType: u32 {
@@ -412,6 +415,15 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "khx_external_memory_capabilities_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX = 1000071004,
+
+    #[cfg(feature = "khx_external_memory_1")]
+    const VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX = 1000072000,
+
+    #[cfg(feature = "khx_external_memory_1")]
+    const VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX = 1000072001,
+
+    #[cfg(feature = "khx_external_memory_1")]
+    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX = 1000072002,
 
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
