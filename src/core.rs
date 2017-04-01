@@ -520,6 +520,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "mvk_ios_surface_2")]
     const VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK = 1000122000,
+
+    #[cfg(feature = "mvk_macos_surface_2")]
+    const VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK = 1000123000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {

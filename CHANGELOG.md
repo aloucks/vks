@@ -27,6 +27,7 @@
  * Add extension `VK_NV_viewport_swizzle` (revision 1)
  * Add extension `VK_EXT_discard_rectangles` (revision 1)
  * Add extension `VK_MVK_ios_surface` (revision 2)
+ * Add extension `VK_MVK_macos_surface` (revision 2)
 
 ## Version 0.9.0, released on 01.04.2017
 

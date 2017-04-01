@@ -139,6 +139,8 @@ mod cenum;
 #[cfg(feature = "khx_win32_keyed_mutex_1")] pub use khx_win32_keyed_mutex::*;
 #[cfg(feature = "mvk_ios_surface_2")] mod mvk_ios_surface;
 #[cfg(feature = "mvk_ios_surface_2")] pub use mvk_ios_surface::*;
+#[cfg(feature = "mvk_macos_surface_2")] mod mvk_macos_surface;
+#[cfg(feature = "mvk_macos_surface_2")] pub use mvk_macos_surface::*;
 #[cfg(feature = "nn_vi_surface_1")] mod nn_vi_surface;
 #[cfg(feature = "nn_vi_surface_1")] pub use nn_vi_surface::*;
 #[cfg(feature = "nv_clip_space_w_scaling_1")] mod nv_clip_space_w_scaling;

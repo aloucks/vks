@@ -172,6 +172,7 @@ gen_instance_proc_addr_loader!(
     "nv_clip_space_w_scaling_1" => nv_clip_space_w_scaling: NV_clip_space_w_scaling [fn load_nv_clip_space_w_scaling],
     "ext_discard_rectangles_1" => ext_discard_rectangles: EXT_discard_rectangles [fn load_ext_discard_rectangles],
     "mvk_ios_surface_2" => mvk_ios_surface: MVK_ios_surface [fn load_mvk_ios_surface],
+    "mvk_macos_surface_2" => mvk_macos_surface: MVK_macos_surface [fn load_mvk_macos_surface],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -544,4 +545,9 @@ addr_proc_struct!(EXT_discard_rectangles {
 #[cfg(feature = "mvk_ios_surface_2")]
 addr_proc_struct!(MVK_ios_surface {
     pfn vkCreateIOSSurfaceMVK: PFN_vkCreateIOSSurfaceMVK,
+});
+
+#[cfg(feature = "mvk_macos_surface_2")]
+addr_proc_struct!(MVK_macos_surface {
+    pfn vkCreateMacOSSurfaceMVK: PFN_vkCreateMacOSSurfaceMVK,
 });

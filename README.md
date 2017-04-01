@@ -172,6 +172,7 @@ Every version in between is supported as well.
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_MVK_ios_surface` | 2 |
+| `VK_MVK_macos_surface` | 2 |
 
 ## License
 

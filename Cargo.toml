@@ -25,7 +25,8 @@ vk_1_0_42 = [ "vk_1_0_41", "core_1_0_42", "khr_push_descriptor_1",
               "khx_external_semaphore_fd_1", "nv_clip_space_w_scaling_1",
               "nv_sample_mask_override_coverage_1", "nv_geometry_shader_passthrough_1",
               "nv_viewport_array2_1", "nvx_multiview_per_view_attributes_1",
-              "nv_viewport_swizzle_1", "ext_discard_rectangles_1", "mvk_ios_surface_2" ]
+              "nv_viewport_swizzle_1", "ext_discard_rectangles_1", "mvk_ios_surface_2",
+              "mvk_macos_surface_2" ]
 
 vk_1_0_41 = [ "vk_1_0_40", "core_1_0_41" ]
 
@@ -355,6 +356,9 @@ ext_discard_rectangles_1 = [ "core_1_0_3", "khr_get_physical_device_properties2_
 
 mvk_ios_surface = [ "mvk_ios_surface_2" ]
 mvk_ios_surface_2 = [ "core_1_0_3", "khr_surface_25" ]
+
+mvk_macos_surface = [ "mvk_macos_surface_2" ]
+mvk_macos_surface_2 = [ "core_1_0_3", "khr_surface_25" ]
 
 [dependencies]
 libc = "0.2.21"
