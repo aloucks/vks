@@ -51,6 +51,8 @@ mod cenum;
 #[cfg(feature = "amd_shader_explicit_vertex_parameter_1")] pub use amd_shader_explicit_vertex_parameter::*;
 #[cfg(feature = "amd_shader_trinary_minmax_1")] mod amd_shader_trinary_minmax;
 #[cfg(feature = "amd_shader_trinary_minmax_1")] pub use amd_shader_trinary_minmax::*;
+#[cfg(feature = "ext_acquire_xlib_display_1")] mod ext_acquire_xlib_display;
+#[cfg(feature = "ext_acquire_xlib_display_1")] pub use ext_acquire_xlib_display::*;
 #[cfg(feature = "ext_debug_marker_3")] mod ext_debug_marker;
 #[cfg(feature = "ext_debug_marker_3")] pub use ext_debug_marker::*;
 #[cfg(feature = "ext_debug_report_1")] mod ext_debug_report;

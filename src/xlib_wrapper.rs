@@ -24,3 +24,7 @@ pub struct Window(pub u32);
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub struct VisualID(pub u32);
+
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub struct RROutput(pub u32);
