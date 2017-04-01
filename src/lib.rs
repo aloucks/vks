@@ -59,6 +59,8 @@ mod cenum;
 #[cfg(feature = "ext_debug_report_1")] pub use ext_debug_report::*;
 #[cfg(feature = "ext_direct_mode_display_1")] mod ext_direct_mode_display;
 #[cfg(feature = "ext_direct_mode_display_1")] pub use ext_direct_mode_display::*;
+#[cfg(feature = "ext_discard_rectangles_1")] mod ext_discard_rectangles;
+#[cfg(feature = "ext_discard_rectangles_1")] pub use ext_discard_rectangles::*;
 #[cfg(feature = "ext_display_control_1")] mod ext_display_control;
 #[cfg(feature = "ext_display_control_1")] pub use ext_display_control::*;
 #[cfg(feature = "ext_display_surface_counter_1")] mod ext_display_surface_counter;

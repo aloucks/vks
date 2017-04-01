@@ -511,6 +511,12 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "nv_viewport_swizzle_1")]
     const VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000,
+
+    #[cfg(feature = "ext_discard_rectangles_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT = 1000099000,
+
+    #[cfg(feature = "ext_discard_rectangles_1")]
+    const VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT = 1000099001,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
@@ -916,6 +922,9 @@ cenum!(VkDynamicState: u32 {
 
     #[cfg(feature = "nv_clip_space_w_scaling_1")]
     const VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV = 1000087000,
+
+    #[cfg(feature = "ext_discard_rectangles_1")]
+    const VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT = 1000099000,
 });
 
 cenum!(VkFilter: u32 {

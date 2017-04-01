@@ -94,6 +94,7 @@ Every version in between is supported as well.
 | `VK_EXT_debug_marker` | 3, 4 |
 | `VK_EXT_debug_report` | 1, 2, 3, 4, 5 |
 | `VK_EXT_direct_mode_display` | 1 |
+| `VK_EXT_discard_rectangles` | 1 |
 | `VK_EXT_display_control` | 1 |
 | `VK_EXT_display_surface_counter` | 1 |
 | `VK_EXT_shader_subgroup_ballot` | 1 |

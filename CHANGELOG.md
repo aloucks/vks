@@ -25,6 +25,7 @@
  * Add extension `VK_NV_viewport_array2` (revision 1)
  * Add extension `VK_NVX_multiview_per_view_attributes` (revision 1)
  * Add extension `VK_NV_viewport_swizzle` (revision 1)
+ * Add extension `VK_EXT_discard_rectangles` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 
