@@ -184,7 +184,7 @@ cenum!(VkResult: i32 {
     #[cfg(feature = "khr_maintenance1_1")]
     const VK_ERROR_OUT_OF_POOL_MEMORY_KHR = -1000069000,
 
-    #[cfg(feature = "khx_external_memory_1")]
+    #[cfg(any(feature = "khx_external_memory_1", feature = "khx_external_semaphore_1"))]
     const VK_ERROR_INVALID_EXTERNAL_HANDLE_KHX = -1000072003,
 });
 
@@ -448,6 +448,9 @@ cenum!(VkStructureType: u32 {
 
     #[cfg(feature = "khx_external_semaphore_capabilities_1")]
     const VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHX = 1000076001,
+
+    #[cfg(feature = "khx_external_semaphore_1")]
+    const VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX = 1000077000,
 
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,

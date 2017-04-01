@@ -16,6 +16,7 @@
  * Add extension `VK_KHX_external_memory_fd` (revision 1)
  * Add extension `VK_KHX_win32_keyed_mutex` (revision 1)
  * Add extension `VK_KHX_external_semaphore_capabilities` (revision 1)
+ * Add extension `VK_KHX_external_semaphore` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 
