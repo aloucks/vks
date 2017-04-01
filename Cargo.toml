@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_39" ]
 
-vk_1_0_40 = [ "vk_1_0_39", "core_1_0_40", "ext_debug_marker_4" ]
+vk_1_0_40 = [ "vk_1_0_39", "core_1_0_40", "ext_debug_marker_4", "ext_debug_report_5" ]
 
 vk_1_0_39 = [ "vk_1_0_38", "core_1_0_39", "khr_get_physical_device_properties2_1",
               "khr_shader_draw_parameters_1", "khr_maintenance1_1", "nn_vi_surface_1",
@@ -185,7 +185,8 @@ khr_shader_draw_parameters_1 = [ "core_1_0_3" ]
 khr_maintenance1 = [ "khr_maintenance1_1" ]
 khr_maintenance1_1 = [ "core_1_0_3" ]
 
-ext_debug_report = [ "ext_debug_report_4" ]
+ext_debug_report = [ "ext_debug_report_5" ]
+ext_debug_report_5 = [ "ext_debug_report_4" ]
 ext_debug_report_4 = [ "ext_debug_report_3" ]
 ext_debug_report_3 = [ "ext_debug_report_2" ]
 ext_debug_report_2 = [ "ext_debug_report_1" ]

@@ -15,7 +15,10 @@
 use ::*;
 use libc::{c_char, c_void};
 
-#[cfg(feature = "ext_debug_report_4")]
+#[cfg(feature = "ext_debug_report_5")]
+pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 5;
+
+#[cfg(all(feature = "ext_debug_report_4", not(feature = "ext_debug_report_5")))]
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 4;
 
 #[cfg(all(feature = "ext_debug_report_3", not(feature = "ext_debug_report_4")))]

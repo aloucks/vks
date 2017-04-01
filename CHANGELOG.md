@@ -15,6 +15,7 @@
  * Add extension `VK_EXT_display_surface_counter` (revision 1)
  * Add extension `VK_EXT_display_control` (revision 1)
  * Support revision 4 of `VK_EXT_debug_marker`
+ * Support revision 5 of `VK_EXT_debug_report`
 
 ## Version 0.8.2, released on 30.03.2017
 
