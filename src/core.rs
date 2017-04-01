@@ -452,6 +452,15 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khx_external_semaphore_1")]
     const VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX = 1000077000,
 
+    #[cfg(feature = "khx_external_semaphore_win32_1")]
+    const VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHX = 1000078000,
+
+    #[cfg(feature = "khx_external_semaphore_win32_1")]
+    const VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHX = 1000078001,
+
+    #[cfg(feature = "khx_external_semaphore_win32_1")]
+    const VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHX = 1000078002,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 

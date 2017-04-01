@@ -127,6 +127,8 @@ mod cenum;
 #[cfg(feature = "khx_external_semaphore_1")] pub use khx_external_semaphore::*;
 #[cfg(feature = "khx_external_semaphore_capabilities_1")] mod khx_external_semaphore_capabilities;
 #[cfg(feature = "khx_external_semaphore_capabilities_1")] pub use khx_external_semaphore_capabilities::*;
+#[cfg(feature = "khx_external_semaphore_win32_1")] mod khx_external_semaphore_win32;
+#[cfg(feature = "khx_external_semaphore_win32_1")] pub use khx_external_semaphore_win32::*;
 #[cfg(feature = "khx_multiview_1")] mod khx_multiview;
 #[cfg(feature = "khx_multiview_1")] pub use khx_multiview::*;
 #[cfg(feature = "khx_win32_keyed_mutex_1")] mod khx_win32_keyed_mutex;
