@@ -16,7 +16,7 @@ use ::*;
 use libc::c_void;
 
 pub const VK_KHX_DEVICE_GROUP_CREATION_SPEC_VERSION: u32 = 1;
-pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME: &'static [u8; 29usize] = b"VK_KHX_device_group_creation\x00";
+pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_device_group_creation\x00";
 pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME_STR: &'static str = "VK_KHX_device_group_creation";
 
 #[repr(C)]
