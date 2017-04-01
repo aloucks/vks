@@ -111,6 +111,8 @@ mod cenum;
 #[cfg(feature = "khr_xlib_surface_6")] mod khr_xlib_surface;
 #[cfg(feature = "khr_xlib_surface_6")] pub mod xlib_wrapper;
 #[cfg(feature = "khr_xlib_surface_6")] pub use khr_xlib_surface::*;
+#[cfg(feature = "khx_multiview_1")] mod khx_multiview;
+#[cfg(feature = "khx_multiview_1")] pub use khx_multiview::*;
 #[cfg(feature = "nn_vi_surface_1")] mod nn_vi_surface;
 #[cfg(feature = "nn_vi_surface_1")] pub use nn_vi_surface::*;
 #[cfg(feature = "nv_dedicated_allocation_1")] mod nv_dedicated_allocation;

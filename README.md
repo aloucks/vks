@@ -143,6 +143,12 @@ Every version in between is supported as well.
 | --- | --- |
 | `VK_NN_vi_surface` | 1 |
 
+### `KHX` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_KHX_multiview` | 1 |
+
 ## License
 
 vk-sys is licensed under the ISC license:

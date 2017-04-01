@@ -17,7 +17,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 default = [ "vk_1_0_41" ]
 
 vk_1_0_42 = [ "vk_1_0_41", "core_1_0_42", "khr_push_descriptor_1",
-              "khr_descriptor_update_template_1" ]
+              "khr_descriptor_update_template_1", "khx_multiview_1" ]
 
 vk_1_0_41 = [ "vk_1_0_40", "core_1_0_41" ]
 
@@ -241,6 +241,9 @@ amd_gpu_shader_half_float_1 = [ "core_1_0_3" ]
 
 amd_shader_ballot = [ "amd_shader_ballot_1" ]
 amd_shader_ballot_1 = [ "core_1_0_3" ]
+
+khx_multiview = [ "khx_multiview_1" ]
+khx_multiview_1 = [ "core_1_0_3", "khr_get_physical_device_properties2_1" ]
 
 img_format_pvrtc = [ "img_format_pvrtc_1" ]
 img_format_pvrtc_1 = [ "core_1_0_3" ]
