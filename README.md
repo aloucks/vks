@@ -140,6 +140,7 @@ Every version in between is supported as well.
 | Extension | Revision(s) |
 | --- | --- |
 | `VK_NVX_device_generated_commands` | 1 |
+| `VK_NVX_multiview_per_view_attributes` | 1 |
 
 ### `NN` Extensions
 

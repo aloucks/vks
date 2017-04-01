@@ -159,3 +159,5 @@ mod cenum;
 #[cfg(feature = "nv_win32_keyed_mutex_1")] pub use nv_win32_keyed_mutex::*;
 #[cfg(feature = "nvx_device_generated_commands_1")] mod nvx_device_generated_commands;
 #[cfg(feature = "nvx_device_generated_commands_1")] pub use nvx_device_generated_commands::*;
+#[cfg(feature = "nvx_multiview_per_view_attributes_1")] mod nvx_multiview_per_view_attributes;
+#[cfg(feature = "nvx_multiview_per_view_attributes_1")] pub use nvx_multiview_per_view_attributes::*;
