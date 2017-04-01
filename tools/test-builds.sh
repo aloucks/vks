@@ -4,13 +4,34 @@ SCRIPT=`realpath "${0}"`
 SCRIPTPATH=`dirname "${SCRIPT}"`
 PROJECTROOT=`realpath "${SCRIPTPATH}"/..`
 
-function test_build() {
-    echo "Building feature $1"
-    cargo check --no-default-features --features $1 || exit 1
-    echo ""
+case "${1}" in
+    "")
+        CONFIG=base
+        ;;
 
-    echo "Building feature $1 + clippy"
-    cargo check --no-default-features --features "$1 clippy" || exit 1
+    clippy)
+        CONFIG=clippy
+        ;;
+
+    *)
+        echo "Invalid argument. Either leave empty or specify \"clippy\"."
+        exit 1
+        ;;
+esac
+
+function test_build() {
+    case $CONFIG in
+        base)
+            echo "Building feature $1"
+            cargo check --no-default-features --features $1 || exit 1
+            ;;
+
+        clippy)
+            echo "Building feature $1 + clippy"
+            cargo check --no-default-features --features "$1 clippy" || exit 1
+            ;;
+    esac
+
     echo ""
 }
 
