@@ -461,6 +461,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khx_external_semaphore_win32_1")]
     const VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHX = 1000078002,
 
+    #[cfg(feature = "khx_external_semaphore_fd_1")]
+    const VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHX = 1000079000,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 

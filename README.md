@@ -154,6 +154,7 @@ Every version in between is supported as well.
 | `VK_KHX_external_memory_win32` | 1 |
 | `VK_KHX_external_memory` | 1 |
 | `VK_KHX_external_semaphore_capabilities` | 1 |
+| `VK_KHX_external_semaphore_fd` | 1 |
 | `VK_KHX_external_semaphore_win32` | 1 |
 | `VK_KHX_external_semaphore` | 1 |
 | `VK_KHX_multiview` | 1 |

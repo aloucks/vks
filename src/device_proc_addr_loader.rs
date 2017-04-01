@@ -141,6 +141,7 @@ gen_device_proc_addr_loader!(
     "khx_external_memory_win32_1" => khx_external_memory_win32: KHX_external_memory_win32 [fn load_khx_external_memory_win32],
     "khx_external_memory_fd_1" => khx_external_memory_fd: KHX_external_memory_fd [fn load_khx_external_memory_fd],
     "khx_external_semaphore_win32_1" => khx_external_semaphore_win32: KHX_external_semaphore_win32 [fn load_khx_external_semaphore_win32],
+    "khx_external_semaphore_fd_1" => khx_external_semaphore_fd: KHX_external_semaphore_fd [fn load_khx_external_semaphore_fd],
 );
 
 addr_proc_struct!(Core {
@@ -353,4 +354,10 @@ addr_proc_struct!(KHX_external_memory_fd {
 addr_proc_struct!(KHX_external_semaphore_win32 {
     pfn vkImportSemaphoreWin32HandleKHX: PFN_vkImportSemaphoreWin32HandleKHX,
     pfn vkGetSemaphoreWin32HandleKHX: PFN_vkGetSemaphoreWin32HandleKHX,
+});
+
+#[cfg(feature = "khx_external_semaphore_fd_1")]
+addr_proc_struct!(KHX_external_semaphore_fd {
+    pfn vkImportSemaphoreFdKHX: PFN_vkImportSemaphoreFdKHX,
+    pfn vkGetSemaphoreFdKHX: PFN_vkGetSemaphoreFdKHX,
 });
