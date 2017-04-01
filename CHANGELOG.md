@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.41
+ * Vulkan 1.0.41, 1.0.42
  * The parameters `x`, `y`, and `z` of `vkCmdDispatch` have been renamed to `groupCountX`,
    `groupCountY`, and `groupCountZ`.
  * Add extension `VK_KHR_push_descriptor` (revision 1)
