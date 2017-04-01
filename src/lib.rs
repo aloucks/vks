@@ -87,6 +87,8 @@ mod cenum;
 #[cfg(feature = "khr_mir_surface_4")] mod khr_mir_surface;
 #[cfg(feature = "khr_mir_surface_4")] pub mod mir_wrapper;
 #[cfg(feature = "khr_mir_surface_4")] pub use khr_mir_surface::*;
+#[cfg(feature = "khr_push_descriptor_1")] mod khr_push_descriptor;
+#[cfg(feature = "khr_push_descriptor_1")] pub use khr_push_descriptor::*;
 #[cfg(feature = "khr_sampler_mirror_clamp_to_edge_1")] mod khr_sampler_mirror_clamp_to_edge;
 #[cfg(feature = "khr_sampler_mirror_clamp_to_edge_1")] pub use khr_sampler_mirror_clamp_to_edge::*;
 #[cfg(feature = "khr_shader_draw_parameters_1")] mod khr_shader_draw_parameters;

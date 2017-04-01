@@ -135,6 +135,7 @@ gen_device_proc_addr_loader!(
     "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
     "khr_maintenance1_1" => khr_maintenance1: KHR_maintenance1 [fn load_khr_maintenance1],
     "ext_display_control_1" => ext_display_control: EXT_display_control [fn load_ext_display_control],
+    "khr_push_descriptor_1" => khr_push_descriptor: KHR_push_descriptor [fn load_khr_push_descriptor],
 );
 
 addr_proc_struct!(Core {
@@ -304,4 +305,9 @@ addr_proc_struct!(EXT_display_control {
     pfn vkRegisterDeviceEventEXT: PFN_vkRegisterDeviceEventEXT,
     pfn vkRegisterDisplayEventEXT: PFN_vkRegisterDisplayEventEXT,
     pfn vkGetSwapchainCounterEXT: PFN_vkGetSwapchainCounterEXT,
+});
+
+#[cfg(feature = "khr_push_descriptor_1")]
+addr_proc_struct!(KHR_push_descriptor {
+    pfn vkCmdPushDescriptorSetKHR: PFN_vkCmdPushDescriptorSetKHR,
 });

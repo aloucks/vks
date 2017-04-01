@@ -159,6 +159,7 @@ gen_instance_proc_addr_loader!(
     "ext_acquire_xlib_display_1" => ext_acquire_xlib_display: EXT_acquire_xlib_display [fn load_ext_acquire_xlib_display],
     "ext_display_surface_counter_1" => ext_display_surface_counter: EXT_display_surface_counter [fn load_ext_display_surface_counter],
     "ext_display_control_1" => ext_display_control: EXT_display_control [fn load_ext_display_control],
+    "khr_push_descriptor_1" => khr_push_descriptor: KHR_push_descriptor [fn load_khr_push_descriptor],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -451,4 +452,9 @@ addr_proc_struct!(EXT_display_control {
     pfn vkRegisterDeviceEventEXT: PFN_vkRegisterDeviceEventEXT,
     pfn vkRegisterDisplayEventEXT: PFN_vkRegisterDisplayEventEXT,
     pfn vkGetSwapchainCounterEXT: PFN_vkGetSwapchainCounterEXT,
+});
+
+#[cfg(feature = "khr_push_descriptor_1")]
+addr_proc_struct!(KHR_push_descriptor {
+    pfn vkCmdPushDescriptorSetKHR: PFN_vkCmdPushDescriptorSetKHR,
 });

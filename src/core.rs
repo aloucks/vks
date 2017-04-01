@@ -344,6 +344,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "nn_vi_surface_1")]
     const VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN = 1000062000,
 
+    #[cfg(feature = "khr_push_descriptor_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
+
     #[cfg(feature = "nvx_device_generated_commands_1")]
     const VK_STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX = 1000086000,
 
@@ -1314,7 +1317,11 @@ pub type VkSamplerCreateFlagBits = VkSamplerCreateFlags;
 bitflags! {
     #[repr(C)]
     pub flags VkDescriptorSetLayoutCreateFlags: u32 {
+        #[cfg(not(feature = "khr_push_descriptor_1"))]
         const VK_DESCRIPTOR_SET_LAYOUT_CREATE_DUMMY = 0,
+
+        #[cfg(feature = "khr_push_descriptor_1")]
+        const VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR = 0x00000001,
     }
 }
 pub type VkDescriptorSetLayoutCreateFlagBits = VkDescriptorSetLayoutCreateFlags;
