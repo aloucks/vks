@@ -16,6 +16,8 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_39" ]
 
+vk_1_0_40 = [ "vk_1_0_39", "core_1_0_40" ]
+
 vk_1_0_39 = [ "vk_1_0_38", "core_1_0_39", "khr_get_physical_device_properties2_1",
               "khr_shader_draw_parameters_1", "khr_maintenance1_1", "nn_vi_surface_1",
               "ext_shader_subgroup_ballot_1", "ext_shader_subgroup_vote_1",
@@ -100,7 +102,8 @@ vk_1_0_3 = [ "core_1_0_3", "khr_surface_25", "khr_swapchain_67", "khr_display_21
              "khr_wayland_surface_5", "khr_mir_surface_4", "khr_android_surface_6",
              "khr_win32_surface_5", "ext_debug_report_1" ]
 
-core = [ "core_1_0_39" ]
+core = [ "core_1_0_40" ]
+core_1_0_40 = [ "core_1_0_39" ]
 core_1_0_39 = [ "core_1_0_38" ]
 core_1_0_38 = [ "core_1_0_37" ]
 core_1_0_37 = [ "core_1_0_36" ]
