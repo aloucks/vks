@@ -443,6 +443,12 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khx_win32_keyed_mutex_1")]
     const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHX = 1000075000,
 
+    #[cfg(feature = "khx_external_semaphore_capabilities_1")]
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHX = 1000076000,
+
+    #[cfg(feature = "khx_external_semaphore_capabilities_1")]
+    const VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHX = 1000076001,
+
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 
