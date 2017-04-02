@@ -81,7 +81,7 @@ Every version in between is supported as well.
 | `VK_KHR_shader_draw_parameters` | 1 |
 | `VK_KHR_surface` | 25 |
 | `VK_KHR_swapchain` | 67, 68 |
-| `VK_KHR_wayland_surface` | 5 |
+| `VK_KHR_wayland_surface` | 5, 6 |
 | `VK_KHR_win32_surface` | 5 |
 | `VK_KHR_xcb_surface` | 6 |
 | `VK_KHR_xlib_surface` | 6 |

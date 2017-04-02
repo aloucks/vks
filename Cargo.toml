@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_42" ]
 
-vk_1_0_43 = [ "vk_1_0_42", "core_1_0_43" ]
+vk_1_0_43 = [ "vk_1_0_42", "core_1_0_43", "khr_wayland_surface_6" ]
 
 vk_1_0_42 = [ "vk_1_0_41", "core_1_0_42", "khr_push_descriptor_1",
               "khr_descriptor_update_template_1", "khx_multiview_1", "khx_device_group_1",
@@ -180,7 +180,8 @@ khr_xlib_surface_6 = [ "core_1_0_3", "khr_surface_25" ]
 khr_xcb_surface = [ "khr_xcb_surface_6" ]
 khr_xcb_surface_6 = [ "core_1_0_3", "khr_surface_25" ]
 
-khr_wayland_surface = [ "khr_wayland_surface_5" ]
+khr_wayland_surface = [ "khr_wayland_surface_6" ]
+khr_wayland_surface_6 = [ "khr_wayland_surface_5" ]
 khr_wayland_surface_5 = [ "core_1_0_3", "khr_surface_25" ]
 
 khr_mir_surface = [ "khr_mir_surface_4" ]

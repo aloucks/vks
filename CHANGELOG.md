@@ -33,6 +33,7 @@
  * Add extension `VK_EXT_discard_rectangles` (revision 1)
  * Add extension `VK_MVK_ios_surface` (revision 2)
  * Add extension `VK_MVK_macos_surface` (revision 2)
+ * Support revision 6 of `VK_KHR_wayland_surface`
 
 ## Version 0.9.0, released on 01.04.2017
 
