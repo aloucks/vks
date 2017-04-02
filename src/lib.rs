@@ -108,7 +108,8 @@ mod cenum;
 #[cfg(any(feature = "khr_win32_surface_5",
           feature = "khx_external_memory_win32_1",
           feature = "khx_external_semaphore_win32_1",
-          feature = "nv_external_memory_win32_1"))] pub mod win32_wrapper;
+          feature = "nv_external_memory_win32_1",
+          feature = "nv_win32_keyed_mutex_1"))] pub mod win32_wrapper;
 #[cfg(feature = "khr_win32_surface_5")] pub use khr_win32_surface::*;
 #[cfg(feature = "khr_xcb_surface_6")] mod khr_xcb_surface;
 #[cfg(feature = "khr_xcb_surface_6")] pub mod xcb_wrapper;
