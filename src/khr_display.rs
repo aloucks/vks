@@ -84,7 +84,7 @@ pub struct VkDisplayModePropertiesKHR {
 #[derive(Debug, Copy, Clone)]
 pub struct VkDisplayModeCreateInfoKHR {
     pub sType: VkStructureType,
-    pub pNext: *const ::std::os::raw::c_void,
+    pub pNext: *const c_void,
     pub flags: VkDisplayModeCreateFlagsKHR,
     pub parameters: VkDisplayModeParametersKHR,
 }
