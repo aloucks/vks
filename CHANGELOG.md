@@ -9,6 +9,7 @@
  * Support revision 6 of `VK_EXT_debug_report`
  * Add version related functions and constants: `VK_API_VERSION_1_0`, `VK_HEADER_VERSION`,
    `vk_version_major`, `vk_version_minor`, `vk_version_patch`, `vk_make_version`
+ * Implement `Debug` for `VkClearAttachment`
 
 ## Version 0.10.0, released on 02.04.2017
 

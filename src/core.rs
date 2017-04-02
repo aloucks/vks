@@ -2975,7 +2975,7 @@ impl ::std::fmt::Debug for VkClearValue {
 }
 
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct VkClearAttachment {
     pub aspectMask: VkImageAspectFlags,
     pub colorAttachment: u32,
