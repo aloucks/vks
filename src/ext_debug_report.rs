@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::{c_char, c_void};
+use std::fmt;
 
 #[cfg(feature = "ext_debug_report_5")]
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 5;
@@ -120,8 +121,8 @@ impl Clone for VkDebugReportCallbackCreateInfoEXT {
     }
 }
 
-impl ::std::fmt::Debug for VkDebugReportCallbackCreateInfoEXT {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkDebugReportCallbackCreateInfoEXT {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkDebugReportCallbackCreateInfoEXT")
             .field("sType", &self.sType)
             .field("pNext", &self.pNext)
