@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_44" ]
 
-vk_1_0_45 = [ "vk_1_0_44", "core_1_0_45" ]
+vk_1_0_45 = [ "vk_1_0_44", "core_1_0_45", "ext_swapchain_colorspace_2" ]
 
 vk_1_0_44 = [ "vk_1_0_43", "core_1_0_44", "ext_hdr_metadata_1" ]
 
@@ -366,6 +366,9 @@ nv_viewport_swizzle_1 = [ "core_1_0_3" ]
 
 ext_discard_rectangles = [ "ext_discard_rectangles_1" ]
 ext_discard_rectangles_1 = [ "core_1_0_3", "khr_get_physical_device_properties2_1" ]
+
+ext_swapchain_colorspace = [ "ext_swapchain_colorspace_2" ]
+ext_swapchain_colorspace_2 = [ "core_1_0_3", "khr_surface_25" ]
 
 ext_hdr_metadata = [ "ext_hdr_metadata_1" ]
 ext_hdr_metadata_1 = [ "core_1_0_3", "khr_surface_25" ]

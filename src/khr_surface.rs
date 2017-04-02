@@ -28,6 +28,45 @@ cenum!(VkColorSpaceKHR: u32 {
 
     #[cfg(feature = "core_1_0_13")]
     const VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT = 1000104001,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT = 1000104002,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_DCI_P3_LINEAR_EXT = 1000104003,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT = 1000104004,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_BT709_LINEAR_EXT = 1000104005,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_BT709_NONLINEAR_EXT = 1000104006,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_BT2020_LINEAR_EXT = 1000104007,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_HDR10_ST2084_EXT = 1000104008,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_DOLBYVISION_EXT = 1000104009,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_HDR10_HLG_EXT = 1000104010,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT = 1000104011,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_ADOBERGB_NONLINEAR_EXT = 1000104012,
+
+    #[cfg(feature = "ext_swapchain_colorspace_2")]
+    const VK_COLOR_SPACE_PASS_THROUGH_EXT = 1000104013,
 });
 
 cenum!(VkPresentModeKHR: u32 {

@@ -100,6 +100,7 @@ Every version in between is supported as well.
 | `VK_EXT_hdr_metadata` | 1 |
 | `VK_EXT_shader_subgroup_ballot` | 1 |
 | `VK_EXT_shader_subgroup_vote` | 1 |
+| `VK_EXT_swapchain_colorspace` | 2 |
 | `VK_EXT_validation_flags` | 1 |
 
 ### `NV` Extensions

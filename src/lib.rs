@@ -71,6 +71,8 @@ mod cenum;
 #[cfg(feature = "ext_shader_subgroup_ballot_1")] pub use ext_shader_subgroup_ballot::*;
 #[cfg(feature = "ext_shader_subgroup_vote_1")] mod ext_shader_subgroup_vote;
 #[cfg(feature = "ext_shader_subgroup_vote_1")] pub use ext_shader_subgroup_vote::*;
+#[cfg(feature = "ext_swapchain_colorspace_2")] mod ext_swapchain_colorspace;
+#[cfg(feature = "ext_swapchain_colorspace_2")] pub use ext_swapchain_colorspace::*;
 #[cfg(feature = "ext_validation_flags_1")] mod ext_validation_flags;
 #[cfg(feature = "ext_validation_flags_1")] pub use ext_validation_flags::*;
 #[cfg(feature = "google_display_timing_1")] mod google_display_timing;

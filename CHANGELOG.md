@@ -36,6 +36,7 @@
  * Support revision 6 of `VK_KHR_wayland_surface`
  * Add extension `VK_GOOGLE_display_timing` (revision 1)
  * Add extension `VK_EXT_hdr_metadata` (revision 1)
+ * Add extension `VK_EXT_swapchain_colorspace` (revision 2)
 
 ## Version 0.9.0, released on 01.04.2017
 
