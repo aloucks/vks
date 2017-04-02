@@ -13,6 +13,7 @@
  * Add version related functions and constants: `VK_API_VERSION_1_0`, `VK_HEADER_VERSION`,
    `vk_version_major`, `vk_version_minor`, `vk_version_patch`, `vk_make_version`
  * Implement `Debug` for `VkClearAttachment`
+ * `VK_KHR_descriptor_update_template` now uses the correct (libc) `c_void` type
 
 ## Version 0.10.0, released on 02.04.2017
 
