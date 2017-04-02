@@ -3,6 +3,7 @@
 ## Current Git Master Branch
 
  * Vulkan 1.0.46
+ * Stable Rust can now build vk-sys!
  * Reimplemented `untagged_unions` and `struct_field_attributes` with stable Rust. This is enabled
    by default. The old behaviour is still available by selecting the Cargo feature `unstable_rust`.
  * Add `VK_KHR_swapchain` functions to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`

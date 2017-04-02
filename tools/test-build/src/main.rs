@@ -32,7 +32,6 @@ fn runner(id: usize, repo: PathBuf, jobs: mpsc::Receiver<Option<String>>, res: m
                 fs_extra::copy_items(&sources, tempdir.path(), &fs_extra::dir::CopyOptions::new()).unwrap();
 
                 let output = process::Command::new("cargo")
-                    .arg("+nightly")
                     .arg("check")
                     .arg("--no-default-features")
                     .arg("--features")
@@ -94,6 +93,8 @@ fn main() {
             .get("features").unwrap().as_table().unwrap()
             .keys().cloned().collect()
     };
+
+    features.remove("unstable_rust");
 
     if matches.occurrences_of("clippy") > 0 {
         for mut feature in features.clone() {

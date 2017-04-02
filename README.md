@@ -6,9 +6,6 @@ Vulkan bindings and symbol loader for Rust
 
 Latest supported Vulkan specification: 1.0.46 + all extensions
 
-For the time being, vk-sys requires a nightly version of the Rust compiler, because we use the
-`struct_field_attributes` and `untagged_unions` features.
-
 ## Cargo Features
 
 vk-sys supports very fine grained compile-time configuration via Cargo features. The version of the
@@ -22,6 +19,14 @@ The `default` feature will always select the latest fully supported core Vulkan 
 well as all extensions, that are supported and have been defined up to that point. Basically,
 `default` will select everything, except for features, which are incomplete and still in
 development.
+
+### `unstable_rust` Feature
+
+This feature is optional and not included in the `default` feature, because it requires a nightly
+version of the Rust compiler. The feature enables `untagged_unions` and `struct_field_attributes`.
+
+When `untagged_unions` and `struct_field_attributes` become available in stable Rust, we will remove
+the current work-arounds switch to what is now behind `unstable_rust`.
 
 ### `vk_*` Features
 

@@ -1,4 +1,4 @@
-image: "scorpil/rust:nightly"
+image: "scorpil/rust:stable"
 
 before_script:
     - rustc --version
