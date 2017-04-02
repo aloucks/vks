@@ -175,6 +175,7 @@ gen_instance_proc_addr_loader!(
     "mvk_macos_surface_2" => mvk_macos_surface: MVK_macos_surface [fn load_mvk_macos_surface],
     "google_display_timing_1" => google_display_timing: GOOGLE_display_timing [fn load_google_display_timing],
     "ext_hdr_metadata_1" => ext_hdr_metadata: EXT_hdr_metadata [fn load_ext_hdr_metadata],
+    "khr_swapchain_67" => khr_swapchain: KHR_swapchain [fn load_khr_swapchain],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -563,4 +564,13 @@ addr_proc_struct!(GOOGLE_display_timing {
 #[cfg(feature = "ext_hdr_metadata_1")]
 addr_proc_struct!(EXT_hdr_metadata {
     pfn vkSetHdrMetadataEXT: PFN_vkSetHdrMetadataEXT,
+});
+
+#[cfg(feature = "khr_swapchain_67")]
+addr_proc_struct!(KHR_swapchain {
+    pfn vkCreateSwapchainKHR: PFN_vkCreateSwapchainKHR,
+    pfn vkDestroySwapchainKHR: PFN_vkDestroySwapchainKHR,
+    pfn vkGetSwapchainImagesKHR: PFN_vkGetSwapchainImagesKHR,
+    pfn vkAcquireNextImageKHR: PFN_vkAcquireNextImageKHR,
+    pfn vkQueuePresentKHR: PFN_vkQueuePresentKHR,
 });

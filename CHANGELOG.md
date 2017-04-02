@@ -1,5 +1,9 @@
 # vk-sys Changelog
 
+## Current Git Master Branch
+
+ * Add `VK_KHR_swapchain` function to `InstanceProcAddrLoader`
+
 ## Version 0.10.0, released on 02.04.2017
 
  * Vulkan 1.0.41, 1.0.42, 1.0.43, 1.0.44, 1.0.45
