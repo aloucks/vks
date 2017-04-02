@@ -111,7 +111,8 @@ mod cenum;
 #[cfg(feature = "khr_xcb_surface_6")] pub mod xcb_wrapper;
 #[cfg(feature = "khr_xcb_surface_6")] pub use khr_xcb_surface::*;
 #[cfg(feature = "khr_xlib_surface_6")] mod khr_xlib_surface;
-#[cfg(feature = "khr_xlib_surface_6")] pub mod xlib_wrapper;
+#[cfg(any(feature = "khr_xlib_surface_6",
+          feature = "ext_acquire_xlib_display_1"))] pub mod xlib_wrapper;
 #[cfg(feature = "khr_xlib_surface_6")] pub use khr_xlib_surface::*;
 #[cfg(feature = "khx_device_group_1")] mod khx_device_group;
 #[cfg(feature = "khx_device_group_1")] pub use khx_device_group::*;
