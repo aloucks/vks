@@ -51,6 +51,7 @@ macro_rules! gen_device_proc_addr_loader {
         }
 
         impl DeviceProcAddrLoader {
+            #[cfg(feature = "unstable_rust")]
             pub fn new(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
                 DeviceProcAddrLoader {
                     vkGetDeviceProcAddr: vkGetDeviceProcAddr,
@@ -59,6 +60,23 @@ macro_rules! gen_device_proc_addr_loader {
                         #[cfg(feature = $cond)]
                         $field: $ty::new(),
                     )*
+                }
+            }
+
+            #[cfg(not(feature = "unstable_rust"))]
+            pub fn new(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
+                unsafe {
+                    use std::ptr;
+                    let mut this: DeviceProcAddrLoader = mem::uninitialized();
+
+                    ptr::write(&mut this.vkGetDeviceProcAddr, vkGetDeviceProcAddr);
+
+                    $(
+                        #[cfg(feature = $cond)]
+                        ptr::write(&mut this.$field, $ty::new());
+                    )*
+
+                    this
                 }
             }
 

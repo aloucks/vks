@@ -54,6 +54,7 @@ macro_rules! gen_instance_proc_addr_loader {
         }
 
         impl InstanceProcAddrLoader {
+            #[cfg(feature = "unstable_rust")]
             pub fn new(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
                 InstanceProcAddrLoader {
                     vkGetInstanceProcAddr: vkGetInstanceProcAddr,
@@ -63,6 +64,23 @@ macro_rules! gen_instance_proc_addr_loader {
                         #[cfg(feature = $cond)]
                         $field: $ty::new(),
                     )*
+                }
+            }
+
+            #[cfg(not(feature = "unstable_rust"))]
+            pub fn new(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
+                unsafe {
+                    let mut this: InstanceProcAddrLoader = mem::uninitialized();
+
+                    ptr::write(&mut this.vkGetInstanceProcAddr, vkGetInstanceProcAddr);
+                    ptr::write(&mut this.core_null_instance, CoreNullInstance::new());
+
+                    $(
+                        #[cfg(feature = $cond)]
+                        ptr::write(&mut this.$field, $ty::new());
+                    )*
+
+                    this
                 }
             }
 
