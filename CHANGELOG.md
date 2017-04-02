@@ -2,7 +2,8 @@
 
 ## Current Git Master Branch
 
- * Add `VK_KHR_swapchain` function to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`
+ * Add `VK_KHR_swapchain` functions to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`
+ * Add `NV_external_memory_win32` functions to `DeviceProcAddrLoader`
 
 ## Version 0.10.0, released on 02.04.2017
 
