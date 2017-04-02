@@ -371,7 +371,7 @@ ext_swapchain_colorspace = [ "ext_swapchain_colorspace_2" ]
 ext_swapchain_colorspace_2 = [ "core_1_0_3", "khr_surface_25" ]
 
 ext_hdr_metadata = [ "ext_hdr_metadata_1" ]
-ext_hdr_metadata_1 = [ "core_1_0_3", "khr_surface_25" ]
+ext_hdr_metadata_1 = [ "core_1_0_3", "khr_swapchain_67" ]
 
 mvk_ios_surface = [ "mvk_ios_surface_2" ]
 mvk_ios_surface_2 = [ "core_1_0_3", "khr_surface_25" ]
