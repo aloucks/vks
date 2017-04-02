@@ -14,7 +14,6 @@
 
 use ::*;
 use libc::c_void;
-use win32_wrapper::*;
 
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 28] = b"VK_NV_external_memory_win32\x00";
@@ -26,7 +25,7 @@ pub struct VkImportMemoryWin32HandleInfoNV {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub handleType: VkExternalMemoryHandleTypeFlagsNV,
-    pub handle: HANDLE,
+    pub handle: win32_wrapper::HANDLE,
 }
 
 #[repr(C)]
@@ -34,13 +33,13 @@ pub struct VkImportMemoryWin32HandleInfoNV {
 pub struct VkExportMemoryWin32HandleInfoNV {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
-    pub pAttributes: *const SECURITY_ATTRIBUTES,
-    pub dwAccess: DWORD,
+    pub pAttributes: *const win32_wrapper::SECURITY_ATTRIBUTES,
+    pub dwAccess: win32_wrapper::DWORD,
 }
 
-pub type PFN_vkGetMemoryWin32HandleNV = unsafe extern "system" fn(device: VkDevice, memory: VkDeviceMemory, handleType: VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut HANDLE) -> VkResult;
+pub type PFN_vkGetMemoryWin32HandleNV = unsafe extern "system" fn(device: VkDevice, memory: VkDeviceMemory, handleType: VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_wrapper::HANDLE) -> VkResult;
 
 #[link(name = "vulkan")]
 extern "system" {
-    pub fn vkGetMemoryWin32HandleNV(device: VkDevice, memory: VkDeviceMemory, handleType: VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut HANDLE) -> VkResult;
+    pub fn vkGetMemoryWin32HandleNV(device: VkDevice, memory: VkDeviceMemory, handleType: VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_wrapper::HANDLE) -> VkResult;
 }
