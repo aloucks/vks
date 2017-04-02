@@ -29,11 +29,13 @@ extern crate bitflags;
 mod cenum;
 
 #[cfg(feature = "core_1_0_3")] mod core;
-#[cfg(feature = "core_1_0_3")] pub mod device_proc_addr_loader;
-#[cfg(feature = "core_1_0_3")] pub mod instance_proc_addr_loader;
 #[cfg(feature = "core_1_0_3")] pub use core::*;
-#[cfg(feature = "core_1_0_3")] pub use device_proc_addr_loader::DeviceProcAddrLoader;
+#[cfg(feature = "core_1_0_3")] mod version;
+#[cfg(feature = "core_1_0_3")] pub use version::*;
+#[cfg(feature = "core_1_0_3")] pub mod instance_proc_addr_loader;
 #[cfg(feature = "core_1_0_3")] pub use instance_proc_addr_loader::InstanceProcAddrLoader;
+#[cfg(feature = "core_1_0_3")] pub mod device_proc_addr_loader;
+#[cfg(feature = "core_1_0_3")] pub use device_proc_addr_loader::DeviceProcAddrLoader;
 
 #[cfg(feature = "amd_draw_indirect_count_1")] mod amd_draw_indirect_count;
 #[cfg(feature = "amd_draw_indirect_count_1")] pub use amd_draw_indirect_count::*;
