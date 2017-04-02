@@ -174,6 +174,7 @@ gen_instance_proc_addr_loader!(
     "mvk_ios_surface_2" => mvk_ios_surface: MVK_ios_surface [fn load_mvk_ios_surface],
     "mvk_macos_surface_2" => mvk_macos_surface: MVK_macos_surface [fn load_mvk_macos_surface],
     "google_display_timing_1" => google_display_timing: GOOGLE_display_timing [fn load_google_display_timing],
+    "ext_hdr_metadata_1" => ext_hdr_metadata: EXT_hdr_metadata [fn load_ext_hdr_metadata],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -557,4 +558,9 @@ addr_proc_struct!(MVK_macos_surface {
 addr_proc_struct!(GOOGLE_display_timing {
     pfn vkGetRefreshCycleDurationGOOGLE: PFN_vkGetRefreshCycleDurationGOOGLE,
     pfn vkGetPastPresentationTimingGOOGLE: PFN_vkGetPastPresentationTimingGOOGLE,
+});
+
+#[cfg(feature = "ext_hdr_metadata_1")]
+addr_proc_struct!(EXT_hdr_metadata {
+    pfn vkSetHdrMetadataEXT: PFN_vkSetHdrMetadataEXT,
 });

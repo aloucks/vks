@@ -65,6 +65,8 @@ mod cenum;
 #[cfg(feature = "ext_display_control_1")] pub use ext_display_control::*;
 #[cfg(feature = "ext_display_surface_counter_1")] mod ext_display_surface_counter;
 #[cfg(feature = "ext_display_surface_counter_1")] pub use ext_display_surface_counter::*;
+#[cfg(feature = "ext_hdr_metadata_1")] mod ext_hdr_metadata;
+#[cfg(feature = "ext_hdr_metadata_1")] pub use ext_hdr_metadata::*;
 #[cfg(feature = "ext_shader_subgroup_ballot_1")] mod ext_shader_subgroup_ballot;
 #[cfg(feature = "ext_shader_subgroup_ballot_1")] pub use ext_shader_subgroup_ballot::*;
 #[cfg(feature = "ext_shader_subgroup_vote_1")] mod ext_shader_subgroup_vote;
