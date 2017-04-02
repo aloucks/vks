@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Add `VK_KHR_swapchain` function to `InstanceProcAddrLoader`
+ * Add `VK_KHR_swapchain` function to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`
 
 ## Version 0.10.0, released on 02.04.2017
 
