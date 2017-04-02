@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use libc::{c_char, c_void};
+use std::fmt;
 
 #[cfg(not(feature = "unstable_rust"))]
 use union_field::VkSysUnionField;
@@ -1702,8 +1703,8 @@ impl Clone for VkAllocationCallbacks {
     }
 }
 
-impl ::std::fmt::Debug for VkAllocationCallbacks {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkAllocationCallbacks {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkAllocationCallbacks")
             .field("pUserData", &self.pUserData)
             .field("pfnAllocation", &(self.pfnAllocation as *mut c_void))
@@ -1945,14 +1946,14 @@ impl Clone for VkPhysicalDeviceProperties {
 
 struct DeviceNameDebugHelper<'a>(&'a [c_char; VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]);
 
-impl<'a> ::std::fmt::Debug for DeviceNameDebugHelper<'a> {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl<'a> fmt::Debug for DeviceNameDebugHelper<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_list().entries(&self.0[..]).finish()
     }
 }
 
-impl ::std::fmt::Debug for VkPhysicalDeviceProperties {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkPhysicalDeviceProperties {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkPhysicalDeviceProperties")
             .field("apiVersion", &self.apiVersion)
             .field("driverVersion", &self.driverVersion)
@@ -2041,14 +2042,14 @@ impl Clone for VkExtensionProperties {
 
 struct ExtensionNameDebugHelper<'a>(&'a [c_char; VK_MAX_EXTENSION_NAME_SIZE]);
 
-impl<'a> ::std::fmt::Debug for ExtensionNameDebugHelper<'a> {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl<'a> fmt::Debug for ExtensionNameDebugHelper<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_list().entries(&self.0[..]).finish()
     }
 }
 
-impl ::std::fmt::Debug for VkExtensionProperties {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkExtensionProperties {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkExtensionProperties")
             .field("extensionName", &ExtensionNameDebugHelper(&self.extensionName))
             .field("specVersion", &self.specVersion)
@@ -2074,22 +2075,22 @@ impl Clone for VkLayerProperties {
 
 struct LayerNameDebugHelper<'a>(&'a [c_char; VK_MAX_EXTENSION_NAME_SIZE]);
 
-impl<'a> ::std::fmt::Debug for LayerNameDebugHelper<'a> {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl<'a> fmt::Debug for LayerNameDebugHelper<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_list().entries(&self.0[..]).finish()
     }
 }
 
 struct DescriptionDebugHelper<'a>(&'a [c_char; VK_MAX_DESCRIPTION_SIZE]);
 
-impl<'a> ::std::fmt::Debug for DescriptionDebugHelper<'a> {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl<'a> fmt::Debug for DescriptionDebugHelper<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_list().entries(&self.0[..]).finish()
     }
 }
 
-impl ::std::fmt::Debug for VkLayerProperties {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkLayerProperties {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkLayerProperties")
             .field("layerName", &LayerNameDebugHelper(&self.layerName))
             .field("specVersion", &self.specVersion)
@@ -2942,8 +2943,8 @@ pub union VkClearColorValue {
 }
 
 #[cfg(feature = "unstable_rust")]
-impl ::std::fmt::Debug for VkClearColorValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkClearColorValue {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         unsafe {
             f.debug_struct("VkClearColorValue")
                 .field("float32", &self.float32)
@@ -2965,8 +2966,8 @@ pub struct VkClearColorValue {
 }
 
 #[cfg(not(feature = "unstable_rust"))]
-impl ::std::fmt::Debug for VkClearColorValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkClearColorValue {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkClearColorValue")
             .field("vk_sys_union_field", &self.vk_sys_union_field)
             .finish()
@@ -3008,8 +3009,8 @@ pub union VkClearValue {
 }
 
 #[cfg(feature = "unstable_rust")]
-impl ::std::fmt::Debug for VkClearValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkClearValue {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         unsafe {
             f.debug_struct("VkClearValue")
                 .field("color", &self.color)
@@ -3029,8 +3030,8 @@ pub struct VkClearValue {
 }
 
 #[cfg(not(feature = "unstable_rust"))]
-impl ::std::fmt::Debug for VkClearValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+impl fmt::Debug for VkClearValue {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkClearValue")
             .field("vk_sys_union_field", &self.vk_sys_union_field)
             .finish()
