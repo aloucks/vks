@@ -92,6 +92,8 @@ mod cenum;
 #[cfg(feature = "khr_display_swapchain_9")] pub use khr_display_swapchain::*;
 #[cfg(feature = "khr_get_physical_device_properties2_1")] mod khr_get_physical_device_properties2;
 #[cfg(feature = "khr_get_physical_device_properties2_1")] pub use khr_get_physical_device_properties2::*;
+#[cfg(feature = "khr_incremental_present_1")] mod khr_incremental_present;
+#[cfg(feature = "khr_incremental_present_1")] pub use khr_incremental_present::*;
 #[cfg(feature = "khr_maintenance1_1")] mod khr_maintenance1;
 #[cfg(feature = "khr_maintenance1_1")] pub use khr_maintenance1::*;
 #[cfg(feature = "khr_mir_surface_4")] mod khr_mir_surface;

@@ -74,6 +74,7 @@ Every version in between is supported as well.
 | `VK_KHR_display_swapchain` | 9 |
 | `VK_KHR_display` | 21 |
 | `VK_KHR_get_physical_device_properties2` | 1 |
+| `VK_KHR_incremental_present` | 1 |
 | `VK_KHR_maintenance1` | 1 |
 | `VK_KHR_mir_surface` | 4 |
 | `VK_KHR_push_descriptor` | 1 |

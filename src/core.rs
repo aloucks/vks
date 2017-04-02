@@ -467,6 +467,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "khr_push_descriptor_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
 
+    #[cfg(feature = "khr_incremental_present_1")]
+    const VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR = 1000084000,
+
     #[cfg(feature = "khr_descriptor_update_template_1")]
     const VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR = 1000085000,
 
