@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.11.0, released on 02.04.2017
 
  * Vulkan 1.0.46
  * Stable Rust can now build vk-sys!
