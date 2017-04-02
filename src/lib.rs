@@ -71,6 +71,8 @@ mod cenum;
 #[cfg(feature = "ext_shader_subgroup_vote_1")] pub use ext_shader_subgroup_vote::*;
 #[cfg(feature = "ext_validation_flags_1")] mod ext_validation_flags;
 #[cfg(feature = "ext_validation_flags_1")] pub use ext_validation_flags::*;
+#[cfg(feature = "google_display_timing_1")] mod google_display_timing;
+#[cfg(feature = "google_display_timing_1")] pub use google_display_timing::*;
 #[cfg(feature = "img_filter_cubic_1")] mod img_filter_cubic;
 #[cfg(feature = "img_filter_cubic_1")] pub use img_filter_cubic::*;
 #[cfg(feature = "img_format_pvrtc_1")] mod img_format_pvrtc;

@@ -34,6 +34,7 @@
  * Add extension `VK_MVK_ios_surface` (revision 2)
  * Add extension `VK_MVK_macos_surface` (revision 2)
  * Support revision 6 of `VK_KHR_wayland_surface`
+ * Add extension `VK_GOOGLE_display_timing` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 

@@ -506,6 +506,9 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "ext_display_control_1")]
     const VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT = 1000091003,
 
+    #[cfg(feature = "google_display_timing_1")]
+    const VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE = 1000092000,
+
     #[cfg(feature = "nvx_multiview_per_view_attributes_1")]
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX = 1000097000,
 

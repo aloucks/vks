@@ -173,6 +173,7 @@ gen_instance_proc_addr_loader!(
     "ext_discard_rectangles_1" => ext_discard_rectangles: EXT_discard_rectangles [fn load_ext_discard_rectangles],
     "mvk_ios_surface_2" => mvk_ios_surface: MVK_ios_surface [fn load_mvk_ios_surface],
     "mvk_macos_surface_2" => mvk_macos_surface: MVK_macos_surface [fn load_mvk_macos_surface],
+    "google_display_timing_1" => google_display_timing: GOOGLE_display_timing [fn load_google_display_timing],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -550,4 +551,10 @@ addr_proc_struct!(MVK_ios_surface {
 #[cfg(feature = "mvk_macos_surface_2")]
 addr_proc_struct!(MVK_macos_surface {
     pfn vkCreateMacOSSurfaceMVK: PFN_vkCreateMacOSSurfaceMVK,
+});
+
+#[cfg(feature = "google_display_timing_1")]
+addr_proc_struct!(GOOGLE_display_timing {
+    pfn vkGetRefreshCycleDurationGOOGLE: PFN_vkGetRefreshCycleDurationGOOGLE,
+    pfn vkGetPastPresentationTimingGOOGLE: PFN_vkGetPastPresentationTimingGOOGLE,
 });

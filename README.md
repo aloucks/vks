@@ -174,6 +174,12 @@ Every version in between is supported as well.
 | `VK_MVK_ios_surface` | 2 |
 | `VK_MVK_macos_surface` | 2 |
 
+### `GOOGLE` Extensions
+
+| Extension | Revision(s) |
+| --- | --- |
+| `VK_GOOGLE_display_timing` | 1 |
+
 ## License
 
 vk-sys is licensed under the ISC license:
