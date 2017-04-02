@@ -42,7 +42,7 @@ pub struct VkExportMemoryWin32HandleInfoKHX {
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryWin32HandlePropertiesKHX {
     pub sType: VkStructureType,
-    pub pNext: *mut ::std::os::raw::c_void,
+    pub pNext: *mut c_void,
     pub memoryTypeBits: u32,
 }
 
