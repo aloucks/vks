@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.41, 1.0.42
+ * Vulkan 1.0.41, 1.0.42, 1.0.43
  * Fix building various features:
    `ext_debug_marker_3`, `ext_acquire_xlib_display`, `ext_acquire_xlib_display_1`,
    `khx_external_memory_win32`, `khx_external_memory_win32_1`, `khx_external_semaphore_win32`,
