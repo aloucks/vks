@@ -15,7 +15,7 @@
 use ::*;
 use libc::c_void;
 
-pub const VK_EXT_HDR_METADATA_SPEC_VERSION: u32 = 0;
+pub const VK_EXT_HDR_METADATA_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_hdr_metadata\x00";
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME_STR: &'static str = "VK_EXT_hdr_metadata";
 

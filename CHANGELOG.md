@@ -2,7 +2,7 @@
 
 ## Current Git Master Branch
 
- * Vulkan 1.0.41, 1.0.42, 1.0.43
+ * Vulkan 1.0.41, 1.0.42, 1.0.43, 1.0.44
  * Fix building various features:
    `ext_debug_marker_3`, `ext_acquire_xlib_display`, `ext_acquire_xlib_display_1`,
    `khx_external_memory_win32`, `khx_external_memory_win32_1`, `khx_external_semaphore_win32`,
@@ -35,6 +35,7 @@
  * Add extension `VK_MVK_macos_surface` (revision 2)
  * Support revision 6 of `VK_KHR_wayland_surface`
  * Add extension `VK_GOOGLE_display_timing` (revision 1)
+ * Add extension `VK_EXT_hdr_metadata` (revision 1)
 
 ## Version 0.9.0, released on 01.04.2017
 
