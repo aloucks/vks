@@ -5,6 +5,7 @@
  * Add `VK_KHR_swapchain` functions to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`
  * Add `NV_external_memory_win32` functions to `DeviceProcAddrLoader`
  * Add extension `VK_KHR_incremental_present` (revision 1)
+ * Support revision 6 of `VK_EXT_debug_report`
 
 ## Version 0.10.0, released on 02.04.2017
 

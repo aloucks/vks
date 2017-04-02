@@ -16,7 +16,7 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vk-sys" }
 [features]
 default = [ "vk_1_0_45" ]
 
-vk_1_0_46 = [ "vk_1_0_45", "core_1_0_46", "khr_incremental_present_1" ]
+vk_1_0_46 = [ "vk_1_0_45", "core_1_0_46", "khr_incremental_present_1", "ext_debug_report_6" ]
 
 vk_1_0_45 = [ "vk_1_0_44", "core_1_0_45", "ext_swapchain_colorspace_2" ]
 
@@ -223,7 +223,8 @@ khr_incremental_present_1 = [ "core_1_0_3", "khr_swapchain_68" ]
 khr_descriptor_update_template = [ "khr_descriptor_update_template_1" ]
 khr_descriptor_update_template_1 = [ "core_1_0_3", "khr_push_descriptor_1" ]
 
-ext_debug_report = [ "ext_debug_report_5" ]
+ext_debug_report = [ "ext_debug_report_6" ]
+ext_debug_report_6 = [ "ext_debug_report_5" ]
 ext_debug_report_5 = [ "ext_debug_report_4" ]
 ext_debug_report_4 = [ "ext_debug_report_3" ]
 ext_debug_report_3 = [ "ext_debug_report_2" ]

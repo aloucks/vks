@@ -79,6 +79,9 @@ cenum!(VkDebugReportObjectTypeEXT: u32 {
 
     #[cfg(all(feature = "ext_debug_report_4", feature = "nvx_device_generated_commands_1"))]
     const VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32,
+
+    #[cfg(all(feature = "ext_debug_report_6", feature = "khr_descriptor_update_template_1"))]
+    const VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT = 1000085000,
 });
 
 cenum!(VkDebugReportErrorEXT: u32 {
