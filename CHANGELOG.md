@@ -3,6 +3,8 @@
 ## Current Git Master Branch
 
  * Vulkan 1.0.46
+ * Reimplemented `untagged_unions` with stable Rust. This is enabled by default. The old behaviour
+   is still available by selecting the Cargo feature `unstable_rust`.
  * Add `VK_KHR_swapchain` functions to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`
  * Add `NV_external_memory_win32` functions to `DeviceProcAddrLoader`
  * Add extension `VK_KHR_incremental_present` (revision 1)

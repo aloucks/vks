@@ -14,6 +14,9 @@
 
 use libc::{c_char, c_void};
 
+#[cfg(not(feature = "unstable_rust"))]
+use union_field::VkSysUnionField;
+
 pub type VkBool32 = u32;
 pub type VkDeviceSize = u64;
 pub type VkSampleMask = u32;
@@ -2929,6 +2932,7 @@ pub struct VkBufferImageCopy {
     pub imageExtent: VkExtent3D,
 }
 
+#[cfg(feature = "unstable_rust")]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union VkClearColorValue {
@@ -2937,6 +2941,7 @@ pub union VkClearColorValue {
     pub uint32: [u32; 4],
 }
 
+#[cfg(feature = "unstable_rust")]
 impl ::std::fmt::Debug for VkClearColorValue {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         unsafe {
@@ -2949,6 +2954,44 @@ impl ::std::fmt::Debug for VkClearColorValue {
     }
 }
 
+#[cfg(not(feature = "unstable_rust"))]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct VkClearColorValue {
+    pub float32: VkSysUnionField<[f32; 4usize]>,
+    pub int32: VkSysUnionField<[i32; 4usize]>,
+    pub uint32: VkSysUnionField<[u32; 4usize]>,
+    pub vk_sys_union_field: [u32; 4usize],
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+impl ::std::fmt::Debug for VkClearColorValue {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct("VkClearColorValue")
+            .field("vk_sys_union_field", &self.vk_sys_union_field)
+            .finish()
+    }
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+impl VkClearColorValue {
+    fn new() -> Self {
+        VkClearColorValue {
+            float32: VkSysUnionField::new(),
+            int32: VkSysUnionField::new(),
+            uint32: VkSysUnionField::new(),
+            vk_sys_union_field: Default::default(),
+        }
+    }
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+impl Default for VkClearColorValue {
+    fn default() -> VkClearColorValue {
+        VkClearColorValue::new()
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkClearDepthStencilValue {
@@ -2956,6 +2999,7 @@ pub struct VkClearDepthStencilValue {
     pub stencil: u32,
 }
 
+#[cfg(feature = "unstable_rust")]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union VkClearValue {
@@ -2963,6 +3007,7 @@ pub union VkClearValue {
     pub depthStencil: VkClearDepthStencilValue,
 }
 
+#[cfg(feature = "unstable_rust")]
 impl ::std::fmt::Debug for VkClearValue {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         unsafe {
@@ -2971,6 +3016,42 @@ impl ::std::fmt::Debug for VkClearValue {
                 .field("depthStencil", &self.depthStencil)
                 .finish()
         }
+    }
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct VkClearValue {
+    pub color: VkSysUnionField<VkClearColorValue>,
+    pub depthStencil: VkSysUnionField<VkClearDepthStencilValue>,
+    pub vk_sys_union_field: [u32; 4usize],
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+impl ::std::fmt::Debug for VkClearValue {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct("VkClearValue")
+            .field("vk_sys_union_field", &self.vk_sys_union_field)
+            .finish()
+    }
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+impl VkClearValue {
+    fn new() -> Self {
+        VkClearValue {
+            color: VkSysUnionField::new(),
+            depthStencil: VkSysUnionField::new(),
+            vk_sys_union_field: Default::default(),
+        }
+    }
+}
+
+#[cfg(not(feature = "unstable_rust"))]
+impl Default for VkClearValue {
+    fn default() -> VkClearValue {
+        VkClearValue::new()
     }
 }
 

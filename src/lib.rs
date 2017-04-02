@@ -18,7 +18,7 @@
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
 #![feature(struct_field_attributes)]
-#![feature(untagged_unions)]
+#![cfg_attr(feature = "unstable_rust", feature(untagged_unions))]
 
 extern crate libc;
 
