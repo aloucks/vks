@@ -14,13 +14,14 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_EXT_HDR_METADATA_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_hdr_metadata\x00";
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME_STR: &'static str = "VK_EXT_hdr_metadata";
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkXYColorEXT {
     pub x: f32,
     pub y: f32,
@@ -39,6 +40,23 @@ pub struct VkHdrMetadataEXT {
     pub minLuminance: f32,
     pub maxContentLightLevel: f32,
     pub maxFrameAverageLightLevel: f32,
+}
+
+impl Default for VkHdrMetadataEXT {
+    fn default() -> Self {
+        VkHdrMetadataEXT  {
+            sType: VK_STRUCTURE_TYPE_HDR_METADATA_EXT,
+            pNext: ptr::null(),
+            displayPrimaryRed: Default::default(),
+            displayPrimaryGreen: Default::default(),
+            displayPrimaryBlue: Default::default(),
+            whitePoint: Default::default(),
+            maxLuminance: Default::default(),
+            minLuminance: Default::default(),
+            maxContentLightLevel: Default::default(),
+            maxFrameAverageLightLevel: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkSetHdrMetadataEXT = unsafe extern "system" fn(device: VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);

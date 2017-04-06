@@ -14,19 +14,20 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION: u32 = 1;
 pub const VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME: &'static [u8; 25] = b"VK_GOOGLE_display_timing\x00";
 pub const VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME_STR: &'static str = "VK_GOOGLE_display_timing";
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkRefreshCycleDurationGOOGLE {
     pub refreshDuration: u64,
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPastPresentationTimingGOOGLE {
     pub presentID: u32,
     pub desiredPresentTime: u64,
@@ -36,7 +37,7 @@ pub struct VkPastPresentationTimingGOOGLE {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPresentTimeGOOGLE {
     pub presentID: u32,
     pub desiredPresentTime: u64,
@@ -49,6 +50,17 @@ pub struct VkPresentTimesInfoGOOGLE {
     pub pNext: *const c_void,
     pub swapchainCount: u32,
     pub pTimes: *const VkPresentTimeGOOGLE,
+}
+
+impl Default for VkPresentTimesInfoGOOGLE {
+    fn default() -> Self {
+        VkPresentTimesInfoGOOGLE  {
+            sType: VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE,
+            pNext: ptr::null(),
+            swapchainCount: Default::default(),
+            pTimes: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkGetRefreshCycleDurationGOOGLE = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> VkResult;

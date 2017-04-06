@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::{c_char, c_void};
+use std::ptr;
 
 pub const VK_KHR_DISPLAY_EXTENSION_SPEC_VERSION: u32 = 21;
 pub const VK_KHR_DISPLAY_EXTENSION_NAME: &'static [u8; 15] = b"VK_KHR_display\x00";
@@ -69,8 +70,22 @@ pub struct VkDisplayPropertiesKHR {
     pub persistentContent: VkBool32,
 }
 
+impl Default for VkDisplayPropertiesKHR {
+    fn default() -> Self {
+        VkDisplayPropertiesKHR  {
+            display: ptr::null_mut(),
+            displayName: ptr::null(),
+            physicalDimensions: Default::default(),
+            physicalResolution: Default::default(),
+            supportedTransforms: Default::default(),
+            planeReorderPossible: Default::default(),
+            persistentContent: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDisplayModeParametersKHR {
     pub visibleRegion: VkExtent2D,
     pub refreshRate: u32,
@@ -83,6 +98,15 @@ pub struct VkDisplayModePropertiesKHR {
     pub parameters: VkDisplayModeParametersKHR,
 }
 
+impl Default for VkDisplayModePropertiesKHR {
+    fn default() -> Self {
+        VkDisplayModePropertiesKHR  {
+            displayMode: ptr::null_mut(),
+            parameters: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDisplayModeCreateInfoKHR {
@@ -92,8 +116,19 @@ pub struct VkDisplayModeCreateInfoKHR {
     pub parameters: VkDisplayModeParametersKHR,
 }
 
+impl Default for VkDisplayModeCreateInfoKHR {
+    fn default() -> Self {
+        VkDisplayModeCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            parameters: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDisplayPlaneCapabilitiesKHR {
     pub supportedAlpha: VkDisplayPlaneAlphaFlagsKHR,
     pub minSrcPosition: VkOffset2D,
@@ -113,6 +148,15 @@ pub struct VkDisplayPlanePropertiesKHR {
     pub currentStackIndex: u32,
 }
 
+impl Default for VkDisplayPlanePropertiesKHR {
+    fn default() -> Self {
+        VkDisplayPlanePropertiesKHR  {
+            currentDisplay: ptr::null_mut(),
+            currentStackIndex: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDisplaySurfaceCreateInfoKHR {
@@ -126,6 +170,23 @@ pub struct VkDisplaySurfaceCreateInfoKHR {
     pub globalAlpha: f32,
     pub alphaMode: VkDisplayPlaneAlphaFlagBitsKHR,
     pub imageExtent: VkExtent2D,
+}
+
+impl Default for VkDisplaySurfaceCreateInfoKHR {
+    fn default() -> Self {
+        VkDisplaySurfaceCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            displayMode: ptr::null_mut(),
+            planeIndex: Default::default(),
+            planeStackIndex: Default::default(),
+            transform: Default::default(),
+            globalAlpha: Default::default(),
+            alphaMode: Default::default(),
+            imageExtent: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetPhysicalDeviceDisplayPropertiesKHR = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pPropertyCount: *mut u32, pProperties: *mut VkDisplayPropertiesKHR) -> VkResult;

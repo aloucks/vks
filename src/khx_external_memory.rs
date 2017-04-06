@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHX_external_memory\x00";
@@ -28,6 +29,16 @@ pub struct VkExternalMemoryImageCreateInfoKHX {
     pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
 }
 
+impl Default for VkExternalMemoryImageCreateInfoKHX {
+    fn default() -> Self {
+        VkExternalMemoryImageCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            handleTypes: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryBufferCreateInfoKHX {
@@ -36,10 +47,30 @@ pub struct VkExternalMemoryBufferCreateInfoKHX {
     pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
 }
 
+impl Default for VkExternalMemoryBufferCreateInfoKHX {
+    fn default() -> Self {
+        VkExternalMemoryBufferCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            handleTypes: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoKHX {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
+}
+
+impl Default for VkExportMemoryAllocateInfoKHX {
+    fn default() -> Self {
+        VkExportMemoryAllocateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX,
+            pNext: ptr::null(),
+            handleTypes: Default::default(),
+        }
+    }
 }

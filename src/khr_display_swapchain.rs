@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_SPEC_VERSION: u32 = 9;
 pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHR_display_swapchain\x00";
@@ -27,6 +28,18 @@ pub struct VkDisplayPresentInfoKHR {
     pub srcRect: VkRect2D,
     pub dstRect: VkRect2D,
     pub persistent: VkBool32,
+}
+
+impl Default for VkDisplayPresentInfoKHR {
+    fn default() -> Self {
+        VkDisplayPresentInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR,
+            pNext: ptr::null(),
+            srcRect: Default::default(),
+            dstRect: Default::default(),
+            persistent: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkCreateSharedSwapchainsKHR = unsafe extern "system" fn(device: VkDevice, swapchainCount: u32, pCreateInfos: *const VkSwapchainCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSwapchains: *mut VkSwapchainKHR) -> VkResult;

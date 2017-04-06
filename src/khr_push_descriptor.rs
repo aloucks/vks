@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_PUSH_DESCRIPTOR_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHR_push_descriptor\x00";
@@ -25,6 +26,16 @@ pub struct VkPhysicalDevicePushDescriptorPropertiesKHR {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub maxPushDescriptors: u32,
+}
+
+impl Default for VkPhysicalDevicePushDescriptorPropertiesKHR {
+    fn default() -> Self {
+        VkPhysicalDevicePushDescriptorPropertiesKHR  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR,
+            pNext: ptr::null_mut(),
+            maxPushDescriptors: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkCmdPushDescriptorSetKHR = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, pipelineBindPoint: VkPipelineBindPoint, layout: VkPipelineLayout, set: u32, descriptorWriteCount: u32, pDescriptorWrites: *const VkWriteDescriptorSet);

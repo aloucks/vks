@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_DEVICE_GROUP_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_DEVICE_GROUP_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHX_device_group\x00";
@@ -62,6 +63,17 @@ pub struct VkMemoryAllocateFlagsInfoKHX {
     pub deviceMask: u32,
 }
 
+impl Default for VkMemoryAllocateFlagsInfoKHX {
+    fn default() -> Self {
+        VkMemoryAllocateFlagsInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            deviceMask: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkBindBufferMemoryInfoKHX {
@@ -72,6 +84,20 @@ pub struct VkBindBufferMemoryInfoKHX {
     pub memoryOffset: VkDeviceSize,
     pub deviceIndexCount: u32,
     pub pDeviceIndices: *const u32,
+}
+
+impl Default for VkBindBufferMemoryInfoKHX {
+    fn default() -> Self {
+        VkBindBufferMemoryInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX,
+            pNext: ptr::null(),
+            buffer: ptr::null_mut(),
+            memory: ptr::null_mut(),
+            memoryOffset: Default::default(),
+            deviceIndexCount: Default::default(),
+            pDeviceIndices: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -88,6 +114,22 @@ pub struct VkBindImageMemoryInfoKHX {
     pub pSFRRects: *const VkRect2D,
 }
 
+impl Default for VkBindImageMemoryInfoKHX {
+    fn default() -> Self {
+        VkBindImageMemoryInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX,
+            pNext: ptr::null(),
+            image: ptr::null_mut(),
+            memory: ptr::null_mut(),
+            memoryOffset: Default::default(),
+            deviceIndexCount: Default::default(),
+            pDeviceIndices: ptr::null(),
+            SFRRectCount: Default::default(),
+            pSFRRects: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupRenderPassBeginInfoKHX {
@@ -98,12 +140,34 @@ pub struct VkDeviceGroupRenderPassBeginInfoKHX {
     pub pDeviceRenderAreas: *const VkRect2D,
 }
 
+impl Default for VkDeviceGroupRenderPassBeginInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupRenderPassBeginInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX,
+            pNext: ptr::null(),
+            deviceMask: Default::default(),
+            deviceRenderAreaCount: Default::default(),
+            pDeviceRenderAreas: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupCommandBufferBeginInfoKHX {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub deviceMask: u32,
+}
+
+impl Default for VkDeviceGroupCommandBufferBeginInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupCommandBufferBeginInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHX,
+            pNext: ptr::null(),
+            deviceMask: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -119,6 +183,21 @@ pub struct VkDeviceGroupSubmitInfoKHX {
     pub pSignalSemaphoreDeviceIndices: *const u32,
 }
 
+impl Default for VkDeviceGroupSubmitInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupSubmitInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX,
+            pNext: ptr::null(),
+            waitSemaphoreCount: Default::default(),
+            pWaitSemaphoreDeviceIndices: ptr::null(),
+            commandBufferCount: Default::default(),
+            pCommandBufferDeviceMasks: ptr::null(),
+            signalSemaphoreCount: Default::default(),
+            pSignalSemaphoreDeviceIndices: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupBindSparseInfoKHX {
@@ -126,6 +205,17 @@ pub struct VkDeviceGroupBindSparseInfoKHX {
     pub pNext: *const c_void,
     pub resourceDeviceIndex: u32,
     pub memoryDeviceIndex: u32,
+}
+
+impl Default for VkDeviceGroupBindSparseInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupBindSparseInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX,
+            pNext: ptr::null(),
+            resourceDeviceIndex: Default::default(),
+            memoryDeviceIndex: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -137,12 +227,33 @@ pub struct VkDeviceGroupPresentCapabilitiesKHX {
     pub modes: VkDeviceGroupPresentModeFlagsKHX,
 }
 
+impl Default for VkDeviceGroupPresentCapabilitiesKHX {
+    fn default() -> Self {
+        VkDeviceGroupPresentCapabilitiesKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX,
+            pNext: ptr::null(),
+            presentMask: Default::default(),
+            modes: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImageSwapchainCreateInfoKHX {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub swapchain: VkSwapchainKHR,
+}
+
+impl Default for VkImageSwapchainCreateInfoKHX {
+    fn default() -> Self {
+        VkImageSwapchainCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            swapchain: ptr::null_mut(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -152,6 +263,17 @@ pub struct VkBindImageMemorySwapchainInfoKHX {
     pub pNext: *const c_void,
     pub swapchain: VkSwapchainKHR,
     pub imageIndex: u32,
+}
+
+impl Default for VkBindImageMemorySwapchainInfoKHX {
+    fn default() -> Self {
+        VkBindImageMemorySwapchainInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX,
+            pNext: ptr::null(),
+            swapchain: ptr::null_mut(),
+            imageIndex: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -166,6 +288,20 @@ pub struct VkAcquireNextImageInfoKHX {
     pub deviceMask: u32,
 }
 
+impl Default for VkAcquireNextImageInfoKHX {
+    fn default() -> Self {
+        VkAcquireNextImageInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX,
+            pNext: ptr::null(),
+            swapchain: ptr::null_mut(),
+            timeout: Default::default(),
+            semaphore: ptr::null_mut(),
+            fence: ptr::null_mut(),
+            deviceMask: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupPresentInfoKHX {
@@ -176,12 +312,34 @@ pub struct VkDeviceGroupPresentInfoKHX {
     pub mode: VkDeviceGroupPresentModeFlagBitsKHX,
 }
 
+impl Default for VkDeviceGroupPresentInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupPresentInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX,
+            pNext: ptr::null(),
+            swapchainCount: Default::default(),
+            pDeviceMasks: ptr::null(),
+            mode: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupSwapchainCreateInfoKHX {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub modes: VkDeviceGroupPresentModeFlagsKHX,
+}
+
+impl Default for VkDeviceGroupSwapchainCreateInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupSwapchainCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            modes: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetDeviceGroupPeerMemoryFeaturesKHX = unsafe extern "system" fn(device: VkDevice, heapIndex: u32, localDeviceIndex: u32, remoteDeviceIndex: u32, pPeerMemoryFeatures: *mut VkPeerMemoryFeatureFlagsKHX);

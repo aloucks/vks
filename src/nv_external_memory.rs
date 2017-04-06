@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NV_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;
 pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 22] = b"VK_NV_external_memory\x00";
@@ -27,10 +28,30 @@ pub struct VkExternalMemoryImageCreateInfoNV {
     pub handleTypes: VkExternalMemoryHandleTypeFlagsNV,
 }
 
+impl Default for VkExternalMemoryImageCreateInfoNV {
+    fn default() -> Self {
+        VkExternalMemoryImageCreateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
+            pNext: ptr::null(),
+            handleTypes: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoNV {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsNV,
+}
+
+impl Default for VkExportMemoryAllocateInfoNV {
+    fn default() -> Self {
+        VkExportMemoryAllocateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV,
+            pNext: ptr::null(),
+            handleTypes: Default::default(),
+        }
+    }
 }

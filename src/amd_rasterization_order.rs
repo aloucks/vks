@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME: &'static [u8; 27] = b"VK_AMD_rasterization_order\x00";
@@ -30,4 +31,14 @@ pub struct VkPipelineRasterizationStateRasterizationOrderAMD {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub rasterizationOrder: VkRasterizationOrderAMD,
+}
+
+impl Default for VkPipelineRasterizationStateRasterizationOrderAMD {
+    fn default() -> Self {
+        VkPipelineRasterizationStateRasterizationOrderAMD  {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD,
+            pNext: ptr::null(),
+            rasterizationOrder: Default::default(),
+        }
+    }
 }

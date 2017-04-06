@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME: &'static [u8; 31] = b"VK_EXT_display_surface_counter\x00";
@@ -44,6 +45,26 @@ pub struct VkSurfaceCapabilities2EXT {
     pub supportedCompositeAlpha: VkCompositeAlphaFlagsKHR,
     pub supportedUsageFlags: VkImageUsageFlags,
     pub supportedSurfaceCounters: VkSurfaceCounterFlagsEXT,
+}
+
+impl Default for VkSurfaceCapabilities2EXT {
+    fn default() -> Self {
+        VkSurfaceCapabilities2EXT  {
+            sType: VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT,
+            pNext: ptr::null_mut(),
+            minImageCount: Default::default(),
+            maxImageCount: Default::default(),
+            currentExtent: Default::default(),
+            minImageExtent: Default::default(),
+            maxImageExtent: Default::default(),
+            maxImageArrayLayers: Default::default(),
+            supportedTransforms: Default::default(),
+            currentTransform: Default::default(),
+            supportedCompositeAlpha: Default::default(),
+            supportedUsageFlags: Default::default(),
+            supportedSurfaceCounters: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> VkResult;

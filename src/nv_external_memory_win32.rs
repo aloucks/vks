@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 28] = b"VK_NV_external_memory_win32\x00";
@@ -28,6 +29,17 @@ pub struct VkImportMemoryWin32HandleInfoNV {
     pub handle: win32_wrapper::HANDLE,
 }
 
+impl Default for VkImportMemoryWin32HandleInfoNV {
+    fn default() -> Self {
+        VkImportMemoryWin32HandleInfoNV  {
+            sType: VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV,
+            pNext: ptr::null(),
+            handleType: Default::default(),
+            handle: ptr::null_mut(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryWin32HandleInfoNV {
@@ -35,6 +47,17 @@ pub struct VkExportMemoryWin32HandleInfoNV {
     pub pNext: *const c_void,
     pub pAttributes: *const win32_wrapper::SECURITY_ATTRIBUTES,
     pub dwAccess: win32_wrapper::DWORD,
+}
+
+impl Default for VkExportMemoryWin32HandleInfoNV {
+    fn default() -> Self {
+        VkExportMemoryWin32HandleInfoNV  {
+            sType: VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV,
+            pNext: ptr::null(),
+            pAttributes: ptr::null(),
+            dwAccess: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetMemoryWin32HandleNV = unsafe extern "system" fn(device: VkDevice, memory: VkDeviceMemory, handleType: VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_wrapper::HANDLE) -> VkResult;

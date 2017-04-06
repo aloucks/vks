@@ -14,6 +14,8 @@
 
 use libc::{c_char, c_void};
 use std::fmt;
+use std::mem;
+use std::ptr;
 
 #[cfg(not(feature = "unstable_rust"))]
 use union_field::VkSysUnionField;
@@ -1730,6 +1732,20 @@ pub struct VkApplicationInfo {
     pub apiVersion: u32,
 }
 
+impl Default for VkApplicationInfo {
+    fn default() -> Self {
+        VkApplicationInfo {
+            sType: VK_STRUCTURE_TYPE_APPLICATION_INFO,
+            pNext: ptr::null(),
+            pApplicationName: ptr::null(),
+            applicationVersion: Default::default(),
+            pEngineName: ptr::null(),
+            engineVersion: Default::default(),
+            apiVersion: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkInstanceCreateInfo {
@@ -1741,6 +1757,21 @@ pub struct VkInstanceCreateInfo {
     pub ppEnabledLayerNames: *const *const c_char,
     pub enabledExtensionCount: u32,
     pub ppEnabledExtensionNames: *const *const c_char,
+}
+
+impl Default for VkInstanceCreateInfo {
+    fn default() -> Self {
+        VkInstanceCreateInfo {
+            sType: VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            pApplicationInfo: ptr::null(),
+            enabledLayerCount: Default::default(),
+            ppEnabledLayerNames: ptr::null(),
+            enabledExtensionCount: Default::default(),
+            ppEnabledExtensionNames: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -1774,8 +1805,23 @@ impl fmt::Debug for VkAllocationCallbacks {
     }
 }
 
+impl Default for VkAllocationCallbacks {
+    fn default() -> Self {
+        unsafe {
+            VkAllocationCallbacks {
+                pUserData: ptr::null_mut(),
+                pfnAllocation: mem::transmute(0usize),
+                pfnReallocation: mem::transmute(0usize),
+                pfnFree: mem::transmute(0usize),
+                pfnInternalAllocation: mem::transmute(0usize),
+                pfnInternalFree: mem::transmute(0usize),
+            }
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPhysicalDeviceFeatures {
     pub robustBufferAccess: VkBool32,
     pub fullDrawIndexUint32: VkBool32,
@@ -1835,7 +1881,7 @@ pub struct VkPhysicalDeviceFeatures {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkFormatProperties {
     pub linearTilingFeatures: VkFormatFeatureFlags,
     pub optimalTilingFeatures: VkFormatFeatureFlags,
@@ -1843,7 +1889,7 @@ pub struct VkFormatProperties {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkExtent3D {
     pub width: u32,
     pub height: u32,
@@ -1851,7 +1897,7 @@ pub struct VkExtent3D {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageFormatProperties {
     pub maxExtent: VkExtent3D,
     pub maxMipLevels: u32,
@@ -1861,7 +1907,7 @@ pub struct VkImageFormatProperties {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPhysicalDeviceLimits {
     pub maxImageDimension1D: u32,
     pub maxImageDimension2D: u32,
@@ -1972,7 +2018,7 @@ pub struct VkPhysicalDeviceLimits {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPhysicalDeviceSparseProperties {
     pub residencyStandard2DBlockShape: VkBool32,
     pub residencyStandard2DMultisampleBlockShape: VkBool32,
@@ -2026,8 +2072,24 @@ impl fmt::Debug for VkPhysicalDeviceProperties {
     }
 }
 
+impl Default for VkPhysicalDeviceProperties {
+    fn default() -> Self {
+        VkPhysicalDeviceProperties {
+            apiVersion: Default::default(),
+            driverVersion: Default::default(),
+            vendorID: Default::default(),
+            deviceID: Default::default(),
+            deviceType: Default::default(),
+            deviceName: unsafe { mem::zeroed() },
+            pipelineCacheUUID: Default::default(),
+            limits: Default::default(),
+            sparseProperties: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkQueueFamilyProperties {
     pub queueFlags: VkQueueFlags,
     pub queueCount: u32,
@@ -2036,21 +2098,21 @@ pub struct VkQueueFamilyProperties {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkMemoryType {
     pub propertyFlags: VkMemoryPropertyFlags,
     pub heapIndex: u32,
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkMemoryHeap {
     pub size: VkDeviceSize,
     pub flags: VkMemoryHeapFlags,
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPhysicalDeviceMemoryProperties {
     pub memoryTypeCount: u32,
     pub memoryTypes: [VkMemoryType; VK_MAX_MEMORY_TYPES],
@@ -2069,6 +2131,19 @@ pub struct VkDeviceQueueCreateInfo {
     pub pQueuePriorities: *const f32,
 }
 
+impl Default for VkDeviceQueueCreateInfo {
+    fn default() -> Self {
+        VkDeviceQueueCreateInfo {
+            sType: VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            queueFamilyIndex: Default::default(),
+            queueCount: Default::default(),
+            pQueuePriorities: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceCreateInfo {
@@ -2082,6 +2157,23 @@ pub struct VkDeviceCreateInfo {
     pub enabledExtensionCount: u32,
     pub ppEnabledExtensionNames: *const *const c_char,
     pub pEnabledFeatures: *const VkPhysicalDeviceFeatures,
+}
+
+impl Default for VkDeviceCreateInfo {
+    fn default() -> Self {
+        VkDeviceCreateInfo {
+            sType: VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            queueCreateInfoCount: Default::default(),
+            pQueueCreateInfos: ptr::null(),
+            enabledLayerCount: Default::default(),
+            ppEnabledLayerNames: ptr::null(),
+            enabledExtensionCount: Default::default(),
+            ppEnabledExtensionNames: ptr::null(),
+            pEnabledFeatures: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2112,6 +2204,15 @@ impl fmt::Debug for VkExtensionProperties {
             .field("extensionName", &ExtensionNameDebugHelper(&self.extensionName))
             .field("specVersion", &self.specVersion)
             .finish()
+    }
+}
+
+impl Default for VkExtensionProperties {
+    fn default() -> Self {
+        VkExtensionProperties {
+            extensionName: unsafe { mem::zeroed() },
+            specVersion: Default::default(),
+        }
     }
 }
 
@@ -2158,6 +2259,17 @@ impl fmt::Debug for VkLayerProperties {
     }
 }
 
+impl Default for VkLayerProperties {
+    fn default() -> Self {
+        VkLayerProperties {
+            layerName: unsafe { mem::zeroed() },
+            specVersion: Default::default(),
+            implementationVersion: Default::default(),
+            description: unsafe { mem::zeroed() },
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSubmitInfo {
@@ -2172,6 +2284,22 @@ pub struct VkSubmitInfo {
     pub pSignalSemaphores: *const VkSemaphore,
 }
 
+impl Default for VkSubmitInfo {
+    fn default() -> Self {
+        VkSubmitInfo {
+            sType: VK_STRUCTURE_TYPE_SUBMIT_INFO,
+            pNext: ptr::null(),
+            waitSemaphoreCount: Default::default(),
+            pWaitSemaphores: ptr::null(),
+            pWaitDstStageMask: ptr::null(),
+            commandBufferCount: Default::default(),
+            pCommandBuffers: ptr::null(),
+            signalSemaphoreCount: Default::default(),
+            pSignalSemaphores: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryAllocateInfo {
@@ -2179,6 +2307,17 @@ pub struct VkMemoryAllocateInfo {
     pub pNext: *const c_void,
     pub allocationSize: VkDeviceSize,
     pub memoryTypeIndex: u32,
+}
+
+impl Default for VkMemoryAllocateInfo {
+    fn default() -> Self {
+        VkMemoryAllocateInfo {
+            sType: VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
+            pNext: ptr::null(),
+            allocationSize: Default::default(),
+            memoryTypeIndex: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2191,8 +2330,20 @@ pub struct VkMappedMemoryRange {
     pub size: VkDeviceSize,
 }
 
+impl Default for VkMappedMemoryRange {
+    fn default() -> Self {
+        VkMappedMemoryRange {
+            sType: VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
+            pNext: ptr::null(),
+            memory: ptr::null_mut(),
+            offset: Default::default(),
+            size: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkMemoryRequirements {
     pub size: VkDeviceSize,
     pub alignment: VkDeviceSize,
@@ -2200,7 +2351,7 @@ pub struct VkMemoryRequirements {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSparseImageFormatProperties {
     pub aspectMask: VkImageAspectFlags,
     pub imageGranularity: VkExtent3D,
@@ -2208,7 +2359,7 @@ pub struct VkSparseImageFormatProperties {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSparseImageMemoryRequirements {
     pub formatProperties: VkSparseImageFormatProperties,
     pub imageMipTailFirstLod: u32,
@@ -2227,12 +2378,34 @@ pub struct VkSparseMemoryBind {
     pub flags: VkSparseMemoryBindFlags,
 }
 
+impl Default for VkSparseMemoryBind {
+    fn default() -> Self {
+        VkSparseMemoryBind {
+            resourceOffset: Default::default(),
+            size: Default::default(),
+            memory: ptr::null_mut(),
+            memoryOffset: Default::default(),
+            flags: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSparseBufferMemoryBindInfo {
     pub buffer: VkBuffer,
     pub bindCount: u32,
     pub pBinds: *const VkSparseMemoryBind,
+}
+
+impl Default for VkSparseBufferMemoryBindInfo {
+    fn default() -> Self {
+        VkSparseBufferMemoryBindInfo {
+            buffer: ptr::null_mut(),
+            bindCount: Default::default(),
+            pBinds: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2243,8 +2416,18 @@ pub struct VkSparseImageOpaqueMemoryBindInfo {
     pub pBinds: *const VkSparseMemoryBind,
 }
 
+impl Default for VkSparseImageOpaqueMemoryBindInfo {
+    fn default() -> Self {
+        VkSparseImageOpaqueMemoryBindInfo {
+            image: ptr::null_mut(),
+            bindCount: Default::default(),
+            pBinds: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageSubresource {
     pub aspectMask: VkImageAspectFlags,
     pub mipLevel: u32,
@@ -2252,7 +2435,7 @@ pub struct VkImageSubresource {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkOffset3D {
     pub x: i32,
     pub y: i32,
@@ -2270,12 +2453,35 @@ pub struct VkSparseImageMemoryBind {
     pub flags: VkSparseMemoryBindFlags,
 }
 
+impl Default for VkSparseImageMemoryBind {
+    fn default() -> Self {
+        VkSparseImageMemoryBind {
+            subresource: Default::default(),
+            offset: Default::default(),
+            extent: Default::default(),
+            memory: ptr::null_mut(),
+            memoryOffset: Default::default(),
+            flags: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSparseImageMemoryBindInfo {
     pub image: VkImage,
     pub bindCount: u32,
     pub pBinds: *const VkSparseImageMemoryBind,
+}
+
+impl Default for VkSparseImageMemoryBindInfo {
+    fn default() -> Self {
+        VkSparseImageMemoryBindInfo {
+            image: ptr::null_mut(),
+            bindCount: Default::default(),
+            pBinds: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2295,12 +2501,41 @@ pub struct VkBindSparseInfo {
     pub pSignalSemaphores: *const VkSemaphore,
 }
 
+impl Default for VkBindSparseInfo {
+    fn default() -> Self {
+        VkBindSparseInfo {
+            sType: VK_STRUCTURE_TYPE_BIND_SPARSE_INFO,
+            pNext: ptr::null(),
+            waitSemaphoreCount: Default::default(),
+            pWaitSemaphores: ptr::null(),
+            bufferBindCount: Default::default(),
+            pBufferBinds: ptr::null(),
+            imageOpaqueBindCount: Default::default(),
+            pImageOpaqueBinds: ptr::null(),
+            imageBindCount: Default::default(),
+            pImageBinds: ptr::null(),
+            signalSemaphoreCount: Default::default(),
+            pSignalSemaphores: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkFenceCreateInfo {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkFenceCreateFlags,
+}
+
+impl Default for VkFenceCreateInfo {
+    fn default() -> Self {
+        VkFenceCreateInfo {
+            sType: VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2311,12 +2546,32 @@ pub struct VkSemaphoreCreateInfo {
     pub flags: VkSemaphoreCreateFlags,
 }
 
+impl Default for VkSemaphoreCreateInfo {
+    fn default() -> Self {
+        VkSemaphoreCreateInfo {
+            sType: VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkEventCreateInfo {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkEventCreateFlags,
+}
+
+impl Default for VkEventCreateInfo {
+    fn default() -> Self {
+        VkEventCreateInfo {
+            sType: VK_STRUCTURE_TYPE_EVENT_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2328,6 +2583,19 @@ pub struct VkQueryPoolCreateInfo {
     pub queryType: VkQueryType,
     pub queryCount: u32,
     pub pipelineStatistics: VkQueryPipelineStatisticFlags,
+}
+
+impl Default for VkQueryPoolCreateInfo {
+    fn default() -> Self {
+        VkQueryPoolCreateInfo {
+            sType: VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            queryType: Default::default(),
+            queryCount: Default::default(),
+            pipelineStatistics: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2343,6 +2611,21 @@ pub struct VkBufferCreateInfo {
     pub pQueueFamilyIndices: *const u32,
 }
 
+impl Default for VkBufferCreateInfo {
+    fn default() -> Self {
+        VkBufferCreateInfo {
+            sType: VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            size: Default::default(),
+            usage: Default::default(),
+            sharingMode: Default::default(),
+            queueFamilyIndexCount: Default::default(),
+            pQueueFamilyIndices: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkBufferViewCreateInfo {
@@ -2353,6 +2636,20 @@ pub struct VkBufferViewCreateInfo {
     pub format: VkFormat,
     pub offset: VkDeviceSize,
     pub range: VkDeviceSize,
+}
+
+impl Default for VkBufferViewCreateInfo {
+    fn default() -> Self {
+        VkBufferViewCreateInfo {
+            sType: VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            buffer: ptr::null_mut(),
+            format: Default::default(),
+            offset: Default::default(),
+            range: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2375,8 +2672,30 @@ pub struct VkImageCreateInfo {
     pub initialLayout: VkImageLayout,
 }
 
+impl Default for VkImageCreateInfo {
+    fn default() -> Self {
+        VkImageCreateInfo {
+            sType: VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            imageType: Default::default(),
+            format: Default::default(),
+            extent: Default::default(),
+            mipLevels: Default::default(),
+            arrayLayers: Default::default(),
+            samples: Default::default(),
+            tiling: Default::default(),
+            usage: Default::default(),
+            sharingMode: Default::default(),
+            queueFamilyIndexCount: Default::default(),
+            pQueueFamilyIndices: ptr::null(),
+            initialLayout: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSubresourceLayout {
     pub offset: VkDeviceSize,
     pub size: VkDeviceSize,
@@ -2386,7 +2705,7 @@ pub struct VkSubresourceLayout {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkComponentMapping {
     pub r: VkComponentSwizzle,
     pub g: VkComponentSwizzle,
@@ -2395,7 +2714,7 @@ pub struct VkComponentMapping {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageSubresourceRange {
     pub aspectMask: VkImageAspectFlags,
     pub baseMipLevel: u32,
@@ -2417,6 +2736,21 @@ pub struct VkImageViewCreateInfo {
     pub subresourceRange: VkImageSubresourceRange,
 }
 
+impl Default for VkImageViewCreateInfo {
+    fn default() -> Self {
+        VkImageViewCreateInfo {
+            sType: VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            image: ptr::null_mut(),
+            viewType: Default::default(),
+            format: Default::default(),
+            components: Default::default(),
+            subresourceRange: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkShaderModuleCreateInfo {
@@ -2425,6 +2759,18 @@ pub struct VkShaderModuleCreateInfo {
     pub flags: VkShaderModuleCreateFlags,
     pub codeSize: usize,
     pub pCode: *const u32,
+}
+
+impl Default for VkShaderModuleCreateInfo {
+    fn default() -> Self {
+        VkShaderModuleCreateInfo {
+            sType: VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            codeSize: Default::default(),
+            pCode: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2437,8 +2783,20 @@ pub struct VkPipelineCacheCreateInfo {
     pub pInitialData: *const c_void,
 }
 
+impl Default for VkPipelineCacheCreateInfo {
+    fn default() -> Self {
+        VkPipelineCacheCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            initialDataSize: Default::default(),
+            pInitialData: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSpecializationMapEntry {
     pub constantID: u32,
     pub offset: u32,
@@ -2454,6 +2812,17 @@ pub struct VkSpecializationInfo {
     pub pData: *const c_void,
 }
 
+impl Default for VkSpecializationInfo {
+    fn default() -> Self {
+        VkSpecializationInfo {
+            mapEntryCount: Default::default(),
+            pMapEntries: ptr::null(),
+            dataSize: Default::default(),
+            pData: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineShaderStageCreateInfo {
@@ -2466,8 +2835,22 @@ pub struct VkPipelineShaderStageCreateInfo {
     pub pSpecializationInfo: *const VkSpecializationInfo,
 }
 
+impl Default for VkPipelineShaderStageCreateInfo {
+    fn default() -> Self {
+        VkPipelineShaderStageCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            stage: Default::default(),
+            module: ptr::null_mut(),
+            pName: ptr::null(),
+            pSpecializationInfo: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkVertexInputBindingDescription {
     pub binding: u32,
     pub stride: u32,
@@ -2475,7 +2858,7 @@ pub struct VkVertexInputBindingDescription {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkVertexInputAttributeDescription {
     pub location: u32,
     pub binding: u32,
@@ -2495,6 +2878,20 @@ pub struct VkPipelineVertexInputStateCreateInfo {
     pub pVertexAttributeDescriptions: *const VkVertexInputAttributeDescription,
 }
 
+impl Default for VkPipelineVertexInputStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineVertexInputStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            vertexBindingDescriptionCount: Default::default(),
+            pVertexBindingDescriptions: ptr::null(),
+            vertexAttributeDescriptionCount: Default::default(),
+            pVertexAttributeDescriptions: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineInputAssemblyStateCreateInfo {
@@ -2503,6 +2900,18 @@ pub struct VkPipelineInputAssemblyStateCreateInfo {
     pub flags: VkPipelineInputAssemblyStateCreateFlags,
     pub topology: VkPrimitiveTopology,
     pub primitiveRestartEnable: VkBool32,
+}
+
+impl Default for VkPipelineInputAssemblyStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineInputAssemblyStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            topology: Default::default(),
+            primitiveRestartEnable: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2514,8 +2923,19 @@ pub struct VkPipelineTessellationStateCreateInfo {
     pub patchControlPoints: u32,
 }
 
+impl Default for VkPipelineTessellationStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineTessellationStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            patchControlPoints: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkViewport {
     pub x: f32,
     pub y: f32,
@@ -2526,21 +2946,21 @@ pub struct VkViewport {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkOffset2D {
     pub x: i32,
     pub y: i32,
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkExtent2D {
     pub width: u32,
     pub height: u32,
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkRect2D {
     pub offset: VkOffset2D,
     pub extent: VkExtent2D,
@@ -2556,6 +2976,20 @@ pub struct VkPipelineViewportStateCreateInfo {
     pub pViewports: *const VkViewport,
     pub scissorCount: u32,
     pub pScissors: *const VkRect2D,
+}
+
+impl Default for VkPipelineViewportStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineViewportStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            viewportCount: Default::default(),
+            pViewports: ptr::null(),
+            scissorCount: Default::default(),
+            pScissors: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2576,6 +3010,26 @@ pub struct VkPipelineRasterizationStateCreateInfo {
     pub lineWidth: f32,
 }
 
+impl Default for VkPipelineRasterizationStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineRasterizationStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            depthClampEnable: Default::default(),
+            rasterizerDiscardEnable: Default::default(),
+            polygonMode: Default::default(),
+            cullMode: Default::default(),
+            frontFace: Default::default(),
+            depthBiasEnable: Default::default(),
+            depthBiasConstantFactor: Default::default(),
+            depthBiasClamp: Default::default(),
+            depthBiasSlopeFactor: Default::default(),
+            lineWidth: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineMultisampleStateCreateInfo {
@@ -2590,8 +3044,24 @@ pub struct VkPipelineMultisampleStateCreateInfo {
     pub alphaToOneEnable: VkBool32,
 }
 
+impl Default for VkPipelineMultisampleStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineMultisampleStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            rasterizationSamples: Default::default(),
+            sampleShadingEnable: Default::default(),
+            minSampleShading: Default::default(),
+            pSampleMask: ptr::null(),
+            alphaToCoverageEnable: Default::default(),
+            alphaToOneEnable: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkStencilOpState {
     pub failOp: VkStencilOp,
     pub passOp: VkStencilOp,
@@ -2619,8 +3089,27 @@ pub struct VkPipelineDepthStencilStateCreateInfo {
     pub maxDepthBounds: f32,
 }
 
+impl Default for VkPipelineDepthStencilStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineDepthStencilStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            depthTestEnable: Default::default(),
+            depthWriteEnable: Default::default(),
+            depthCompareOp: Default::default(),
+            depthBoundsTestEnable: Default::default(),
+            stencilTestEnable: Default::default(),
+            front: Default::default(),
+            back: Default::default(),
+            minDepthBounds: Default::default(),
+            maxDepthBounds: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPipelineColorBlendAttachmentState {
     pub blendEnable: VkBool32,
     pub srcColorBlendFactor: VkBlendFactor,
@@ -2645,6 +3134,21 @@ pub struct VkPipelineColorBlendStateCreateInfo {
     pub blendConstants: [f32; 4],
 }
 
+impl Default for VkPipelineColorBlendStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineColorBlendStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            logicOpEnable: Default::default(),
+            logicOp: Default::default(),
+            attachmentCount: Default::default(),
+            pAttachments: ptr::null(),
+            blendConstants: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineDynamicStateCreateInfo {
@@ -2653,6 +3157,18 @@ pub struct VkPipelineDynamicStateCreateInfo {
     pub flags: VkPipelineDynamicStateCreateFlags,
     pub dynamicStateCount: u32,
     pub pDynamicStates: *const VkDynamicState,
+}
+
+impl Default for VkPipelineDynamicStateCreateInfo {
+    fn default() -> Self {
+        VkPipelineDynamicStateCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            dynamicStateCount: Default::default(),
+            pDynamicStates: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2679,6 +3195,32 @@ pub struct VkGraphicsPipelineCreateInfo {
     pub basePipelineIndex: i32,
 }
 
+impl Default for VkGraphicsPipelineCreateInfo {
+    fn default() -> Self {
+        VkGraphicsPipelineCreateInfo {
+            sType: VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            stageCount: Default::default(),
+            pStages: ptr::null(),
+            pVertexInputState: ptr::null(),
+            pInputAssemblyState: ptr::null(),
+            pTessellationState: ptr::null(),
+            pViewportState: ptr::null(),
+            pRasterizationState: ptr::null(),
+            pMultisampleState: ptr::null(),
+            pDepthStencilState: ptr::null(),
+            pColorBlendState: ptr::null(),
+            pDynamicState: ptr::null(),
+            layout: ptr::null_mut(),
+            renderPass: ptr::null_mut(),
+            subpass: Default::default(),
+            basePipelineHandle: ptr::null_mut(),
+            basePipelineIndex: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkComputePipelineCreateInfo {
@@ -2691,8 +3233,22 @@ pub struct VkComputePipelineCreateInfo {
     pub basePipelineIndex: i32,
 }
 
+impl Default for VkComputePipelineCreateInfo {
+    fn default() -> Self {
+        VkComputePipelineCreateInfo {
+            sType: VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            stage: Default::default(),
+            layout: ptr::null_mut(),
+            basePipelineHandle: ptr::null_mut(),
+            basePipelineIndex: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkPushConstantRange {
     pub stageFlags: VkShaderStageFlags,
     pub offset: u32,
@@ -2709,6 +3265,20 @@ pub struct VkPipelineLayoutCreateInfo {
     pub pSetLayouts: *const VkDescriptorSetLayout,
     pub pushConstantRangeCount: u32,
     pub pPushConstantRanges: *const VkPushConstantRange,
+}
+
+impl Default for VkPipelineLayoutCreateInfo {
+    fn default() -> Self {
+        VkPipelineLayoutCreateInfo {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            setLayoutCount: Default::default(),
+            pSetLayouts: ptr::null(),
+            pushConstantRangeCount: Default::default(),
+            pPushConstantRanges: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2734,6 +3304,31 @@ pub struct VkSamplerCreateInfo {
     pub unnormalizedCoordinates: VkBool32,
 }
 
+impl Default for VkSamplerCreateInfo {
+    fn default() -> Self {
+        VkSamplerCreateInfo {
+            sType: VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            magFilter: Default::default(),
+            minFilter: Default::default(),
+            mipmapMode: Default::default(),
+            addressModeU: Default::default(),
+            addressModeV: Default::default(),
+            addressModeW: Default::default(),
+            mipLodBias: Default::default(),
+            anisotropyEnable: Default::default(),
+            maxAnisotropy: Default::default(),
+            compareEnable: Default::default(),
+            compareOp: Default::default(),
+            minLod: Default::default(),
+            maxLod: Default::default(),
+            borderColor: Default::default(),
+            unnormalizedCoordinates: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDescriptorSetLayoutBinding {
@@ -2742,6 +3337,18 @@ pub struct VkDescriptorSetLayoutBinding {
     pub descriptorCount: u32,
     pub stageFlags: VkShaderStageFlags,
     pub pImmutableSamplers: *const VkSampler,
+}
+
+impl Default for VkDescriptorSetLayoutBinding {
+    fn default() -> Self {
+        VkDescriptorSetLayoutBinding {
+            binding: Default::default(),
+            descriptorType: Default::default(),
+            descriptorCount: Default::default(),
+            stageFlags: Default::default(),
+            pImmutableSamplers: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2754,8 +3361,20 @@ pub struct VkDescriptorSetLayoutCreateInfo {
     pub pBindings: *const VkDescriptorSetLayoutBinding,
 }
 
+impl Default for VkDescriptorSetLayoutCreateInfo {
+    fn default() -> Self {
+        VkDescriptorSetLayoutCreateInfo {
+            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            bindingCount: Default::default(),
+            pBindings: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDescriptorPoolSize {
     pub type_: VkDescriptorType,
     pub descriptorCount: u32,
@@ -2772,6 +3391,19 @@ pub struct VkDescriptorPoolCreateInfo {
     pub pPoolSizes: *const VkDescriptorPoolSize,
 }
 
+impl Default for VkDescriptorPoolCreateInfo {
+    fn default() -> Self {
+        VkDescriptorPoolCreateInfo {
+            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            maxSets: Default::default(),
+            poolSizeCount: Default::default(),
+            pPoolSizes: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDescriptorSetAllocateInfo {
@@ -2782,6 +3414,18 @@ pub struct VkDescriptorSetAllocateInfo {
     pub pSetLayouts: *const VkDescriptorSetLayout,
 }
 
+impl Default for VkDescriptorSetAllocateInfo {
+    fn default() -> Self {
+        VkDescriptorSetAllocateInfo {
+            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO,
+            pNext: ptr::null(),
+            descriptorPool: ptr::null_mut(),
+            descriptorSetCount: Default::default(),
+            pSetLayouts: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDescriptorImageInfo {
@@ -2790,12 +3434,32 @@ pub struct VkDescriptorImageInfo {
     pub imageLayout: VkImageLayout,
 }
 
+impl Default for VkDescriptorImageInfo {
+    fn default() -> Self {
+        VkDescriptorImageInfo {
+            sampler: ptr::null_mut(),
+            imageView: ptr::null_mut(),
+            imageLayout: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDescriptorBufferInfo {
     pub buffer: VkBuffer,
     pub offset: VkDeviceSize,
     pub range: VkDeviceSize,
+}
+
+impl Default for VkDescriptorBufferInfo {
+    fn default() -> Self {
+        VkDescriptorBufferInfo {
+            buffer: ptr::null_mut(),
+            offset: Default::default(),
+            range: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2813,6 +3477,23 @@ pub struct VkWriteDescriptorSet {
     pub pTexelBufferView: *const VkBufferView,
 }
 
+impl Default for VkWriteDescriptorSet {
+    fn default() -> Self {
+        VkWriteDescriptorSet {
+            sType: VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET,
+            pNext: ptr::null(),
+            dstSet: ptr::null_mut(),
+            dstBinding: Default::default(),
+            dstArrayElement: Default::default(),
+            descriptorCount: Default::default(),
+            descriptorType: Default::default(),
+            pImageInfo: ptr::null(),
+            pBufferInfo: ptr::null(),
+            pTexelBufferView: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkCopyDescriptorSet {
@@ -2825,6 +3506,22 @@ pub struct VkCopyDescriptorSet {
     pub dstBinding: u32,
     pub dstArrayElement: u32,
     pub descriptorCount: u32,
+}
+
+impl Default for VkCopyDescriptorSet {
+    fn default() -> Self {
+        VkCopyDescriptorSet {
+            sType: VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET,
+            pNext: ptr::null(),
+            srcSet: ptr::null_mut(),
+            srcBinding: Default::default(),
+            srcArrayElement: Default::default(),
+            dstSet: ptr::null_mut(),
+            dstBinding: Default::default(),
+            dstArrayElement: Default::default(),
+            descriptorCount: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2841,8 +3538,24 @@ pub struct VkFramebufferCreateInfo {
     pub layers: u32,
 }
 
+impl Default for VkFramebufferCreateInfo {
+    fn default() -> Self {
+        VkFramebufferCreateInfo {
+            sType: VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            renderPass: ptr::null_mut(),
+            attachmentCount: Default::default(),
+            pAttachments: ptr::null(),
+            width: Default::default(),
+            height: Default::default(),
+            layers: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkAttachmentDescription {
     pub flags: VkAttachmentDescriptionFlags,
     pub format: VkFormat,
@@ -2856,7 +3569,7 @@ pub struct VkAttachmentDescription {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkAttachmentReference {
     pub attachment: u32,
     pub layout: VkImageLayout,
@@ -2877,8 +3590,25 @@ pub struct VkSubpassDescription {
     pub pPreserveAttachments: *const u32,
 }
 
+impl Default for VkSubpassDescription {
+    fn default() -> Self {
+        VkSubpassDescription {
+            flags: Default::default(),
+            pipelineBindPoint: Default::default(),
+            inputAttachmentCount: Default::default(),
+            pInputAttachments: ptr::null(),
+            colorAttachmentCount: Default::default(),
+            pColorAttachments: ptr::null(),
+            pResolveAttachments: ptr::null(),
+            pDepthStencilAttachment: ptr::null(),
+            preserveAttachmentCount: Default::default(),
+            pPreserveAttachments: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSubpassDependency {
     pub srcSubpass: u32,
     pub dstSubpass: u32,
@@ -2903,6 +3633,22 @@ pub struct VkRenderPassCreateInfo {
     pub pDependencies: *const VkSubpassDependency,
 }
 
+impl Default for VkRenderPassCreateInfo {
+    fn default() -> Self {
+        VkRenderPassCreateInfo {
+            sType: VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            attachmentCount: Default::default(),
+            pAttachments: ptr::null(),
+            subpassCount: Default::default(),
+            pSubpasses: ptr::null(),
+            dependencyCount: Default::default(),
+            pDependencies: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkCommandPoolCreateInfo {
@@ -2910,6 +3656,17 @@ pub struct VkCommandPoolCreateInfo {
     pub pNext: *const c_void,
     pub flags: VkCommandPoolCreateFlags,
     pub queueFamilyIndex: u32,
+}
+
+impl Default for VkCommandPoolCreateInfo {
+    fn default() -> Self {
+        VkCommandPoolCreateInfo {
+            sType: VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            queueFamilyIndex: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2920,6 +3677,18 @@ pub struct VkCommandBufferAllocateInfo {
     pub commandPool: VkCommandPool,
     pub level: VkCommandBufferLevel,
     pub commandBufferCount: u32,
+}
+
+impl Default for VkCommandBufferAllocateInfo {
+    fn default() -> Self {
+        VkCommandBufferAllocateInfo {
+            sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
+            pNext: ptr::null(),
+            commandPool: ptr::null_mut(),
+            level: Default::default(),
+            commandBufferCount: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -2935,6 +3704,21 @@ pub struct VkCommandBufferInheritanceInfo {
     pub pipelineStatistics: VkQueryPipelineStatisticFlags,
 }
 
+impl Default for VkCommandBufferInheritanceInfo {
+    fn default() -> Self {
+        VkCommandBufferInheritanceInfo {
+            sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO,
+            pNext: ptr::null(),
+            renderPass: ptr::null_mut(),
+            subpass: Default::default(),
+            framebuffer: ptr::null_mut(),
+            occlusionQueryEnable: Default::default(),
+            queryFlags: Default::default(),
+            pipelineStatistics: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkCommandBufferBeginInfo {
@@ -2944,8 +3728,19 @@ pub struct VkCommandBufferBeginInfo {
     pub pInheritanceInfo: *const VkCommandBufferInheritanceInfo,
 }
 
+impl Default for VkCommandBufferBeginInfo {
+    fn default() -> Self {
+        VkCommandBufferBeginInfo {
+            sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            pInheritanceInfo: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkBufferCopy {
     pub srcOffset: VkDeviceSize,
     pub dstOffset: VkDeviceSize,
@@ -2953,7 +3748,7 @@ pub struct VkBufferCopy {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageSubresourceLayers {
     pub aspectMask: VkImageAspectFlags,
     pub mipLevel: u32,
@@ -2962,7 +3757,7 @@ pub struct VkImageSubresourceLayers {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageCopy {
     pub srcSubresource: VkImageSubresourceLayers,
     pub srcOffset: VkOffset3D,
@@ -2972,7 +3767,7 @@ pub struct VkImageCopy {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageBlit {
     pub srcSubresource: VkImageSubresourceLayers,
     pub srcOffsets: [VkOffset3D; 2],
@@ -2981,7 +3776,7 @@ pub struct VkImageBlit {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkBufferImageCopy {
     pub bufferOffset: VkDeviceSize,
     pub bufferRowLength: u32,
@@ -3013,6 +3808,15 @@ impl fmt::Debug for VkClearColorValue {
     }
 }
 
+#[cfg(feature = "unstable_rust")]
+impl Default for VkClearColorValue {
+    fn default() -> Self {
+        VkClearColorValue {
+            uint32: Default::default(),
+        }
+    }
+}
+
 #[cfg(not(feature = "unstable_rust"))]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3033,8 +3837,8 @@ impl fmt::Debug for VkClearColorValue {
 }
 
 #[cfg(not(feature = "unstable_rust"))]
-impl VkClearColorValue {
-    fn new() -> Self {
+impl Default for VkClearColorValue {
+    fn default() -> Self {
         VkClearColorValue {
             float32: VkSysUnionField::new(),
             int32: VkSysUnionField::new(),
@@ -3044,15 +3848,8 @@ impl VkClearColorValue {
     }
 }
 
-#[cfg(not(feature = "unstable_rust"))]
-impl Default for VkClearColorValue {
-    fn default() -> VkClearColorValue {
-        VkClearColorValue::new()
-    }
-}
-
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkClearDepthStencilValue {
     pub depth: f32,
     pub stencil: u32,
@@ -3078,6 +3875,15 @@ impl fmt::Debug for VkClearValue {
     }
 }
 
+#[cfg(feature = "unstable_rust")]
+impl Default for VkClearValue {
+    fn default() -> Self {
+        VkClearValue {
+            color: Default::default(),
+        }
+    }
+}
+
 #[cfg(not(feature = "unstable_rust"))]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3097,8 +3903,8 @@ impl fmt::Debug for VkClearValue {
 }
 
 #[cfg(not(feature = "unstable_rust"))]
-impl VkClearValue {
-    fn new() -> Self {
+impl Default for VkClearValue {
+    fn default() -> Self {
         VkClearValue {
             color: VkSysUnionField::new(),
             depthStencil: VkSysUnionField::new(),
@@ -3107,15 +3913,8 @@ impl VkClearValue {
     }
 }
 
-#[cfg(not(feature = "unstable_rust"))]
-impl Default for VkClearValue {
-    fn default() -> VkClearValue {
-        VkClearValue::new()
-    }
-}
-
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkClearAttachment {
     pub aspectMask: VkImageAspectFlags,
     pub colorAttachment: u32,
@@ -3123,7 +3922,7 @@ pub struct VkClearAttachment {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkClearRect {
     pub rect: VkRect2D,
     pub baseArrayLayer: u32,
@@ -3131,7 +3930,7 @@ pub struct VkClearRect {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkImageResolve {
     pub srcSubresource: VkImageSubresourceLayers,
     pub srcOffset: VkOffset3D,
@@ -3149,6 +3948,17 @@ pub struct VkMemoryBarrier {
     pub dstAccessMask: VkAccessFlags,
 }
 
+impl Default for VkMemoryBarrier {
+    fn default() -> Self {
+        VkMemoryBarrier {
+            sType: VK_STRUCTURE_TYPE_MEMORY_BARRIER,
+            pNext: ptr::null(),
+            srcAccessMask: Default::default(),
+            dstAccessMask: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkBufferMemoryBarrier {
@@ -3161,6 +3971,22 @@ pub struct VkBufferMemoryBarrier {
     pub buffer: VkBuffer,
     pub offset: VkDeviceSize,
     pub size: VkDeviceSize,
+}
+
+impl Default for VkBufferMemoryBarrier {
+    fn default() -> Self {
+        VkBufferMemoryBarrier {
+            sType: VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER,
+            pNext: ptr::null(),
+            srcAccessMask: Default::default(),
+            dstAccessMask: Default::default(),
+            srcQueueFamilyIndex: Default::default(),
+            dstQueueFamilyIndex: Default::default(),
+            buffer: ptr::null_mut(),
+            offset: Default::default(),
+            size: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -3178,6 +4004,23 @@ pub struct VkImageMemoryBarrier {
     pub subresourceRange: VkImageSubresourceRange,
 }
 
+impl Default for VkImageMemoryBarrier {
+    fn default() -> Self {
+        VkImageMemoryBarrier {
+            sType: VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER,
+            pNext: ptr::null(),
+            srcAccessMask: Default::default(),
+            dstAccessMask: Default::default(),
+            oldLayout: Default::default(),
+            newLayout: Default::default(),
+            srcQueueFamilyIndex: Default::default(),
+            dstQueueFamilyIndex: Default::default(),
+            image: ptr::null_mut(),
+            subresourceRange: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkRenderPassBeginInfo {
@@ -3190,8 +4033,22 @@ pub struct VkRenderPassBeginInfo {
     pub pClearValues: *const VkClearValue,
 }
 
+impl Default for VkRenderPassBeginInfo {
+    fn default() -> Self {
+        VkRenderPassBeginInfo {
+            sType: VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO,
+            pNext: ptr::null(),
+            renderPass: ptr::null_mut(),
+            framebuffer: ptr::null_mut(),
+            renderArea: Default::default(),
+            clearValueCount: Default::default(),
+            pClearValues: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDispatchIndirectCommand {
     pub x: u32,
     pub y: u32,
@@ -3199,7 +4056,7 @@ pub struct VkDispatchIndirectCommand {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDrawIndexedIndirectCommand {
     pub indexCount: u32,
     pub instanceCount: u32,
@@ -3209,7 +4066,7 @@ pub struct VkDrawIndexedIndirectCommand {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDrawIndirectCommand {
     pub vertexCount: u32,
     pub instanceCount: u32,

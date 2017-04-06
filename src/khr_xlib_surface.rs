@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_XLIB_SURFACE_EXTENSION_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_XLIB_SURFACE_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHR_xlib_surface\x00";
@@ -36,6 +37,18 @@ pub struct VkXlibSurfaceCreateInfoKHR {
     pub flags: VkXlibSurfaceCreateFlagsKHR,
     pub dpy: *mut xlib_wrapper::Display,
     pub window: xlib_wrapper::Window,
+}
+
+impl Default for VkXlibSurfaceCreateInfoKHR {
+    fn default() -> Self {
+        VkXlibSurfaceCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            dpy: ptr::null_mut(),
+            window: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkCreateXlibSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

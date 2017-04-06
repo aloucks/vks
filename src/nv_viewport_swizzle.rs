@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION: u32 = 1;
 pub const VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME: &'static [u8; 23] = b"VK_NV_viewport_swizzle\x00";
@@ -40,7 +41,7 @@ bitflags! {
 pub type VkPipelineViewportSwizzleStateCreateFlagBitsNV = VkPipelineViewportSwizzleStateCreateFlagsNV;
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkViewportSwizzleNV {
     pub x: VkViewportCoordinateSwizzleNV,
     pub y: VkViewportCoordinateSwizzleNV,
@@ -56,4 +57,16 @@ pub struct VkPipelineViewportSwizzleStateCreateInfoNV {
     pub flags: VkPipelineViewportSwizzleStateCreateFlagsNV,
     pub viewportCount: u32,
     pub pViewportSwizzles: *const VkViewportSwizzleNV,
+}
+
+impl Default for VkPipelineViewportSwizzleStateCreateInfoNV {
+    fn default() -> Self {
+        VkPipelineViewportSwizzleStateCreateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            viewportCount: Default::default(),
+            pViewportSwizzles: ptr::null(),
+        }
+    }
 }

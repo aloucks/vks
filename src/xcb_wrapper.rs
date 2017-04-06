@@ -18,9 +18,9 @@ use libc::c_void;
 pub struct xcb_connection_t(c_void);
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
 pub struct xcb_window_t(pub u32);
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
 pub struct xcb_visualid_t(pub u32);

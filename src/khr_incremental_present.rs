@@ -14,13 +14,14 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME: &'static [u8; 27] = b"VK_KHR_incremental_present\x00";
 pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME_STR: &'static str = "VK_KHR_incremental_present";
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkRectLayerKHR {
     pub offset: VkOffset2D,
     pub extent: VkExtent2D,
@@ -34,6 +35,15 @@ pub struct VkPresentRegionKHR {
     pub pRectangles: *const VkRectLayerKHR,
 }
 
+impl Default for VkPresentRegionKHR {
+    fn default() -> Self {
+        VkPresentRegionKHR  {
+            rectangleCount: Default::default(),
+            pRectangles: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentRegionsKHR {
@@ -41,4 +51,15 @@ pub struct VkPresentRegionsKHR {
     pub pNext: *const c_void,
     pub swapchainCount: u32,
     pub pRegions: *const VkPresentRegionKHR,
+}
+
+impl Default for VkPresentRegionsKHR {
+    fn default() -> Self {
+        VkPresentRegionsKHR  {
+            sType: VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
+            pNext: ptr::null(),
+            swapchainCount: Default::default(),
+            pRegions: ptr::null(),
+        }
+    }
 }

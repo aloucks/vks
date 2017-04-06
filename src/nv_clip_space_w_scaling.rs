@@ -14,13 +14,14 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION: u32 = 1;
 pub const VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME: &'static [u8; 27] = b"VK_NV_clip_space_w_scaling\x00";
 pub const VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME_STR: &'static str = "VK_NV_clip_space_w_scaling";
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkViewportWScalingNV {
     pub xcoeff: f32,
     pub ycoeff: f32,
@@ -34,6 +35,18 @@ pub struct VkPipelineViewportWScalingStateCreateInfoNV {
     pub viewportWScalingEnable: VkBool32,
     pub viewportCount: u32,
     pub pViewportWScalings: *const VkViewportWScalingNV,
+}
+
+impl Default for VkPipelineViewportWScalingStateCreateInfoNV {
+    fn default() -> Self {
+        VkPipelineViewportWScalingStateCreateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV,
+            pNext: ptr::null(),
+            viewportWScalingEnable: Default::default(),
+            viewportCount: Default::default(),
+            pViewportWScalings: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkCmdSetViewportWScalingNV = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV);

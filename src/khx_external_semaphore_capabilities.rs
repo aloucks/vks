@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_EXTERNAL_SEMAPHORE_CAPABILITIES_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME: &'static [u8; 39] = b"VK_KHX_external_semaphore_capabilities\x00";
@@ -50,6 +51,16 @@ pub struct VkPhysicalDeviceExternalSemaphoreInfoKHX {
     pub handleType: VkExternalSemaphoreHandleTypeFlagBitsKHX,
 }
 
+impl Default for VkPhysicalDeviceExternalSemaphoreInfoKHX {
+    fn default() -> Self {
+        VkPhysicalDeviceExternalSemaphoreInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHX,
+            pNext: ptr::null(),
+            handleType: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalSemaphorePropertiesKHX {
@@ -58,6 +69,18 @@ pub struct VkExternalSemaphorePropertiesKHX {
     pub exportFromImportedHandleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
     pub compatibleHandleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
     pub externalSemaphoreFeatures: VkExternalSemaphoreFeatureFlagsKHX,
+}
+
+impl Default for VkExternalSemaphorePropertiesKHX {
+    fn default() -> Self {
+        VkExternalSemaphorePropertiesKHX  {
+            sType: VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHX,
+            pNext: ptr::null_mut(),
+            exportFromImportedHandleTypes: Default::default(),
+            compatibleHandleTypes: Default::default(),
+            externalSemaphoreFeatures: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHX = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);

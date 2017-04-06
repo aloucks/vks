@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NVX_DEVICE_GENERATED_COMMANDS_SPEC_VERSION: u32 = 1;
 pub const VK_NVX_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME: &'static [u8; 33] = b"VK_NVX_device_generated_commands\x00";
@@ -76,6 +77,16 @@ pub struct VkDeviceGeneratedCommandsFeaturesNVX {
     pub computeBindingPointSupport: VkBool32,
 }
 
+impl Default for VkDeviceGeneratedCommandsFeaturesNVX {
+    fn default() -> Self {
+        VkDeviceGeneratedCommandsFeaturesNVX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_FEATURES_NVX,
+            pNext: ptr::null(),
+            computeBindingPointSupport: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGeneratedCommandsLimitsNVX {
@@ -88,6 +99,20 @@ pub struct VkDeviceGeneratedCommandsLimitsNVX {
     pub minCommandsTokenBufferOffsetAlignment: u32,
 }
 
+impl Default for VkDeviceGeneratedCommandsLimitsNVX {
+    fn default() -> Self {
+        VkDeviceGeneratedCommandsLimitsNVX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_LIMITS_NVX,
+            pNext: ptr::null(),
+            maxIndirectCommandsLayoutTokenCount: Default::default(),
+            maxObjectEntryCounts: Default::default(),
+            minSequenceCountBufferOffsetAlignment: Default::default(),
+            minSequenceIndexBufferOffsetAlignment: Default::default(),
+            minCommandsTokenBufferOffsetAlignment: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkIndirectCommandsTokenNVX {
@@ -96,8 +121,18 @@ pub struct VkIndirectCommandsTokenNVX {
     pub offset: VkDeviceSize,
 }
 
+impl Default for VkIndirectCommandsTokenNVX {
+    fn default() -> Self {
+        VkIndirectCommandsTokenNVX  {
+            tokenType: Default::default(),
+            buffer: ptr::null_mut(),
+            offset: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkIndirectCommandsLayoutTokenNVX {
     pub tokenType: VkIndirectCommandsTokenTypeNVX,
     pub bindingUnit: u32,
@@ -114,6 +149,19 @@ pub struct VkIndirectCommandsLayoutCreateInfoNVX {
     pub flags: VkIndirectCommandsLayoutUsageFlagsNVX,
     pub tokenCount: u32,
     pub pTokens: *const VkIndirectCommandsLayoutTokenNVX,
+}
+
+impl Default for VkIndirectCommandsLayoutCreateInfoNVX {
+    fn default() -> Self {
+        VkIndirectCommandsLayoutCreateInfoNVX  {
+            sType: VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NVX,
+            pNext: ptr::null(),
+            pipelineBindPoint: Default::default(),
+            flags: Default::default(),
+            tokenCount: Default::default(),
+            pTokens: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -133,6 +181,25 @@ pub struct VkCmdProcessCommandsInfoNVX {
     pub sequencesIndexOffset: VkDeviceSize,
 }
 
+impl Default for VkCmdProcessCommandsInfoNVX {
+    fn default() -> Self {
+        VkCmdProcessCommandsInfoNVX  {
+            sType: VK_STRUCTURE_TYPE_CMD_PROCESS_COMMANDS_INFO_NVX,
+            pNext: ptr::null(),
+            objectTable: ptr::null_mut(),
+            indirectCommandsLayout: ptr::null_mut(),
+            indirectCommandsTokenCount: Default::default(),
+            pIndirectCommandsTokens: ptr::null(),
+            maxSequencesCount: Default::default(),
+            targetCommandBuffer: ptr::null_mut(),
+            sequencesCountBuffer: ptr::null_mut(),
+            sequencesCountOffset: Default::default(),
+            sequencesIndexBuffer: ptr::null_mut(),
+            sequencesIndexOffset: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkCmdReserveSpaceForCommandsInfoNVX {
@@ -141,6 +208,18 @@ pub struct VkCmdReserveSpaceForCommandsInfoNVX {
     pub objectTable: VkObjectTableNVX,
     pub indirectCommandsLayout: VkIndirectCommandsLayoutNVX,
     pub maxSequencesCount: u32,
+}
+
+impl Default for VkCmdReserveSpaceForCommandsInfoNVX {
+    fn default() -> Self {
+        VkCmdReserveSpaceForCommandsInfoNVX  {
+            sType: VK_STRUCTURE_TYPE_CMD_RESERVE_SPACE_FOR_COMMANDS_INFO_NVX,
+            pNext: ptr::null(),
+            objectTable: ptr::null_mut(),
+            indirectCommandsLayout: ptr::null_mut(),
+            maxSequencesCount: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -159,8 +238,26 @@ pub struct VkObjectTableCreateInfoNVX {
     pub maxPipelineLayouts: u32,
 }
 
+impl Default for VkObjectTableCreateInfoNVX {
+    fn default() -> Self {
+        VkObjectTableCreateInfoNVX  {
+            sType: VK_STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX,
+            pNext: ptr::null(),
+            objectCount: Default::default(),
+            pObjectEntryTypes: ptr::null(),
+            pObjectEntryCounts: ptr::null(),
+            pObjectEntryUsageFlags: ptr::null(),
+            maxUniformBuffersPerDescriptor: Default::default(),
+            maxStorageBuffersPerDescriptor: Default::default(),
+            maxStorageImagesPerDescriptor: Default::default(),
+            maxSampledImagesPerDescriptor: Default::default(),
+            maxPipelineLayouts: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTableEntryNVX {
     pub type_: VkObjectEntryTypeNVX,
     pub flags: VkObjectEntryUsageFlagsNVX,
@@ -174,6 +271,16 @@ pub struct VkObjectTablePipelineEntryNVX {
     pub pipeline: VkPipeline,
 }
 
+impl Default for VkObjectTablePipelineEntryNVX {
+    fn default() -> Self {
+        VkObjectTablePipelineEntryNVX  {
+            type_: Default::default(),
+            flags: Default::default(),
+            pipeline: ptr::null_mut(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkObjectTableDescriptorSetEntryNVX {
@@ -183,12 +290,33 @@ pub struct VkObjectTableDescriptorSetEntryNVX {
     pub descriptorSet: VkDescriptorSet,
 }
 
+impl Default for VkObjectTableDescriptorSetEntryNVX {
+    fn default() -> Self {
+        VkObjectTableDescriptorSetEntryNVX  {
+            type_: Default::default(),
+            flags: Default::default(),
+            pipelineLayout: ptr::null_mut(),
+            descriptorSet: ptr::null_mut(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkObjectTableVertexBufferEntryNVX {
     pub type_: VkObjectEntryTypeNVX,
     pub flags: VkObjectEntryUsageFlagsNVX,
     pub buffer: VkBuffer,
+}
+
+impl Default for VkObjectTableVertexBufferEntryNVX {
+    fn default() -> Self {
+        VkObjectTableVertexBufferEntryNVX  {
+            type_: Default::default(),
+            flags: Default::default(),
+            buffer: ptr::null_mut(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -200,6 +328,17 @@ pub struct VkObjectTableIndexBufferEntryNVX {
     pub indexType: VkIndexType,
 }
 
+impl Default for VkObjectTableIndexBufferEntryNVX {
+    fn default() -> Self {
+        VkObjectTableIndexBufferEntryNVX  {
+            type_: Default::default(),
+            flags: Default::default(),
+            buffer: ptr::null_mut(),
+            indexType: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkObjectTablePushConstantEntryNVX {
@@ -207,6 +346,17 @@ pub struct VkObjectTablePushConstantEntryNVX {
     pub flags: VkObjectEntryUsageFlagsNVX,
     pub pipelineLayout: VkPipelineLayout,
     pub stageFlags: VkShaderStageFlags,
+}
+
+impl Default for VkObjectTablePushConstantEntryNVX {
+    fn default() -> Self {
+        VkObjectTablePushConstantEntryNVX  {
+            type_: Default::default(),
+            flags: Default::default(),
+            pipelineLayout: ptr::null_mut(),
+            stageFlags: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkCmdProcessCommandsNVX = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, pProcessCommandsInfo: *const VkCmdProcessCommandsInfoNVX);

@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::{c_int, c_void};
+use std::ptr;
 
 pub const VK_KHX_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_external_semaphore_fd\x00";
@@ -27,6 +28,18 @@ pub struct VkImportSemaphoreFdInfoKHX {
     pub semaphore: VkSemaphore,
     pub handleType: VkExternalSemaphoreHandleTypeFlagBitsKHX,
     pub fd: c_int,
+}
+
+impl Default for VkImportSemaphoreFdInfoKHX {
+    fn default() -> Self {
+        VkImportSemaphoreFdInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHX,
+            pNext: ptr::null(),
+            semaphore: ptr::null_mut(),
+            handleType: Default::default(),
+            fd: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkImportSemaphoreFdKHX = unsafe extern "system" fn(device: VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHX) -> VkResult;

@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION: u32 = 1;
 pub const VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME: &'static [u8; 27] = b"VK_NV_dedicated_allocation\x00";
@@ -27,12 +28,32 @@ pub struct VkDedicatedAllocationImageCreateInfoNV {
     pub dedicatedAllocation: VkBool32,
 }
 
+impl Default for VkDedicatedAllocationImageCreateInfoNV {
+    fn default() -> Self {
+        VkDedicatedAllocationImageCreateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,
+            pNext: ptr::null(),
+            dedicatedAllocation: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationBufferCreateInfoNV {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub dedicatedAllocation: VkBool32,
+}
+
+impl Default for VkDedicatedAllocationBufferCreateInfoNV {
+    fn default() -> Self {
+        VkDedicatedAllocationBufferCreateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV,
+            pNext: ptr::null(),
+            dedicatedAllocation: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -42,4 +63,15 @@ pub struct VkDedicatedAllocationMemoryAllocateInfoNV {
     pub pNext: *const c_void,
     pub image: VkImage,
     pub buffer: VkBuffer,
+}
+
+impl Default for VkDedicatedAllocationMemoryAllocateInfoNV {
+    fn default() -> Self {
+        VkDedicatedAllocationMemoryAllocateInfoNV  {
+            sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
+            pNext: ptr::null(),
+            image: ptr::null_mut(),
+            buffer: ptr::null_mut(),
+        }
+    }
 }

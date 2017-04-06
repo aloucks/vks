@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_MVK_IOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_IOS_SURFACE_EXTENSION_NAME: &'static [u8; 19] = b"VK_MVK_ios_surface\x00";
@@ -35,6 +36,17 @@ pub struct VkIOSSurfaceCreateInfoMVK {
     pub pNext: *const c_void,
     pub flags: VkIOSSurfaceCreateFlagsMVK,
     pub pView: *const c_void,
+}
+
+impl Default for VkIOSSurfaceCreateInfoMVK {
+    fn default() -> Self {
+        VkIOSSurfaceCreateInfoMVK  {
+            sType: VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            pView: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkCreateIOSSurfaceMVK = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 #[cfg(feature = "khr_wayland_surface_6")]
 pub const VK_KHR_WAYLAND_SURFACE_EXTENSION_SPEC_VERSION: u32 = 6;
@@ -41,6 +42,18 @@ pub struct VkWaylandSurfaceCreateInfoKHR {
     pub flags: VkWaylandSurfaceCreateFlagsKHR,
     pub display: *mut wayland_wrapper::wl_display,
     pub surface: *mut wayland_wrapper::wl_surface,
+}
+
+impl Default for VkWaylandSurfaceCreateInfoKHR {
+    fn default() -> Self {
+        VkWaylandSurfaceCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            display: ptr::null_mut(),
+            surface: ptr::null_mut(),
+        }
+    }
 }
 
 pub type PFN_vkCreateWaylandSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkWaylandSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

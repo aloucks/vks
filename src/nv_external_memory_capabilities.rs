@@ -42,7 +42,7 @@ bitflags! {
 pub type VkExternalMemoryFeatureFlagBitsNV = VkExternalMemoryFeatureFlagsNV;
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkExternalImageFormatPropertiesNV {
     pub imageFormatProperties: VkImageFormatProperties,
     pub externalMemoryFeatures: VkExternalMemoryFeatureFlagsNV,

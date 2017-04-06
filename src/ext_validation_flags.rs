@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_EXT_VALIDATION_FLAGS_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME: &'static [u8; 24] = b"VK_EXT_validation_flags\x00";
@@ -30,4 +31,15 @@ pub struct VkValidationFlagsEXT {
     pub pNext: *const c_void,
     pub disabledValidationCheckCount: u32,
     pub pDisabledValidationChecks: *mut VkValidationCheckEXT,
+}
+
+impl Default for VkValidationFlagsEXT {
+    fn default() -> Self {
+        VkValidationFlagsEXT  {
+            sType: VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
+            pNext: ptr::null(),
+            disabledValidationCheckCount: Default::default(),
+            pDisabledValidationChecks: ptr::null_mut(),
+        }
+    }
 }

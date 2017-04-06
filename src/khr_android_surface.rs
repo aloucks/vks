@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_ANDROID_SURFACE_EXTENSION_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_ANDROID_SURFACE_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHR_android_surface\x00";
@@ -35,6 +36,17 @@ pub struct VkAndroidSurfaceCreateInfoKHR {
     pub pNext: *const c_void,
     pub flags: VkAndroidSurfaceCreateFlagsKHR,
     pub window: *mut android_wrapper::ANativeWindow,
+}
+
+impl Default for VkAndroidSurfaceCreateInfoKHR {
+    fn default() -> Self {
+        VkAndroidSurfaceCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            window: ptr::null_mut(),
+        }
+    }
 }
 
 pub type PFN_vkCreateAndroidSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

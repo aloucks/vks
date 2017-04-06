@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME: &'static [u8; 34] = b"VK_KHR_descriptor_update_template\x00";
@@ -38,7 +39,7 @@ bitflags! {
 pub type VkDescriptorUpdateTemplateCreateFlagBitsKHR = VkDescriptorUpdateTemplateCreateFlagsKHR;
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDescriptorUpdateTemplateEntryKHR {
     pub dstBinding: u32,
     pub dstArrayElement: u32,
@@ -61,6 +62,23 @@ pub struct VkDescriptorUpdateTemplateCreateInfoKHR {
     pub pipelineBindPoint: VkPipelineBindPoint,
     pub pipelineLayout: VkPipelineLayout,
     pub set: u32,
+}
+
+impl Default for VkDescriptorUpdateTemplateCreateInfoKHR {
+    fn default() -> Self {
+        VkDescriptorUpdateTemplateCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,
+            pNext: ptr::null_mut(),
+            flags: Default::default(),
+            descriptorUpdateEntryCount: Default::default(),
+            pDescriptorUpdateEntries: ptr::null(),
+            templateType: Default::default(),
+            descriptorSetLayout: ptr::null_mut(),
+            pipelineBindPoint: Default::default(),
+            pipelineLayout: ptr::null_mut(),
+            set: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkCreateDescriptorUpdateTemplateKHR = unsafe extern "system" fn(device: VkDevice, pCreateInfo: *const VkDescriptorUpdateTemplateCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pDescriptorUpdateTemplate: *mut VkDescriptorUpdateTemplateKHR) -> VkResult;

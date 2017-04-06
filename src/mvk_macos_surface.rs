@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_MVK_MACOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME: &'static [u8; 21] = b"VK_MVK_macos_surface\x00";
@@ -35,6 +36,17 @@ pub struct VkMacOSSurfaceCreateInfoMVK {
     pub pNext: *const c_void,
     pub flags: VkMacOSSurfaceCreateFlagsMVK,
     pub pView: *const c_void,
+}
+
+impl Default for VkMacOSSurfaceCreateInfoMVK {
+    fn default() -> Self {
+        VkMacOSSurfaceCreateInfoMVK  {
+            sType: VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            pView: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkCreateMacOSSurfaceMVK = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

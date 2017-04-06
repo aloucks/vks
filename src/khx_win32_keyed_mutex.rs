@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_WIN32_KEYED_MUTEX_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_WIN32_KEYED_MUTEX_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHX_win32_keyed_mutex\x00";
@@ -31,4 +32,20 @@ pub struct VkWin32KeyedMutexAcquireReleaseInfoKHX {
     pub releaseCount: u32,
     pub pReleaseSyncs: *const VkDeviceMemory,
     pub pReleaseKeys: *const u64,
+}
+
+impl Default for VkWin32KeyedMutexAcquireReleaseInfoKHX {
+    fn default() -> Self {
+        VkWin32KeyedMutexAcquireReleaseInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHX,
+            pNext: ptr::null(),
+            acquireCount: Default::default(),
+            pAcquireSyncs: ptr::null(),
+            pAcquireKeys: ptr::null(),
+            pAcquireTimeouts: ptr::null(),
+            releaseCount: Default::default(),
+            pReleaseSyncs: ptr::null(),
+            pReleaseKeys: ptr::null(),
+        }
+    }
 }

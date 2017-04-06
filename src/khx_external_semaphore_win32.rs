@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME: &'static [u8; 32] = b"VK_KHX_external_semaphore_win32\x00";
@@ -29,6 +30,18 @@ pub struct VkImportSemaphoreWin32HandleInfoKHX {
     pub handle: win32_wrapper::HANDLE,
 }
 
+impl Default for VkImportSemaphoreWin32HandleInfoKHX {
+    fn default() -> Self {
+        VkImportSemaphoreWin32HandleInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHX,
+            pNext: ptr::null(),
+            semaphore: ptr::null_mut(),
+            handleType: Default::default(),
+            handle: ptr::null_mut(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportSemaphoreWin32HandleInfoKHX {
@@ -37,6 +50,18 @@ pub struct VkExportSemaphoreWin32HandleInfoKHX {
     pub pAttributes: *const win32_wrapper::SECURITY_ATTRIBUTES,
     pub dwAccess: win32_wrapper::DWORD,
     pub name: win32_wrapper::LPCWSTR,
+}
+
+impl Default for VkExportSemaphoreWin32HandleInfoKHX {
+    fn default() -> Self {
+        VkExportSemaphoreWin32HandleInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHX,
+            pNext: ptr::null(),
+            pAttributes: ptr::null(),
+            dwAccess: Default::default(),
+            name: ptr::null(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -48,6 +73,19 @@ pub struct VkD3D12FenceSubmitInfoKHX {
     pub pWaitSemaphoreValues: *const u64,
     pub signalSemaphoreValuesCount: u32,
     pub pSignalSemaphoreValues: *const u64,
+}
+
+impl Default for VkD3D12FenceSubmitInfoKHX {
+    fn default() -> Self {
+        VkD3D12FenceSubmitInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHX,
+            pNext: ptr::null(),
+            waitSemaphoreValuesCount: Default::default(),
+            pWaitSemaphoreValues: ptr::null(),
+            signalSemaphoreValuesCount: Default::default(),
+            pSignalSemaphoreValues: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkImportSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHX) -> VkResult;

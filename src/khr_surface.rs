@@ -106,7 +106,7 @@ bitflags! {
 pub type VkCompositeAlphaFlagBitsKHR = VkCompositeAlphaFlagsKHR;
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSurfaceCapabilitiesKHR {
     pub minImageCount: u32,
     pub maxImageCount: u32,
@@ -121,7 +121,7 @@ pub struct VkSurfaceCapabilitiesKHR {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkSurfaceFormatKHR {
     pub format: VkFormat,
     pub colorSpace: VkColorSpaceKHR,

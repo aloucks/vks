@@ -15,6 +15,8 @@
 use ::*;
 use libc::{c_char, c_void};
 use std::fmt;
+use std::mem;
+use std::ptr;
 
 #[cfg(feature = "ext_debug_report_5")]
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 5;
@@ -131,6 +133,18 @@ impl fmt::Debug for VkDebugReportCallbackCreateInfoEXT {
             .field("pfnCallback", &(self.pfnCallback as *mut c_void))
             .field("pUserData", &self.pUserData)
             .finish()
+    }
+}
+
+impl Default for VkDebugReportCallbackCreateInfoEXT {
+    fn default() -> Self {
+        VkDebugReportCallbackCreateInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            pfnCallback: unsafe { mem::transmute(0usize) },
+            pUserData: ptr::null_mut(),
+        }
     }
 }
 

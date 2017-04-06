@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME: &'static [u8; 26] = b"VK_EXT_discard_rectangles\x00";
@@ -41,6 +42,16 @@ pub struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
     pub maxDiscardRectangles: u32,
 }
 
+impl Default for VkPhysicalDeviceDiscardRectanglePropertiesEXT {
+    fn default() -> Self {
+        VkPhysicalDeviceDiscardRectanglePropertiesEXT  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT,
+            pNext: ptr::null_mut(),
+            maxDiscardRectangles: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineDiscardRectangleStateCreateInfoEXT {
@@ -50,6 +61,19 @@ pub struct VkPipelineDiscardRectangleStateCreateInfoEXT {
     pub discardRectangleMode: VkDiscardRectangleModeEXT,
     pub discardRectangleCount: u32,
     pub pDiscardRectangles: *const VkRect2D,
+}
+
+impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
+    fn default() -> Self {
+        VkPipelineDiscardRectangleStateCreateInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            discardRectangleMode: Default::default(),
+            discardRectangleCount: Default::default(),
+            pDiscardRectangles: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkCmdSetDiscardRectangleEXT = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const VkRect2D);

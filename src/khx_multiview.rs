@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_MULTIVIEW_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_MULTIVIEW_EXTENSION_NAME: &'static [u8; 17] = b"VK_KHX_multiview\x00";
@@ -32,6 +33,21 @@ pub struct VkRenderPassMultiviewCreateInfoKHX {
     pub pCorrelationMasks: *const u32,
 }
 
+impl Default for VkRenderPassMultiviewCreateInfoKHX {
+    fn default() -> Self {
+        VkRenderPassMultiviewCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            subpassCount: Default::default(),
+            pViewMasks: ptr::null(),
+            dependencyCount: Default::default(),
+            pViewOffsets: ptr::null(),
+            correlationMaskCount: Default::default(),
+            pCorrelationMasks: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewFeaturesKHX {
@@ -42,6 +58,18 @@ pub struct VkPhysicalDeviceMultiviewFeaturesKHX {
     pub multiviewTessellationShader: VkBool32,
 }
 
+impl Default for VkPhysicalDeviceMultiviewFeaturesKHX {
+    fn default() -> Self {
+        VkPhysicalDeviceMultiviewFeaturesKHX  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX,
+            pNext: ptr::null_mut(),
+            multiview: Default::default(),
+            multiviewGeometryShader: Default::default(),
+            multiviewTessellationShader: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewPropertiesKHX {
@@ -49,4 +77,15 @@ pub struct VkPhysicalDeviceMultiviewPropertiesKHX {
     pub pNext: *mut c_void,
     pub maxMultiviewViewCount: u32,
     pub maxMultiviewInstanceIndex: u32,
+}
+
+impl Default for VkPhysicalDeviceMultiviewPropertiesKHX {
+    fn default() -> Self {
+        VkPhysicalDeviceMultiviewPropertiesKHX  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX,
+            pNext: ptr::null_mut(),
+            maxMultiviewViewCount: Default::default(),
+            maxMultiviewInstanceIndex: Default::default(),
+        }
+    }
 }

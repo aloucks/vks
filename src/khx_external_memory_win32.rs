@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_external_memory_win32\x00";
@@ -28,6 +29,17 @@ pub struct VkImportMemoryWin32HandleInfoKHX {
     pub handle: win32_wrapper::HANDLE,
 }
 
+impl Default for VkImportMemoryWin32HandleInfoKHX {
+    fn default() -> Self {
+        VkImportMemoryWin32HandleInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHX,
+            pNext: ptr::null(),
+            handleType: Default::default(),
+            handle: ptr::null_mut(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryWin32HandleInfoKHX {
@@ -38,12 +50,34 @@ pub struct VkExportMemoryWin32HandleInfoKHX {
     pub name: win32_wrapper::LPCWSTR,
 }
 
+impl Default for VkExportMemoryWin32HandleInfoKHX {
+    fn default() -> Self {
+        VkExportMemoryWin32HandleInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHX,
+            pNext: ptr::null(),
+            pAttributes: ptr::null(),
+            dwAccess: Default::default(),
+            name: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryWin32HandlePropertiesKHX {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub memoryTypeBits: u32,
+}
+
+impl Default for VkMemoryWin32HandlePropertiesKHX {
+    fn default() -> Self {
+        VkMemoryWin32HandlePropertiesKHX  {
+            sType: VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHX,
+            pNext: ptr::null_mut(),
+            memoryTypeBits: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetMemoryWin32HandleKHX = unsafe extern "system" fn(device: VkDevice, memory: VkDeviceMemory, handleType: VkExternalMemoryHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> VkResult;

@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_WIN32_SURFACE_EXTENSION_SPEC_VERSION: u32 = 5;
 pub const VK_KHR_WIN32_SURFACE_EXTENSION_NAME: &'static [u8; 21] = b"VK_KHR_win32_surface\x00";
@@ -36,6 +37,18 @@ pub struct VkWin32SurfaceCreateInfoKHR {
     pub flags: VkWin32SurfaceCreateFlagsKHR,
     pub hinstance: win32_wrapper::HINSTANCE,
     pub hwnd: win32_wrapper::HWND,
+}
+
+impl Default for VkWin32SurfaceCreateInfoKHR {
+    fn default() -> Self {
+        VkWin32SurfaceCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            hinstance: ptr::null_mut(),
+            hwnd: ptr::null_mut(),
+        }
+    }
 }
 
 pub type PFN_vkCreateWin32SurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkWin32SurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

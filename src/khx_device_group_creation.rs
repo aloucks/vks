@@ -14,6 +14,8 @@
 
 use ::*;
 use libc::c_void;
+use std::mem;
+use std::ptr;
 
 pub const VK_KHX_DEVICE_GROUP_CREATION_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_device_group_creation\x00";
@@ -29,6 +31,18 @@ pub struct VkPhysicalDeviceGroupPropertiesKHX {
     pub subsetAllocation: VkBool32,
 }
 
+impl Default for VkPhysicalDeviceGroupPropertiesKHX {
+    fn default() -> Self {
+        VkPhysicalDeviceGroupPropertiesKHX  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX,
+            pNext: ptr::null_mut(),
+            physicalDeviceCount: Default::default(),
+            physicalDevices: unsafe { mem::zeroed() },
+            subsetAllocation: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupDeviceCreateInfoKHX {
@@ -36,6 +50,17 @@ pub struct VkDeviceGroupDeviceCreateInfoKHX {
     pub pNext: *const c_void,
     pub physicalDeviceCount: u32,
     pub pPhysicalDevices: *const VkPhysicalDevice,
+}
+
+impl Default for VkDeviceGroupDeviceCreateInfoKHX {
+    fn default() -> Self {
+        VkDeviceGroupDeviceCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            physicalDeviceCount: Default::default(),
+            pPhysicalDevices: ptr::null(),
+        }
+    }
 }
 
 pub type PFN_vkEnumeratePhysicalDeviceGroupsKHX = unsafe extern "system" fn(instance: VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> VkResult;

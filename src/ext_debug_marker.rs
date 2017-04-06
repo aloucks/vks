@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::{c_char, c_void};
+use std::ptr;
 
 #[cfg(feature = "ext_debug_marker_4")]
 pub const VK_EXT_DEBUG_MARKER_SPEC_VERSION: u32 = 4;
@@ -34,6 +35,18 @@ pub struct VkDebugMarkerObjectNameInfoEXT {
     pub pObjectName: *const c_char,
 }
 
+impl Default for VkDebugMarkerObjectNameInfoEXT {
+    fn default() -> Self {
+        VkDebugMarkerObjectNameInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT,
+            pNext: ptr::null(),
+            objectType: Default::default(),
+            object: Default::default(),
+            pObjectName: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDebugMarkerObjectTagInfoEXT {
@@ -46,6 +59,20 @@ pub struct VkDebugMarkerObjectTagInfoEXT {
     pub pTag: *const c_void,
 }
 
+impl Default for VkDebugMarkerObjectTagInfoEXT {
+    fn default() -> Self {
+        VkDebugMarkerObjectTagInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT,
+            pNext: ptr::null(),
+            objectType: Default::default(),
+            object: Default::default(),
+            tagName: Default::default(),
+            tagSize: Default::default(),
+            pTag: ptr::null(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDebugMarkerMarkerInfoEXT {
@@ -53,6 +80,17 @@ pub struct VkDebugMarkerMarkerInfoEXT {
     pub pNext: *const c_void,
     pub pMarkerName: *const c_char,
     pub color: [f32; 4],
+}
+
+impl Default for VkDebugMarkerMarkerInfoEXT {
+    fn default() -> Self {
+        VkDebugMarkerMarkerInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT,
+            pNext: ptr::null(),
+            pMarkerName: ptr::null(),
+            color: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkDebugMarkerSetObjectTagEXT = unsafe extern "system" fn(device: VkDevice, pTagInfo: *mut VkDebugMarkerObjectTagInfoEXT) -> VkResult;

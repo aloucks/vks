@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_SPEC_VERSION: u32 = 1;
 pub const VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME: &'static [u8; 37] = b"VK_NVX_multiview_per_view_attributes\x00";
@@ -25,4 +26,14 @@ pub struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub perViewPositionAllComponents: VkBool32,
+}
+
+impl Default for VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
+    fn default() -> Self {
+        VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX,
+            pNext: ptr::null_mut(),
+            perViewPositionAllComponents: Default::default(),
+        }
+    }
 }

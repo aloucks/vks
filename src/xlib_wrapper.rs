@@ -18,13 +18,13 @@ use libc::c_void;
 pub struct Display(c_void);
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
 pub struct Window(pub u32);
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
 pub struct VisualID(pub u32);
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
 pub struct RROutput(pub u32);

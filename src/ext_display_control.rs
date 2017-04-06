@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_EXT_DISPLAY_CONTROL_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME: &'static [u8; 23] = b"VK_EXT_display_control\x00";
@@ -41,12 +42,32 @@ pub struct VkDisplayPowerInfoEXT {
     pub powerState: VkDisplayPowerStateEXT,
 }
 
+impl Default for VkDisplayPowerInfoEXT {
+    fn default() -> Self {
+        VkDisplayPowerInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT,
+            pNext: ptr::null(),
+            powerState: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceEventInfoEXT {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub deviceEvent: VkDeviceEventTypeEXT,
+}
+
+impl Default for VkDeviceEventInfoEXT {
+    fn default() -> Self {
+        VkDeviceEventInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT,
+            pNext: ptr::null(),
+            deviceEvent: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -57,12 +78,32 @@ pub struct VkDisplayEventInfoEXT {
     pub displayEvent: VkDisplayEventTypeEXT,
 }
 
+impl Default for VkDisplayEventInfoEXT {
+    fn default() -> Self {
+        VkDisplayEventInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT,
+            pNext: ptr::null(),
+            displayEvent: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSwapchainCounterCreateInfoEXT {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub surfaceCounters: VkSurfaceCounterFlagsEXT,
+}
+
+impl Default for VkSwapchainCounterCreateInfoEXT {
+    fn default() -> Self {
+        VkSwapchainCounterCreateInfoEXT  {
+            sType: VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT,
+            pNext: ptr::null(),
+            surfaceCounters: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkDisplayPowerControlEXT = unsafe extern "system" fn(device: VkDevice, display: VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> VkResult;

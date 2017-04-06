@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHX_EXTERNAL_SEMAPHORE_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME: &'static [u8; 26] = b"VK_KHX_external_semaphore\x00";
@@ -25,4 +26,14 @@ pub struct VkExportSemaphoreCreateInfoKHX {
     pub sType: VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
+}
+
+impl Default for VkExportSemaphoreCreateInfoKHX {
+    fn default() -> Self {
+        VkExportSemaphoreCreateInfoKHX  {
+            sType: VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX,
+            pNext: ptr::null(),
+            handleTypes: Default::default(),
+        }
+    }
 }

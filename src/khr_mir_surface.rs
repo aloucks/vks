@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_MIR_SURFACE_EXTENSION_SPEC_VERSION: u32 = 4;
 pub const VK_KHR_MIR_SURFACE_EXTENSION_NAME: &'static [u8; 19] = b"VK_KHR_mir_surface\x00";
@@ -36,6 +37,18 @@ pub struct VkMirSurfaceCreateInfoKHR {
     pub flags: VkMirSurfaceCreateFlagsKHR,
     pub connection: *mut mir_wrapper::MirConnection,
     pub mirSurface: *mut mir_wrapper::MirSurface,
+}
+
+impl Default for VkMirSurfaceCreateInfoKHR {
+    fn default() -> Self {
+        VkMirSurfaceCreateInfoKHR  {
+            sType: VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR,
+            pNext: ptr::null(),
+            flags: Default::default(),
+            connection: ptr::null_mut(),
+            mirSurface: ptr::null_mut(),
+        }
+    }
 }
 
 pub type PFN_vkCreateMirSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;

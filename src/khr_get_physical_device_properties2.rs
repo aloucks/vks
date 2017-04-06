@@ -14,6 +14,7 @@
 
 use ::*;
 use libc::c_void;
+use std::ptr;
 
 pub const VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME: &'static [u8; 39] = b"VK_KHR_get_physical_device_properties2\x00";
@@ -27,12 +28,32 @@ pub struct VkPhysicalDeviceFeatures2KHR {
     pub features: VkPhysicalDeviceFeatures,
 }
 
+impl Default for VkPhysicalDeviceFeatures2KHR {
+    fn default() -> Self {
+        VkPhysicalDeviceFeatures2KHR  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR,
+            pNext: ptr::null_mut(),
+            features: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceProperties2KHR {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub properties: VkPhysicalDeviceProperties,
+}
+
+impl Default for VkPhysicalDeviceProperties2KHR {
+    fn default() -> Self {
+        VkPhysicalDeviceProperties2KHR  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR,
+            pNext: ptr::null_mut(),
+            properties: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -43,12 +64,32 @@ pub struct VkFormatProperties2KHR {
     pub formatProperties: VkFormatProperties,
 }
 
+impl Default for VkFormatProperties2KHR {
+    fn default() -> Self {
+        VkFormatProperties2KHR  {
+            sType: VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR,
+            pNext: ptr::null_mut(),
+            formatProperties: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImageFormatProperties2KHR {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub imageFormatProperties: VkImageFormatProperties,
+}
+
+impl Default for VkImageFormatProperties2KHR {
+    fn default() -> Self {
+        VkImageFormatProperties2KHR  {
+            sType: VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR,
+            pNext: ptr::null_mut(),
+            imageFormatProperties: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -63,12 +104,36 @@ pub struct VkPhysicalDeviceImageFormatInfo2KHR {
     pub flags: VkImageCreateFlags,
 }
 
+impl Default for VkPhysicalDeviceImageFormatInfo2KHR {
+    fn default() -> Self {
+        VkPhysicalDeviceImageFormatInfo2KHR  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR,
+            pNext: ptr::null(),
+            format: Default::default(),
+            type_: Default::default(),
+            tiling: Default::default(),
+            usage: Default::default(),
+            flags: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkQueueFamilyProperties2KHR {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub queueFamilyProperties: VkQueueFamilyProperties,
+}
+
+impl Default for VkQueueFamilyProperties2KHR {
+    fn default() -> Self {
+        VkQueueFamilyProperties2KHR  {
+            sType: VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR,
+            pNext: ptr::null_mut(),
+            queueFamilyProperties: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -79,12 +144,32 @@ pub struct VkPhysicalDeviceMemoryProperties2KHR {
     pub memoryProperties: VkPhysicalDeviceMemoryProperties,
 }
 
+impl Default for VkPhysicalDeviceMemoryProperties2KHR {
+    fn default() -> Self {
+        VkPhysicalDeviceMemoryProperties2KHR  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR,
+            pNext: ptr::null_mut(),
+            memoryProperties: Default::default(),
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSparseImageFormatProperties2KHR {
     pub sType: VkStructureType,
     pub pNext: *mut c_void,
     pub properties: VkSparseImageFormatProperties,
+}
+
+impl Default for VkSparseImageFormatProperties2KHR {
+    fn default() -> Self {
+        VkSparseImageFormatProperties2KHR  {
+            sType: VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR,
+            pNext: ptr::null_mut(),
+            properties: Default::default(),
+        }
+    }
 }
 
 #[repr(C)]
@@ -97,6 +182,20 @@ pub struct VkPhysicalDeviceSparseImageFormatInfo2KHR {
     pub samples: VkSampleCountFlagBits,
     pub usage: VkImageUsageFlags,
     pub tiling: VkImageTiling,
+}
+
+impl Default for VkPhysicalDeviceSparseImageFormatInfo2KHR {
+    fn default() -> Self {
+        VkPhysicalDeviceSparseImageFormatInfo2KHR  {
+            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR,
+            pNext: ptr::null(),
+            format: Default::default(),
+            type_: Default::default(),
+            samples: Default::default(),
+            usage: Default::default(),
+            tiling: Default::default(),
+        }
+    }
 }
 
 pub type PFN_vkGetPhysicalDeviceFeatures2KHR = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pFeatures: *mut VkPhysicalDeviceFeatures2KHR);
