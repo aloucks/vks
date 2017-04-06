@@ -78,6 +78,7 @@ cenum!(VkPresentModeKHR: u32 {
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkSurfaceTransformFlagsKHR: u32 {
         const VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR = 0x00000001,
         const VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR = 0x00000002,
@@ -94,6 +95,7 @@ pub type VkSurfaceTransformFlagBitsKHR = VkSurfaceTransformFlagsKHR;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkCompositeAlphaFlagsKHR: u32 {
         const VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR = 0x00000001,
         const VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR = 0x00000002,

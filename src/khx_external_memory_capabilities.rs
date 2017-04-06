@@ -22,6 +22,7 @@ pub const VK_LUID_SIZE_KHX: usize = 8;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkExternalMemoryHandleTypeFlagsKHX: u32 {
         const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
         const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
@@ -36,6 +37,7 @@ pub type VkExternalMemoryHandleTypeFlagBitsKHX = VkExternalMemoryHandleTypeFlags
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkExternalMemoryFeatureFlagsKHX: u32 {
         const VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX = 0x00000001,
         const VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHX = 0x00000002,

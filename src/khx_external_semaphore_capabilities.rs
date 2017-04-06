@@ -21,6 +21,7 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME_STR: &'static st
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkExternalSemaphoreHandleTypeFlagsKHX: u32 {
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
@@ -33,6 +34,7 @@ pub type VkExternalSemaphoreHandleTypeFlagBitsKHX = VkExternalSemaphoreHandleTyp
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkExternalSemaphoreFeatureFlagsKHX: u32 {
         const VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHX = 0x00000001,
         const VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT_KHX = 0x00000002,

@@ -21,6 +21,7 @@ pub const VK_KHR_XLIB_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_xlib_su
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkXlibSurfaceCreateFlagsKHR: u32 {
         const VK_XLIB_SURFACE_CREATE_DUMMY = 0x00000000,
     }

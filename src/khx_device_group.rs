@@ -22,6 +22,7 @@ pub const VK_MAX_DEVICE_GROUP_SIZE_KHX: usize = 32;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkPeerMemoryFeatureFlagsKHX: u32 {
         const VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX = 0x00000001,
         const VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX = 0x00000002,
@@ -33,6 +34,7 @@ pub type VkPeerMemoryFeatureFlagBitsKHX = VkPeerMemoryFeatureFlagsKHX;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkMemoryAllocateFlagsKHX: u32 {
         const VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX = 0x00000001,
     }
@@ -41,6 +43,7 @@ pub type VkMemoryAllocateFlagBitsKHX = VkMemoryAllocateFlagsKHX;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkDeviceGroupPresentModeFlagsKHX: u32 {
         const VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX = 0x00000001,
         const VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX = 0x00000002,

@@ -26,6 +26,7 @@ cenum!(VkDiscardRectangleModeEXT: u32 {
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkPipelineDiscardRectangleStateCreateFlagsEXT: u32 {
         const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_DUMMY_EXT = 0x00000000,
     }

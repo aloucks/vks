@@ -21,6 +21,7 @@ pub const VK_KHR_MIR_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_mir_surf
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkMirSurfaceCreateFlagsKHR: u32 {
         const VK_MIR_SURFACE_CREATE_DUMMY = 0x00000000,
     }

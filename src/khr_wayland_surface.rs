@@ -26,6 +26,7 @@ pub const VK_KHR_WAYLAND_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_wayl
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkWaylandSurfaceCreateFlagsKHR: u32 {
         const VK_WAYLAND_SURFACE_CREATE_DUMMY = 0x00000000,
     }

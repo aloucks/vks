@@ -30,6 +30,7 @@ cenum!(VkDescriptorUpdateTemplateTypeKHR: u32 {
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkDescriptorUpdateTemplateCreateFlagsKHR: u32 {
         const VK_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_DUMMY_KHR = 0x00000000,
     }

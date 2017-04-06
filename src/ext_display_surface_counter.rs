@@ -21,6 +21,7 @@ pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME_STR: &'static str = "VK_
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkSurfaceCounterFlagsEXT: u32 {
         const VK_SURFACE_COUNTER_VBLANK_EXT = 0x00000001,
     }

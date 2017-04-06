@@ -21,6 +21,7 @@ pub const VK_MVK_IOS_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_MVK_ios_surf
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkIOSSurfaceCreateFlagsMVK: u32 {
         const VK_IOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000,
     }

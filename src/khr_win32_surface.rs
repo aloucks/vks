@@ -21,6 +21,7 @@ pub const VK_KHR_WIN32_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_win32_
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkWin32SurfaceCreateFlagsKHR: u32 {
         const VK_WIN32_SURFACE_CREATE_DUMMY = 0x00000000,
     }

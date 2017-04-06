@@ -21,6 +21,7 @@ pub const VK_KHR_ANDROID_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_andr
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkAndroidSurfaceCreateFlagsKHR: u32 {
         const VK_ANDROID_SURFACE_CREATE_DUMMY = 0x00000000,
     }

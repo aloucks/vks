@@ -29,6 +29,7 @@ pub type VkDisplayModeKHR = *mut VkDisplayModeKHR_T;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkDisplayPlaneAlphaFlagsKHR : u32 {
         const VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 0x00000001,
         const VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR = 0x00000002,
@@ -40,6 +41,7 @@ pub type VkDisplayPlaneAlphaFlagBitsKHR = VkDisplayPlaneAlphaFlagsKHR;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkDisplayModeCreateFlagsKHR: u32 {
         const VK_DISPLAY_MODE_CREATE_DUMMY_KHR = 0x00000000,
     }
@@ -48,6 +50,7 @@ pub type VkDisplayModeCreateFlagBitsKHR = VkDisplayModeCreateFlagsKHR ;
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkDisplaySurfaceCreateFlagsKHR: u32 {
         const VK_DISPLAY_SURFACE_CREATE_DUMMY_KHR = 0x00000000,
     }

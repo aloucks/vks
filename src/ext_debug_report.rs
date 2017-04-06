@@ -92,6 +92,7 @@ cenum!(VkDebugReportErrorEXT: u32 {
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkDebugReportFlagsEXT: u32 {
         const VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001,
         const VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002,

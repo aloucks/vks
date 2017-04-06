@@ -20,6 +20,7 @@ pub const VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME_STR: &'static str = 
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkExternalMemoryHandleTypeFlagsNV: u32 {
         const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV = 0x00000001,
         const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV = 0x00000002,
@@ -31,6 +32,7 @@ pub type VkExternalMemoryHandleTypeFlagBitsNV = VkExternalMemoryHandleTypeFlagsN
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkExternalMemoryFeatureFlagsNV: u32 {
         const VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV = 0x00000001,
         const VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV = 0x00000002,

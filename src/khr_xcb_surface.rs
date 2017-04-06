@@ -21,6 +21,7 @@ pub const VK_KHR_XCB_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_xcb_surf
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkXcbSurfaceCreateFlagsKHR: u32 {
         const VK_XCB_SURFACE_CREATE_DUMMY = 0x00000000,
     }

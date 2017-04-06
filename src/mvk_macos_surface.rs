@@ -21,6 +21,7 @@ pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_MVK_macos_
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkMacOSSurfaceCreateFlagsMVK: u32 {
         const VK_MACOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000,
     }

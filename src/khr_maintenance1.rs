@@ -20,6 +20,7 @@ pub const VK_KHR_MAINTENANCE1_EXTENSION_NAME_STR: &'static str = "VK_KHR_mainten
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkCommandPoolTrimFlagsKHR: u32 {
         const VK_COMMAND_POOL_TRIM_DUMMY_KHR = 0x00000000,
     }

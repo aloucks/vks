@@ -32,6 +32,7 @@ cenum!(VkViewportCoordinateSwizzleNV: u32 {
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkPipelineViewportSwizzleStateCreateFlagsNV: u32 {
         const VK_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_DUMMY_NV = 0x00000000,
     }

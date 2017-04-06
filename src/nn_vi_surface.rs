@@ -21,6 +21,7 @@ pub const VK_NN_VI_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_NN_vi_surface"
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkViSurfaceCreateFlagsNN: u32 {
         const VK_VI_SURFACE_CREATE_DUMMY_NN = 0x00000000,
     }

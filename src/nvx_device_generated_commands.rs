@@ -48,6 +48,7 @@ cenum!(VkObjectEntryTypeNVX: u32 {
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkIndirectCommandsLayoutUsageFlagsNVX: u32 {
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x00000001,
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX = 0x00000002,
@@ -59,6 +60,7 @@ pub type VkIndirectCommandsLayoutUsageFlagBitsNVX = VkIndirectCommandsLayoutUsag
 
 bitflags! {
     #[repr(C)]
+    #[derive(Default)]
     pub flags VkObjectEntryUsageFlagsNVX: u32 {
         const VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x00000001,
         const VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX = 0x00000002,
