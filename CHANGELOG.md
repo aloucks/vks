@@ -1,5 +1,11 @@
 # vk-sys Changelog
 
+## Current Git Master Branch
+
+ * Define `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT` in `VK_EXT_debug_report`
+   revision 1 instead of 2. The corresponding struct `VkDebugReportCallbackCreateInfoEXT` existed
+   already in revision 1.
+
 ## Version 0.11.0, released on 02.04.2017
 
  * Vulkan 1.0.46

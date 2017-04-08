@@ -279,7 +279,7 @@ cenum!(VkStructureType: u32 {
     #[cfg(feature = "ext_debug_report_1")]
     const VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT = 1000011000,
 
-    #[cfg(feature = "ext_debug_report_2")]
+    #[cfg(feature = "ext_debug_report_1")]
     const VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT = 1000011000,
 
     #[cfg(feature = "amd_rasterization_order_1")]
