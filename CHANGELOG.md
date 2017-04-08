@@ -2,6 +2,7 @@
 
 ## Current Git Master Branch
 
+ * Vulkan 1.0.47
  * Define `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT` in `VK_EXT_debug_report`
    revision 1 instead of 2. The corresponding struct `VkDebugReportCallbackCreateInfoEXT` existed
    already in revision 1.
