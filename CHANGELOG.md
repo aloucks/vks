@@ -1,6 +1,6 @@
 # vk-sys Changelog
 
-## Current Git Master Branch
+## Version 0.12.0, released on 08.04.2017
 
  * Vulkan 1.0.47
  * Define `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT` in `VK_EXT_debug_report`

@@ -1,6 +1,6 @@
 [package]
 name = "vk-sys"
-version = "0.11.0"
+version = "0.12.0"
 authors = [ "Dennis Hamester <dennis.hamester@startmail.com>" ]
 description = "Vulkan bindings and symbol loader"
 homepage = "https://gitlab.com/dennis-hamester/vk-sys"
