@@ -50,9 +50,19 @@ macro_rules! gen_device_proc_addr_loader {
             }
         }
 
+        impl Default for DeviceProcAddrLoader {
+            fn default() -> Self {
+                DeviceProcAddrLoader::new()
+            }
+        }
+
         impl DeviceProcAddrLoader {
+            pub fn new() -> Self {
+                unsafe { DeviceProcAddrLoader::from_get_device_proc_addr(mem::transmute(0usize)) }
+            }
+
             #[cfg(feature = "unstable_rust")]
-            pub fn new(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
+            pub fn from_get_device_proc_addr(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
                 DeviceProcAddrLoader {
                     vkGetDeviceProcAddr: vkGetDeviceProcAddr,
 
@@ -64,7 +74,7 @@ macro_rules! gen_device_proc_addr_loader {
             }
 
             #[cfg(not(feature = "unstable_rust"))]
-            pub fn new(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
+            pub fn from_get_device_proc_addr(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
                 unsafe {
                     use std::ptr;
                     let mut this: DeviceProcAddrLoader = mem::uninitialized();

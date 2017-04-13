@@ -4,6 +4,7 @@
  * The `new` function of `InstanceProcAddrLoader` has been made parameter-less, which initialized
    the field `vkGetInstanceProcAddr` with a null pointer. The previous behaviour was moved to the
    new function `from_get_instance_proc_addr`. `Default` has been implemented as well.
+ * `DeviceProcAddrLoader` was changed also accordingly.
 
 ## Version 0.12.0, released on 08.04.2017
 
