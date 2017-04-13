@@ -53,9 +53,19 @@ macro_rules! gen_instance_proc_addr_loader {
             }
         }
 
+        impl Default for InstanceProcAddrLoader {
+            fn default() -> Self {
+                InstanceProcAddrLoader::new()
+            }
+        }
+
         impl InstanceProcAddrLoader {
+            pub fn new() -> Self {
+                unsafe { InstanceProcAddrLoader::from_get_instance_proc_addr(mem::transmute(0usize)) }
+            }
+
             #[cfg(feature = "unstable_rust")]
-            pub fn new(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
+            pub fn from_get_instance_proc_addr(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
                 InstanceProcAddrLoader {
                     vkGetInstanceProcAddr: vkGetInstanceProcAddr,
                     core_null_instance: CoreNullInstance::new(),
@@ -68,7 +78,7 @@ macro_rules! gen_instance_proc_addr_loader {
             }
 
             #[cfg(not(feature = "unstable_rust"))]
-            pub fn new(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
+            pub fn from_get_instance_proc_addr(vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr) -> Self {
                 unsafe {
                     let mut this: InstanceProcAddrLoader = mem::uninitialized();
 
