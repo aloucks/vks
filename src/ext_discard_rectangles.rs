@@ -78,7 +78,8 @@ impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
 
 pub type PFN_vkCmdSetDiscardRectangleEXT = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const VkRect2D);
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkCmdSetDiscardRectangleEXT(commandBuffer: VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const VkRect2D);
 }

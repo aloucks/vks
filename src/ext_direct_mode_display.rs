@@ -20,7 +20,8 @@ pub const VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_EXT_
 
 pub type PFN_vkReleaseDisplayEXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, display: VkDisplayKHR) -> VkResult;
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkReleaseDisplayEXT(physicalDevice: VkPhysicalDevice, display: VkDisplayKHR) -> VkResult;
 }

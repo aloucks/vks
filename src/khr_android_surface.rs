@@ -51,7 +51,8 @@ impl Default for VkAndroidSurfaceCreateInfoKHR {
 
 pub type PFN_vkCreateAndroidSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkCreateAndroidSurfaceKHR(instance: VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
 }

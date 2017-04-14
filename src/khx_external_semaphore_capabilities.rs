@@ -85,7 +85,8 @@ impl Default for VkExternalSemaphorePropertiesKHX {
 
 pub type PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHX = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkGetPhysicalDeviceExternalSemaphorePropertiesKHX(physicalDevice: VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);
 }

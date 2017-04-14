@@ -51,7 +51,8 @@ impl Default for VkIOSSurfaceCreateInfoMVK {
 
 pub type PFN_vkCreateIOSSurfaceMVK = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkCreateIOSSurfaceMVK(instance: VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
 }

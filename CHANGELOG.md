@@ -6,6 +6,7 @@
    the field `vkGetInstanceProcAddr` with a null pointer. The previous behaviour was moved to the
    new function `from_get_instance_proc_addr`. `Default` has been implemented as well.
  * `DeviceProcAddrLoader` was changed also accordingly.
+ * Link against `vulkan-1` on Windows.
 
 ## Version 0.12.0, released on 08.04.2017
 

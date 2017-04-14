@@ -29,7 +29,8 @@ pub type VkCommandPoolTrimFlagBitsKHR = VkCommandPoolTrimFlagsKHR;
 
 pub type PFN_vkTrimCommandPoolKHR = unsafe extern "system" fn(device: VkDevice, commandPool: VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkTrimCommandPoolKHR(device: VkDevice, commandPool: VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 }

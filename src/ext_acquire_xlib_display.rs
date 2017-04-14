@@ -21,7 +21,8 @@ pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_EXT
 pub type PFN_vkAcquireXlibDisplayEXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, display: VkDisplayKHR) -> VkResult;
 pub type PFN_vkGetRandROutputDisplayEXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, rrOutput: ::xlib_wrapper::RROutput, pDisplay: *mut VkDisplayKHR) -> VkResult;
 
-#[link(name = "vulkan")]
+#[cfg_attr(not(windows), link(name = "vulkan"))]
+#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     pub fn vkAcquireXlibDisplayEXT(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, display: VkDisplayKHR) -> VkResult;
     pub fn vkGetRandROutputDisplayEXT(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, rrOutput: ::xlib_wrapper::RROutput, pDisplay: *mut VkDisplayKHR) -> VkResult;
