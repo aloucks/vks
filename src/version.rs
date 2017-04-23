@@ -34,6 +34,9 @@ pub fn vk_make_version(major: u32, minor: u32, patch: u32) -> u32 {
     (major << 22) | (minor << 12) | patch
 }
 
+#[cfg(all(feature = "core_1_0_48", not(feature = "core_1_0_49")))]
+pub const VK_HEADER_VERSION: u32 = 48;
+
 #[cfg(all(feature = "core_1_0_47", not(feature = "core_1_0_48")))]
 pub const VK_HEADER_VERSION: u32 = 47;
 
