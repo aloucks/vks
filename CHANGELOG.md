@@ -9,6 +9,7 @@
  * Link against `vulkan-1` on Windows.
  * Fixed two `Default` implementations, which assigned incorrect `sType` values
    (`VkImageMemoryBarrier` and `VkRenderPassBeginInfo`).
+ * Add missing type `VkInstanceCreateFlagBits`.
 
 ## Version 0.12.0, released on 08.04.2017
 

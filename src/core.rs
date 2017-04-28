@@ -1033,6 +1033,7 @@ bitflags! {
         const VK_INSTANCE_CREATE_DUMMY = 0,
     }
 }
+pub type VkInstanceCreateFlagBits = VkInstanceCreateFlags;
 
 bitflags! {
     #[repr(C)]
