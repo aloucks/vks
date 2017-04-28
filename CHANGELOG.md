@@ -7,6 +7,8 @@
    new function `from_get_instance_proc_addr`. `Default` has been implemented as well.
  * `DeviceProcAddrLoader` was changed also accordingly.
  * Link against `vulkan-1` on Windows.
+ * Fixed two `Default` implementations, which assigned incorrect `sType` values
+   (`VkImageMemoryBarrier` and `VkRenderPassBeginInfo`).
 
 ## Version 0.12.0, released on 08.04.2017
 

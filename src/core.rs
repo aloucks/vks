@@ -4007,7 +4007,7 @@ pub struct VkImageMemoryBarrier {
 impl Default for VkImageMemoryBarrier {
     fn default() -> Self {
         VkImageMemoryBarrier {
-            sType: VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER,
+            sType: VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
             pNext: ptr::null(),
             srcAccessMask: Default::default(),
             dstAccessMask: Default::default(),
@@ -4036,7 +4036,7 @@ pub struct VkRenderPassBeginInfo {
 impl Default for VkRenderPassBeginInfo {
     fn default() -> Self {
         VkRenderPassBeginInfo {
-            sType: VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO,
+            sType: VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO,
             pNext: ptr::null(),
             renderPass: ptr::null_mut(),
             framebuffer: ptr::null_mut(),
