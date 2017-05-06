@@ -1579,7 +1579,7 @@ bitflags! {
     #[repr(C)]
     #[derive(Default)]
     pub flags VkRenderPassCreateFlags: u32 {
-        const VK_RENDER_PASS_CREATE_FUMMY = 0x00000001,
+        const VK_RENDER_PASS_CREATE_DUMMY = 0x00000001,
     }
 }
 pub type VkRenderPassCreateFlagBits = VkRenderPassCreateFlags;
