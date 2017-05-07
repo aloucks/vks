@@ -22,7 +22,7 @@ fn runner(id: usize, repo: PathBuf, jobs: mpsc::Receiver<Option<String>>, res: m
     loop {
         match jobs.recv().unwrap() {
             Some(feature) => {
-                let tempdir = TempDir::new("vk-sys").unwrap();
+                let tempdir = TempDir::new("vks").unwrap();
                 let mut sources = Vec::new();
                 sources.push(repo.join("Cargo.toml"));
                 if fs::metadata(repo.join("Cargo.lock")).is_ok() {
@@ -50,12 +50,12 @@ fn runner(id: usize, repo: PathBuf, jobs: mpsc::Receiver<Option<String>>, res: m
 }
 
 fn main() {
-    let matches = App::new("vk-sys test-build")
+    let matches = App::new("vks test-build")
         .arg(Arg::with_name("repo")
              .short("r")
              .long("repo")
              .value_name("PATH")
-             .help("Path to the vk-sys repository [default: current directory]")
+             .help("Path to the vks repository [default: current directory]")
              .takes_value(true))
         .arg(Arg::with_name("j")
              .short("j")

@@ -1,6 +1,7 @@
-# vk-sys Changelog
+# vks Changelog
 
 ## Current Git Master Branch
+ * Renamed project from `vk-sys` to `vks`.
  * Vulkan 1.0.48
  * The `new` function of `InstanceProcAddrLoader` has been made parameter-less, which initialized
    the field `vkGetInstanceProcAddr` with a null pointer. The previous behaviour was moved to the
@@ -23,7 +24,7 @@
 ## Version 0.11.0, released on 02.04.2017
 
  * Vulkan 1.0.46
- * Stable Rust can now build vk-sys!
+ * Stable Rust can now build vks!
  * Reimplemented `untagged_unions` and `struct_field_attributes` with stable Rust. This is enabled
    by default. The old behaviour is still available by selecting the Cargo feature `unstable_rust`.
  * Add `VK_KHR_swapchain` functions to `InstanceProcAddrLoader` and `DeviceProcAddrLoader`

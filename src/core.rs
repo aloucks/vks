@@ -5521,14 +5521,14 @@ pub struct VkClearColorValue {
     pub float32: VkSysUnionField<[f32; 4usize]>,
     pub int32: VkSysUnionField<[i32; 4usize]>,
     pub uint32: VkSysUnionField<[u32; 4usize]>,
-    pub vk_sys_union_field: [u32; 4usize],
+    pub vks_union_field: [u32; 4usize],
 }
 
 #[cfg(not(feature = "unstable_rust"))]
 impl fmt::Debug for VkClearColorValue {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkClearColorValue")
-            .field("vk_sys_union_field", &self.vk_sys_union_field)
+            .field("vks_union_field", &self.vks_union_field)
             .finish()
     }
 }
@@ -5540,7 +5540,7 @@ impl Default for VkClearColorValue {
             float32: VkSysUnionField::new(),
             int32: VkSysUnionField::new(),
             uint32: VkSysUnionField::new(),
-            vk_sys_union_field: Default::default(),
+            vks_union_field: Default::default(),
         }
     }
 }
@@ -5590,14 +5590,14 @@ impl Default for VkClearValue {
 pub struct VkClearValue {
     pub color: VkSysUnionField<VkClearColorValue>,
     pub depthStencil: VkSysUnionField<VkClearDepthStencilValue>,
-    pub vk_sys_union_field: [u32; 4usize],
+    pub vks_union_field: [u32; 4usize],
 }
 
 #[cfg(not(feature = "unstable_rust"))]
 impl fmt::Debug for VkClearValue {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         f.debug_struct("VkClearValue")
-            .field("vk_sys_union_field", &self.vk_sys_union_field)
+            .field("vks_union_field", &self.vks_union_field)
             .finish()
     }
 }
@@ -5608,7 +5608,7 @@ impl Default for VkClearValue {
         VkClearValue {
             color: VkSysUnionField::new(),
             depthStencil: VkSysUnionField::new(),
-            vk_sys_union_field: Default::default(),
+            vks_union_field: Default::default(),
         }
     }
 }

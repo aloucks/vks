@@ -1,6 +1,6 @@
-# vk-sys
+# vks
 
-[![build status](https://gitlab.com/dennis-hamester/vk-sys/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vk-sys)
+[![build status](https://gitlab.com/dennis-hamester/vks/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vks)
 
 Vulkan bindings and symbol loader for Rust
 
@@ -8,7 +8,7 @@ Latest supported Vulkan specification: 1.0.48 + all extensions
 
 ## Cargo Features
 
-vk-sys supports very fine grained compile-time configuration via Cargo features. The version of the
+vks supports very fine grained compile-time configuration via Cargo features. The version of the
 core specification and the revision for each extension can be selected individually. Dependencies
 between available features are modelled as well. This means, selecting nothing but a single
 extension revision (i.e. via `cargo build --no-default-features --features khr_wayland_surface_5`)
@@ -57,7 +57,7 @@ the newest revision.
 
 ## Loader
 
-vk-sys includes two convenience Vulkan symbol loaders: `InstanceProcAddrLoader` and
+vks includes two convenience Vulkan symbol loaders: `InstanceProcAddrLoader` and
 `DeviceProcAddrLoader`. Both support all available core Vulkan functions including extension
 function pointers. The exact set of function pointers depend on the enabled Cargo features.
 
@@ -190,7 +190,7 @@ Every version in between is supported as well.
 
 ## License
 
-vk-sys is licensed under the ISC license:
+vks is licensed under the ISC license:
 
 ```
 Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
