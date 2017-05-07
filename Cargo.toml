@@ -13,7 +13,7 @@ license = "ISC"
 exclude = [ "tools/*" ]
 
 [badges]
-gitlab = { repository = "https://gitlab.com/dennis-hamester/vks" }
+gitlab = { repository = "dennis-hamester/vks" }
 
 [dependencies]
 libc = "0.2"
