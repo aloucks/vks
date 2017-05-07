@@ -21,6 +21,8 @@ pub const VK_KHX_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHX_ex
 pub const VK_KHX_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &'static str = "VK_KHX_external_memory";
 pub const VK_QUEUE_FAMILY_EXTERNAL_KHX: u32 = 0xfffffffe;
 
+/// See [`VkExternalMemoryImageCreateInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryImageCreateInfoKHX)
+/// and extension [`VK_KHX_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryImageCreateInfoKHX {
@@ -39,6 +41,8 @@ impl Default for VkExternalMemoryImageCreateInfoKHX {
     }
 }
 
+/// See [`VkExternalMemoryBufferCreateInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryBufferCreateInfoKHX)
+/// and extension [`VK_KHX_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryBufferCreateInfoKHX {
@@ -57,6 +61,8 @@ impl Default for VkExternalMemoryBufferCreateInfoKHX {
     }
 }
 
+/// See [`VkExportMemoryAllocateInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExportMemoryAllocateInfoKHX)
+/// and extension [`VK_KHX_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoKHX {

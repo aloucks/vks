@@ -20,6 +20,8 @@ pub const VK_EXT_HDR_METADATA_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_hdr_metadata\x00";
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME_STR: &'static str = "VK_EXT_hdr_metadata";
 
+/// See [`VkXYColorEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkXYColorEXT)
+/// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkXYColorEXT {
@@ -27,6 +29,8 @@ pub struct VkXYColorEXT {
     pub y: f32,
 }
 
+/// See [`VkHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkHdrMetadataEXT)
+/// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkHdrMetadataEXT {
@@ -59,10 +63,14 @@ impl Default for VkHdrMetadataEXT {
     }
 }
 
+/// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
+/// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
 pub type PFN_vkSetHdrMetadataEXT = unsafe extern "system" fn(device: VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
 
 #[cfg_attr(not(windows), link(name = "vulkan"))]
 #[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
+    /// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
+    /// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
     pub fn vkSetHdrMetadataEXT(device: VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
 }

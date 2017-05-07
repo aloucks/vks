@@ -21,6 +21,8 @@ pub const VK_KHX_DEVICE_GROUP_CREATION_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_device_group_creation\x00";
 pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME_STR: &'static str = "VK_KHX_device_group_creation";
 
+/// See [`VkPhysicalDeviceGroupPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceGroupPropertiesKHX)
+/// and extension [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceGroupPropertiesKHX {
@@ -43,6 +45,8 @@ impl Default for VkPhysicalDeviceGroupPropertiesKHX {
     }
 }
 
+/// See [`VkDeviceGroupDeviceCreateInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupDeviceCreateInfoKHX)
+/// and extension [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupDeviceCreateInfoKHX {
@@ -63,10 +67,14 @@ impl Default for VkDeviceGroupDeviceCreateInfoKHX {
     }
 }
 
+/// See [`vkEnumeratePhysicalDeviceGroupsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkEnumeratePhysicalDeviceGroupsKHX)
+/// and extension [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
 pub type PFN_vkEnumeratePhysicalDeviceGroupsKHX = unsafe extern "system" fn(instance: VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> VkResult;
 
 #[cfg_attr(not(windows), link(name = "vulkan"))]
 #[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
+    /// See [`vkEnumeratePhysicalDeviceGroupsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkEnumeratePhysicalDeviceGroupsKHX)
+    /// and extension [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
     pub fn vkEnumeratePhysicalDeviceGroupsKHX(instance: VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> VkResult;
 }

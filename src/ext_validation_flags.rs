@@ -21,9 +21,13 @@ pub const VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME: &'static [u8; 24] = b"VK_EXT_v
 pub const VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME_STR: &'static str = "VK_EXT_validation_flags";
 
 cenum!(VkValidationCheckEXT: u32 {
+    /// See [`VkValidationCheckEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationCheckEXT)
+    /// and extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
     const VK_VALIDATION_CHECK_ALL_EXT = 0,
 });
 
+/// See [`VkValidationFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationFlagsEXT)
+/// and extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkValidationFlagsEXT {

@@ -20,6 +20,8 @@ pub const VK_NV_WIN32_KEYED_MUTEX_SPEC_VERSION: u32 = 1;
 pub const VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME: &'static [u8; 24] = b"VK_NV_win32_keyed_mutex\x00";
 pub const VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME_STR: &'static str = "VK_NV_win32_keyed_mutex";
 
+/// See [`VkWin32KeyedMutexAcquireReleaseInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWin32KeyedMutexAcquireReleaseInfoNV)
+/// and extension [`VK_NV_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_win32_keyed_mutex)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkWin32KeyedMutexAcquireReleaseInfoNV {

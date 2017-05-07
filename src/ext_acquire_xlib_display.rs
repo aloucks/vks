@@ -18,12 +18,22 @@ pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME: &'static [u8; 28] = b"VK_EXT_acquire_xlib_display\x00";
 pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_EXT_acquire_xlib_display";
 
+/// See [`vkAcquireXlibDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireXlibDisplayEXT)
+/// and extension [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)
 pub type PFN_vkAcquireXlibDisplayEXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, display: VkDisplayKHR) -> VkResult;
+
+/// See [`vkGetRandROutputDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRandROutputDisplayEXT)
+/// and extension [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)
 pub type PFN_vkGetRandROutputDisplayEXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, rrOutput: ::xlib_wrapper::RROutput, pDisplay: *mut VkDisplayKHR) -> VkResult;
 
 #[cfg_attr(not(windows), link(name = "vulkan"))]
 #[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
+    /// See [`vkAcquireXlibDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireXlibDisplayEXT)
+    /// and extension [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)
     pub fn vkAcquireXlibDisplayEXT(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, display: VkDisplayKHR) -> VkResult;
+
+    /// See [`vkGetRandROutputDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRandROutputDisplayEXT)
+    /// and extension [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)
     pub fn vkGetRandROutputDisplayEXT(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, rrOutput: ::xlib_wrapper::RROutput, pDisplay: *mut VkDisplayKHR) -> VkResult;
 }

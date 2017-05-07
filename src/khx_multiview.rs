@@ -20,6 +20,8 @@ pub const VK_KHX_MULTIVIEW_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_MULTIVIEW_EXTENSION_NAME: &'static [u8; 17] = b"VK_KHX_multiview\x00";
 pub const VK_KHX_MULTIVIEW_EXTENSION_NAME_STR: &'static str = "VK_KHX_multiview";
 
+/// See [`VkRenderPassMultiviewCreateInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRenderPassMultiviewCreateInfoKHX)
+/// and extension [`VK_KHX_multiview`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_multiview)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkRenderPassMultiviewCreateInfoKHX {
@@ -48,6 +50,8 @@ impl Default for VkRenderPassMultiviewCreateInfoKHX {
     }
 }
 
+/// See [`VkPhysicalDeviceMultiviewFeaturesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceMultiviewFeaturesKHX)
+/// and extension [`VK_KHX_multiview`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_multiview)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewFeaturesKHX {
@@ -70,6 +74,8 @@ impl Default for VkPhysicalDeviceMultiviewFeaturesKHX {
     }
 }
 
+/// See [`VkPhysicalDeviceMultiviewPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceMultiviewPropertiesKHX)
+/// and extension [`VK_KHX_multiview`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_multiview)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewPropertiesKHX {

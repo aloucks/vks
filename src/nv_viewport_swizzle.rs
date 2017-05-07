@@ -21,25 +21,55 @@ pub const VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME: &'static [u8; 23] = b"VK_NV_vie
 pub const VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME_STR: &'static str = "VK_NV_viewport_swizzle";
 
 cenum!(VkViewportCoordinateSwizzleNV: u32 {
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV = 0,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV = 1,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV = 2,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV = 3,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV = 4,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV = 5,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV = 6,
+
+    /// See [`VkViewportCoordinateSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportCoordinateSwizzleNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     const VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV = 7,
 });
 
 bitflags! {
+    /// See [`VkPipelineViewportSwizzleStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineViewportSwizzleStateCreateFlagsNV)
+    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkPipelineViewportSwizzleStateCreateFlagsNV: u32 {
         const VK_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_DUMMY_NV = 0x00000000,
     }
 }
+
+/// See [`VkPipelineViewportSwizzleStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineViewportSwizzleStateCreateFlagsNV)
+/// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
 pub type VkPipelineViewportSwizzleStateCreateFlagBitsNV = VkPipelineViewportSwizzleStateCreateFlagsNV;
 
+/// See [`VkViewportSwizzleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportSwizzleNV)
+/// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkViewportSwizzleNV {
@@ -49,6 +79,8 @@ pub struct VkViewportSwizzleNV {
     pub w: VkViewportCoordinateSwizzleNV,
 }
 
+/// See [`VkPipelineViewportSwizzleStateCreateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineViewportSwizzleStateCreateInfoNV)
+/// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineViewportSwizzleStateCreateInfoNV {

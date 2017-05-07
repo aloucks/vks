@@ -21,10 +21,17 @@ pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME: &'static [u8; 27] = b"VK_AM
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME_STR: &'static str = "VK_AMD_rasterization_order";
 
 cenum!(VkRasterizationOrderAMD: u32 {
+    /// See [`VkRasterizationOrderAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRasterizationOrderAMD)
+    /// and extension [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
     const VK_RASTERIZATION_ORDER_STRICT_AMD = 0,
+
+    /// See [`VkRasterizationOrderAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRasterizationOrderAMD)
+    /// and extension [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
     const VK_RASTERIZATION_ORDER_RELAXED_AMD = 1,
 });
 
+/// See [`VkPipelineRasterizationStateRasterizationOrderAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineRasterizationStateRasterizationOrderAMD)
+/// and extension [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineRasterizationStateRasterizationOrderAMD {

@@ -20,6 +20,8 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME: &'static [u8; 26] = b"VK_KHX_external_semaphore\x00";
 pub const VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME_STR: &'static str = "VK_KHX_external_semaphore";
 
+/// See [`VkExportSemaphoreCreateInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExportSemaphoreCreateInfoKHX)
+/// and extension [`VK_KHX_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportSemaphoreCreateInfoKHX {
