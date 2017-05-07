@@ -13,6 +13,11 @@ license = "ISC"
 [badges]
 gitlab = { repository = "https://gitlab.com/dennis-hamester/vks" }
 
+[dependencies]
+libc = "0.2"
+bitflags = "0.8"
+clippy = { version = "*", optional = true }
+
 [features]
 default = [ "vk_1_0_48" ]
 unstable_rust = [ ]
@@ -392,8 +397,3 @@ mvk_ios_surface_2 = [ "core_1_0_3", "khr_surface_25" ]
 
 mvk_macos_surface = [ "mvk_macos_surface_2" ]
 mvk_macos_surface_2 = [ "core_1_0_3", "khr_surface_25" ]
-
-[dependencies]
-libc = "0.2.21"
-bitflags = "0.8.0"
-clippy = { version = "*", optional = true }
