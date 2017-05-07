@@ -18,7 +18,6 @@ gitlab = { repository = "https://gitlab.com/dennis-hamester/vks" }
 [dependencies]
 libc = "0.2"
 bitflags = "0.8"
-clippy = { version = "*", optional = true }
 
 [features]
 default = [ "vk_1_0_48" ]

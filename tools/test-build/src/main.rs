@@ -62,10 +62,6 @@ fn main() {
              .value_name("NUM_JOBS")
              .help("Number of parallel builds [default: number of cores]")
              .takes_value(true))
-        .arg(Arg::with_name("clippy")
-             .short("c")
-             .long("clippy")
-             .help("Enable clippy builds"))
         .arg(Arg::with_name("output")
              .short("o")
              .long("output")
@@ -95,15 +91,6 @@ fn main() {
     };
 
     features.remove("unstable_rust");
-
-    if matches.occurrences_of("clippy") > 0 {
-        for mut feature in features.clone() {
-            feature.push_str(" clippy");
-            features.insert(feature);
-        }
-
-        features.insert("clippy".to_string());
-    }
 
     features.insert(String::new());
     let num_features = features.len();
