@@ -10,6 +10,7 @@ readme = "README.md"
 keywords = [ "vulkan", "graphics" ]
 categories = [ "external-ffi-bindings", "rendering", "rendering::graphics-api" ]
 license = "ISC"
+exclude = [ "tools/*" ]
 
 [badges]
 gitlab = { repository = "https://gitlab.com/dennis-hamester/vks" }
