@@ -1,5 +1,10 @@
 # vks Changelog
 
+## Current Git Master Branch
+
+ * Vulkan reference links for bitflags now point to the `*FlagBits` enum instead of the `*Flags`
+   typedef.
+
 ## Version 0.13.0, released on 07.05.2017
 
  * Renamed project from `vk-sys` to `vks`.

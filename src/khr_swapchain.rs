@@ -35,7 +35,7 @@ pub struct VkSwapchainKHR_T(c_void);
 pub type VkSwapchainKHR = *mut VkSwapchainKHR_T;
 
 bitflags! {
-    /// See [`VkSwapchainCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagsKHR)
+    /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
     #[repr(C)]
     #[derive(Default)]
@@ -44,7 +44,7 @@ bitflags! {
         const VK_SWAPCHAIN_CREATE_DUMMY_KHR = 0x00000000,
 
         #[cfg(feature = "khx_device_group_1")]
-        /// See [`VkSwapchainCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagsKHR)
+        /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
         /// and extensions [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain),
         /// [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX = 0x00000001,

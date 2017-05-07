@@ -21,12 +21,12 @@ pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME: &'static [u8; 31] = b"V
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME_STR: &'static str = "VK_EXT_display_surface_counter";
 
 bitflags! {
-    /// See [`VkSurfaceCounterFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagsEXT)
+    /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
     /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkSurfaceCounterFlagsEXT: u32 {
-        /// See [`VkSurfaceCounterFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagsEXT)
+        /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
         /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
         const VK_SURFACE_COUNTER_VBLANK_EXT = 0x00000001,
     }

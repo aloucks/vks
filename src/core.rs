@@ -2160,61 +2160,61 @@ bitflags! {
 pub type VkInstanceCreateFlagBits = VkInstanceCreateFlags;
 
 bitflags! {
-    /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+    /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkFormatFeatureFlags: u32 {
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT = 0x00000001,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT = 0x00000002,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT = 0x00000004,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT = 0x00000008,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT = 0x00000010,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT = 0x00000020,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT = 0x00000040,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT = 0x00000080,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT = 0x00000100,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x00000200,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_BLIT_SRC_BIT = 0x00000400,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_BLIT_DST_BIT = 0x00000800,
 
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         const VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x00001000,
 
         #[cfg(feature = "img_filter_cubic_1")]
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         /// and extension [`VK_IMG_filter_cubic`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_filter_cubic)
         const VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG = 0x00002000,
 
         #[cfg(feature = "khr_maintenance1_1")]
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
         const VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR = 0x00004000,
 
         #[cfg(feature = "khr_maintenance1_1")]
-        /// See [`VkFormatFeatureFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlags)
+        /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
         const VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR = 0x00008000,
     }
@@ -2224,32 +2224,32 @@ bitflags! {
 pub type VkFormatFeatureFlagBits = VkFormatFeatureFlags;
 
 bitflags! {
-    /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+    /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkImageUsageFlags: u32 {
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_TRANSFER_SRC_BIT = 0x00000001,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_TRANSFER_DST_BIT = 0x00000002,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_SAMPLED_BIT = 0x00000004,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_STORAGE_BIT = 0x00000008,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT = 0x00000010,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x00000020,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT = 0x00000040,
 
-        /// See [`VkImageUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlags)
+        /// See [`VkImageUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageUsageFlagBits)
         const VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT = 0x00000080,
     }
 }
@@ -2258,32 +2258,32 @@ bitflags! {
 pub type VkImageUsageFlagBits = VkImageUsageFlags;
 
 bitflags! {
-    /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+    /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkImageCreateFlags: u32 {
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         const VK_IMAGE_CREATE_SPARSE_BINDING_BIT = 0x00000001,
 
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         const VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT = 0x00000002,
 
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         const VK_IMAGE_CREATE_SPARSE_ALIASED_BIT = 0x00000004,
 
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         const VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT = 0x00000008,
 
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         const VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT = 0x00000010,
 
         #[cfg(feature = "khx_device_group_1")]
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_IMAGE_CREATE_BIND_SFR_BIT_KHX = 0x00000040,
 
         #[cfg(feature = "khr_maintenance1_1")]
-        /// See [`VkImageCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlags)
+        /// See [`VkImageCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageCreateFlagBits)
         /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
         const VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR = 0x00000020,
     }
@@ -2293,29 +2293,29 @@ bitflags! {
 pub type VkImageCreateFlagBits = VkImageCreateFlags;
 
 bitflags! {
-    /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+    /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkSampleCountFlags: u32 {
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_1_BIT = 0x00000001,
 
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_2_BIT = 0x00000002,
 
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_4_BIT = 0x00000004,
 
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_8_BIT = 0x00000008,
 
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_16_BIT = 0x00000010,
 
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_32_BIT = 0x00000020,
 
-        /// See [`VkSampleCountFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlags)
+        /// See [`VkSampleCountFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleCountFlagBits)
         const VK_SAMPLE_COUNT_64_BIT = 0x00000040,
     }
 }
@@ -2324,20 +2324,20 @@ bitflags! {
 pub type VkSampleCountFlagBits = VkSampleCountFlags;
 
 bitflags! {
-    /// See [`VkQueueFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlags)
+    /// See [`VkQueueFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkQueueFlags: u32 {
-        /// See [`VkQueueFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlags)
+        /// See [`VkQueueFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits)
         const VK_QUEUE_GRAPHICS_BIT = 0x00000001,
 
-        /// See [`VkQueueFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlags)
+        /// See [`VkQueueFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits)
         const VK_QUEUE_COMPUTE_BIT = 0x00000002,
 
-        /// See [`VkQueueFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlags)
+        /// See [`VkQueueFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits)
         const VK_QUEUE_TRANSFER_BIT = 0x00000004,
 
-        /// See [`VkQueueFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlags)
+        /// See [`VkQueueFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits)
         const VK_QUEUE_SPARSE_BINDING_BIT = 0x00000008,
     }
 }
@@ -2346,23 +2346,23 @@ bitflags! {
 pub type VkQueueFlagBits = VkQueueFlags;
 
 bitflags! {
-    /// See [`VkMemoryPropertyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlags)
+    /// See [`VkMemoryPropertyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkMemoryPropertyFlags: u32 {
-        /// See [`VkMemoryPropertyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlags)
+        /// See [`VkMemoryPropertyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlagBits)
         const VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x00000001,
 
-        /// See [`VkMemoryPropertyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlags)
+        /// See [`VkMemoryPropertyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlagBits)
         const VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x00000002,
 
-        /// See [`VkMemoryPropertyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlags)
+        /// See [`VkMemoryPropertyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlagBits)
         const VK_MEMORY_PROPERTY_HOST_COHERENT_BIT = 0x00000004,
 
-        /// See [`VkMemoryPropertyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlags)
+        /// See [`VkMemoryPropertyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlagBits)
         const VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x00000008,
 
-        /// See [`VkMemoryPropertyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlags)
+        /// See [`VkMemoryPropertyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryPropertyFlagBits)
         const VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x00000010,
     }
 }
@@ -2371,15 +2371,15 @@ bitflags! {
 pub type VkMemoryPropertyFlagBits = VkMemoryPropertyFlags;
 
 bitflags! {
-    /// See [`VkMemoryHeapFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryHeapFlags)
+    /// See [`VkMemoryHeapFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryHeapFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkMemoryHeapFlags: u32 {
-        /// See [`VkMemoryHeapFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryHeapFlags)
+        /// See [`VkMemoryHeapFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryHeapFlagBits)
         const VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
 
         #[cfg(feature = "khx_device_group_creation_1")]
-        /// See [`VkMemoryHeapFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryHeapFlags)
+        /// See [`VkMemoryHeapFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryHeapFlagBits)
         /// and extension [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
         const VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX = 0x00000002,
     }
@@ -2413,63 +2413,63 @@ bitflags! {
 pub type VkDeviceQueueCreateFlagBits = VkDeviceQueueCreateFlags;
 
 bitflags! {
-    /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+    /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkPipelineStageFlags: u32 {
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT = 0x00000001,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT = 0x00000002,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_VERTEX_INPUT_BIT = 0x00000004,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_VERTEX_SHADER_BIT = 0x00000008,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT = 0x00000010,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT = 0x00000020,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT = 0x00000040,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT = 0x00000080,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT = 0x00000100,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT = 0x00000200,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT = 0x00000400,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT = 0x00000800,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_TRANSFER_BIT = 0x00001000,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT = 0x00002000,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_HOST_BIT = 0x00004000,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT = 0x00008000,
 
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         const VK_PIPELINE_STAGE_ALL_COMMANDS_BIT = 0x00010000,
 
         #[cfg(feature = "nvx_device_generated_commands_1")]
-        /// See [`VkPipelineStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlags)
+        /// See [`VkPipelineStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineStageFlagBits)
         /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX = 0x00020000,
     }
@@ -2491,20 +2491,20 @@ bitflags! {
 pub type VkMemoryMapFlagBits = VkMemoryMapFlags;
 
 bitflags! {
-    /// See [`VkImageAspectFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlags)
+    /// See [`VkImageAspectFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkImageAspectFlags: u32 {
-        /// See [`VkImageAspectFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlags)
+        /// See [`VkImageAspectFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlagBits)
         const VK_IMAGE_ASPECT_COLOR_BIT = 0x00000001,
 
-        /// See [`VkImageAspectFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlags)
+        /// See [`VkImageAspectFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlagBits)
         const VK_IMAGE_ASPECT_DEPTH_BIT = 0x00000002,
 
-        /// See [`VkImageAspectFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlags)
+        /// See [`VkImageAspectFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlagBits)
         const VK_IMAGE_ASPECT_STENCIL_BIT = 0x00000004,
 
-        /// See [`VkImageAspectFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlags)
+        /// See [`VkImageAspectFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageAspectFlagBits)
         const VK_IMAGE_ASPECT_METADATA_BIT = 0x00000008,
     }
 }
@@ -2513,17 +2513,17 @@ bitflags! {
 pub type VkImageAspectFlagBits = VkImageAspectFlags;
 
 bitflags! {
-    /// See [`VkSparseImageFormatFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlags)
+    /// See [`VkSparseImageFormatFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkSparseImageFormatFlags: u32 {
-        /// See [`VkSparseImageFormatFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlags)
+        /// See [`VkSparseImageFormatFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlagBits)
         const VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 0x00000001,
 
-        /// See [`VkSparseImageFormatFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlags)
+        /// See [`VkSparseImageFormatFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlagBits)
         const VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT = 0x00000002,
 
-        /// See [`VkSparseImageFormatFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlags)
+        /// See [`VkSparseImageFormatFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseImageFormatFlagBits)
         const VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x00000004,
     }
 }
@@ -2532,11 +2532,11 @@ bitflags! {
 pub type VkSparseImageFormatFlagBits = VkSparseImageFormatFlags;
 
 bitflags! {
-    /// See [`VkSparseMemoryBindFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseMemoryBindFlags)
+    /// See [`VkSparseMemoryBindFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseMemoryBindFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkSparseMemoryBindFlags: u32 {
-        /// See [`VkSparseMemoryBindFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseMemoryBindFlags)
+        /// See [`VkSparseMemoryBindFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSparseMemoryBindFlagBits)
         const VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x00000001,
     }
 }
@@ -2545,11 +2545,11 @@ bitflags! {
 pub type VkSparseMemoryBindFlagBits = VkSparseMemoryBindFlags;
 
 bitflags! {
-    /// See [`VkFenceCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceCreateFlags)
+    /// See [`VkFenceCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkFenceCreateFlags: u32 {
-        /// See [`VkFenceCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceCreateFlags)
+        /// See [`VkFenceCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceCreateFlagBits)
         const VK_FENCE_CREATE_SIGNALED_BIT = 0x00000001,
     }
 }
@@ -2594,41 +2594,41 @@ bitflags! {
 pub type VkQueryPoolCreateFlagBits = VkQueryPoolCreateFlags;
 
 bitflags! {
-    /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+    /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkQueryPipelineStatisticFlags: u32 {
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT = 0x00000001,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT = 0x00000002,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT = 0x00000004,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT = 0x00000008,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT = 0x00000010,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT = 0x00000020,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT = 0x00000040,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT = 0x00000080,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT = 0x00000100,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT = 0x00000200,
 
-        /// See [`VkQueryPipelineStatisticFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlags)
+        /// See [`VkQueryPipelineStatisticFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPipelineStatisticFlagBits)
         const VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT = 0x00000400,
     }
 }
@@ -2637,20 +2637,20 @@ bitflags! {
 pub type VkQueryPipelineStatisticFlagBits = VkQueryPipelineStatisticFlags;
 
 bitflags! {
-    /// See [`VkQueryResultFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlags)
+    /// See [`VkQueryResultFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkQueryResultFlags: u32 {
-        /// See [`VkQueryResultFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlags)
+        /// See [`VkQueryResultFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlagBits)
         const VK_QUERY_RESULT_64_BIT = 0x00000001,
 
-        /// See [`VkQueryResultFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlags)
+        /// See [`VkQueryResultFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlagBits)
         const VK_QUERY_RESULT_WAIT_BIT = 0x00000002,
 
-        /// See [`VkQueryResultFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlags)
+        /// See [`VkQueryResultFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlagBits)
         const VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x00000004,
 
-        /// See [`VkQueryResultFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlags)
+        /// See [`VkQueryResultFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryResultFlagBits)
         const VK_QUERY_RESULT_PARTIAL_BIT = 0x00000008,
     }
 }
@@ -2659,17 +2659,17 @@ bitflags! {
 pub type VkQueryResultFlagBits = VkQueryResultFlags;
 
 bitflags! {
-    /// See [`VkBufferCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlags)
+    /// See [`VkBufferCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkBufferCreateFlags: u32 {
-        /// See [`VkBufferCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlags)
+        /// See [`VkBufferCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlagBits)
         const VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x00000001,
 
-        /// See [`VkBufferCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlags)
+        /// See [`VkBufferCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlagBits)
         const VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x00000002,
 
-        /// See [`VkBufferCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlags)
+        /// See [`VkBufferCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferCreateFlagBits)
         const VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x00000004,
     }
 }
@@ -2678,35 +2678,35 @@ bitflags! {
 pub type VkBufferCreateFlagBits = VkBufferCreateFlags;
 
 bitflags! {
-    /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+    /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkBufferUsageFlags: u32 {
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 0x00000001,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_TRANSFER_DST_BIT = 0x00000002,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x00000004,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x00000008,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT = 0x00000010,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_STORAGE_BUFFER_BIT = 0x00000020,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_INDEX_BUFFER_BIT = 0x00000040,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_VERTEX_BUFFER_BIT = 0x00000080,
 
-        /// See [`VkBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlags)
+        /// See [`VkBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferUsageFlagBits)
         const VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT = 0x00000100,
     }
 }
@@ -2763,26 +2763,26 @@ bitflags! {
 pub type VkPipelineCacheCreateFlagBits = VkPipelineCacheCreateFlags;
 
 bitflags! {
-    /// See [`VkPipelineCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlags)
+    /// See [`VkPipelineCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkPipelineCreateFlags: u32 {
-        /// See [`VkPipelineCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlags)
+        /// See [`VkPipelineCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlagBits)
         const VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x00000001,
 
-        /// See [`VkPipelineCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlags)
+        /// See [`VkPipelineCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlagBits)
         const VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x00000002,
 
-        /// See [`VkPipelineCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlags)
+        /// See [`VkPipelineCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlagBits)
         const VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x00000004,
 
         #[cfg(feature = "khx_device_group_1")]
-        /// See [`VkPipelineCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlags)
+        /// See [`VkPipelineCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlagBits)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX = 0x00000008,
 
         #[cfg(feature = "khx_device_group_1")]
-        /// See [`VkPipelineCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlags)
+        /// See [`VkPipelineCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCreateFlagBits)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PIPELINE_CREATE_DISPATCH_BASE_KHX = 0x00000010,
     }
@@ -2804,32 +2804,32 @@ bitflags! {
 pub type VkPipelineShaderStageCreateFlagBits = VkPipelineShaderStageCreateFlags;
 
 bitflags! {
-    /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+    /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkShaderStageFlags: u32 {
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_VERTEX_BIT = 0x00000001,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT = 0x00000002,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT = 0x00000004,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_GEOMETRY_BIT = 0x00000008,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_FRAGMENT_BIT = 0x00000010,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_COMPUTE_BIT = 0x00000020,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_ALL_GRAPHICS = 0x0000001F,
 
-        /// See [`VkShaderStageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlags)
+        /// See [`VkShaderStageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderStageFlagBits)
         const VK_SHADER_STAGE_ALL = 0x7FFFFFFF,
     }
 }
@@ -2898,20 +2898,20 @@ bitflags! {
 pub type VkPipelineRasterizationStateCreateFlagBits = VkPipelineRasterizationStateCreateFlags;
 
 bitflags! {
-    /// See [`VkCullModeFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlags)
+    /// See [`VkCullModeFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkCullModeFlags: u32 {
-        /// See [`VkCullModeFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlags)
+        /// See [`VkCullModeFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlagBits)
         const VK_CULL_MODE_NONE = 0,
 
-        /// See [`VkCullModeFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlags)
+        /// See [`VkCullModeFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlagBits)
         const VK_CULL_MODE_FRONT_BIT = 0x00000001,
 
-        /// See [`VkCullModeFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlags)
+        /// See [`VkCullModeFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlagBits)
         const VK_CULL_MODE_BACK_BIT = 0x00000002,
 
-        /// See [`VkCullModeFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlags)
+        /// See [`VkCullModeFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCullModeFlagBits)
         const VK_CULL_MODE_FRONT_AND_BACK = 0x00000003,
     }
 }
@@ -2956,20 +2956,20 @@ bitflags! {
 pub type VkPipelineColorBlendStateCreateFlagBits = VkPipelineColorBlendStateCreateFlags;
 
 bitflags! {
-    /// See [`VkColorComponentFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlags)
+    /// See [`VkColorComponentFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkColorComponentFlags: u32 {
-        /// See [`VkColorComponentFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlags)
+        /// See [`VkColorComponentFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlagBits)
         const VK_COLOR_COMPONENT_R_BIT = 0x00000001,
 
-        /// See [`VkColorComponentFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlags)
+        /// See [`VkColorComponentFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlagBits)
         const VK_COLOR_COMPONENT_G_BIT = 0x00000002,
 
-        /// See [`VkColorComponentFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlags)
+        /// See [`VkColorComponentFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlagBits)
         const VK_COLOR_COMPONENT_B_BIT = 0x00000004,
 
-        /// See [`VkColorComponentFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlags)
+        /// See [`VkColorComponentFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorComponentFlagBits)
         const VK_COLOR_COMPONENT_A_BIT = 0x00000008,
     }
 }
@@ -3014,7 +3014,7 @@ bitflags! {
 pub type VkSamplerCreateFlagBits = VkSamplerCreateFlags;
 
 bitflags! {
-    /// See [`VkDescriptorSetLayoutCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayoutCreateFlags)
+    /// See [`VkDescriptorSetLayoutCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayoutCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkDescriptorSetLayoutCreateFlags: u32 {
@@ -3022,7 +3022,7 @@ bitflags! {
         const VK_DESCRIPTOR_SET_LAYOUT_CREATE_DUMMY = 0,
 
         #[cfg(feature = "khr_push_descriptor_1")]
-        /// See [`VkDescriptorSetLayoutCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayoutCreateFlags)
+        /// See [`VkDescriptorSetLayoutCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayoutCreateFlagBits)
         /// and extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
         const VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR = 0x00000001,
     }
@@ -3032,11 +3032,11 @@ bitflags! {
 pub type VkDescriptorSetLayoutCreateFlagBits = VkDescriptorSetLayoutCreateFlags;
 
 bitflags! {
-    /// See [`VkDescriptorPoolCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPoolCreateFlags)
+    /// See [`VkDescriptorPoolCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPoolCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkDescriptorPoolCreateFlags: u32 {
-        /// See [`VkDescriptorPoolCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPoolCreateFlags)
+        /// See [`VkDescriptorPoolCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPoolCreateFlagBits)
         const VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x00000001,
     }
 }
@@ -3081,11 +3081,11 @@ bitflags! {
 pub type VkRenderPassCreateFlagBits = VkRenderPassCreateFlags;
 
 bitflags! {
-    /// See [`VkAttachmentDescriptionFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentDescriptionFlags)
+    /// See [`VkAttachmentDescriptionFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentDescriptionFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkAttachmentDescriptionFlags: u32 {
-        /// See [`VkAttachmentDescriptionFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentDescriptionFlags)
+        /// See [`VkAttachmentDescriptionFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentDescriptionFlagBits)
         const VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x00000001,
     }
 }
@@ -3094,7 +3094,7 @@ bitflags! {
 pub type VkAttachmentDescriptionFlagBits = VkAttachmentDescriptionFlags;
 
 bitflags! {
-    /// See [`VkSubpassDescriptionFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassDescriptionFlags)
+    /// See [`VkSubpassDescriptionFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassDescriptionFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkSubpassDescriptionFlags: u32 {
@@ -3102,12 +3102,12 @@ bitflags! {
         const VK_SUBPASS_DESCRIPTION_DUMMY = 0,
 
         #[cfg(feature = "nvx_multiview_per_view_attributes_1")]
-        /// See [`VkSubpassDescriptionFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassDescriptionFlags)
+        /// See [`VkSubpassDescriptionFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassDescriptionFlagBits)
         /// and extension [`VK_NVX_multiview_per_view_attributes`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_multiview_per_view_attributes)
         const VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX = 0x00000001,
 
         #[cfg(feature = "nvx_multiview_per_view_attributes_1")]
-        /// See [`VkSubpassDescriptionFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassDescriptionFlags)
+        /// See [`VkSubpassDescriptionFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassDescriptionFlagBits)
         /// and extension [`VK_NVX_multiview_per_view_attributes`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_multiview_per_view_attributes)
         const VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX = 0x00000002,
     }
@@ -3117,68 +3117,68 @@ bitflags! {
 pub type VkSubpassDescriptionFlagBits = VkSubpassDescriptionFlags;
 
 bitflags! {
-    /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+    /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkAccessFlags: u32 {
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_INDIRECT_COMMAND_READ_BIT = 0x00000001,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_INDEX_READ_BIT = 0x00000002,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT = 0x00000004,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_UNIFORM_READ_BIT = 0x00000008,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_INPUT_ATTACHMENT_READ_BIT = 0x00000010,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_SHADER_READ_BIT = 0x00000020,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_SHADER_WRITE_BIT = 0x00000040,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_COLOR_ATTACHMENT_READ_BIT = 0x00000080,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT = 0x00000100,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT = 0x00000200,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT = 0x00000400,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_TRANSFER_READ_BIT = 0x00000800,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_TRANSFER_WRITE_BIT = 0x00001000,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_HOST_READ_BIT = 0x00002000,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_HOST_WRITE_BIT = 0x00004000,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_MEMORY_READ_BIT = 0x00008000,
 
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         const VK_ACCESS_MEMORY_WRITE_BIT = 0x00010000,
 
         #[cfg(feature = "nvx_device_generated_commands_1")]
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_ACCESS_COMMAND_PROCESS_READ_BIT_NVX = 0x00020000,
 
         #[cfg(feature = "nvx_device_generated_commands_1")]
-        /// See [`VkAccessFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlags)
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX = 0x00040000,
     }
@@ -3188,20 +3188,20 @@ bitflags! {
 pub type VkAccessFlagBits = VkAccessFlags;
 
 bitflags! {
-    /// See [`VkDependencyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlags)
+    /// See [`VkDependencyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkDependencyFlags: u32 {
-        /// See [`VkDependencyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlags)
+        /// See [`VkDependencyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlagBits)
         const VK_DEPENDENCY_BY_REGION_BIT = 0x00000001,
 
         #[cfg(feature = "khx_multiview_1")]
-        /// See [`VkDependencyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlags)
+        /// See [`VkDependencyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlagBits)
         /// and extension [`VK_KHX_multiview`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_multiview)
         const VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX = 0x00000002,
 
         #[cfg(feature = "khx_device_group_1")]
-        /// See [`VkDependencyFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlags)
+        /// See [`VkDependencyFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDependencyFlagBits)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_DEPENDENCY_DEVICE_GROUP_BIT_KHX = 0x00000004,
     }
@@ -3211,14 +3211,14 @@ bitflags! {
 pub type VkDependencyFlagBits = VkDependencyFlags;
 
 bitflags! {
-    /// See [`VkCommandPoolCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolCreateFlags)
+    /// See [`VkCommandPoolCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolCreateFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkCommandPoolCreateFlags: u32 {
-        /// See [`VkCommandPoolCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolCreateFlags)
+        /// See [`VkCommandPoolCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolCreateFlagBits)
         const VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x00000001,
 
-        /// See [`VkCommandPoolCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolCreateFlags)
+        /// See [`VkCommandPoolCreateFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolCreateFlagBits)
         const VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x00000002,
     }
 }
@@ -3227,11 +3227,11 @@ bitflags! {
 pub type VkCommandPoolCreateFlagBits = VkCommandPoolCreateFlags;
 
 bitflags! {
-    /// See [`VkCommandPoolResetFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolResetFlags)
+    /// See [`VkCommandPoolResetFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolResetFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkCommandPoolResetFlags: u32 {
-        /// See [`VkCommandPoolResetFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolResetFlags)
+        /// See [`VkCommandPoolResetFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolResetFlagBits)
         const VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT = 0x00000001,
     }
 }
@@ -3240,17 +3240,17 @@ bitflags! {
 pub type VkCommandPoolResetFlagBits = VkCommandPoolResetFlags;
 
 bitflags! {
-    /// See [`VkCommandBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlags)
+    /// See [`VkCommandBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkCommandBufferUsageFlags: u32 {
-        /// See [`VkCommandBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlags)
+        /// See [`VkCommandBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlagBits)
         const VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 0x00000001,
 
-        /// See [`VkCommandBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlags)
+        /// See [`VkCommandBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlagBits)
         const VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x00000002,
 
-        /// See [`VkCommandBufferUsageFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlags)
+        /// See [`VkCommandBufferUsageFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferUsageFlagBits)
         const VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT = 0x00000004,
     }
 }
@@ -3259,11 +3259,11 @@ bitflags! {
 pub type VkCommandBufferUsageFlagBits = VkCommandBufferUsageFlags;
 
 bitflags! {
-    /// See [`VkQueryControlFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryControlFlags)
+    /// See [`VkQueryControlFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryControlFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkQueryControlFlags: u32 {
-        /// See [`VkQueryControlFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryControlFlags)
+        /// See [`VkQueryControlFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryControlFlagBits)
         const VK_QUERY_CONTROL_PRECISE_BIT = 0x00000001,
     }
 }
@@ -3272,11 +3272,11 @@ bitflags! {
 pub type VkQueryControlFlagBits = VkQueryControlFlags;
 
 bitflags! {
-    /// See [`VkCommandBufferResetFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferResetFlags)
+    /// See [`VkCommandBufferResetFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferResetFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkCommandBufferResetFlags: u32 {
-        /// See [`VkCommandBufferResetFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferResetFlags)
+        /// See [`VkCommandBufferResetFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferResetFlagBits)
         const VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 0x00000001,
     }
 }
@@ -3285,17 +3285,17 @@ bitflags! {
 pub type VkCommandBufferResetFlagBits = VkCommandBufferResetFlags;
 
 bitflags! {
-    /// See [`VkStencilFaceFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlags)
+    /// See [`VkStencilFaceFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlagBits)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkStencilFaceFlags: u32 {
-        /// See [`VkStencilFaceFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlags)
+        /// See [`VkStencilFaceFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlagBits)
         const VK_STENCIL_FACE_FRONT_BIT = 0x00000001,
 
-        /// See [`VkStencilFaceFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlags)
+        /// See [`VkStencilFaceFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlagBits)
         const VK_STENCIL_FACE_BACK_BIT = 0x00000002,
 
-        /// See [`VkStencilFaceFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlags)
+        /// See [`VkStencilFaceFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilFaceFlagBits)
         const VK_STENCIL_FRONT_AND_BACK = 0x00000003,
     }
 }

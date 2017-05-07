@@ -21,28 +21,28 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME: &'static [u8; 3
 pub const VK_KHX_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME_STR: &'static str = "VK_KHX_external_semaphore_capabilities";
 
 bitflags! {
-    /// See [`VkExternalSemaphoreHandleTypeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagsKHX)
+    /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
     /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkExternalSemaphoreHandleTypeFlagsKHX: u32 {
-        /// See [`VkExternalSemaphoreHandleTypeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagsKHX)
+        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
 
-        /// See [`VkExternalSemaphoreHandleTypeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagsKHX)
+        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
 
-        /// See [`VkExternalSemaphoreHandleTypeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagsKHX)
+        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX = 0x00000004,
 
-        /// See [`VkExternalSemaphoreHandleTypeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagsKHX)
+        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX = 0x00000008,
 
-        /// See [`VkExternalSemaphoreHandleTypeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagsKHX)
+        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX = 0x00000010,
     }
@@ -53,16 +53,16 @@ bitflags! {
 pub type VkExternalSemaphoreHandleTypeFlagBitsKHX = VkExternalSemaphoreHandleTypeFlagsKHX;
 
 bitflags! {
-    /// See [`VkExternalSemaphoreFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagsKHX)
+    /// See [`VkExternalSemaphoreFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHX)
     /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkExternalSemaphoreFeatureFlagsKHX: u32 {
-        /// See [`VkExternalSemaphoreFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagsKHX)
+        /// See [`VkExternalSemaphoreFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHX = 0x00000001,
 
-        /// See [`VkExternalSemaphoreFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagsKHX)
+        /// See [`VkExternalSemaphoreFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT_KHX = 0x00000002,
     }

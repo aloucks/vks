@@ -22,24 +22,24 @@ pub const VK_KHX_DEVICE_GROUP_EXTENSION_NAME_STR: &'static str = "VK_KHX_device_
 pub const VK_MAX_DEVICE_GROUP_SIZE_KHX: usize = 32;
 
 bitflags! {
-    /// See [`VkPeerMemoryFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagsKHX)
+    /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
     /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkPeerMemoryFeatureFlagsKHX: u32 {
-        /// See [`VkPeerMemoryFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagsKHX)
+        /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX = 0x00000001,
 
-        /// See [`VkPeerMemoryFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagsKHX)
+        /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX = 0x00000002,
 
-        /// See [`VkPeerMemoryFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagsKHX)
+        /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX = 0x00000004,
 
-        /// See [`VkPeerMemoryFeatureFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagsKHX)
+        /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX = 0x00000008,
     }
@@ -50,12 +50,12 @@ bitflags! {
 pub type VkPeerMemoryFeatureFlagBitsKHX = VkPeerMemoryFeatureFlagsKHX;
 
 bitflags! {
-    /// See [`VkMemoryAllocateFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagsKHX)
+    /// See [`VkMemoryAllocateFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagBitsKHX)
     /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkMemoryAllocateFlagsKHX: u32 {
-        /// See [`VkMemoryAllocateFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagsKHX)
+        /// See [`VkMemoryAllocateFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX = 0x00000001,
     }
@@ -66,24 +66,24 @@ bitflags! {
 pub type VkMemoryAllocateFlagBitsKHX = VkMemoryAllocateFlagsKHX;
 
 bitflags! {
-    /// See [`VkDeviceGroupPresentModeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagsKHX)
+    /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
     /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
     #[repr(C)]
     #[derive(Default)]
     pub flags VkDeviceGroupPresentModeFlagsKHX: u32 {
-        /// See [`VkDeviceGroupPresentModeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagsKHX)
+        /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX = 0x00000001,
 
-        /// See [`VkDeviceGroupPresentModeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagsKHX)
+        /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX = 0x00000002,
 
-        /// See [`VkDeviceGroupPresentModeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagsKHX)
+        /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX = 0x00000004,
 
-        /// See [`VkDeviceGroupPresentModeFlagsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagsKHX)
+        /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX = 0x00000008,
     }
@@ -93,7 +93,7 @@ bitflags! {
 /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
 pub type VkDeviceGroupPresentModeFlagBitsKHX = VkDeviceGroupPresentModeFlagsKHX;
 
-/// See [`VkMemoryAllocateFlagsInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagsInfoKHX)
+/// See [`VkMemoryAllocateFlagBitsInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagBitsInfoKHX)
 /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
