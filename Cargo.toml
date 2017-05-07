@@ -3,6 +3,7 @@ name = "vks"
 version = "0.12.0"
 authors = [ "Dennis Hamester <dennis.hamester@startmail.com>" ]
 description = "Vulkan bindings and symbol loader"
+documentation = "https://docs.rs/vks"
 homepage = "https://gitlab.com/dennis-hamester/vks"
 repository = "https://gitlab.com/dennis-hamester/vks"
 readme = "README.md"
