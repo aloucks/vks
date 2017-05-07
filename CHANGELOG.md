@@ -1,6 +1,7 @@
 # vks Changelog
 
-## Current Git Master Branch
+## Version 0.13.0, released on 07.05.2017
+
  * Renamed project from `vk-sys` to `vks`.
  * Vulkan 1.0.48
  * The `new` function of `InstanceProcAddrLoader` has been made parameter-less, which initialized
