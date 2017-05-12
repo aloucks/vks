@@ -1,5 +1,9 @@
 # vks Changelog
 
+## Current Git Master Branch
+
+ * Vulkan 1.0.49
+
 ## Version 0.13.1, released on 07.05.2017
 
  * Vulkan reference links for bitflags now point to the `*FlagBits` enum instead of the `*Flags`

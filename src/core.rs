@@ -2147,6 +2147,127 @@ cenum!(VkSubpassContents: u32 {
     const VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
 });
 
+#[cfg(feature = "core_1_0_49")]
+cenum!(VkObjectType: u32 {
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_UNKNOWN = 0,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_INSTANCE = 1,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_PHYSICAL_DEVICE = 2,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_DEVICE = 3,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_QUEUE = 4,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_SEMAPHORE = 5,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_COMMAND_BUFFER = 6,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_FENCE = 7,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_DEVICE_MEMORY = 8,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_BUFFER = 9,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_IMAGE = 10,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_EVENT = 11,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_QUERY_POOL = 12,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_BUFFER_VIEW = 13,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_IMAGE_VIEW = 14,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_SHADER_MODULE = 15,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_PIPELINE_CACHE = 16,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_PIPELINE_LAYOUT = 17,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_RENDER_PASS = 18,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_PIPELINE = 19,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT = 20,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_SAMPLER = 21,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_DESCRIPTOR_POOL = 22,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_DESCRIPTOR_SET = 23,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_FRAMEBUFFER = 24,
+
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    const VK_OBJECT_TYPE_COMMAND_POOL = 25,
+
+    #[cfg(feature = "khr_surface_25")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+    const VK_OBJECT_TYPE_SURFACE_KHR = 1000000000,
+
+    #[cfg(feature = "khr_swapchain_67")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+    const VK_OBJECT_TYPE_SWAPCHAIN_KHR = 1000001000,
+
+    #[cfg(feature = "khr_display_21")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+    const VK_OBJECT_TYPE_DISPLAY_KHR = 1000002000,
+
+    #[cfg(feature = "khr_display_21")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+    const VK_OBJECT_TYPE_DISPLAY_MODE_KHR = 1000002001,
+
+    #[cfg(feature = "ext_debug_report_1")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
+    const VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT = 1000011000,
+
+    #[cfg(feature = "khr_descriptor_update_template_1")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
+    const VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR = 1000085000,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
+    const VK_OBJECT_TYPE_OBJECT_TABLE_NVX = 1000086000,
+
+    #[cfg(feature = "nvx_device_generated_commands_1")]
+    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
+    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
+    const VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX = 1000086001,
+});
+
 bitflags! {
     /// See [`VkInstanceCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstanceCreateFlags)
     #[repr(C)]
