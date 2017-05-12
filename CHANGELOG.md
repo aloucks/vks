@@ -1,6 +1,6 @@
 # vks Changelog
 
-## Current Git Master Branch
+## Version 0.14.0, released on 12.05.2017
 
  * Vulkan 1.0.49
  * Add extension `VK_KHR_get_surface_capabilities2` (revision 1)
