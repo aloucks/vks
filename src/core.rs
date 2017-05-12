@@ -956,6 +956,21 @@ cenum!(VkStructureType: u32 {
     /// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
     const VK_STRUCTURE_TYPE_HDR_METADATA_EXT = 1000105000,
 
+    #[cfg(feature = "khr_get_surface_capabilities2_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#)
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR = 1000119000,
+
+    #[cfg(feature = "khr_get_surface_capabilities2_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#)
+    const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR = 1000119001,
+
+    #[cfg(feature = "khr_get_surface_capabilities2_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#)
+    const VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR = 1000119002,
+
     #[cfg(feature = "mvk_ios_surface_2")]
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)

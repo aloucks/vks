@@ -204,6 +204,7 @@ gen_instance_proc_addr_loader!(
     "google_display_timing_1" => google_display_timing: GOOGLE_display_timing [fn load_google_display_timing],
     "ext_hdr_metadata_1" => ext_hdr_metadata: EXT_hdr_metadata [fn load_ext_hdr_metadata],
     "khr_swapchain_67" => khr_swapchain: KHR_swapchain [fn load_khr_swapchain],
+    "khr_get_surface_capabilities2_1" => khr_get_surface_capabilities2: KHR_get_surface_capabilities2 [fn load_khr_get_surface_capabilities2],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -601,4 +602,10 @@ addr_proc_struct!(KHR_swapchain {
     pfn vkGetSwapchainImagesKHR: PFN_vkGetSwapchainImagesKHR,
     pfn vkAcquireNextImageKHR: PFN_vkAcquireNextImageKHR,
     pfn vkQueuePresentKHR: PFN_vkQueuePresentKHR,
+});
+
+#[cfg(feature = "khr_get_surface_capabilities2_1")]
+addr_proc_struct!(KHR_get_surface_capabilities2 {
+    pfn vkGetPhysicalDeviceSurfaceCapabilities2KHR: PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR,
+    pfn vkGetPhysicalDeviceSurfaceFormats2KHR: PFN_vkGetPhysicalDeviceSurfaceFormats2KHR,
 });
