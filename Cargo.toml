@@ -2,7 +2,7 @@
 name = "vks"
 version = "0.13.1"
 authors = [ "Dennis Hamester <dennis.hamester@startmail.com>" ]
-description = "Vulkan bindings and symbol loader"
+description = "Vulkan bindings and symbol loader. Vulkan 1.0.49 and all extensions are supported."
 documentation = "https://docs.rs/vks"
 homepage = "https://gitlab.com/dennis-hamester/vks"
 repository = "https://gitlab.com/dennis-hamester/vks"
