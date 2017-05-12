@@ -24,8 +24,11 @@ libc = "0.2"
 bitflags = "0.8"
 
 [features]
-default = [ "vk_1_0_48" ]
+default = [ "vk_1_0_49" ]
 unstable_rust = [ ]
+
+vk_1_0_49 = [ "vk_1_0_48", "core_1_0_49", "khr_shared_presentable_image_1",
+              "khr_get_surface_capabilities2_1" ]
 
 vk_1_0_48 = [ "vk_1_0_47", "core_1_0_48" ]
 
