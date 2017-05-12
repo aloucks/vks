@@ -956,6 +956,11 @@ cenum!(VkStructureType: u32 {
     /// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
     const VK_STRUCTURE_TYPE_HDR_METADATA_EXT = 1000105000,
 
+    #[cfg(feature = "khr_shared_presentable_image_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
+    const VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR = 1000111000,
+
     #[cfg(feature = "khr_get_surface_capabilities2_1")]
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#)
@@ -1688,6 +1693,11 @@ cenum!(VkImageLayout: u32 {
     /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
     const VK_IMAGE_LAYOUT_PRESENT_SRC_KHR = 1000001002,
+
+    #[cfg(feature = "khr_shared_presentable_image_1")]
+    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
+    /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
+    const VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR = 1000111000,
 });
 
 cenum!(VkImageViewType: u32 {

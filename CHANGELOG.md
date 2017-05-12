@@ -4,6 +4,7 @@
 
  * Vulkan 1.0.49
  * Add extension `VK_KHR_get_surface_capabilities2` (revision 1)
+ * Add extension `VK_KHR_shared_presentable_image` (revision 1)
 
 ## Version 0.13.1, released on 07.05.2017
 

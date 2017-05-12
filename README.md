@@ -86,6 +86,7 @@ Every version in between is supported as well.
 | `VK_KHR_push_descriptor` | 1 |
 | `VK_KHR_sampler_mirror_clamp_to_edge` | 1 |
 | `VK_KHR_shader_draw_parameters` | 1 |
+| `VK_KHR_shared_presentable_image` | 1 |
 | `VK_KHR_surface` | 25 |
 | `VK_KHR_swapchain` | 67, 68 |
 | `VK_KHR_wayland_surface` | 5, 6 |

@@ -205,6 +205,7 @@ gen_instance_proc_addr_loader!(
     "ext_hdr_metadata_1" => ext_hdr_metadata: EXT_hdr_metadata [fn load_ext_hdr_metadata],
     "khr_swapchain_67" => khr_swapchain: KHR_swapchain [fn load_khr_swapchain],
     "khr_get_surface_capabilities2_1" => khr_get_surface_capabilities2: KHR_get_surface_capabilities2 [fn load_khr_get_surface_capabilities2],
+    "khr_shared_presentable_image_1" => khr_shared_presentable_image: KHR_shared_presentable_image [fn load_khr_shared_presentable_image],
 );
 
 addr_proc_struct!(CoreNullInstance {
@@ -608,4 +609,9 @@ addr_proc_struct!(KHR_swapchain {
 addr_proc_struct!(KHR_get_surface_capabilities2 {
     pfn vkGetPhysicalDeviceSurfaceCapabilities2KHR: PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR,
     pfn vkGetPhysicalDeviceSurfaceFormats2KHR: PFN_vkGetPhysicalDeviceSurfaceFormats2KHR,
+});
+
+#[cfg(feature = "khr_shared_presentable_image_1")]
+addr_proc_struct!(KHR_shared_presentable_image {
+    pfn vkGetSwapchainStatusKHR: PFN_vkGetSwapchainStatusKHR,
 });

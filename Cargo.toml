@@ -241,6 +241,11 @@ khr_incremental_present_1 = [ "core_1_0_3", "khr_swapchain_68" ]
 khr_descriptor_update_template = [ "khr_descriptor_update_template_1" ]
 khr_descriptor_update_template_1 = [ "core_1_0_3", "khr_push_descriptor_1" ]
 
+khr_shared_presentable_image = [ "khr_shared_presentable_image_1" ]
+khr_shared_presentable_image_1 = [ "core_1_0_3", "khr_swapchain_67", "khr_surface_25",
+                                   "khr_get_physical_device_properties2_1",
+                                   "khr_get_surface_capabilities2_1" ]
+
 khr_get_surface_capabilities2 = [ "khr_get_surface_capabilities2_1" ]
 khr_get_surface_capabilities2_1 = [ "core_1_0_3", "khr_surface_25" ]
 

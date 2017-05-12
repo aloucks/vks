@@ -176,6 +176,7 @@ gen_device_proc_addr_loader!(
     "ext_hdr_metadata_1" => ext_hdr_metadata: EXT_hdr_metadata [fn load_ext_hdr_metadata],
     "khr_swapchain_67" => khr_swapchain: KHR_swapchain [fn load_khr_swapchain],
     "nv_external_memory_win32_1" => nv_external_memory_win32: NV_external_memory_win32 [fn load_nv_external_memory_win32],
+    "khr_shared_presentable_image_1" => khr_shared_presentable_image: KHR_shared_presentable_image [fn load_khr_shared_presentable_image],
 );
 
 addr_proc_struct!(Core {
@@ -429,4 +430,9 @@ addr_proc_struct!(KHR_swapchain {
 #[cfg(feature = "nv_external_memory_win32_1")]
 addr_proc_struct!(NV_external_memory_win32 {
     pfn vkGetMemoryWin32HandleNV: PFN_vkGetMemoryWin32HandleNV,
+});
+
+#[cfg(feature = "khr_shared_presentable_image_1")]
+addr_proc_struct!(KHR_shared_presentable_image {
+    pfn vkGetSwapchainStatusKHR: PFN_vkGetSwapchainStatusKHR,
 });

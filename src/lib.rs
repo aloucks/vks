@@ -110,6 +110,8 @@ mod cenum;
 #[cfg(feature = "khr_sampler_mirror_clamp_to_edge_1")] pub use khr_sampler_mirror_clamp_to_edge::*;
 #[cfg(feature = "khr_shader_draw_parameters_1")] mod khr_shader_draw_parameters;
 #[cfg(feature = "khr_shader_draw_parameters_1")] pub use khr_shader_draw_parameters::*;
+#[cfg(feature = "khr_shared_presentable_image_1")] mod khr_shared_presentable_image;
+#[cfg(feature = "khr_shared_presentable_image_1")] pub use khr_shared_presentable_image::*;
 #[cfg(feature = "khr_surface_25")] mod khr_surface;
 #[cfg(feature = "khr_surface_25")] pub use khr_surface::*;
 #[cfg(feature = "khr_swapchain_67")] mod khr_swapchain;
