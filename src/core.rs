@@ -308,7 +308,7 @@ cenum!(VkResult: i32 {
 
     #[cfg(feature = "ext_debug_report_1")]
     /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_debug_report)
+    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     const VK_ERROR_VALIDATION_FAILED_EXT = -1000011001,
 
     #[cfg(feature = "nv_glsl_shader_1")]
