@@ -27,7 +27,7 @@ bitflags = "0.8"
 default = [ "vk_1_0_49" ]
 unstable_rust = [ ]
 
-vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50" ]
+vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50", "ext_debug_report_8" ]
 
 vk_1_0_49 = [ "vk_1_0_48", "core_1_0_49", "khr_shared_presentable_image_1",
               "khr_get_surface_capabilities2_1" ]
@@ -255,7 +255,8 @@ khr_shared_presentable_image_1 = [ "core_1_0_3", "khr_swapchain_67", "khr_surfac
 khr_get_surface_capabilities2 = [ "khr_get_surface_capabilities2_1" ]
 khr_get_surface_capabilities2_1 = [ "core_1_0_3", "khr_surface_25" ]
 
-ext_debug_report = [ "ext_debug_report_6" ]
+ext_debug_report = [ "ext_debug_report_8" ]
+ext_debug_report_8 = [ "ext_debug_report_6" ]
 ext_debug_report_6 = [ "ext_debug_report_5" ]
 ext_debug_report_5 = [ "ext_debug_report_4" ]
 ext_debug_report_4 = [ "ext_debug_report_3" ]

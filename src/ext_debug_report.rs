@@ -18,7 +18,10 @@ use std::fmt;
 use std::mem;
 use std::ptr;
 
-#[cfg(feature = "ext_debug_report_6")]
+#[cfg(feature = "ext_debug_report_8")]
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 8;
+
+#[cfg(all(feature = "ext_debug_report_6", not(feature = "ext_debug_report_8")))]
 pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 6;
 
 #[cfg(all(feature = "ext_debug_report_5", not(feature = "ext_debug_report_6")))]
@@ -165,6 +168,11 @@ cenum!(VkDebugReportObjectTypeEXT: u32 {
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     const VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT = 28,
 
+    #[cfg(feature = "ext_debug_report_8")]
+    /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
+    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
+    const VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT = 28,
+
     #[cfg(all(feature = "ext_debug_report_4", feature = "khr_display_21"))]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report),
@@ -196,6 +204,7 @@ cenum!(VkDebugReportObjectTypeEXT: u32 {
     const VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT = 1000085000,
 });
 
+#[cfg(not(feature = "ext_debug_report_8"))]
 cenum!(VkDebugReportErrorEXT: u32 {
     /// See [`VkDebugReportErrorEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportErrorEXT)
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)

@@ -100,7 +100,7 @@ Every version in between is supported as well.
 | --- | --- |
 | `VK_EXT_acquire_xlib_display` | 1 |
 | `VK_EXT_debug_marker` | 3, 4 |
-| `VK_EXT_debug_report` | 1, 2, 3, 4, 5, 6 |
+| `VK_EXT_debug_report` | 1, 2, 3, 4, 5, 6, 8 |
 | `VK_EXT_direct_mode_display` | 1 |
 | `VK_EXT_discard_rectangles` | 1 |
 | `VK_EXT_display_control` | 1 |
