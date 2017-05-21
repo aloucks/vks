@@ -39,6 +39,10 @@ pub fn vk_make_version(major: u32, minor: u32, patch: u32) -> u32 {
     (major << 22) | (minor << 12) | patch
 }
 
+#[cfg(all(feature = "core_1_0_50", not(feature = "core_1_0_51")))]
+/// See [`VK_HEADER_VERSION`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_HEADER_VERSION)
+pub const VK_HEADER_VERSION: u32 = 50;
+
 #[cfg(all(feature = "core_1_0_49", not(feature = "core_1_0_50")))]
 /// See [`VK_HEADER_VERSION`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_HEADER_VERSION)
 pub const VK_HEADER_VERSION: u32 = 49;
