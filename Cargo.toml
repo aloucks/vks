@@ -21,7 +21,7 @@ gitlab = { repository = "dennis-hamester/vks" }
 
 [dependencies]
 libc = "0.2"
-bitflags = "0.8"
+bitflags = "0.9"
 
 [features]
 default = [ "vk_1_0_50" ]

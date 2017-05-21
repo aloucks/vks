@@ -25,8 +25,8 @@ bitflags! {
     /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkIOSSurfaceCreateFlagsMVK: u32 {
-        const VK_IOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000,
+    pub struct VkIOSSurfaceCreateFlagsMVK: u32 {
+        const VK_IOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000;
     }
 }
 

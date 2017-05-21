@@ -30,8 +30,8 @@ bitflags! {
     /// and extension [`VK_KHR_wayland_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_wayland_surface)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkWaylandSurfaceCreateFlagsKHR: u32 {
-        const VK_WAYLAND_SURFACE_CREATE_DUMMY = 0x00000000,
+    pub struct VkWaylandSurfaceCreateFlagsKHR: u32 {
+        const VK_WAYLAND_SURFACE_CREATE_DUMMY = 0x00000000;
     }
 }
 

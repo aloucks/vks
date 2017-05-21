@@ -44,8 +44,8 @@ bitflags! {
     /// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkDescriptorUpdateTemplateCreateFlagsKHR: u32 {
-        const VK_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_DUMMY_KHR = 0x00000000,
+    pub struct VkDescriptorUpdateTemplateCreateFlagsKHR: u32 {
+        const VK_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_DUMMY_KHR = 0x00000000;
     }
 }
 

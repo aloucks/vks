@@ -35,8 +35,8 @@ bitflags! {
     /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkPipelineDiscardRectangleStateCreateFlagsEXT: u32 {
-        const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_DUMMY_EXT = 0x00000000,
+    pub struct VkPipelineDiscardRectangleStateCreateFlagsEXT: u32 {
+        const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_DUMMY_EXT = 0x00000000;
     }
 }
 

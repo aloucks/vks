@@ -43,22 +43,22 @@ bitflags! {
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkDisplayPlaneAlphaFlagsKHR : u32 {
+    pub struct VkDisplayPlaneAlphaFlagsKHR: u32 {
         /// See [`VkDisplayPlaneAlphaFlagBitsKHR `](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR )
         /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-        const VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 0x00000001,
+        const VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 0x00000001;
 
         /// See [`VkDisplayPlaneAlphaFlagBitsKHR `](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR )
         /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-        const VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR = 0x00000002,
+        const VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR = 0x00000002;
 
         /// See [`VkDisplayPlaneAlphaFlagBitsKHR `](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR )
         /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-        const VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR = 0x00000004,
+        const VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR = 0x00000004;
 
         /// See [`VkDisplayPlaneAlphaFlagBitsKHR `](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR )
         /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-        const VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x00000008,
+        const VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x00000008;
     }
 }
 
@@ -71,8 +71,8 @@ bitflags! {
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkDisplayModeCreateFlagsKHR: u32 {
-        const VK_DISPLAY_MODE_CREATE_DUMMY_KHR = 0x00000000,
+    pub struct VkDisplayModeCreateFlagsKHR: u32 {
+        const VK_DISPLAY_MODE_CREATE_DUMMY_KHR = 0x00000000;
     }
 }
 
@@ -85,8 +85,8 @@ bitflags! {
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkDisplaySurfaceCreateFlagsKHR: u32 {
-        const VK_DISPLAY_SURFACE_CREATE_DUMMY_KHR = 0x00000000,
+    pub struct VkDisplaySurfaceCreateFlagsKHR: u32 {
+        const VK_DISPLAY_SURFACE_CREATE_DUMMY_KHR = 0x00000000;
     }
 }
 

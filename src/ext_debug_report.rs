@@ -224,26 +224,26 @@ bitflags! {
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkDebugReportFlagsEXT: u32 {
+    pub struct VkDebugReportFlagsEXT: u32 {
         /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
         /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-        const VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001,
+        const VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001;
 
         /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
         /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-        const VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002,
+        const VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002;
 
         /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
         /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-        const VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x00000004,
+        const VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x00000004;
 
         /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
         /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-        const VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x00000008,
+        const VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x00000008;
 
         /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
         /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-        const VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x00000010,
+        const VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x00000010;
     }
 }
 

@@ -25,8 +25,8 @@ bitflags! {
     /// and extension [`VK_KHR_xcb_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xcb_surface)
     #[repr(C)]
     #[derive(Default)]
-    pub flags VkXcbSurfaceCreateFlagsKHR: u32 {
-        const VK_XCB_SURFACE_CREATE_DUMMY = 0x00000000,
+    pub struct VkXcbSurfaceCreateFlagsKHR: u32 {
+        const VK_XCB_SURFACE_CREATE_DUMMY = 0x00000000;
     }
 }
 
