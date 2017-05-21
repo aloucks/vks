@@ -4,7 +4,7 @@
 
 Vulkan bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.49 + all extensions
+Latest supported Vulkan specification: 1.0.50 + all extensions
 
 ## Cargo Features
 
@@ -63,7 +63,7 @@ function pointers. The exact set of function pointers depend on the enabled Carg
 
 ## Supported Vulkan Specifications
 
- * Latest: 1.0.49
+ * Latest: 1.0.50
  * Earliest: 1.0.3
 
 Every version in between is supported as well.
