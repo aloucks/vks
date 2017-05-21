@@ -1,6 +1,6 @@
 [package]
 name = "vks"
-version = "0.14.1"
+version = "0.15.0"
 authors = [ "Dennis Hamester <dennis.hamester@startmail.com>" ]
 description = "Vulkan bindings and symbol loader. Vulkan 1.0.50 and all extensions are supported."
 documentation = "https://docs.rs/vks"

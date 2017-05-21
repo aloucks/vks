@@ -1,6 +1,6 @@
 # vks Changelog
 
-## Current Git master branch
+## Version 0.15.0, released on 21.05.2017
 
  * Vulkan 1.0.50
  * Reverted b4ff4af. The symbol `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT` is now
