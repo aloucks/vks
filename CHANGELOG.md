@@ -9,6 +9,7 @@
  * Add `VK_VALIDATION_CHECK_SHADERS_EXT` to `VkValidationCheckEXT`.
  * Support revision 8 of `VK_EXT_debug_report`. Revision 7 is not explicitly supported, because
    there is no official `vulkan.h` with just that revision.
+ * Add extension `VK_AMD_texture_gather_bias_lod` (revision 1).
 
 ## Version 0.14.1, released on 21.05.2017
 

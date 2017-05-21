@@ -27,7 +27,7 @@ bitflags = "0.8"
 default = [ "vk_1_0_49" ]
 unstable_rust = [ ]
 
-vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50", "ext_debug_report_8" ]
+vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50", "ext_debug_report_8", "amd_texture_gather_bias_lod_1" ]
 
 vk_1_0_49 = [ "vk_1_0_48", "core_1_0_49", "khr_shared_presentable_image_1",
               "khr_get_surface_capabilities2_1" ]
@@ -300,6 +300,9 @@ amd_gpu_shader_half_float_1 = [ "core_1_0_3" ]
 
 amd_shader_ballot = [ "amd_shader_ballot_1" ]
 amd_shader_ballot_1 = [ "core_1_0_3" ]
+
+amd_texture_gather_bias_lod = [ "amd_texture_gather_bias_lod_1" ]
+amd_texture_gather_bias_lod_1 = [ "core_1_0_3", "khr_get_physical_device_properties2_1" ]
 
 khx_multiview = [ "khx_multiview_1" ]
 khx_multiview_1 = [ "core_1_0_3", "khr_get_physical_device_properties2_1" ]

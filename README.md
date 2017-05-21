@@ -146,6 +146,7 @@ Every version in between is supported as well.
 | `VK_AMD_shader_ballot` | 1 |
 | `VK_AMD_shader_explicit_vertex_parameter` | 1 |
 | `VK_AMD_shader_trinary_minmax` | 1 |
+| `VK_AMD_texture_gather_bias_lod` | 1 |
 
 ### `NVX` Extensions
 
