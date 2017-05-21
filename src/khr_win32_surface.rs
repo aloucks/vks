@@ -16,7 +16,7 @@ use ::*;
 use libc::c_void;
 use std::ptr;
 
-pub const VK_KHR_WIN32_SURFACE_EXTENSION_SPEC_VERSION: u32 = 5;
+pub const VK_KHR_WIN32_SURFACE_SPEC_VERSION: u32 = 5;
 pub const VK_KHR_WIN32_SURFACE_EXTENSION_NAME: &'static [u8; 21] = b"VK_KHR_win32_surface\x00";
 pub const VK_KHR_WIN32_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_win32_surface";
 

@@ -16,7 +16,7 @@ use ::*;
 use libc::{c_char, c_void};
 use std::ptr;
 
-pub const VK_KHR_DISPLAY_EXTENSION_SPEC_VERSION: u32 = 21;
+pub const VK_KHR_DISPLAY_SPEC_VERSION: u32 = 21;
 pub const VK_KHR_DISPLAY_EXTENSION_NAME: &'static [u8; 15] = b"VK_KHR_display\x00";
 pub const VK_KHR_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_KHR_display";
 

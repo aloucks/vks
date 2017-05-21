@@ -19,22 +19,22 @@ use std::mem;
 use std::ptr;
 
 #[cfg(feature = "ext_debug_report_6")]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 6;
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 6;
 
 #[cfg(all(feature = "ext_debug_report_5", not(feature = "ext_debug_report_6")))]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 5;
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 5;
 
 #[cfg(all(feature = "ext_debug_report_4", not(feature = "ext_debug_report_5")))]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 4;
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 4;
 
 #[cfg(all(feature = "ext_debug_report_3", not(feature = "ext_debug_report_4")))]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 3;
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 3;
 
 #[cfg(all(feature = "ext_debug_report_2", not(feature = "ext_debug_report_3")))]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 2;
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 2;
 
 #[cfg(all(feature = "ext_debug_report_1", not(feature = "ext_debug_report_2")))]
-pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 1;
+pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 1;
 
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_debug_report\x00";
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME_STR: &'static str = "VK_EXT_debug_report";

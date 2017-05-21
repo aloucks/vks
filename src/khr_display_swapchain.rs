@@ -16,7 +16,7 @@ use ::*;
 use libc::c_void;
 use std::ptr;
 
-pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_SPEC_VERSION: u32 = 9;
+pub const VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION: u32 = 9;
 pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHR_display_swapchain\x00";
 pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME_STR: &'static str = "VK_KHR_display_swapchain";
 
