@@ -1,5 +1,10 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * Reverted b4ff4af. The symbol `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT` is now
+   available starting with revision 2 of `VK_EXT_debug_report`.
+
 ## Version 0.14.1, released on 21.05.2017
 
  * Add missing `VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION` for revision 6 of `VK_EXT_debug_report`.

@@ -276,7 +276,10 @@ impl fmt::Debug for VkDebugReportCallbackCreateInfoEXT {
 impl Default for VkDebugReportCallbackCreateInfoEXT {
     fn default() -> Self {
         VkDebugReportCallbackCreateInfoEXT  {
-            sType: VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,
+            // VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT is an alias for
+            // VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT, which is available since
+            // revision 1.
+            sType: VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT,
             pNext: ptr::null(),
             flags: Default::default(),
             pfnCallback: unsafe { mem::transmute(0usize) },
