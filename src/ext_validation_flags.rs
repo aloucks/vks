@@ -24,6 +24,11 @@ cenum!(VkValidationCheckEXT: u32 {
     /// See [`VkValidationCheckEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationCheckEXT)
     /// and extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
     const VK_VALIDATION_CHECK_ALL_EXT = 0,
+
+    #[cfg(feature = "core_1_0_50")]
+    /// See [`VkValidationCheckEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationCheckEXT)
+    /// and extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
+    const VK_VALIDATION_CHECK_SHADERS_EXT = 1,
 });
 
 /// See [`VkValidationFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationFlagBitsEXT)

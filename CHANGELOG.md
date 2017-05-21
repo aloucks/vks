@@ -6,6 +6,7 @@
  * Reverted b4ff4af. The symbol `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT` is now
    available starting with revision 2 of `VK_EXT_debug_report`.
  * All `*_EXTENSION_SPEC_VERSION` have been renamed to `*_SPEC_VERSION`.
+ * Add `VK_VALIDATION_CHECK_SHADERS_EXT` to `VkValidationCheckEXT`.
 
 ## Version 0.14.1, released on 21.05.2017
 
