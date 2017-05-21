@@ -1,5 +1,9 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * Define `VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT` only if `VK_KHR_surface` is enabled.
+
 ## Version 0.15.0, released on 21.05.2017
 
  * Vulkan 1.0.50
