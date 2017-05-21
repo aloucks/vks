@@ -1,5 +1,9 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * Add missing `VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION` for revision 6 of `VK_EXT_debug_report`.
+
 ## Version 0.14.0, released on 12.05.2017
 
  * Vulkan 1.0.49

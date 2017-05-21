@@ -18,7 +18,10 @@ use std::fmt;
 use std::mem;
 use std::ptr;
 
-#[cfg(feature = "ext_debug_report_5")]
+#[cfg(feature = "ext_debug_report_6")]
+pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 6;
+
+#[cfg(all(feature = "ext_debug_report_5", not(feature = "ext_debug_report_6")))]
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_SPEC_VERSION: u32 = 5;
 
 #[cfg(all(feature = "ext_debug_report_4", not(feature = "ext_debug_report_5")))]
