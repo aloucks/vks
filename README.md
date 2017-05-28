@@ -23,7 +23,7 @@ installer.
 
 ## Cargo Features
 
-vks supports very fine grained compile-time configuration via Cargo features. The version of the
+Vks supports very fine grained compile-time configuration via Cargo features. The version of the
 core specification and the revision for each extension can be selected individually. Dependencies
 between available features are modelled as well. This means, selecting nothing but a single
 extension revision (i.e. via `cargo build --no-default-features --features khr_wayland_surface_5`)
@@ -41,13 +41,13 @@ This feature is optional and not included in the `default` feature, because it r
 version of the Rust compiler. The feature enables `untagged_unions` and `struct_field_attributes`.
 
 When `untagged_unions` and `struct_field_attributes` become available in stable Rust, we will remove
-the current work-arounds switch to what is now behind `unstable_rust`.
+the current work-arounds and switch to what is now behind `unstable_rust`.
 
 ### `vk_*` Features
 
 All of these features select a specific core specification as well as all extensions, that were
-defined up that point. Features in this category have the form `vk_a_b_c`, where `a`, `b`, and `c`
-refer to the Vulkan specification. For example, `vk_1_0_32` will select the core Vulkan 1.0.32
+defined up to that point. Features in this category have the form `vk_a_b_c`, where `a`, `b`, and
+`c` refer to the Vulkan specification. For example, `vk_1_0_32` will select the core Vulkan 1.0.32
 specification and all extensions, that existed at that point. The earliest version that can be
 selected is 1.0.3 (via `vk_1_0_3`). The most recent version is selected by the `default` feature.
 
@@ -72,9 +72,9 @@ the newest revision.
 
 ## Loader
 
-vks includes two convenience Vulkan symbol loaders: `InstanceProcAddrLoader` and
+Vks includes two convenience Vulkan symbol loaders: `InstanceProcAddrLoader` and
 `DeviceProcAddrLoader`. Both support all available core Vulkan functions including extension
-function pointers. The exact set of function pointers depend on the enabled Cargo features.
+function pointers. The exact set of function pointers depends on the enabled Cargo features.
 
 ## Supported Vulkan Specifications
 
@@ -208,7 +208,7 @@ Every version in between is supported as well.
 
 ## License
 
-vks is licensed under the ISC license:
+Vks is licensed under the ISC license:
 
 ```
 Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
