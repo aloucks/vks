@@ -6,6 +6,21 @@ Vulkan bindings and symbol loader for Rust
 
 Latest supported Vulkan specification: 1.0.50 + all extensions
 
+## Usage
+
+Vks is available on [crates.io](https://crates.io/crates/vks). Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+vks = "0.15"
+```
+
+### Windows
+
+On Windows, linking vks requires `vulkan-1.lib`. Make sure the environment variable `VULKAN_SDK`
+points to the root of the LunarG Vulkan SDK. This is the default, if you use the Vulkan SDK
+installer.
+
 ## Cargo Features
 
 vks supports very fine grained compile-time configuration via Cargo features. The version of the
