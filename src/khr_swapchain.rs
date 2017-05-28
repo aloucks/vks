@@ -155,8 +155,6 @@ pub type PFN_vkAcquireNextImageKHR = unsafe extern "system" fn(device: VkDevice,
 /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
 pub type PFN_vkQueuePresentKHR = unsafe extern "system" fn(queue: VkQueue, pPresentInfo: *const VkPresentInfoKHR) -> VkResult;
 
-#[cfg_attr(not(windows), link(name = "vulkan"))]
-#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     /// See [`vkCreateSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSwapchainKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)

@@ -70,8 +70,6 @@ pub type PFN_vkGetMemoryFdKHX = unsafe extern "system" fn(device: VkDevice, memo
 /// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
 pub type PFN_vkGetMemoryFdPropertiesKHX = unsafe extern "system" fn(device: VkDevice, handleType: VkExternalMemoryHandleTypeFlagBitsKHX, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHX) -> VkResult;
 
-#[cfg_attr(not(windows), link(name = "vulkan"))]
-#[cfg_attr(windows, link(name = "vulkan-1"))]
 extern "system" {
     /// See [`vkGetMemoryFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdKHX)
     /// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)

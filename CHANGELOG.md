@@ -4,6 +4,8 @@
 
  * Define `VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT` only if `VK_KHR_surface` is enabled.
  * Define `VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT` only if `VK_KHR_swapchain` is enabled.
+ * Using `vks` on Windows should now be easier, if the environment variable `VULKAN_SDK` points to
+   the root directory of the LunarG Vulkan SDK.
 
 ## Version 0.15.0, released on 21.05.2017
 

@@ -10,6 +10,7 @@ readme = "README.md"
 keywords = [ "vulkan", "graphics", "ffi" ]
 categories = [ "external-ffi-bindings", "rendering", "rendering::graphics-api" ]
 license = "ISC"
+build = "build.rs"
 exclude = [
     ".gitignore",
     ".gitlab-ci.yml",
