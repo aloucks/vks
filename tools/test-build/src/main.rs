@@ -25,6 +25,7 @@ fn runner(id: usize, repo: PathBuf, jobs: mpsc::Receiver<Option<String>>, res: m
                 let tempdir = TempDir::new("vks").unwrap();
                 let mut sources = Vec::new();
                 sources.push(repo.join("Cargo.toml"));
+                sources.push(repo.join("build.rs"));
                 if fs::metadata(repo.join("Cargo.lock")).is_ok() {
                     sources.push(repo.join("Cargo.lock"));
                 }
