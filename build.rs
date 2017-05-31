@@ -1,7 +1,8 @@
-use std::env;
-use std::path::PathBuf;
-
+#[cfg(not(feature = "no_function_prototypes"))]
 fn main() {
+    use std::env;
+    use std::path::PathBuf;
+
     let target = env::var("TARGET").unwrap();
 
     if target.contains("windows") {
@@ -23,4 +24,8 @@ fn main() {
     else {
         println!("cargo:rustc-link-lib=dylib=vulkan");
     }
+}
+
+#[cfg(feature = "no_function_prototypes")]
+fn main() {
 }

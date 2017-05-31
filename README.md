@@ -17,9 +17,9 @@ vks = "0.16"
 
 ### Windows
 
-On Windows, linking vks requires `vulkan-1.lib`. Make sure the environment variable `VULKAN_SDK`
-points to the root of the LunarG Vulkan SDK. This is the default, if you use the Vulkan SDK
-installer.
+On Windows, linking vks requires `vulkan-1.lib`, if the feature `no_function_prototypes` is not
+enabled. Make sure the environment variable `VULKAN_SDK` points to the root of the LunarG Vulkan
+SDK. This is the default, if you use the Vulkan SDK installer.
 
 ## Cargo Features
 
@@ -34,6 +34,12 @@ The `default` feature will always select the latest fully supported core Vulkan 
 well as all extensions, that are supported and have been defined up to that point. Basically,
 `default` will select everything, except for features, which are incomplete and still in
 development.
+
+### `no_function_prototypes` Feature
+
+Enabling this feature, will cause all function definitions to be omitted. Linking against Vulkan is
+not required in this case. This feature is especially useful, if you load Vulkan dynamically at
+runtime and don't need the function definitions anyway.
 
 ### `unstable_rust` Feature
 

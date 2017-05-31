@@ -44,6 +44,7 @@ impl Default for VkSharedPresentSurfaceCapabilitiesKHR {
 /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
 pub type PFN_vkGetSwapchainStatusKHR = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR) -> VkResult;
 
+#[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
     /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)

@@ -1,5 +1,12 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * New Cargo feature `no_function_prototypes`: Enabling this feature, will cause all function
+   definitions to be omitted. Linking against Vulkan is not required in this case. This feature is
+   especially useful, if you load Vulkan dynamically at runtime and don't need the function
+   definitions anyway.
+
 ## Version 0.16.0, released on 28.05.2017
 
  * Define `VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT` only if `VK_KHR_surface` is enabled.

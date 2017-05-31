@@ -26,6 +26,7 @@ pub type PFN_vkAcquireXlibDisplayEXT = unsafe extern "system" fn(physicalDevice:
 /// and extension [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)
 pub type PFN_vkGetRandROutputDisplayEXT = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, dpy: *mut ::xlib_wrapper::Display, rrOutput: ::xlib_wrapper::RROutput, pDisplay: *mut VkDisplayKHR) -> VkResult;
 
+#[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkAcquireXlibDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireXlibDisplayEXT)
     /// and extension [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)

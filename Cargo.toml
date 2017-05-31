@@ -27,6 +27,7 @@ bitflags = "0.9"
 [features]
 default = [ "vk_1_0_50" ]
 unstable_rust = [ ]
+no_function_prototypes = [ ]
 
 vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50", "ext_debug_report_8", "amd_texture_gather_bias_lod_1" ]
 
