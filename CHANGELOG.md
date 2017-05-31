@@ -6,6 +6,8 @@
    definitions to be omitted. Linking against Vulkan is not required in this case. This feature is
    especially useful, if you load Vulkan dynamically at runtime and don't need the function
    definitions anyway.
+ * `VULKAN_LIBRARY_NAME` was added, which contains either `libvulkan.so.1` or `vulkan-1.dll`,
+   depending on the target platform.
 
 ## Version 0.16.0, released on 28.05.2017
 

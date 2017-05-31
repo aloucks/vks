@@ -28,6 +28,12 @@ extern crate bitflags;
 #[macro_use]
 mod cenum;
 
+#[cfg(windows)]
+pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
+
+#[cfg(not(windows))]
+pub const VULKAN_LIBRARY_NAME: &'static str = "libvulkan.so.1";
+
 #[cfg(feature = "core_1_0_3")] mod core;
 #[cfg(feature = "core_1_0_3")] pub use core::*;
 #[cfg(feature = "core_1_0_3")] mod version;
