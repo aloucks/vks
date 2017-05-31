@@ -1,6 +1,6 @@
 # vks Changelog
 
-## Current Git master branch
+## Version 0.16.1, released on 31.05.2017
 
  * New Cargo feature `no_function_prototypes`: Enabling this feature, will cause all function
    definitions to be omitted. Linking against Vulkan is not required in this case. This feature is
