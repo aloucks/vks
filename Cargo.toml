@@ -2,7 +2,7 @@
 name = "vks"
 version = "0.16.1"
 authors = [ "Dennis Hamester <dennis.hamester@startmail.com>" ]
-description = "Vulkan bindings and symbol loader. Vulkan 1.0.50 and all extensions are supported."
+description = "Vulkan bindings and symbol loader. Vulkan 1.0.51 and all extensions are supported."
 documentation = "https://docs.rs/vks"
 homepage = "https://gitlab.com/dennis-hamester/vks"
 repository = "https://gitlab.com/dennis-hamester/vks"
@@ -25,9 +25,11 @@ libc = "0.2"
 bitflags = "0.9"
 
 [features]
-default = [ "vk_1_0_50" ]
+default = [ "vk_1_0_51" ]
 unstable_rust = [ ]
 no_function_prototypes = [ ]
+
+vk_1_0_51 = [ "vk_1_0_50", "core_1_0_51" ]
 
 vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50", "ext_debug_report_8", "amd_texture_gather_bias_lod_1" ]
 
@@ -146,7 +148,8 @@ vk_1_0_3 = [ "core_1_0_3", "khr_surface_25", "khr_swapchain_67", "khr_display_21
              "khr_wayland_surface_5", "khr_mir_surface_4", "khr_android_surface_6",
              "khr_win32_surface_5", "ext_debug_report_1" ]
 
-core = [ "core_1_0_50" ]
+core = [ "core_1_0_51" ]
+core_1_0_51 = [ "core_1_0_50" ]
 core_1_0_50 = [ "core_1_0_49" ]
 core_1_0_49 = [ "core_1_0_48" ]
 core_1_0_48 = [ "core_1_0_47" ]

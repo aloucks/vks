@@ -4,7 +4,7 @@
 
 Vulkan bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.50 + all extensions
+Latest supported Vulkan specification: 1.0.51 + all extensions
 
 ## Usage
 
@@ -84,7 +84,7 @@ function pointers. The exact set of function pointers depends on the enabled Car
 
 ## Supported Vulkan Specifications
 
- * Latest: 1.0.50
+ * Latest: 1.0.51
  * Earliest: 1.0.3
 
 Every version in between is supported as well.

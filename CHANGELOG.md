@@ -1,5 +1,9 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * Vulkan 1.0.51
+
 ## Version 0.16.1, released on 31.05.2017
 
  * New Cargo feature `no_function_prototypes`: Enabling this feature, will cause all function
