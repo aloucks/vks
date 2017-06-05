@@ -1,6 +1,6 @@
 # vks Changelog
 
-## Current Git master branch
+## Version 0.17.0, released on 05.06.2017
 
  * Vulkan 1.0.51
  * Support revision 6 of `VK_KHR_win32_surface`.
