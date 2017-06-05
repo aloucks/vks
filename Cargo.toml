@@ -29,7 +29,7 @@ default = [ "vk_1_0_51" ]
 unstable_rust = [ ]
 no_function_prototypes = [ ]
 
-vk_1_0_51 = [ "vk_1_0_50", "core_1_0_51" ]
+vk_1_0_51 = [ "vk_1_0_50", "core_1_0_51", "khr_win32_surface_6" ]
 
 vk_1_0_50 = [ "vk_1_0_49", "core_1_0_50", "ext_debug_report_8", "amd_texture_gather_bias_lod_1" ]
 
@@ -228,7 +228,8 @@ khr_mir_surface_4 = [ "core_1_0_3", "khr_surface_25" ]
 khr_android_surface = [ "khr_android_surface_6" ]
 khr_android_surface_6 = [ "core_1_0_3", "khr_surface_25" ]
 
-khr_win32_surface = [ "khr_win32_surface_5" ]
+khr_win32_surface = [ "khr_win32_surface_6" ]
+khr_win32_surface_6 = [ "khr_win32_surface_5" ]
 khr_win32_surface_5 = [ "core_1_0_3", "khr_surface_25" ]
 
 khr_sampler_mirror_clamp_to_edge = [ "khr_sampler_mirror_clamp_to_edge_1" ]

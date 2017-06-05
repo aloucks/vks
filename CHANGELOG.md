@@ -3,6 +3,7 @@
 ## Current Git master branch
 
  * Vulkan 1.0.51
+ * Support revision 6 of `VK_KHR_win32_surface`.
 
 ## Version 0.16.1, released on 31.05.2017
 
