@@ -4,6 +4,8 @@
 
  * Vulkan 1.0.51
  * Support revision 6 of `VK_KHR_win32_surface`.
+ * Values of `VkIndirectCommandsTokenTypeNVX` and `VkObjectEntryTypeNVX` from extension
+   `VK_NVX_device_generated_commands` now include the word `TYPE` in their names.
 
 ## Version 0.16.1, released on 31.05.2017
 
