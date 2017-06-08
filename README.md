@@ -6,6 +6,10 @@ Vulkan FFI bindings and symbol loader for Rust
 
 Latest supported Vulkan specification: 1.0.51 + all extensions
 
+If you are looking for a safe and more Rust-like interface, checkout the [dacite] project.
+
+[dacite]: https://gitlab.com/dennis-hamester/dacite
+
 ## Usage
 
 Vks is available on [crates.io](https://crates.io/crates/vks). Add this to your `Cargo.toml`:
