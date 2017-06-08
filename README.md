@@ -2,7 +2,7 @@
 
 [![build status](https://gitlab.com/dennis-hamester/vks/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vks)
 
-Vulkan bindings and symbol loader for Rust
+Vulkan FFI bindings and symbol loader for Rust
 
 Latest supported Vulkan specification: 1.0.51 + all extensions
 

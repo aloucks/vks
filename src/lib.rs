@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-//! Vulkan bindings and symbol loader
+//! Vulkan FFI bindings and symbol loader
 
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
