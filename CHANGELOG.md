@@ -2,8 +2,9 @@
 
 ## Current Git master branch
 
- * `InstanceProcAddrLoader` can no longer be created outside of vks. This ensures it is used in a
-   forward-compatible way. All extension sub-structs have been changed as well.
+ * `InstanceProcAddrLoader` and `DeviceProcAddrLoader` can no longer be created outside of vks. This
+   ensures they are used in a forward-compatible way. All extension sub-structs have been changed as
+   well.
 
 ## Version 0.17.0, released on 05.06.2017
 

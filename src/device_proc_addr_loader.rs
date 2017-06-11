@@ -21,11 +21,10 @@ macro_rules! gen_device_proc_addr_loader {
     ( $( $cond:expr => $field:ident: $ty:ident [fn $load:ident], )* ) => {
         pub struct DeviceProcAddrLoader {
             pub vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr,
+            $( #[cfg(feature = $cond)] pub $field: $ty, )*
 
-            $(
-                #[cfg(feature = $cond)]
-                pub $field: $ty,
-            )*
+            #[allow(dead_code)]
+            guard: (),
         }
 
         impl Copy for DeviceProcAddrLoader { }
@@ -40,12 +39,7 @@ macro_rules! gen_device_proc_addr_loader {
             fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
                 let mut debug_struct = f.debug_struct("DeviceProcAddrLoader");
                 debug_struct.field("vkGetDeviceProcAddr", &(self.vkGetDeviceProcAddr as *mut c_void));
-
-                $(
-                    #[cfg(feature = $cond)]
-                    debug_struct.field(stringify!($field), &self.$field);
-                )*
-
+                $( #[cfg(feature = $cond)] debug_struct.field(stringify!($field), &self.$field); )*
                 debug_struct.finish()
             }
         }
@@ -65,11 +59,8 @@ macro_rules! gen_device_proc_addr_loader {
             pub fn from_get_device_proc_addr(vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr) -> Self {
                 DeviceProcAddrLoader {
                     vkGetDeviceProcAddr: vkGetDeviceProcAddr,
-
-                    $(
-                        #[cfg(feature = $cond)]
-                        $field: $ty::new(),
-                    )*
+                    $( #[cfg(feature = $cond)] $field: $ty::new(), )*
+                    guard: (),
                 }
             }
 
@@ -80,12 +71,8 @@ macro_rules! gen_device_proc_addr_loader {
                     let mut this: DeviceProcAddrLoader = mem::uninitialized();
 
                     ptr::write(&mut this.vkGetDeviceProcAddr, vkGetDeviceProcAddr);
-
-                    $(
-                        #[cfg(feature = $cond)]
-                        ptr::write(&mut this.$field, $ty::new());
-                    )*
-
+                    $( #[cfg(feature = $cond)] ptr::write(&mut this.$field, $ty::new()); )*
+                    ptr::write(&mut this.guard, ());
                     this
                 }
             }
@@ -101,12 +88,16 @@ macro_rules! gen_device_proc_addr_loader {
 }
 
 macro_rules! addr_proc_struct {
-    ($name:ident { $( $(#[$cond:meta])* pfn $symbol:ident: $ty:ty, )* }) => (
+    (
+        $name:ident {
+            $( pfn $symbol:ident: $ty:ty, )*
+        }
+    ) => (
         pub struct $name {
-            $(
-                $(#[$cond])*
-                pub $symbol: $ty,
-            )*
+            $( pub $symbol: $ty, )*
+
+            #[allow(dead_code)]
+            guard: (),
         }
 
         impl Copy for $name { }
@@ -120,10 +111,7 @@ macro_rules! addr_proc_struct {
         impl fmt::Debug for $name {
             fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
                 let mut debug_struct = f.debug_struct(stringify!($name));
-                $(
-                    $(#[$cond])*
-                    debug_struct.field(stringify!($symbol), &(self.$symbol as *mut c_void));
-                )*
+                $( debug_struct.field(stringify!($symbol), &(self.$symbol as *mut c_void)); )*
                 debug_struct.finish()
             }
         }
@@ -137,19 +125,14 @@ macro_rules! addr_proc_struct {
         impl $name {
             pub fn new() -> Self {
                 $name {
-                    $(
-                        $(#[$cond])*
-                        $symbol: unsafe { mem::transmute(0usize) },
-                    )*
+                    $( $symbol: unsafe { mem::transmute(0usize) }, )*
+                    guard: (),
                 }
             }
 
             #[allow(unused_variables)]
             pub unsafe fn load(&mut self, vkGetDeviceProcAddr: PFN_vkGetDeviceProcAddr, device: VkDevice) {
-                $(
-                    $(#[$cond])*
-                    { self.$symbol = mem::transmute((vkGetDeviceProcAddr)(device, concat!(stringify!($symbol), '\x00').as_ptr() as *const c_char)); }
-                )*
+                $( { self.$symbol = mem::transmute((vkGetDeviceProcAddr)(device, concat!(stringify!($symbol), '\x00').as_ptr() as *const c_char)); } )*
             }
         }
     )
