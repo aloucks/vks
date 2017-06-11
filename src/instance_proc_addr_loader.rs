@@ -23,11 +23,10 @@ macro_rules! gen_instance_proc_addr_loader {
         pub struct InstanceProcAddrLoader {
             pub vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr,
             pub core_null_instance: CoreNullInstance,
+            $( #[cfg(feature = $cond)] pub $field: $ty, )*
 
-            $(
-                #[cfg(feature = $cond)]
-                pub $field: $ty,
-            )*
+            #[allow(dead_code)]
+            guard: (),
         }
 
         impl Copy for InstanceProcAddrLoader { }
@@ -43,12 +42,7 @@ macro_rules! gen_instance_proc_addr_loader {
                 let mut debug_struct = f.debug_struct("InstanceProcAddrLoader");
                 debug_struct.field("vkGetInstanceProcAddr", &(self.vkGetInstanceProcAddr as *mut c_void));
                 debug_struct.field("core_null_instance", &self.core_null_instance);
-
-                $(
-                    #[cfg(feature = $cond)]
-                    debug_struct.field(stringify!($field), &self.$field);
-                )*
-
+                $( #[cfg(feature = $cond)] debug_struct.field(stringify!($field), &self.$field); )*
                 debug_struct.finish()
             }
         }
@@ -69,11 +63,8 @@ macro_rules! gen_instance_proc_addr_loader {
                 InstanceProcAddrLoader {
                     vkGetInstanceProcAddr: vkGetInstanceProcAddr,
                     core_null_instance: CoreNullInstance::new(),
-
-                    $(
-                        #[cfg(feature = $cond)]
-                        $field: $ty::new(),
-                    )*
+                    $( #[cfg(feature = $cond)] $field: $ty::new(), )*
+                    guard: (),
                 }
             }
 
@@ -84,11 +75,8 @@ macro_rules! gen_instance_proc_addr_loader {
 
                     ptr::write(&mut this.vkGetInstanceProcAddr, vkGetInstanceProcAddr);
                     ptr::write(&mut this.core_null_instance, CoreNullInstance::new());
-
-                    $(
-                        #[cfg(feature = $cond)]
-                        ptr::write(&mut this.$field, $ty::new());
-                    )*
+                    $( #[cfg(feature = $cond)] ptr::write(&mut this.$field, $ty::new()); )*
+                    ptr::write(&mut this.guard, ());
 
                     this
                 }
@@ -109,12 +97,16 @@ macro_rules! gen_instance_proc_addr_loader {
 }
 
 macro_rules! addr_proc_struct {
-    ($name:ident { $( $(#[$cond:meta])* pfn $symbol:ident: $ty:ty, )* }) => (
+    (
+        $name:ident {
+            $( pfn $symbol:ident: $ty:ty, )*
+        }
+    ) => (
         pub struct $name {
-            $(
-                $(#[$cond])*
-                pub $symbol: $ty,
-            )*
+            $( pub $symbol: $ty, )*
+
+            #[allow(dead_code)]
+            guard: (),
         }
 
         impl Copy for $name { }
@@ -128,10 +120,7 @@ macro_rules! addr_proc_struct {
         impl fmt::Debug for $name {
             fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
                 let mut debug_struct = f.debug_struct(stringify!($name));
-                $(
-                    $(#[$cond])*
-                    debug_struct.field(stringify!($symbol), &(self.$symbol as *mut c_void));
-                )*
+                $( debug_struct.field(stringify!($symbol), &(self.$symbol as *mut c_void));)*
                 debug_struct.finish()
             }
         }
@@ -145,19 +134,14 @@ macro_rules! addr_proc_struct {
         impl $name {
             pub fn new() -> Self {
                 $name {
-                    $(
-                        $(#[$cond])*
-                        $symbol: unsafe { mem::transmute(0usize) },
-                    )*
+                    $( $symbol: unsafe { mem::transmute(0usize) }, )*
+                    guard: (),
                 }
             }
 
             #[allow(unused_variables)]
             pub unsafe fn load(&mut self, vkGetInstanceProcAddr: PFN_vkGetInstanceProcAddr, instance: VkInstance) {
-                $(
-                    $(#[$cond])*
-                    { self.$symbol = mem::transmute((vkGetInstanceProcAddr)(instance, concat!(stringify!($symbol), '\x00').as_ptr() as *const c_char)); }
-                )*
+                $( { self.$symbol = mem::transmute((vkGetInstanceProcAddr)(instance, concat!(stringify!($symbol), '\x00').as_ptr() as *const c_char)); } )*
             }
         }
     )
