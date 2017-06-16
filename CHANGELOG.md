@@ -8,8 +8,8 @@
  * Fixed a rather serious bug on 32-bit targets: non-dispatchable Vulkan objects are now represented
    with a `u64` newtype. Before this change, vks used pointers as a representation, which is
    incorrect on 32-bit platforms. This bug basically made vks completely unusable on such platforms.
-   Default (as in uninitialized) non-dispatchable objects must now be created via the `Default`
-   trait, instead of `std::ptr::null_mut()`.
+   Default (as in uninitialized or NULL) non-dispatchable objects must now be created via the
+   `Default` trait, or the `null()` function of that type, instead of `std::ptr::null_mut()`.
 
 ## Version 0.17.0, released on 05.06.2017
 

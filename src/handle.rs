@@ -38,5 +38,17 @@ macro_rules! define_non_dispatchable_handle {
         #[repr(C)]
         #[derive(Debug, Copy, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
         pub struct $name(pub u64);
+
+        impl $name {
+            #[inline]
+            pub fn null() -> Self {
+                Default::default()
+            }
+
+            #[inline]
+            pub fn is_null(&self) -> bool {
+                self.0 == 0
+            }
+        }
     )
 }
