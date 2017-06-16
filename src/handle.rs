@@ -37,7 +37,7 @@ macro_rules! define_non_dispatchable_handle {
         $( #[$attr] )*
         #[repr(C)]
         #[derive(Debug, Copy, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
-        pub struct $name(pub u64);
+        pub struct $name(u64);
 
         impl $name {
             #[inline]
@@ -48,6 +48,11 @@ macro_rules! define_non_dispatchable_handle {
             #[inline]
             pub fn is_null(&self) -> bool {
                 self.0 == 0
+            }
+
+            #[inline]
+            pub fn id(&self) -> u64 {
+                self.0
             }
         }
     )
