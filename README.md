@@ -16,7 +16,7 @@ Vks is available on [crates.io](https://crates.io/crates/vks). Add this to your 
 
 ```toml
 [dependencies]
-vks = "0.17"
+vks = "0.18"
 ```
 
 ### Windows
