@@ -20,14 +20,11 @@ pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME: &'static [u8; 34] = b"VK_KHR_descriptor_update_template\x00";
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME_STR: &'static str = "VK_KHR_descriptor_update_template";
 
-/// See [`VkDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateKHR)
-/// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
-#[repr(C)]
-pub struct VkDescriptorUpdateTemplateKHR_T(c_void);
-
-/// See [`VkDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateKHR)
-/// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
-pub type VkDescriptorUpdateTemplateKHR = *mut VkDescriptorUpdateTemplateKHR_T;
+define_non_dispatchable_handle!(
+    /// See [`VkDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateKHR)
+    /// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
+    struct VkDescriptorUpdateTemplateKHR;
+);
 
 cenum!(VkDescriptorUpdateTemplateTypeKHR: u32 {
     /// See [`VkDescriptorUpdateTemplateTypeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateTypeKHR)
@@ -92,9 +89,9 @@ impl Default for VkDescriptorUpdateTemplateCreateInfoKHR {
             descriptorUpdateEntryCount: Default::default(),
             pDescriptorUpdateEntries: ptr::null(),
             templateType: Default::default(),
-            descriptorSetLayout: ptr::null_mut(),
+            descriptorSetLayout: Default::default(),
             pipelineBindPoint: Default::default(),
-            pipelineLayout: ptr::null_mut(),
+            pipelineLayout: Default::default(),
             set: Default::default(),
         }
     }

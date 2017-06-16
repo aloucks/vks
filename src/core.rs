@@ -29,180 +29,145 @@ pub type VkDeviceSize = u64;
 /// See [`VkSampleMask`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleMask)
 pub type VkSampleMask = u32;
 
-/// See [`VkInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstance)
-#[repr(C)]
-pub struct VkInstance_T(c_void);
+define_handle!(
+    /// See [`VkInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstance)
+    type VkInstance;
 
-/// See [`VkInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstance)
-pub type VkInstance = *mut VkInstance_T;
+    /// See [`VkInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstance)
+    struct VkInstance_T;
+);
 
-/// See [`VkPhysicalDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevice)
-#[repr(C)]
-pub struct VkPhysicalDevice_T(c_void);
+define_handle!(
+    /// See [`VkPhysicalDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevice)
+    type VkPhysicalDevice;
 
-/// See [`VkPhysicalDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevice)
-pub type VkPhysicalDevice = *mut VkPhysicalDevice_T;
+    /// See [`VkPhysicalDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevice)
+    struct VkPhysicalDevice_T;
+);
 
-/// See [`VkDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDevice)
-#[repr(C)]
-pub struct VkDevice_T(c_void);
+define_handle!(
+    /// See [`VkDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDevice)
+    type VkDevice;
 
-/// See [`VkDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDevice)
-pub type VkDevice = *mut VkDevice_T;
+    /// See [`VkDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDevice)
+    struct VkDevice_T;
+);
 
-/// See [`VkQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueue)
-#[repr(C)]
-pub struct VkQueue_T(c_void);
+define_handle!(
+    /// See [`VkQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueue)
+    type VkQueue;
 
-/// See [`VkQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueue)
-pub type VkQueue = *mut VkQueue_T;
+    /// See [`VkQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueue)
+    struct VkQueue_T;
+);
 
-/// See [`VkSemaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphore)
-#[repr(C)]
-pub struct VkSemaphore_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkSemaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphore)
+    struct VkSemaphore;
+);
 
-/// See [`VkSemaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphore)
-pub type VkSemaphore = *mut VkSemaphore_T;
+define_handle!(
+    /// See [`VkCommandBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBuffer)
+    type VkCommandBuffer;
 
-/// See [`VkCommandBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBuffer)
-#[repr(C)]
-pub struct VkCommandBuffer_T(c_void);
+    /// See [`VkCommandBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBuffer)
+    struct VkCommandBuffer_T;
+);
 
-/// See [`VkCommandBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBuffer)
-pub type VkCommandBuffer = *mut VkCommandBuffer_T;
+define_non_dispatchable_handle!(
+    /// See [`VkFence`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFence)
+    struct VkFence;
+);
 
-/// See [`VkFence`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFence)
-#[repr(C)]
-pub struct VkFence_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkDeviceMemory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceMemory)
+    struct VkDeviceMemory;
+);
 
-/// See [`VkFence`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFence)
-pub type VkFence = *mut VkFence_T;
+define_non_dispatchable_handle!(
+    /// See [`VkBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBuffer)
+    struct VkBuffer;
+);
 
-/// See [`VkDeviceMemory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceMemory)
-#[repr(C)]
-pub struct VkDeviceMemory_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkImage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImage)
+    struct VkImage;
+);
 
-/// See [`VkDeviceMemory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceMemory)
-pub type VkDeviceMemory = *mut VkDeviceMemory_T;
+define_non_dispatchable_handle!(
+    /// See [`VkEvent`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkEvent)
+    struct VkEvent;
+);
 
-/// See [`VkBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBuffer)
-#[repr(C)]
-pub struct VkBuffer_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkQueryPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPool)
+    struct VkQueryPool;
+);
 
-/// See [`VkBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBuffer)
-pub type VkBuffer = *mut VkBuffer_T;
+define_non_dispatchable_handle!(
+    /// See [`VkBufferView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferView)
+    struct VkBufferView;
+);
 
-/// See [`VkImage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImage)
-#[repr(C)]
-pub struct VkImage_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkImageView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageView)
+    struct VkImageView;
+);
 
-/// See [`VkImage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImage)
-pub type VkImage = *mut VkImage_T;
+define_non_dispatchable_handle!(
+    /// See [`VkShaderModule`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderModule)
+    struct VkShaderModule;
+);
 
-/// See [`VkEvent`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkEvent)
-#[repr(C)]
-pub struct VkEvent_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkPipelineCache`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCache)
+    struct VkPipelineCache;
+);
 
-/// See [`VkEvent`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkEvent)
-pub type VkEvent = *mut VkEvent_T;
+define_non_dispatchable_handle!(
+    /// See [`VkPipelineLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineLayout)
+    struct VkPipelineLayout;
+);
 
-/// See [`VkQueryPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPool)
-#[repr(C)]
-pub struct VkQueryPool_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkRenderPass`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRenderPass)
+    struct VkRenderPass;
+);
 
-/// See [`VkQueryPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPool)
-pub type VkQueryPool = *mut VkQueryPool_T;
+define_non_dispatchable_handle!(
+    /// See [`VkPipeline`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipeline)
+    struct VkPipeline;
+);
 
-/// See [`VkBufferView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferView)
-#[repr(C)]
-pub struct VkBufferView_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkDescriptorSetLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayout)
+    struct VkDescriptorSetLayout;
+);
 
-/// See [`VkBufferView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferView)
-pub type VkBufferView = *mut VkBufferView_T;
+define_non_dispatchable_handle!(
+    /// See [`VkSampler`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampler)
+    struct VkSampler;
+);
 
-/// See [`VkImageView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageView)
-#[repr(C)]
-pub struct VkImageView_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkDescriptorPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPool)
+    struct VkDescriptorPool;
+);
 
-/// See [`VkImageView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageView)
-pub type VkImageView = *mut VkImageView_T;
+define_non_dispatchable_handle!(
+    /// See [`VkDescriptorSet`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSet)
+    struct VkDescriptorSet;
+);
 
-/// See [`VkShaderModule`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderModule)
-#[repr(C)]
-pub struct VkShaderModule_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkFramebuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFramebuffer)
+    struct VkFramebuffer;
+);
 
-/// See [`VkShaderModule`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderModule)
-pub type VkShaderModule = *mut VkShaderModule_T;
-
-/// See [`VkPipelineCache`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCache)
-#[repr(C)]
-pub struct VkPipelineCache_T(c_void);
-
-/// See [`VkPipelineCache`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCache)
-pub type VkPipelineCache = *mut VkPipelineCache_T;
-
-/// See [`VkPipelineLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineLayout)
-#[repr(C)]
-pub struct VkPipelineLayout_T(c_void);
-
-/// See [`VkPipelineLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineLayout)
-pub type VkPipelineLayout = *mut VkPipelineLayout_T;
-
-/// See [`VkRenderPass`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRenderPass)
-#[repr(C)]
-pub struct VkRenderPass_T(c_void);
-
-/// See [`VkRenderPass`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRenderPass)
-pub type VkRenderPass = *mut VkRenderPass_T;
-
-/// See [`VkPipeline`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipeline)
-#[repr(C)]
-pub struct VkPipeline_T(c_void);
-
-/// See [`VkPipeline`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipeline)
-pub type VkPipeline = *mut VkPipeline_T;
-
-/// See [`VkDescriptorSetLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayout)
-#[repr(C)]
-pub struct VkDescriptorSetLayout_T(c_void);
-
-/// See [`VkDescriptorSetLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayout)
-pub type VkDescriptorSetLayout = *mut VkDescriptorSetLayout_T;
-
-/// See [`VkSampler`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampler)
-#[repr(C)]
-pub struct VkSampler_T(c_void);
-
-/// See [`VkSampler`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampler)
-pub type VkSampler = *mut VkSampler_T;
-
-/// See [`VkDescriptorPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPool)
-#[repr(C)]
-pub struct VkDescriptorPool_T(c_void);
-
-/// See [`VkDescriptorPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPool)
-pub type VkDescriptorPool = *mut VkDescriptorPool_T;
-
-/// See [`VkDescriptorSet`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSet)
-#[repr(C)]
-pub struct VkDescriptorSet_T(c_void);
-
-/// See [`VkDescriptorSet`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSet)
-pub type VkDescriptorSet = *mut VkDescriptorSet_T;
-
-/// See [`VkFramebuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFramebuffer)
-#[repr(C)]
-pub struct VkFramebuffer_T(c_void);
-
-/// See [`VkFramebuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFramebuffer)
-pub type VkFramebuffer = *mut VkFramebuffer_T;
-
-/// See [`VkCommandPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPool)
-#[repr(C)]
-pub struct VkCommandPool_T(c_void);
-
-/// See [`VkCommandPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPool)
-pub type VkCommandPool = *mut VkCommandPool_T;
+define_non_dispatchable_handle!(
+    /// See [`VkCommandPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPool)
+    struct VkCommandPool;
+);
 
 pub const VK_LOD_CLAMP_NONE: f32 = 1000.0;
 pub const VK_REMAINING_MIP_LEVELS: u32 = 0xffffffff;
@@ -4108,7 +4073,7 @@ impl Default for VkMappedMemoryRange {
         VkMappedMemoryRange {
             sType: VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
             pNext: ptr::null(),
-            memory: ptr::null_mut(),
+            memory: Default::default(),
             offset: Default::default(),
             size: Default::default(),
         }
@@ -4160,7 +4125,7 @@ impl Default for VkSparseMemoryBind {
         VkSparseMemoryBind {
             resourceOffset: Default::default(),
             size: Default::default(),
-            memory: ptr::null_mut(),
+            memory: Default::default(),
             memoryOffset: Default::default(),
             flags: Default::default(),
         }
@@ -4179,7 +4144,7 @@ pub struct VkSparseBufferMemoryBindInfo {
 impl Default for VkSparseBufferMemoryBindInfo {
     fn default() -> Self {
         VkSparseBufferMemoryBindInfo {
-            buffer: ptr::null_mut(),
+            buffer: Default::default(),
             bindCount: Default::default(),
             pBinds: ptr::null(),
         }
@@ -4198,7 +4163,7 @@ pub struct VkSparseImageOpaqueMemoryBindInfo {
 impl Default for VkSparseImageOpaqueMemoryBindInfo {
     fn default() -> Self {
         VkSparseImageOpaqueMemoryBindInfo {
-            image: ptr::null_mut(),
+            image: Default::default(),
             bindCount: Default::default(),
             pBinds: ptr::null(),
         }
@@ -4241,7 +4206,7 @@ impl Default for VkSparseImageMemoryBind {
             subresource: Default::default(),
             offset: Default::default(),
             extent: Default::default(),
-            memory: ptr::null_mut(),
+            memory: Default::default(),
             memoryOffset: Default::default(),
             flags: Default::default(),
         }
@@ -4260,7 +4225,7 @@ pub struct VkSparseImageMemoryBindInfo {
 impl Default for VkSparseImageMemoryBindInfo {
     fn default() -> Self {
         VkSparseImageMemoryBindInfo {
-            image: ptr::null_mut(),
+            image: Default::default(),
             bindCount: Default::default(),
             pBinds: ptr::null(),
         }
@@ -4434,7 +4399,7 @@ impl Default for VkBufferViewCreateInfo {
             sType: VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
-            buffer: ptr::null_mut(),
+            buffer: Default::default(),
             format: Default::default(),
             offset: Default::default(),
             range: Default::default(),
@@ -4537,7 +4502,7 @@ impl Default for VkImageViewCreateInfo {
             sType: VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
-            image: ptr::null_mut(),
+            image: Default::default(),
             viewType: Default::default(),
             format: Default::default(),
             components: Default::default(),
@@ -4642,7 +4607,7 @@ impl Default for VkPipelineShaderStageCreateInfo {
             pNext: ptr::null(),
             flags: Default::default(),
             stage: Default::default(),
-            module: ptr::null_mut(),
+            module: Default::default(),
             pName: ptr::null(),
             pSpecializationInfo: ptr::null(),
         }
@@ -5030,10 +4995,10 @@ impl Default for VkGraphicsPipelineCreateInfo {
             pDepthStencilState: ptr::null(),
             pColorBlendState: ptr::null(),
             pDynamicState: ptr::null(),
-            layout: ptr::null_mut(),
-            renderPass: ptr::null_mut(),
+            layout: Default::default(),
+            renderPass: Default::default(),
             subpass: Default::default(),
-            basePipelineHandle: ptr::null_mut(),
+            basePipelineHandle: Default::default(),
             basePipelineIndex: Default::default(),
         }
     }
@@ -5059,8 +5024,8 @@ impl Default for VkComputePipelineCreateInfo {
             pNext: ptr::null(),
             flags: Default::default(),
             stage: Default::default(),
-            layout: ptr::null_mut(),
-            basePipelineHandle: ptr::null_mut(),
+            layout: Default::default(),
+            basePipelineHandle: Default::default(),
             basePipelineIndex: Default::default(),
         }
     }
@@ -5246,7 +5211,7 @@ impl Default for VkDescriptorSetAllocateInfo {
         VkDescriptorSetAllocateInfo {
             sType: VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO,
             pNext: ptr::null(),
-            descriptorPool: ptr::null_mut(),
+            descriptorPool: Default::default(),
             descriptorSetCount: Default::default(),
             pSetLayouts: ptr::null(),
         }
@@ -5255,40 +5220,20 @@ impl Default for VkDescriptorSetAllocateInfo {
 
 /// See [`VkDescriptorImageInfo`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorImageInfo)
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDescriptorImageInfo {
     pub sampler: VkSampler,
     pub imageView: VkImageView,
     pub imageLayout: VkImageLayout,
 }
 
-impl Default for VkDescriptorImageInfo {
-    fn default() -> Self {
-        VkDescriptorImageInfo {
-            sampler: ptr::null_mut(),
-            imageView: ptr::null_mut(),
-            imageLayout: Default::default(),
-        }
-    }
-}
-
 /// See [`VkDescriptorBufferInfo`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorBufferInfo)
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDescriptorBufferInfo {
     pub buffer: VkBuffer,
     pub offset: VkDeviceSize,
     pub range: VkDeviceSize,
-}
-
-impl Default for VkDescriptorBufferInfo {
-    fn default() -> Self {
-        VkDescriptorBufferInfo {
-            buffer: ptr::null_mut(),
-            offset: Default::default(),
-            range: Default::default(),
-        }
-    }
 }
 
 /// See [`VkWriteDescriptorSet`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWriteDescriptorSet)
@@ -5312,7 +5257,7 @@ impl Default for VkWriteDescriptorSet {
         VkWriteDescriptorSet {
             sType: VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET,
             pNext: ptr::null(),
-            dstSet: ptr::null_mut(),
+            dstSet: Default::default(),
             dstBinding: Default::default(),
             dstArrayElement: Default::default(),
             descriptorCount: Default::default(),
@@ -5344,10 +5289,10 @@ impl Default for VkCopyDescriptorSet {
         VkCopyDescriptorSet {
             sType: VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET,
             pNext: ptr::null(),
-            srcSet: ptr::null_mut(),
+            srcSet: Default::default(),
             srcBinding: Default::default(),
             srcArrayElement: Default::default(),
-            dstSet: ptr::null_mut(),
+            dstSet: Default::default(),
             dstBinding: Default::default(),
             dstArrayElement: Default::default(),
             descriptorCount: Default::default(),
@@ -5376,7 +5321,7 @@ impl Default for VkFramebufferCreateInfo {
             sType: VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
-            renderPass: ptr::null_mut(),
+            renderPass: Default::default(),
             attachmentCount: Default::default(),
             pAttachments: ptr::null(),
             width: Default::default(),
@@ -5523,7 +5468,7 @@ impl Default for VkCommandBufferAllocateInfo {
         VkCommandBufferAllocateInfo {
             sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
             pNext: ptr::null(),
-            commandPool: ptr::null_mut(),
+            commandPool: Default::default(),
             level: Default::default(),
             commandBufferCount: Default::default(),
         }
@@ -5549,9 +5494,9 @@ impl Default for VkCommandBufferInheritanceInfo {
         VkCommandBufferInheritanceInfo {
             sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO,
             pNext: ptr::null(),
-            renderPass: ptr::null_mut(),
+            renderPass: Default::default(),
             subpass: Default::default(),
-            framebuffer: ptr::null_mut(),
+            framebuffer: Default::default(),
             occlusionQueryEnable: Default::default(),
             queryFlags: Default::default(),
             pipelineStatistics: Default::default(),
@@ -5838,7 +5783,7 @@ impl Default for VkBufferMemoryBarrier {
             dstAccessMask: Default::default(),
             srcQueueFamilyIndex: Default::default(),
             dstQueueFamilyIndex: Default::default(),
-            buffer: ptr::null_mut(),
+            buffer: Default::default(),
             offset: Default::default(),
             size: Default::default(),
         }
@@ -5872,7 +5817,7 @@ impl Default for VkImageMemoryBarrier {
             newLayout: Default::default(),
             srcQueueFamilyIndex: Default::default(),
             dstQueueFamilyIndex: Default::default(),
-            image: ptr::null_mut(),
+            image: Default::default(),
             subresourceRange: Default::default(),
         }
     }
@@ -5896,8 +5841,8 @@ impl Default for VkRenderPassBeginInfo {
         VkRenderPassBeginInfo {
             sType: VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO,
             pNext: ptr::null(),
-            renderPass: ptr::null_mut(),
-            framebuffer: ptr::null_mut(),
+            renderPass: Default::default(),
+            framebuffer: Default::default(),
             renderArea: Default::default(),
             clearValueCount: Default::default(),
             pClearValues: ptr::null(),

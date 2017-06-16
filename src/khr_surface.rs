@@ -13,20 +13,16 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
-use libc::c_void;
 
 pub const VK_KHR_SURFACE_SPEC_VERSION: u32 = 25;
 pub const VK_KHR_SURFACE_EXTENSION_NAME: &'static [u8; 15] = b"VK_KHR_surface\x00";
 pub const VK_KHR_SURFACE_EXTENSION_NAME_STR: &'static str  = "VK_KHR_surface";
 
-/// See [`VkSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceKHR)
-/// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
-#[repr(C)]
-pub struct VkSurfaceKHR_T(c_void);
-
-/// See [`VkSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceKHR)
-/// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
-pub type VkSurfaceKHR = *mut VkSurfaceKHR_T;
+define_non_dispatchable_handle!(
+    /// See [`VkSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceKHR)
+    /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+    struct VkSurfaceKHR;
+);
 
 cenum!(VkColorSpaceKHR: u32 {
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)

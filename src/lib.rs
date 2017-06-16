@@ -28,6 +28,9 @@ extern crate bitflags;
 #[macro_use]
 mod cenum;
 
+#[macro_use]
+mod handle;
+
 #[cfg(windows)]
 pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
 

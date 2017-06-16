@@ -37,7 +37,7 @@ impl Default for VkImportSemaphoreFdInfoKHX {
         VkImportSemaphoreFdInfoKHX  {
             sType: VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHX,
             pNext: ptr::null(),
-            semaphore: ptr::null_mut(),
+            semaphore: Default::default(),
             handleType: Default::default(),
             fd: Default::default(),
         }

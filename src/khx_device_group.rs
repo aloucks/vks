@@ -134,8 +134,8 @@ impl Default for VkBindBufferMemoryInfoKHX {
         VkBindBufferMemoryInfoKHX  {
             sType: VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX,
             pNext: ptr::null(),
-            buffer: ptr::null_mut(),
-            memory: ptr::null_mut(),
+            buffer: Default::default(),
+            memory: Default::default(),
             memoryOffset: Default::default(),
             deviceIndexCount: Default::default(),
             pDeviceIndices: ptr::null(),
@@ -164,8 +164,8 @@ impl Default for VkBindImageMemoryInfoKHX {
         VkBindImageMemoryInfoKHX  {
             sType: VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX,
             pNext: ptr::null(),
-            image: ptr::null_mut(),
-            memory: ptr::null_mut(),
+            image: Default::default(),
+            memory: Default::default(),
             memoryOffset: Default::default(),
             deviceIndexCount: Default::default(),
             pDeviceIndices: ptr::null(),
@@ -308,7 +308,7 @@ impl Default for VkImageSwapchainCreateInfoKHX {
         VkImageSwapchainCreateInfoKHX  {
             sType: VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX,
             pNext: ptr::null(),
-            swapchain: ptr::null_mut(),
+            swapchain: Default::default(),
         }
     }
 }
@@ -329,7 +329,7 @@ impl Default for VkBindImageMemorySwapchainInfoKHX {
         VkBindImageMemorySwapchainInfoKHX  {
             sType: VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX,
             pNext: ptr::null(),
-            swapchain: ptr::null_mut(),
+            swapchain: Default::default(),
             imageIndex: Default::default(),
         }
     }
@@ -354,10 +354,10 @@ impl Default for VkAcquireNextImageInfoKHX {
         VkAcquireNextImageInfoKHX  {
             sType: VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX,
             pNext: ptr::null(),
-            swapchain: ptr::null_mut(),
+            swapchain: Default::default(),
             timeout: Default::default(),
-            semaphore: ptr::null_mut(),
-            fence: ptr::null_mut(),
+            semaphore: Default::default(),
+            fence: Default::default(),
             deviceMask: Default::default(),
         }
     }

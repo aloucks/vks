@@ -35,7 +35,7 @@ impl Default for VkPhysicalDeviceSurfaceInfo2KHR {
         VkPhysicalDeviceSurfaceInfo2KHR  {
             sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR,
             pNext: ptr::null(),
-            surface: ptr::null_mut(),
+            surface: Default::default(),
         }
     }
 }

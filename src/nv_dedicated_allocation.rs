@@ -76,8 +76,8 @@ impl Default for VkDedicatedAllocationMemoryAllocateInfoNV {
         VkDedicatedAllocationMemoryAllocateInfoNV  {
             sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
-            image: ptr::null_mut(),
-            buffer: ptr::null_mut(),
+            image: Default::default(),
+            buffer: Default::default(),
         }
     }
 }

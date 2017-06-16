@@ -5,6 +5,11 @@
  * `InstanceProcAddrLoader` and `DeviceProcAddrLoader` can no longer be created outside of vks. This
    ensures they are used in a forward-compatible way. All extension sub-structs have been changed as
    well.
+ * Fixed a rather serious bug on 32-bit targets: non-dispatchable Vulkan objects are now represented
+   with a `u64` newtype. Before this change, vks used pointers as a representation, which is
+   incorrect on 32-bit platforms. This bug basically made vks completely unusable on such platforms.
+   Default (as in uninitialized) non-dispatchable objects must now be created via the `Default`
+   trait, instead of `std::ptr::null_mut()`.
 
 ## Version 0.17.0, released on 05.06.2017
 

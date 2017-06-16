@@ -37,7 +37,7 @@ impl Default for VkImportSemaphoreWin32HandleInfoKHX {
         VkImportSemaphoreWin32HandleInfoKHX  {
             sType: VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHX,
             pNext: ptr::null(),
-            semaphore: ptr::null_mut(),
+            semaphore: Default::default(),
             handleType: Default::default(),
             handle: ptr::null_mut(),
         }

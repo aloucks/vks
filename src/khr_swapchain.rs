@@ -25,14 +25,11 @@ pub const VK_KHR_SWAPCHAIN_SPEC_VERSION: u32 = 67;
 pub const VK_KHR_SWAPCHAIN_EXTENSION_NAME: &'static [u8; 17] = b"VK_KHR_swapchain\x00";
 pub const VK_KHR_SWAPCHAIN_EXTENSION_NAME_STR: &'static str = "VK_KHR_swapchain";
 
-/// See [`VkSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainKHR)
-/// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-#[repr(C)]
-pub struct VkSwapchainKHR_T(c_void);
-
-/// See [`VkSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainKHR)
-/// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-pub type VkSwapchainKHR = *mut VkSwapchainKHR_T;
+define_non_dispatchable_handle!(
+    /// See [`VkSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainKHR)
+    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+    struct VkSwapchainKHR;
+);
 
 bitflags! {
     /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
@@ -86,7 +83,7 @@ impl Default for VkSwapchainCreateInfoKHR {
             sType: VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
-            surface: ptr::null_mut(),
+            surface: Default::default(),
             minImageCount: Default::default(),
             imageFormat: Default::default(),
             imageColorSpace: Default::default(),
@@ -100,7 +97,7 @@ impl Default for VkSwapchainCreateInfoKHR {
             compositeAlpha: Default::default(),
             presentMode: Default::default(),
             clipped: Default::default(),
-            oldSwapchain: ptr::null_mut(),
+            oldSwapchain: Default::default(),
         }
     }
 }

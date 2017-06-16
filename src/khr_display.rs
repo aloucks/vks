@@ -20,23 +20,17 @@ pub const VK_KHR_DISPLAY_SPEC_VERSION: u32 = 21;
 pub const VK_KHR_DISPLAY_EXTENSION_NAME: &'static [u8; 15] = b"VK_KHR_display\x00";
 pub const VK_KHR_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_KHR_display";
 
-/// See [`VkDisplayKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayKHR)
-/// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-#[repr(C)]
-pub struct VkDisplayKHR_T(c_void);
+define_non_dispatchable_handle!(
+    /// See [`VkDisplayKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayKHR)
+    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+    struct VkDisplayKHR;
+);
 
-/// See [`VkDisplayKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayKHR)
-/// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-pub type VkDisplayKHR = *mut VkDisplayKHR_T;
-
-/// See [`VkDisplayModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeKHR)
-/// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-#[repr(C)]
-pub struct VkDisplayModeKHR_T(c_void);
-
-/// See [`VkDisplayModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeKHR)
-/// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-pub type VkDisplayModeKHR = *mut VkDisplayModeKHR_T;
+define_non_dispatchable_handle!(
+    /// See [`VkDisplayModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeKHR)
+    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+    struct VkDisplayModeKHR;
+);
 
 bitflags! {
     /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
@@ -111,7 +105,7 @@ pub struct VkDisplayPropertiesKHR {
 impl Default for VkDisplayPropertiesKHR {
     fn default() -> Self {
         VkDisplayPropertiesKHR  {
-            display: ptr::null_mut(),
+            display: Default::default(),
             displayName: ptr::null(),
             physicalDimensions: Default::default(),
             physicalResolution: Default::default(),
@@ -134,19 +128,10 @@ pub struct VkDisplayModeParametersKHR {
 /// See [`VkDisplayModePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModePropertiesKHR)
 /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDisplayModePropertiesKHR {
     pub displayMode: VkDisplayModeKHR,
     pub parameters: VkDisplayModeParametersKHR,
-}
-
-impl Default for VkDisplayModePropertiesKHR {
-    fn default() -> Self {
-        VkDisplayModePropertiesKHR  {
-            displayMode: ptr::null_mut(),
-            parameters: Default::default(),
-        }
-    }
 }
 
 /// See [`VkDisplayModeCreateInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeCreateInfoKHR)
@@ -190,19 +175,10 @@ pub struct VkDisplayPlaneCapabilitiesKHR {
 /// See [`VkDisplayPlanePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlanePropertiesKHR)
 /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct VkDisplayPlanePropertiesKHR {
     pub currentDisplay: VkDisplayKHR,
     pub currentStackIndex: u32,
-}
-
-impl Default for VkDisplayPlanePropertiesKHR {
-    fn default() -> Self {
-        VkDisplayPlanePropertiesKHR  {
-            currentDisplay: ptr::null_mut(),
-            currentStackIndex: Default::default(),
-        }
-    }
 }
 
 /// See [`VkDisplaySurfaceCreateInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplaySurfaceCreateInfoKHR)
@@ -228,7 +204,7 @@ impl Default for VkDisplaySurfaceCreateInfoKHR {
             sType: VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
-            displayMode: ptr::null_mut(),
+            displayMode: Default::default(),
             planeIndex: Default::default(),
             planeStackIndex: Default::default(),
             transform: Default::default(),
