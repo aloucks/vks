@@ -20,11 +20,11 @@ pub const VK_KHR_MIR_SURFACE_SPEC_VERSION: u32 = 4;
 pub const VK_KHR_MIR_SURFACE_EXTENSION_NAME: &'static [u8; 19] = b"VK_KHR_mir_surface\x00";
 pub const VK_KHR_MIR_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_mir_surface";
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkMirSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMirSurfaceCreateFlagsKHR)
     /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkMirSurfaceCreateFlagsKHR: u32 {
         const VK_MIR_SURFACE_CREATE_DUMMY = 0x00000000;
     }

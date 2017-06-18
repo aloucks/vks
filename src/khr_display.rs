@@ -32,11 +32,11 @@ define_non_dispatchable_handle!(
     struct VkDisplayModeKHR;
 );
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkDisplayPlaneAlphaFlagsKHR: u32 {
         /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
         /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
@@ -60,11 +60,11 @@ bitflags! {
 /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
 pub type VkDisplayPlaneAlphaFlagBitsKHR = VkDisplayPlaneAlphaFlagsKHR;
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkDisplayModeCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeCreateFlagsKHR)
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkDisplayModeCreateFlagsKHR: u32 {
         const VK_DISPLAY_MODE_CREATE_DUMMY_KHR = 0x00000000;
     }
@@ -74,11 +74,11 @@ bitflags! {
 /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
 pub type VkDisplayModeCreateFlagBitsKHR = VkDisplayModeCreateFlagsKHR ;
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkDisplaySurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplaySurfaceCreateFlagsKHR)
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkDisplaySurfaceCreateFlagsKHR: u32 {
         const VK_DISPLAY_SURFACE_CREATE_DUMMY_KHR = 0x00000000;
     }

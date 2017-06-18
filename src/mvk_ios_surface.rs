@@ -20,11 +20,11 @@ pub const VK_MVK_IOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_IOS_SURFACE_EXTENSION_NAME: &'static [u8; 19] = b"VK_MVK_ios_surface\x00";
 pub const VK_MVK_IOS_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_MVK_ios_surface";
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkIOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIOSSurfaceCreateFlagsMVK)
     /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkIOSSurfaceCreateFlagsMVK: u32 {
         const VK_IOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000;
     }

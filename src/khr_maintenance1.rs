@@ -18,11 +18,11 @@ pub const VK_KHR_MAINTENANCE1_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_MAINTENANCE1_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHR_maintenance1\x00";
 pub const VK_KHR_MAINTENANCE1_EXTENSION_NAME_STR: &'static str = "VK_KHR_maintenance1";
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkCommandPoolTrimFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolTrimFlagsKHR)
     /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkCommandPoolTrimFlagsKHR: u32 {
         const VK_COMMAND_POOL_TRIM_DUMMY_KHR = 0x00000000;
     }

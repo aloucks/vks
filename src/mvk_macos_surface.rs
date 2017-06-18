@@ -20,11 +20,11 @@ pub const VK_MVK_MACOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME: &'static [u8; 21] = b"VK_MVK_macos_surface\x00";
 pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_MVK_macos_surface";
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
     /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkMacOSSurfaceCreateFlagsMVK: u32 {
         const VK_MACOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000;
     }

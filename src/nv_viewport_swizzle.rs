@@ -54,11 +54,11 @@ cenum!(VkViewportCoordinateSwizzleNV: u32 {
     const VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV = 7,
 });
 
-bitflags! {
+vks_bitflags! {
     /// See [`VkPipelineViewportSwizzleStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineViewportSwizzleStateCreateFlagsNV)
     /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
-    #[repr(C)]
-    #[derive(Default)]
+    // #[repr(C)]
+    // #[derive(Default)]
     pub struct VkPipelineViewportSwizzleStateCreateFlagsNV: u32 {
         const VK_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_DUMMY_NV = 0x00000000;
     }

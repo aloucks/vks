@@ -22,9 +22,6 @@
 
 extern crate libc;
 
-#[cfg_attr(feature = "core_1_0_3", macro_use)]
-extern crate bitflags;
-
 #[macro_use]
 mod cenum;
 
