@@ -29,6 +29,9 @@ extern crate bitflags;
 mod cenum;
 
 #[macro_use]
+mod vks_bitflags;
+
+#[macro_use]
 mod handle;
 
 #[cfg(windows)]
