@@ -20,11 +20,11 @@ macro_rules! define_handle {
         $(#[$attr_opaque:meta])*
         struct $opaque:ident;
     ) => (
-        $( #[$attr_opaque] )*
+        $(#[$attr_opaque])*
         #[repr(C)]
         pub struct $opaque(::libc::c_void);
 
-        $( #[$attr_name] )*
+        $(#[$attr_name])*
         pub type $name = *mut $opaque;
     )
 }
@@ -34,26 +34,7 @@ macro_rules! define_non_dispatchable_handle {
         $(#[$attr:meta])*
         struct $name:ident;
     ) => (
-        $( #[$attr] )*
-        #[repr(C)]
-        #[derive(Debug, Copy, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
-        pub struct $name(u64);
-
-        impl $name {
-            #[inline]
-            pub fn null() -> Self {
-                Default::default()
-            }
-
-            #[inline]
-            pub fn is_null(&self) -> bool {
-                self.0 == 0
-            }
-
-            #[inline]
-            pub fn id(&self) -> u64 {
-                self.0
-            }
-        }
+        $(#[$attr])*
+        pub type $name = u64;
     )
 }
