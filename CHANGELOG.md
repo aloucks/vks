@@ -1,5 +1,10 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * Non-dispatchable Vulkan objects, bitflags and enumerations are no longer newtypes. See issue
+   #111.
+
 ## Version 0.18.0, released on 16.06.2017
 
  * `InstanceProcAddrLoader` and `DeviceProcAddrLoader` can no longer be created outside of vks. This
