@@ -13,52 +13,21 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 macro_rules! cenum {
-    ($name:ident: $ty:ty { $( $(#[$cond:meta])* const $symbol:ident = $value:expr,)* }) => (
-        #[repr(C)]
-        #[derive(Default, Copy, Clone, PartialEq, Eq, Hash)]
-        pub struct $name($ty);
-
-        impl $name {
-            pub fn from_raw(v: $ty) -> Self {
-                $name(v)
-            }
-
-            pub fn as_raw(&self) -> $ty {
-                self.0
-            }
+    (
+        $(#[$attr:meta])*
+        $name:ident: $ty:ty {
+            $(
+                $(#[$symbol_attr:meta])*
+                const $symbol:ident = $value:expr,
+            )*
         }
+    ) => (
+        $(#[$attr])*
+        pub type $name = $ty;
 
         $(
-            $(#[$cond])*
-            pub const $symbol: $name = $name($value);
+            $(#[$symbol_attr])*
+            pub const $symbol: $name = $value;
         )*
-
-        #[allow(unused_mut)]
-        impl ::std::fmt::Debug for $name {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-                write!(f, concat!(stringify!($name), "({} = "), self.0)?;
-                let mut first = true;
-
-                $(
-                    $(#[$cond])*
-                    {
-                        if self.0 == $value {
-                            if !first {
-                                write!(f, ", ")?;
-                            }
-
-                            write!(f, stringify!($symbol))?;
-                            first = false;
-                        }
-                    }
-                )*
-
-                if first {
-                    write!(f, "<unknown>")?;
-                }
-
-                write!(f, ")")
-            }
-        }
     )
 }
