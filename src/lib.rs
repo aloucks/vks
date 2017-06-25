@@ -17,7 +17,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
-#![cfg_attr(feature = "unstable_rust", feature(struct_field_attributes))]
 #![cfg_attr(feature = "unstable_rust", feature(untagged_unions))]
 
 extern crate libc;
