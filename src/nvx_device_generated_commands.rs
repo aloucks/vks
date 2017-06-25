@@ -96,6 +96,10 @@ vks_bitflags! {
     pub struct VkIndirectCommandsLayoutUsageFlagsNVX: u32 {
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
         /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
+        const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_FLAG_BITS_MAX_ENUM_NVX = 0x7fffffff;
+
+        /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
+        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x00000001;
 
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
@@ -122,6 +126,10 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkObjectEntryUsageFlagsNVX: u32 {
+        /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
+        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
+        const VK_OBJECT_ENTRY_USAGE_FLAG_BITS_MAX_ENUM_NVX = 0x7fffffff;
+
         /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
         /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x00000001;

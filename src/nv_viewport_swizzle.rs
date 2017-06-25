@@ -60,7 +60,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkPipelineViewportSwizzleStateCreateFlagsNV: u32 {
-        const VK_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_DUMMY_NV = 0x00000000;
+        /// See [`VkPipelineViewportSwizzleStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineViewportSwizzleStateCreateFlagsNV)
+        /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
+        const VK_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_FLAG_BITS_MAX_ENUM_NV = 0x7fffffff;
     }
 }
 

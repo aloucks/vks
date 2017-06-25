@@ -42,7 +42,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkDescriptorUpdateTemplateCreateFlagsKHR: u32 {
-        const VK_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_DUMMY_KHR = 0x00000000;
+        /// See [`VkDescriptorUpdateTemplateCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateCreateFlagsKHR)
+        /// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
+        const VK_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

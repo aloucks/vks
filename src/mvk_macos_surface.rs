@@ -26,7 +26,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkMacOSSurfaceCreateFlagsMVK: u32 {
-        const VK_MACOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000;
+        /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
+        /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
+        const VK_MAC_OS_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_MVK = 0x7fffffff;
     }
 }
 

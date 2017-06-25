@@ -24,7 +24,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkCommandPoolTrimFlagsKHR: u32 {
-        const VK_COMMAND_POOL_TRIM_DUMMY_KHR = 0x00000000;
+        /// See [`VkCommandPoolTrimFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolTrimFlagsKHR)
+        /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
+        const VK_COMMAND_POOL_TRIM_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

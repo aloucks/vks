@@ -28,6 +28,10 @@ vks_bitflags! {
     pub struct VkExternalSemaphoreHandleTypeFlagsKHX: u32 {
         /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
+        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FLAG_BITS_MAX_ENUM_KHX = 0x7fffffff;
+
+        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
+        /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001;
 
         /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHX)
@@ -58,6 +62,10 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkExternalSemaphoreFeatureFlagsKHX: u32 {
+        /// See [`VkExternalSemaphoreFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHX)
+        /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
+        const VK_EXTERNAL_SEMAPHORE_FEATURE_FLAG_BITS_MAX_ENUM_KHX = 0x7fffffff;
+
         /// See [`VkExternalSemaphoreFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
         const VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHX = 0x00000001;

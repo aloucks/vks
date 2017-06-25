@@ -26,7 +26,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkIOSSurfaceCreateFlagsMVK: u32 {
-        const VK_IOS_SURFACE_CREATE_DUMMY_MVK = 0x00000000;
+        /// See [`VkIOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIOSSurfaceCreateFlagsMVK)
+        /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
+        const VK_IOS_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_MVK = 0x7fffffff;
     }
 }
 

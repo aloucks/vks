@@ -31,7 +31,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkWaylandSurfaceCreateFlagsKHR: u32 {
-        const VK_WAYLAND_SURFACE_CREATE_DUMMY = 0x00000000;
+        /// See [`VkWaylandSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWaylandSurfaceCreateFlagsKHR)
+        /// and extension [`VK_KHR_wayland_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_wayland_surface)
+        const VK_WAYLAND_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

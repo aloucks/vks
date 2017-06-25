@@ -151,6 +151,10 @@ vks_bitflags! {
     pub struct VkSurfaceTransformFlagsKHR: u32 {
         /// See [`VkSurfaceTransformFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceTransformFlagBitsKHR)
         /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+        const VK_SURFACE_TRANSFORM_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+
+        /// See [`VkSurfaceTransformFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceTransformFlagBitsKHR)
+        /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
         const VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR = 0x00000001;
 
         /// See [`VkSurfaceTransformFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceTransformFlagBitsKHR)
@@ -197,6 +201,10 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkCompositeAlphaFlagsKHR: u32 {
+        /// See [`VkCompositeAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompositeAlphaFlagBitsKHR)
+        /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+        const VK_COMPOSITE_ALPHA_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+
         /// See [`VkCompositeAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompositeAlphaFlagBitsKHR)
         /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
         const VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR = 0x00000001;

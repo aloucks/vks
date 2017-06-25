@@ -28,6 +28,10 @@ vks_bitflags! {
     pub struct VkSurfaceCounterFlagsEXT: u32 {
         /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
         /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
+        const VK_SURFACE_COUNTER_FLAG_BITS_MAX_ENUM_EXT = 0x7fffffff;
+
+        /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
+        /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
         const VK_SURFACE_COUNTER_VBLANK_EXT = 0x00000001;
     }
 }

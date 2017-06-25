@@ -26,7 +26,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkViSurfaceCreateFlagsNN: u32 {
-        const VK_VI_SURFACE_CREATE_DUMMY_NN = 0x00000000;
+        /// See [`VkViSurfaceCreateFlagsNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateFlagsNN)
+        /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
+        const VK_VI_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_NN = 0x7fffffff;
     }
 }
 

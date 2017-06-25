@@ -26,7 +26,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkMirSurfaceCreateFlagsKHR: u32 {
-        const VK_MIR_SURFACE_CREATE_DUMMY = 0x00000000;
+        /// See [`VkMirSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMirSurfaceCreateFlagsKHR)
+        /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
+        const VK_MIR_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

@@ -26,7 +26,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkAndroidSurfaceCreateFlagsKHR: u32 {
-        const VK_ANDROID_SURFACE_CREATE_DUMMY = 0x00000000;
+        /// See [`VkAndroidSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAndroidSurfaceCreateFlagsKHR)
+        /// and extension [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
+        const VK_ANDROID_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

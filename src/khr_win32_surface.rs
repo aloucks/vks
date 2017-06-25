@@ -31,7 +31,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkWin32SurfaceCreateFlagsKHR: u32 {
-        const VK_WIN32_SURFACE_CREATE_DUMMY = 0x00000000;
+        /// See [`VkWin32SurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWin32SurfaceCreateFlagsKHR)
+        /// and extension [`VK_KHR_win32_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_win32_surface)
+        const VK_WIN32_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

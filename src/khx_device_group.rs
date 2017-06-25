@@ -29,6 +29,10 @@ vks_bitflags! {
     pub struct VkPeerMemoryFeatureFlagsKHX: u32 {
         /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
+        const VK_PEER_MEMORY_FEATURE_FLAG_BITS_MAX_ENUM_KHX = 0x7fffffff;
+
+        /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
+        /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX = 0x00000001;
 
         /// See [`VkPeerMemoryFeatureFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPeerMemoryFeatureFlagBitsKHX)
@@ -57,6 +61,10 @@ vks_bitflags! {
     pub struct VkMemoryAllocateFlagsKHX: u32 {
         /// See [`VkMemoryAllocateFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
+        const VK_MEMORY_ALLOCATE_FLAG_BITS_MAX_ENUM_KHX = 0x7fffffff;
+
+        /// See [`VkMemoryAllocateFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryAllocateFlagBitsKHX)
+        /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX = 0x00000001;
     }
 }
@@ -71,6 +79,10 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkDeviceGroupPresentModeFlagsKHX: u32 {
+        /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
+        /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
+        const VK_DEVICE_GROUP_PRESENT_MODE_FLAG_BITS_MAX_ENUM_KHX = 0x7fffffff;
+
         /// See [`VkDeviceGroupPresentModeFlagBitsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGroupPresentModeFlagBitsKHX)
         /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
         const VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX = 0x00000001;

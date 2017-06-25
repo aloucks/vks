@@ -36,7 +36,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkPipelineDiscardRectangleStateCreateFlagsEXT: u32 {
-        const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_DUMMY_EXT = 0x00000000;
+        /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
+        /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
+        const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_FLAG_BITS_MAX_ENUM_EXT = 0x7fffffff;
     }
 }
 

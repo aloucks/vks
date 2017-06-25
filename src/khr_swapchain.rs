@@ -37,8 +37,9 @@ vks_bitflags! {
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkSwapchainCreateFlagsKHR: u32 {
-        #[cfg(not(feature = "khx_device_group_1"))]
-        const VK_SWAPCHAIN_CREATE_DUMMY_KHR = 0x00000000;
+        /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
+        /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const VK_SWAPCHAIN_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
 
         #[cfg(feature = "khx_device_group_1")]
         /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
