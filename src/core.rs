@@ -980,6 +980,11 @@ cenum!(VkStructureType: u32 {
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
     const VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT = 1000148002,
+
+    #[cfg(feature = "nv_fragment_coverage_to_color_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_NV_fragment_coverage_to_color`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fragment_coverage_to_color)
+    const VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV = 1000149000,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
