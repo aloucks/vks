@@ -172,6 +172,7 @@ Every version in between is supported as well.
 | `VK_AMD_draw_indirect_count` | 1 |
 | `VK_AMD_gcn_shader` | 1 |
 | `VK_AMD_gpu_shader_half_float` | 1 |
+| `VK_AMD_gpu_shader_int16` | 1 |
 | `VK_AMD_negative_viewport_height` | 1 |
 | `VK_AMD_rasterization_order` | 1 |
 | `VK_AMD_shader_ballot` | 1 |

@@ -4,6 +4,7 @@
 
  * Vulkan 1.0.53
  * Add extension `VK_EXT_sampler_filter_minmax` (revision 1)
+ * Add extension `VK_AMD_gpu_shader_int16` (revision 1)
 
 ## Version 0.19.0, released on 25.06.2017
 
