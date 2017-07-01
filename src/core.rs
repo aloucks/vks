@@ -965,6 +965,21 @@ cenum!(VkStructureType: u32 {
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
     const VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT = 1000130001,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT = 1000148000,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT = 1000148001,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT = 1000148002,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
@@ -1964,6 +1979,236 @@ cenum!(VkBlendOp: u32 {
 
     /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
     const VK_BLEND_OP_MAX = 4,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_ZERO_EXT = 1000148000,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SRC_EXT = 1000148001,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DST_EXT = 1000148002,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SRC_OVER_EXT = 1000148003,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DST_OVER_EXT = 1000148004,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SRC_IN_EXT = 1000148005,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DST_IN_EXT = 1000148006,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SRC_OUT_EXT = 1000148007,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DST_OUT_EXT = 1000148008,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SRC_ATOP_EXT = 1000148009,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DST_ATOP_EXT = 1000148010,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_XOR_EXT = 1000148011,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_MULTIPLY_EXT = 1000148012,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SCREEN_EXT = 1000148013,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_OVERLAY_EXT = 1000148014,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DARKEN_EXT = 1000148015,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_LIGHTEN_EXT = 1000148016,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_COLORDODGE_EXT = 1000148017,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_COLORBURN_EXT = 1000148018,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_HARDLIGHT_EXT = 1000148019,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_SOFTLIGHT_EXT = 1000148020,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_DIFFERENCE_EXT = 1000148021,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_EXCLUSION_EXT = 1000148022,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_INVERT_EXT = 1000148023,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_INVERT_RGB_EXT = 1000148024,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_LINEARDODGE_EXT = 1000148025,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_LINEARBURN_EXT = 1000148026,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_VIVIDLIGHT_EXT = 1000148027,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_LINEARLIGHT_EXT = 1000148028,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_PINLIGHT_EXT = 1000148029,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_HARDMIX_EXT = 1000148030,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_HSL_HUE_EXT = 1000148031,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_HSL_SATURATION_EXT = 1000148032,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_HSL_COLOR_EXT = 1000148033,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_HSL_LUMINOSITY_EXT = 1000148034,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_PLUS_EXT = 1000148035,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_PLUS_CLAMPED_EXT = 1000148036,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_PLUS_CLAMPED_ALPHA_EXT = 1000148037,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_PLUS_DARKER_EXT = 1000148038,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_MINUS_EXT = 1000148039,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_MINUS_CLAMPED_EXT = 1000148040,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_CONTRAST_EXT = 1000148041,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_INVERT_OVG_EXT = 1000148042,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_RED_EXT = 1000148043,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_GREEN_EXT = 1000148044,
+
+    #[cfg(feature = "ext_blend_operation_advanced_2")]
+    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
+    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+    const VK_BLEND_OP_BLUE_EXT = 1000148045,
 });
 
 cenum!(VkDynamicState: u32 {
@@ -3407,6 +3652,11 @@ vks_bitflags! {
         /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
         /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX = 0x00040000;
+
+        #[cfg(feature = "ext_blend_operation_advanced_2")]
+        /// See [`VkAccessFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAccessFlagBits)
+        /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const VK_ACCESS_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT = 0x00080000;
     }
 }
 

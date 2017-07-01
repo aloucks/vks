@@ -28,7 +28,8 @@ default = [ "vk_1_0_53" ]
 unstable_rust = [ ]
 no_function_prototypes = [ ]
 
-vk_1_0_53 = [ "vk_1_0_51", "core_1_0_53", "ext_sampler_filter_minmax_1", "amd_gpu_shader_int16_1" ]
+vk_1_0_53 = [ "vk_1_0_51", "core_1_0_53", "ext_sampler_filter_minmax_1", "amd_gpu_shader_int16_1",
+              "ext_blend_operation_advanced_2" ]
 
 vk_1_0_51 = [ "vk_1_0_50", "core_1_0_51", "khr_win32_surface_6" ]
 
@@ -435,3 +436,6 @@ ext_sampler_filter_minmax_1 = [ "core_1_0_3", "khr_get_physical_device_propertie
 
 amd_gpu_shader_int16 = [ "amd_gpu_shader_int16_1" ]
 amd_gpu_shader_int16_1 = [ "core_1_0_3" ]
+
+ext_blend_operation_advanced = [ "ext_blend_operation_advanced_2" ]
+ext_blend_operation_advanced_2 = [ "core_1_0_3" ]
