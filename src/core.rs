@@ -955,6 +955,16 @@ cenum!(VkStructureType: u32 {
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
     const VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK = 1000123000,
+
+    #[cfg(feature = "ext_sampler_filter_minmax_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT = 1000130000,
+
+    #[cfg(feature = "ext_sampler_filter_minmax_1")]
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
+    const VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT = 1000130001,
 });
 
 cenum!(VkSystemAllocationScope: u32 {
@@ -2337,6 +2347,11 @@ vks_bitflags! {
         /// See [`VkFormatFeatureFlagBits`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormatFeatureFlagBits)
         /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
         const VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR = 0x00008000;
+
+        #[cfg(feature = "ext_sampler_filter_minmax_1")]
+        /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+        /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
+        const VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT = 0x00010000;
     }
 }
 
