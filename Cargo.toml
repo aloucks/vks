@@ -30,7 +30,7 @@ no_function_prototypes = [ ]
 
 vk_1_0_53 = [ "vk_1_0_51", "core_1_0_53", "ext_sampler_filter_minmax_1", "amd_gpu_shader_int16_1",
               "ext_blend_operation_advanced_2", "nv_fragment_coverage_to_color_1",
-              "nv_framebuffer_mixed_samples_1" ]
+              "nv_framebuffer_mixed_samples_1", "nv_fill_rectangle_1" ]
 
 vk_1_0_51 = [ "vk_1_0_50", "core_1_0_51", "khr_win32_surface_6" ]
 
@@ -446,3 +446,6 @@ nv_fragment_coverage_to_color_1 = [ "core_1_0_3" ]
 
 nv_framebuffer_mixed_samples = [ "nv_framebuffer_mixed_samples_1" ]
 nv_framebuffer_mixed_samples_1 = [ "core_1_0_3" ]
+
+nv_fill_rectangle = [ "nv_fill_rectangle_1" ]
+nv_fill_rectangle_1 = [ "core_1_0_3" ]

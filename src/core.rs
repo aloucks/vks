@@ -1803,6 +1803,11 @@ cenum!(VkPolygonMode: u32 {
 
     /// See [`VkPolygonMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPolygonMode)
     const VK_POLYGON_MODE_POINT = 2,
+
+    #[cfg(feature = "nv_fill_rectangle_1")]
+    /// See [`VkPolygonMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPolygonMode)
+    /// and extension [`VK_NV_fill_rectangle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fill_rectangle)
+    const VK_POLYGON_MODE_FILL_RECTANGLE_NV = 1000153000,
 });
 
 cenum!(VkFrontFace: u32 {
