@@ -1,5 +1,9 @@
 # vks Changelog
 
+## Current Git master branch
+
+ * Vulkan 1.0.53
+
 ## Version 0.19.0, released on 25.06.2017
 
  * Non-dispatchable Vulkan objects, bitflags and enumerations are no longer newtypes. See issue

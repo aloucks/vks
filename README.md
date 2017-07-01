@@ -7,7 +7,7 @@ library completely unusable on such platforms. See issue #111 for more informati
 
 Vulkan FFI bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.51 + all extensions
+Latest supported Vulkan specification: 1.0.53 + all extensions
 
 If you are looking for a safe and more Rust-like interface, checkout the [dacite] project.
 
@@ -91,10 +91,12 @@ function pointers. The exact set of function pointers depends on the enabled Car
 
 ## Supported Vulkan Specifications
 
- * Latest: 1.0.51
+ * Latest: 1.0.53
  * Earliest: 1.0.3
 
 Every version in between is supported as well.
+
+ * Version 1.0.52 has not been released publicly and is also not supported by vks.
 
 ## Supported Extensions
 
