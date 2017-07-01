@@ -1,6 +1,6 @@
 # vks Changelog
 
-## Current Git master branch
+## Version 0.19.1, released on 01.07.2017
 
  * Vulkan 1.0.53
  * Add extension `VK_EXT_sampler_filter_minmax` (revision 1)
