@@ -1,8 +1,5 @@
 # vks
 
-**Caution**: Don't use this library on i686 platforms. There is a bug in vks, which makes this
-library completely unusable on such platforms. See issue #111 for more information.
-
 [![build status](https://gitlab.com/dennis-hamester/vks/badges/master/build.svg)](https://gitlab.com/dennis-hamester/vks)
 
 Vulkan FFI bindings and symbol loader for Rust
