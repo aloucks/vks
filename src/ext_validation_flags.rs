@@ -31,7 +31,7 @@ cenum!(VkValidationCheckEXT: u32 {
     const VK_VALIDATION_CHECK_SHADERS_EXT = 1,
 });
 
-/// See [`VkValidationFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationFlagBitsEXT)
+/// See [`VkValidationFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationFlagsEXT)
 /// and extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
