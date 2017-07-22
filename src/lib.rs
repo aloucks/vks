@@ -17,7 +17,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
-#![cfg_attr(feature = "unstable_rust", feature(untagged_unions))]
 
 extern crate libc;
 
@@ -31,9 +30,6 @@ mod handle;
 
 #[macro_use]
 mod vks_bitflags;
-
-#[cfg(not(feature = "unstable_rust"))]
-pub mod union_field;
 
 // pub mod instance_proc_addr_loader;
 // pub use instance_proc_addr_loader::InstanceProcAddrLoader;

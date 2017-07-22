@@ -19,9 +19,6 @@ use std::fmt;
 use std::mem;
 use std::ptr;
 
-#[cfg(not(feature = "unstable_rust"))]
-use union_field::VkSysUnionField;
-
 /// See [`VkBool32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBool32)
 pub type VkBool32 = u32;
 
@@ -5826,7 +5823,6 @@ pub struct VkBufferImageCopy {
     pub imageExtent: VkExtent3D,
 }
 
-#[cfg(feature = "unstable_rust")]
 /// See [`VkClearColorValue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkClearColorValue)
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -5836,12 +5832,11 @@ pub union VkClearColorValue {
     pub uint32: [u32; 4],
 }
 
-#[cfg(feature = "unstable_rust")]
 impl fmt::Debug for VkClearColorValue {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         unsafe {
             f.debug_struct("VkClearColorValue")
-                .field("float32", &self.float32)
+                .field("float32", &"not shown")
                 .field("int32", &self.int32)
                 .field("uint32", &self.uint32)
                 .finish()
@@ -5849,43 +5844,10 @@ impl fmt::Debug for VkClearColorValue {
     }
 }
 
-#[cfg(feature = "unstable_rust")]
 impl Default for VkClearColorValue {
     fn default() -> Self {
         VkClearColorValue {
             uint32: Default::default(),
-        }
-    }
-}
-
-#[cfg(not(feature = "unstable_rust"))]
-/// See [`VkClearColorValue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkClearColorValue)
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct VkClearColorValue {
-    pub float32: VkSysUnionField<[f32; 4usize]>,
-    pub int32: VkSysUnionField<[i32; 4usize]>,
-    pub uint32: VkSysUnionField<[u32; 4usize]>,
-    pub vks_union_field: [u32; 4usize],
-}
-
-#[cfg(not(feature = "unstable_rust"))]
-impl fmt::Debug for VkClearColorValue {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        f.debug_struct("VkClearColorValue")
-            .field("vks_union_field", &self.vks_union_field)
-            .finish()
-    }
-}
-
-#[cfg(not(feature = "unstable_rust"))]
-impl Default for VkClearColorValue {
-    fn default() -> Self {
-        VkClearColorValue {
-            float32: VkSysUnionField::new(),
-            int32: VkSysUnionField::new(),
-            uint32: VkSysUnionField::new(),
-            vks_union_field: Default::default(),
         }
     }
 }
@@ -5898,7 +5860,6 @@ pub struct VkClearDepthStencilValue {
     pub stencil: u32,
 }
 
-#[cfg(feature = "unstable_rust")]
 /// See [`VkClearValue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkClearValue)
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -5907,7 +5868,6 @@ pub union VkClearValue {
     pub depthStencil: VkClearDepthStencilValue,
 }
 
-#[cfg(feature = "unstable_rust")]
 impl fmt::Debug for VkClearValue {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         unsafe {
@@ -5919,41 +5879,10 @@ impl fmt::Debug for VkClearValue {
     }
 }
 
-#[cfg(feature = "unstable_rust")]
 impl Default for VkClearValue {
     fn default() -> Self {
         VkClearValue {
             color: Default::default(),
-        }
-    }
-}
-
-#[cfg(not(feature = "unstable_rust"))]
-/// See [`VkClearValue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkClearValue)
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct VkClearValue {
-    pub color: VkSysUnionField<VkClearColorValue>,
-    pub depthStencil: VkSysUnionField<VkClearDepthStencilValue>,
-    pub vks_union_field: [u32; 4usize],
-}
-
-#[cfg(not(feature = "unstable_rust"))]
-impl fmt::Debug for VkClearValue {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        f.debug_struct("VkClearValue")
-            .field("vks_union_field", &self.vks_union_field)
-            .finish()
-    }
-}
-
-#[cfg(not(feature = "unstable_rust"))]
-impl Default for VkClearValue {
-    fn default() -> Self {
-        VkClearValue {
-            color: VkSysUnionField::new(),
-            depthStencil: VkSysUnionField::new(),
-            vks_union_field: Default::default(),
         }
     }
 }
