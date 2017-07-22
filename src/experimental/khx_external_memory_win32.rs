@@ -14,11 +14,11 @@
 
 //! [`VK_KHX_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_win32)
 
-use ::*;
 use core;
 use experimental::khx_external_memory_capabilities;
 use libc::c_void;
 use std::ptr;
+use win32_types;
 
 pub const VK_KHX_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_external_memory_win32\x00";
@@ -31,7 +31,7 @@ pub struct VkImportMemoryWin32HandleInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX,
-    pub handle: win32_wrapper::HANDLE,
+    pub handle: win32_types::HANDLE,
 }
 
 impl Default for VkImportMemoryWin32HandleInfoKHX {
@@ -51,9 +51,9 @@ impl Default for VkImportMemoryWin32HandleInfoKHX {
 pub struct VkExportMemoryWin32HandleInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub pAttributes: *const win32_wrapper::SECURITY_ATTRIBUTES,
-    pub dwAccess: win32_wrapper::DWORD,
-    pub name: win32_wrapper::LPCWSTR,
+    pub pAttributes: *const win32_types::SECURITY_ATTRIBUTES,
+    pub dwAccess: win32_types::DWORD,
+    pub name: win32_types::LPCWSTR,
 }
 
 impl Default for VkExportMemoryWin32HandleInfoKHX {
@@ -88,16 +88,16 @@ impl Default for VkMemoryWin32HandlePropertiesKHX {
 }
 
 /// See [`vkGetMemoryWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHX)
-pub type PFN_vkGetMemoryWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
+pub type PFN_vkGetMemoryWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
 
 /// See [`vkGetMemoryWin32HandlePropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHX)
-pub type PFN_vkGetMemoryWin32HandlePropertiesKHX = unsafe extern "system" fn(device: core::VkDevice, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, handle: win32_wrapper::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHX) -> core::VkResult;
+pub type PFN_vkGetMemoryWin32HandlePropertiesKHX = unsafe extern "system" fn(device: core::VkDevice, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHX) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetMemoryWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHX)
-    pub fn vkGetMemoryWin32HandleKHX(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
+    pub fn vkGetMemoryWin32HandleKHX(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
 
     /// See [`vkGetMemoryWin32HandlePropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHX)
-    pub fn vkGetMemoryWin32HandlePropertiesKHX(device: core::VkDevice, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, handle: win32_wrapper::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHX) -> core::VkResult;
+    pub fn vkGetMemoryWin32HandlePropertiesKHX(device: core::VkDevice, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHX) -> core::VkResult;
 }

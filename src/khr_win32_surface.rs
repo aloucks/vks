@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_win32_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_win32_surface)
 
-use ::*;
 use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use win32_types;
 
 pub const VK_KHR_WIN32_SURFACE_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_WIN32_SURFACE_EXTENSION_NAME: &'static [u8; 21] = b"VK_KHR_win32_surface\x00";
@@ -44,8 +44,8 @@ pub struct VkWin32SurfaceCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkWin32SurfaceCreateFlagsKHR,
-    pub hinstance: win32_wrapper::HINSTANCE,
-    pub hwnd: win32_wrapper::HWND,
+    pub hinstance: win32_types::HINSTANCE,
+    pub hwnd: win32_types::HWND,
 }
 
 impl Default for VkWin32SurfaceCreateInfoKHR {

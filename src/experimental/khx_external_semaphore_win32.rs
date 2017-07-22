@@ -14,11 +14,11 @@
 
 //! [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
 
-use ::*;
 use core;
 use experimental::khx_external_semaphore_capabilities;
 use libc::c_void;
 use std::ptr;
+use win32_types;
 
 pub const VK_KHX_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME: &'static [u8; 32] = b"VK_KHX_external_semaphore_win32\x00";
@@ -32,7 +32,7 @@ pub struct VkImportSemaphoreWin32HandleInfoKHX {
     pub pNext: *const c_void,
     pub semaphore: core::VkSemaphore,
     pub handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagsKHX,
-    pub handle: win32_wrapper::HANDLE,
+    pub handle: win32_types::HANDLE,
 }
 
 impl Default for VkImportSemaphoreWin32HandleInfoKHX {
@@ -53,9 +53,9 @@ impl Default for VkImportSemaphoreWin32HandleInfoKHX {
 pub struct VkExportSemaphoreWin32HandleInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub pAttributes: *const win32_wrapper::SECURITY_ATTRIBUTES,
-    pub dwAccess: win32_wrapper::DWORD,
-    pub name: win32_wrapper::LPCWSTR,
+    pub pAttributes: *const win32_types::SECURITY_ATTRIBUTES,
+    pub dwAccess: win32_types::DWORD,
+    pub name: win32_types::LPCWSTR,
 }
 
 impl Default for VkExportSemaphoreWin32HandleInfoKHX {
@@ -99,7 +99,7 @@ impl Default for VkD3D12FenceSubmitInfoKHX {
 pub type PFN_vkImportSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHX) -> core::VkResult;
 
 /// See [`vkGetSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHX)
-pub type PFN_vkGetSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
+pub type PFN_vkGetSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
@@ -107,5 +107,5 @@ extern "system" {
     pub fn vkImportSemaphoreWin32HandleKHX(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHX) -> core::VkResult;
 
     /// See [`vkGetSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHX)
-    pub fn vkGetSemaphoreWin32HandleKHX(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
+    pub fn vkGetSemaphoreWin32HandleKHX(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
 }

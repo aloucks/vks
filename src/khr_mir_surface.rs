@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
 
-use ::*;
 use core;
 use khr_surface;
 use libc::c_void;
+use mir_types;
 use std::ptr;
 
 pub const VK_KHR_MIR_SURFACE_SPEC_VERSION: u32 = 4;
@@ -44,8 +44,8 @@ pub struct VkMirSurfaceCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkMirSurfaceCreateFlagsKHR,
-    pub connection: *mut mir_wrapper::MirConnection,
-    pub mirSurface: *mut mir_wrapper::MirSurface,
+    pub connection: *mut mir_types::MirConnection,
+    pub mirSurface: *mut mir_types::MirSurface,
 }
 
 impl Default for VkMirSurfaceCreateInfoKHR {
@@ -64,7 +64,7 @@ impl Default for VkMirSurfaceCreateInfoKHR {
 pub type PFN_vkCreateMirSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceMirPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceMirPresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceMirPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_wrapper::MirConnection) -> core::VkBool32;
+pub type PFN_vkGetPhysicalDeviceMirPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_types::MirConnection) -> core::VkBool32;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
@@ -72,5 +72,5 @@ extern "system" {
     pub fn vkCreateMirSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceMirPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceMirPresentationSupportKHR)
-    pub fn vkGetPhysicalDeviceMirPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_wrapper::MirConnection) -> core::VkBool32;
+    pub fn vkGetPhysicalDeviceMirPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_types::MirConnection) -> core::VkBool32;
 }

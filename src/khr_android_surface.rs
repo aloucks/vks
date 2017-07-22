@@ -14,7 +14,7 @@
 
 //! [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
 
-use ::*;
+use android_types;
 use core;
 use khr_surface;
 use libc::c_void;
@@ -44,7 +44,7 @@ pub struct VkAndroidSurfaceCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkAndroidSurfaceCreateFlagsKHR,
-    pub window: *mut android_wrapper::ANativeWindow,
+    pub window: *mut android_types::ANativeWindow,
 }
 
 impl Default for VkAndroidSurfaceCreateInfoKHR {

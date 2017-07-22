@@ -105,12 +105,12 @@ pub mod nv_viewport_array2;
 pub mod nv_viewport_swizzle;
 pub mod nv_win32_keyed_mutex;
 
-pub mod android_wrapper;
-pub mod mir_wrapper;
-pub mod wayland_wrapper;
-pub mod win32_wrapper;
-pub mod xcb_wrapper;
-pub mod xlib_wrapper;
+pub mod android_types;
+pub mod mir_types;
+pub mod wayland_types;
+pub mod win32_types;
+pub mod xcb_types;
+pub mod xlib_types;
 
 #[cfg(feature = "experimental")]
 pub mod experimental;

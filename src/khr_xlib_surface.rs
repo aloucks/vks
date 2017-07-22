@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
 
-use ::*;
 use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use xlib_types;
 
 pub const VK_KHR_XLIB_SURFACE_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_XLIB_SURFACE_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHR_xlib_surface\x00";
@@ -44,8 +44,8 @@ pub struct VkXlibSurfaceCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkXlibSurfaceCreateFlagsKHR,
-    pub dpy: *mut xlib_wrapper::Display,
-    pub window: xlib_wrapper::Window,
+    pub dpy: *mut xlib_types::Display,
+    pub window: xlib_types::Window,
 }
 
 impl Default for VkXlibSurfaceCreateInfoKHR {
@@ -64,7 +64,7 @@ impl Default for VkXlibSurfaceCreateInfoKHR {
 pub type PFN_vkCreateXlibSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXlibPresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_wrapper::Display, visualID: xlib_wrapper::VisualID) -> core::VkBool32;
+pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_types::Display, visualID: xlib_types::VisualID) -> core::VkBool32;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
@@ -72,5 +72,5 @@ extern "system" {
     pub fn vkCreateXlibSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXlibPresentationSupportKHR)
-    pub fn vkGetPhysicalDeviceXlibPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_wrapper::Display, visualID: xlib_wrapper::VisualID) -> core::VkBool32;
+    pub fn vkGetPhysicalDeviceXlibPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_types::Display, visualID: xlib_types::VisualID) -> core::VkBool32;
 }

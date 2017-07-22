@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_wayland_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_wayland_surface)
 
-use ::*;
 use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use wayland_types;
 
 pub const VK_KHR_WAYLAND_SURFACE_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_WAYLAND_SURFACE_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHR_wayland_surface\x00";
@@ -44,8 +44,8 @@ pub struct VkWaylandSurfaceCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkWaylandSurfaceCreateFlagsKHR,
-    pub display: *mut wayland_wrapper::wl_display,
-    pub surface: *mut wayland_wrapper::wl_surface,
+    pub display: *mut wayland_types::wl_display,
+    pub surface: *mut wayland_types::wl_surface,
 }
 
 impl Default for VkWaylandSurfaceCreateInfoKHR {
@@ -64,7 +64,7 @@ impl Default for VkWaylandSurfaceCreateInfoKHR {
 pub type PFN_vkCreateWaylandSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkWaylandSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceWaylandPresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, display: *mut wayland_wrapper::wl_display) -> core::VkBool32;
+pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, display: *mut wayland_types::wl_display) -> core::VkBool32;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
@@ -72,5 +72,5 @@ extern "system" {
     pub fn vkCreateWaylandSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkWaylandSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceWaylandPresentationSupportKHR)
-    pub fn vkGetPhysicalDeviceWaylandPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, display: *mut wayland_wrapper::wl_display) -> core::VkBool32;
+    pub fn vkGetPhysicalDeviceWaylandPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, display: *mut wayland_types::wl_display) -> core::VkBool32;
 }

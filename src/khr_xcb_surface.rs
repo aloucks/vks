@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_xcb_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xcb_surface)
 
-use ::*;
 use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use xcb_types;
 
 pub const VK_KHR_XCB_SURFACE_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_XCB_SURFACE_EXTENSION_NAME: &'static [u8; 19] = b"VK_KHR_xcb_surface\x00";
@@ -44,8 +44,8 @@ pub struct VkXcbSurfaceCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkXcbSurfaceCreateFlagsKHR,
-    pub connection: *mut xcb_wrapper::xcb_connection_t,
-    pub window: xcb_wrapper::xcb_window_t,
+    pub connection: *mut xcb_types::xcb_connection_t,
+    pub window: xcb_types::xcb_window_t,
 }
 
 impl Default for VkXcbSurfaceCreateInfoKHR {
@@ -64,7 +64,7 @@ impl Default for VkXcbSurfaceCreateInfoKHR {
 pub type PFN_vkCreateXcbSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkXcbSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXcbPresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut xcb_wrapper::xcb_connection_t, visual_id: xcb_wrapper::xcb_visualid_t) -> core::VkBool32;
+pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut xcb_types::xcb_connection_t, visual_id: xcb_types::xcb_visualid_t) -> core::VkBool32;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
@@ -72,5 +72,5 @@ extern "system" {
     pub fn vkCreateXcbSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkXcbSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXcbPresentationSupportKHR)
-    pub fn vkGetPhysicalDeviceXcbPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut xcb_wrapper::xcb_connection_t, visual_id: xcb_wrapper::xcb_visualid_t) -> core::VkBool32;
+    pub fn vkGetPhysicalDeviceXcbPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut xcb_types::xcb_connection_t, visual_id: xcb_types::xcb_visualid_t) -> core::VkBool32;
 }
