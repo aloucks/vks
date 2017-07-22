@@ -286,12 +286,10 @@ addr_proc_struct!(Core {
     pfn vkCmdExecuteCommands: PFN_vkCmdExecuteCommands,
 });
 
-#[cfg(feature = "khr_display_swapchain_9")]
 addr_proc_struct!(KHR_display_swapchain {
     pfn vkCreateSharedSwapchainsKHR: PFN_vkCreateSharedSwapchainsKHR,
 });
 
-#[cfg(feature = "ext_debug_marker_3")]
 addr_proc_struct!(EXT_debug_marker {
     pfn vkDebugMarkerSetObjectTagEXT: PFN_vkDebugMarkerSetObjectTagEXT,
     pfn vkDebugMarkerSetObjectNameEXT: PFN_vkDebugMarkerSetObjectNameEXT,
@@ -300,7 +298,6 @@ addr_proc_struct!(EXT_debug_marker {
     pfn vkCmdDebugMarkerInsertEXT: PFN_vkCmdDebugMarkerInsertEXT,
 });
 
-#[cfg(feature = "amd_draw_indirect_count_1")]
 addr_proc_struct!(AMD_draw_indirect_count {
     pfn vkCmdDrawIndirectCountAMD: PFN_vkCmdDrawIndirectCountAMD,
     pfn vkCmdDrawIndexedIndirectCountAMD: PFN_vkCmdDrawIndexedIndirectCountAMD,
@@ -318,12 +315,10 @@ addr_proc_struct!(NVX_device_generated_commands {
     pfn vkUnregisterObjectsNVX: PFN_vkUnregisterObjectsNVX,
 });
 
-#[cfg(feature = "khr_maintenance1_1")]
 addr_proc_struct!(KHR_maintenance1 {
     pfn vkTrimCommandPoolKHR: PFN_vkTrimCommandPoolKHR,
 });
 
-#[cfg(feature = "ext_display_control_1")]
 addr_proc_struct!(EXT_display_control {
     pfn vkDisplayPowerControlEXT: PFN_vkDisplayPowerControlEXT,
     pfn vkRegisterDeviceEventEXT: PFN_vkRegisterDeviceEventEXT,
@@ -331,12 +326,10 @@ addr_proc_struct!(EXT_display_control {
     pfn vkGetSwapchainCounterEXT: PFN_vkGetSwapchainCounterEXT,
 });
 
-#[cfg(feature = "khr_push_descriptor_1")]
 addr_proc_struct!(KHR_push_descriptor {
     pfn vkCmdPushDescriptorSetKHR: PFN_vkCmdPushDescriptorSetKHR,
 });
 
-#[cfg(feature = "khr_descriptor_update_template_1")]
 addr_proc_struct!(KHR_descriptor_update_template {
     pfn vkCreateDescriptorUpdateTemplateKHR: PFN_vkCreateDescriptorUpdateTemplateKHR,
     pfn vkDestroyDescriptorUpdateTemplateKHR: PFN_vkDestroyDescriptorUpdateTemplateKHR,
@@ -380,28 +373,23 @@ addr_proc_struct!(KHX_external_semaphore_fd {
     pfn vkGetSemaphoreFdKHX: PFN_vkGetSemaphoreFdKHX,
 });
 
-#[cfg(feature = "nv_clip_space_w_scaling_1")]
 addr_proc_struct!(NV_clip_space_w_scaling {
     pfn vkCmdSetViewportWScalingNV: PFN_vkCmdSetViewportWScalingNV,
 });
 
-#[cfg(feature = "ext_discard_rectangles_1")]
 addr_proc_struct!(EXT_discard_rectangles {
     pfn vkCmdSetDiscardRectangleEXT: PFN_vkCmdSetDiscardRectangleEXT,
 });
 
-#[cfg(feature = "google_display_timing_1")]
 addr_proc_struct!(GOOGLE_display_timing {
     pfn vkGetRefreshCycleDurationGOOGLE: PFN_vkGetRefreshCycleDurationGOOGLE,
     pfn vkGetPastPresentationTimingGOOGLE: PFN_vkGetPastPresentationTimingGOOGLE,
 });
 
-#[cfg(feature = "ext_hdr_metadata_1")]
 addr_proc_struct!(EXT_hdr_metadata {
     pfn vkSetHdrMetadataEXT: PFN_vkSetHdrMetadataEXT,
 });
 
-#[cfg(feature = "khr_swapchain_67")]
 addr_proc_struct!(KHR_swapchain {
     pfn vkCreateSwapchainKHR: PFN_vkCreateSwapchainKHR,
     pfn vkDestroySwapchainKHR: PFN_vkDestroySwapchainKHR,
@@ -410,12 +398,10 @@ addr_proc_struct!(KHR_swapchain {
     pfn vkQueuePresentKHR: PFN_vkQueuePresentKHR,
 });
 
-#[cfg(feature = "nv_external_memory_win32_1")]
 addr_proc_struct!(NV_external_memory_win32 {
     pfn vkGetMemoryWin32HandleNV: PFN_vkGetMemoryWin32HandleNV,
 });
 
-#[cfg(feature = "khr_shared_presentable_image_1")]
 addr_proc_struct!(KHR_shared_presentable_image {
     pfn vkGetSwapchainStatusKHR: PFN_vkGetSwapchainStatusKHR,
 });

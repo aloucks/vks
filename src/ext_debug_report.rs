@@ -18,27 +18,7 @@ use std::fmt;
 use std::mem;
 use std::ptr;
 
-#[cfg(feature = "ext_debug_report_8")]
 pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 8;
-
-#[cfg(all(feature = "ext_debug_report_6", not(feature = "ext_debug_report_8")))]
-pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 6;
-
-#[cfg(all(feature = "ext_debug_report_5", not(feature = "ext_debug_report_6")))]
-pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 5;
-
-#[cfg(all(feature = "ext_debug_report_4", not(feature = "ext_debug_report_5")))]
-pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 4;
-
-#[cfg(all(feature = "ext_debug_report_3", not(feature = "ext_debug_report_4")))]
-pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 3;
-
-#[cfg(all(feature = "ext_debug_report_2", not(feature = "ext_debug_report_3")))]
-pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 2;
-
-#[cfg(all(feature = "ext_debug_report_1", not(feature = "ext_debug_report_2")))]
-pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 1;
-
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_debug_report\x00";
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME_STR: &'static str = "VK_EXT_debug_report";
 
@@ -153,13 +133,11 @@ cenum!(VkDebugReportObjectTypeEXT: u32 {
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     const VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT = 25,
 
-    #[cfg(feature = "khr_surface_25")]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     /// [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
     const VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT = 26,
 
-    #[cfg(feature = "khr_swapchain_67")]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     /// [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
@@ -169,43 +147,38 @@ cenum!(VkDebugReportObjectTypeEXT: u32 {
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     const VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT = 28,
 
-    #[cfg(feature = "ext_debug_report_8")]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
     const VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT = 28,
 
-    #[cfg(all(feature = "ext_debug_report_4", feature = "khr_display_21"))]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report),
     /// [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
     const VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT = 29,
 
-    #[cfg(all(feature = "ext_debug_report_4", feature = "khr_display_21"))]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report),
     /// [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
     const VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT = 30,
 
-    #[cfg(all(feature = "ext_debug_report_4", feature = "nvx_device_generated_commands_1"))]
+    #[cfg(feature = "nvx_device_generated_commands_1")]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report),
     /// [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT = 31,
 
-    #[cfg(all(feature = "ext_debug_report_4", feature = "nvx_device_generated_commands_1"))]
+    #[cfg(feature = "nvx_device_generated_commands_1")]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report),
     /// [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32,
 
-    #[cfg(all(feature = "ext_debug_report_6", feature = "khr_descriptor_update_template_1"))]
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
     /// and extensions [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report),
     /// [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
     const VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT = 1000085000,
 });
 
-#[cfg(not(feature = "ext_debug_report_8"))]
 cenum!(VkDebugReportErrorEXT: u32 {
     /// See [`VkDebugReportErrorEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportErrorEXT)
     /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)

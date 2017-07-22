@@ -334,7 +334,6 @@ addr_proc_struct!(Core {
     pfn vkCmdExecuteCommands: PFN_vkCmdExecuteCommands,
 });
 
-#[cfg(feature = "khr_surface_25")]
 addr_proc_struct!(KHR_surface {
     pfn vkDestroySurfaceKHR: PFN_vkDestroySurfaceKHR,
     pfn vkGetPhysicalDeviceSurfaceSupportKHR: PFN_vkGetPhysicalDeviceSurfaceSupportKHR,
@@ -343,7 +342,6 @@ addr_proc_struct!(KHR_surface {
     pfn vkGetPhysicalDeviceSurfacePresentModesKHR: PFN_vkGetPhysicalDeviceSurfacePresentModesKHR,
 });
 
-#[cfg(feature = "khr_display_21")]
 addr_proc_struct!(KHR_display {
     pfn vkGetPhysicalDeviceDisplayPropertiesKHR: PFN_vkGetPhysicalDeviceDisplayPropertiesKHR,
     pfn vkGetPhysicalDeviceDisplayPlanePropertiesKHR: PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR,
@@ -354,54 +352,45 @@ addr_proc_struct!(KHR_display {
     pfn vkCreateDisplayPlaneSurfaceKHR: PFN_vkCreateDisplayPlaneSurfaceKHR,
 });
 
-#[cfg(feature = "khr_display_swapchain_9")]
 addr_proc_struct!(KHR_display_swapchain {
     pfn vkCreateSharedSwapchainsKHR: PFN_vkCreateSharedSwapchainsKHR,
 });
 
-#[cfg(feature = "khr_xlib_surface_6")]
 addr_proc_struct!(KHR_xlib_surface {
     pfn vkCreateXlibSurfaceKHR: PFN_vkCreateXlibSurfaceKHR,
     pfn vkGetPhysicalDeviceXlibPresentationSupportKHR: PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR,
 });
 
-#[cfg(feature = "khr_xcb_surface_6")]
 addr_proc_struct!(KHR_xcb_surface {
     pfn vkCreateXcbSurfaceKHR: PFN_vkCreateXcbSurfaceKHR,
     pfn vkGetPhysicalDeviceXcbPresentationSupportKHR: PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR,
 });
 
-#[cfg(feature = "khr_wayland_surface_5")]
 addr_proc_struct!(KHR_wayland_surface {
     pfn vkCreateWaylandSurfaceKHR: PFN_vkCreateWaylandSurfaceKHR,
     pfn vkGetPhysicalDeviceWaylandPresentationSupportKHR: PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR,
 });
 
-#[cfg(feature = "khr_mir_surface_4")]
 addr_proc_struct!(KHR_mir_surface {
     pfn vkCreateMirSurfaceKHR: PFN_vkCreateMirSurfaceKHR,
     pfn vkGetPhysicalDeviceMirPresentationSupportKHR: PFN_vkGetPhysicalDeviceMirPresentationSupportKHR,
 });
 
-#[cfg(feature = "khr_android_surface_6")]
 addr_proc_struct!(KHR_android_surface {
     pfn vkCreateAndroidSurfaceKHR: PFN_vkCreateAndroidSurfaceKHR,
 });
 
-#[cfg(feature = "khr_win32_surface_5")]
 addr_proc_struct!(KHR_win32_surface {
     pfn vkCreateWin32SurfaceKHR: PFN_vkCreateWin32SurfaceKHR,
     pfn vkGetPhysicalDeviceWin32PresentationSupportKHR: PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR,
 });
 
-#[cfg(feature = "ext_debug_report_1")]
 addr_proc_struct!(EXT_debug_report {
     pfn vkCreateDebugReportCallbackEXT: PFN_vkCreateDebugReportCallbackEXT,
     pfn vkDestroyDebugReportCallbackEXT: PFN_vkDestroyDebugReportCallbackEXT,
     pfn vkDebugReportMessageEXT: PFN_vkDebugReportMessageEXT,
 });
 
-#[cfg(feature = "ext_debug_marker_3")]
 addr_proc_struct!(EXT_debug_marker {
     pfn vkDebugMarkerSetObjectTagEXT: PFN_vkDebugMarkerSetObjectTagEXT,
     pfn vkDebugMarkerSetObjectNameEXT: PFN_vkDebugMarkerSetObjectNameEXT,
@@ -410,18 +399,15 @@ addr_proc_struct!(EXT_debug_marker {
     pfn vkCmdDebugMarkerInsertEXT: PFN_vkCmdDebugMarkerInsertEXT,
 });
 
-#[cfg(feature = "amd_draw_indirect_count_1")]
 addr_proc_struct!(AMD_draw_indirect_count {
     pfn vkCmdDrawIndirectCountAMD: PFN_vkCmdDrawIndirectCountAMD,
     pfn vkCmdDrawIndexedIndirectCountAMD: PFN_vkCmdDrawIndexedIndirectCountAMD,
 });
 
-#[cfg(feature = "nv_external_memory_capabilities_1")]
 addr_proc_struct!(NV_external_memory_capabilities {
     pfn vkGetPhysicalDeviceExternalImageFormatPropertiesNV: PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
 });
 
-#[cfg(feature = "nv_external_memory_win32_1")]
 addr_proc_struct!(NV_external_memory_win32 {
     pfn vkGetMemoryWin32HandleNV: PFN_vkGetMemoryWin32HandleNV,
 });
@@ -439,7 +425,6 @@ addr_proc_struct!(NVX_device_generated_commands {
     pfn vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX: PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX,
 });
 
-#[cfg(feature = "khr_get_physical_device_properties2_1")]
 addr_proc_struct!(KHR_get_physical_device_properties2 {
     pfn vkGetPhysicalDeviceFeatures2KHR: PFN_vkGetPhysicalDeviceFeatures2KHR,
     pfn vkGetPhysicalDeviceProperties2KHR: PFN_vkGetPhysicalDeviceProperties2KHR,
@@ -450,33 +435,27 @@ addr_proc_struct!(KHR_get_physical_device_properties2 {
     pfn vkGetPhysicalDeviceSparseImageFormatProperties2KHR: PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR,
 });
 
-#[cfg(feature = "khr_maintenance1_1")]
 addr_proc_struct!(KHR_maintenance1 {
     pfn vkTrimCommandPoolKHR: PFN_vkTrimCommandPoolKHR,
 });
 
-#[cfg(feature = "nn_vi_surface_1")]
 addr_proc_struct!(NN_vi_surface {
     pfn vkCreateViSurfaceNN: PFN_vkCreateViSurfaceNN,
 });
 
-#[cfg(feature = "ext_direct_mode_display_1")]
 addr_proc_struct!(EXT_direct_mode_display {
     pfn vkReleaseDisplayEXT: PFN_vkReleaseDisplayEXT,
 });
 
-#[cfg(feature = "ext_acquire_xlib_display_1")]
 addr_proc_struct!(EXT_acquire_xlib_display {
     pfn vkAcquireXlibDisplayEXT: PFN_vkAcquireXlibDisplayEXT,
     pfn vkGetRandROutputDisplayEXT: PFN_vkGetRandROutputDisplayEXT,
 });
 
-#[cfg(feature = "ext_display_surface_counter_1")]
 addr_proc_struct!(EXT_display_surface_counter {
     pfn vkGetPhysicalDeviceSurfaceCapabilities2EXT: PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT,
 });
 
-#[cfg(feature = "ext_display_control_1")]
 addr_proc_struct!(EXT_display_control {
     pfn vkDisplayPowerControlEXT: PFN_vkDisplayPowerControlEXT,
     pfn vkRegisterDeviceEventEXT: PFN_vkRegisterDeviceEventEXT,
@@ -484,12 +463,10 @@ addr_proc_struct!(EXT_display_control {
     pfn vkGetSwapchainCounterEXT: PFN_vkGetSwapchainCounterEXT,
 });
 
-#[cfg(feature = "khr_push_descriptor_1")]
 addr_proc_struct!(KHR_push_descriptor {
     pfn vkCmdPushDescriptorSetKHR: PFN_vkCmdPushDescriptorSetKHR,
 });
 
-#[cfg(feature = "khr_descriptor_update_template_1")]
 addr_proc_struct!(KHR_descriptor_update_template {
     pfn vkCreateDescriptorUpdateTemplateKHR: PFN_vkCreateDescriptorUpdateTemplateKHR,
     pfn vkDestroyDescriptorUpdateTemplateKHR: PFN_vkDestroyDescriptorUpdateTemplateKHR,
@@ -549,38 +526,31 @@ addr_proc_struct!(KHX_external_semaphore_fd {
     pfn vkGetSemaphoreFdKHX: PFN_vkGetSemaphoreFdKHX,
 });
 
-#[cfg(feature = "nv_clip_space_w_scaling_1")]
 addr_proc_struct!(NV_clip_space_w_scaling {
     pfn vkCmdSetViewportWScalingNV: PFN_vkCmdSetViewportWScalingNV,
 });
 
-#[cfg(feature = "ext_discard_rectangles_1")]
 addr_proc_struct!(EXT_discard_rectangles {
     pfn vkCmdSetDiscardRectangleEXT: PFN_vkCmdSetDiscardRectangleEXT,
 });
 
-#[cfg(feature = "mvk_ios_surface_2")]
 addr_proc_struct!(MVK_ios_surface {
     pfn vkCreateIOSSurfaceMVK: PFN_vkCreateIOSSurfaceMVK,
 });
 
-#[cfg(feature = "mvk_macos_surface_2")]
 addr_proc_struct!(MVK_macos_surface {
     pfn vkCreateMacOSSurfaceMVK: PFN_vkCreateMacOSSurfaceMVK,
 });
 
-#[cfg(feature = "google_display_timing_1")]
 addr_proc_struct!(GOOGLE_display_timing {
     pfn vkGetRefreshCycleDurationGOOGLE: PFN_vkGetRefreshCycleDurationGOOGLE,
     pfn vkGetPastPresentationTimingGOOGLE: PFN_vkGetPastPresentationTimingGOOGLE,
 });
 
-#[cfg(feature = "ext_hdr_metadata_1")]
 addr_proc_struct!(EXT_hdr_metadata {
     pfn vkSetHdrMetadataEXT: PFN_vkSetHdrMetadataEXT,
 });
 
-#[cfg(feature = "khr_swapchain_67")]
 addr_proc_struct!(KHR_swapchain {
     pfn vkCreateSwapchainKHR: PFN_vkCreateSwapchainKHR,
     pfn vkDestroySwapchainKHR: PFN_vkDestroySwapchainKHR,
@@ -589,13 +559,11 @@ addr_proc_struct!(KHR_swapchain {
     pfn vkQueuePresentKHR: PFN_vkQueuePresentKHR,
 });
 
-#[cfg(feature = "khr_get_surface_capabilities2_1")]
 addr_proc_struct!(KHR_get_surface_capabilities2 {
     pfn vkGetPhysicalDeviceSurfaceCapabilities2KHR: PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR,
     pfn vkGetPhysicalDeviceSurfaceFormats2KHR: PFN_vkGetPhysicalDeviceSurfaceFormats2KHR,
 });
 
-#[cfg(feature = "khr_shared_presentable_image_1")]
 addr_proc_struct!(KHR_shared_presentable_image {
     pfn vkGetSwapchainStatusKHR: PFN_vkGetSwapchainStatusKHR,
 });

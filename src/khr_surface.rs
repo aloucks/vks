@@ -29,84 +29,70 @@ cenum!(VkColorSpaceKHR: u32 {
     /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
     const VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0,
 
-    #[cfg(feature = "core_1_0_13")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
     const VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT = 1000104001,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT = 1000104002,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_DCI_P3_LINEAR_EXT = 1000104003,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT = 1000104004,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_BT709_LINEAR_EXT = 1000104005,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_BT709_NONLINEAR_EXT = 1000104006,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_BT2020_LINEAR_EXT = 1000104007,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_HDR10_ST2084_EXT = 1000104008,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_DOLBYVISION_EXT = 1000104009,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_HDR10_HLG_EXT = 1000104010,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT = 1000104011,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_ADOBERGB_NONLINEAR_EXT = 1000104012,
 
-    #[cfg(feature = "ext_swapchain_colorspace_2")]
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
@@ -130,13 +116,11 @@ cenum!(VkPresentModeKHR: u32 {
     /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
     const VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3,
 
-    #[cfg(feature = "khr_shared_presentable_image_1")]
     /// See [`VkPresentModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPresentModeKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
     const VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR = 1000111000,
 
-    #[cfg(feature = "khr_shared_presentable_image_1")]
     /// See [`VkPresentModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPresentModeKHR)
     /// and extensions [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface),
     /// [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
