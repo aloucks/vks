@@ -28,7 +28,7 @@ pub type PFN_vkCmdDrawIndirectCountAMD = unsafe extern "system" fn(commandBuffer
 /// and extension [`VK_AMD_draw_indirect_count`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_draw_indirect_count)
 pub type PFN_vkCmdDrawIndexedIndirectCountAMD = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, buffer: core::VkBuffer, offset: core::VkDeviceSize, countBuffer: core::VkBuffer, countBufferOffset: core::VkDeviceSize, maxDrawCount: u32, stride: u32);
 
-#[cfg(not(feature = "no_function_prototypes"))]
+#[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCmdDrawIndirectCountAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDrawIndirectCountAMD)
     /// and extension [`VK_AMD_draw_indirect_count`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_draw_indirect_count)

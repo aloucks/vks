@@ -24,6 +24,6 @@ gitlab = { repository = "dennis-hamester/vks" }
 libc = "0.2"
 
 [features]
-unstable_rust = [ ]
-no_function_prototypes = [ ]
 experimental = [ ]
+function_prototypes = [ ]
+unstable_rust = [ ]

@@ -1,4 +1,4 @@
-#[cfg(not(feature = "no_function_prototypes"))]
+#[cfg(feature = "function_prototypes")]
 fn main() {
     use std::env;
     use std::path::PathBuf;
@@ -26,6 +26,6 @@ fn main() {
     }
 }
 
-#[cfg(feature = "no_function_prototypes")]
+#[cfg(not(feature = "function_prototypes"))]
 fn main() {
 }
