@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -54,7 +55,7 @@ pub struct VkPresentTimeGOOGLE {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentTimesInfoGOOGLE {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub swapchainCount: u32,
     pub pTimes: *const VkPresentTimeGOOGLE,
@@ -63,7 +64,7 @@ pub struct VkPresentTimesInfoGOOGLE {
 impl Default for VkPresentTimesInfoGOOGLE {
     fn default() -> Self {
         VkPresentTimesInfoGOOGLE  {
-            sType: VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE,
+            sType: core::VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE,
             pNext: ptr::null(),
             swapchainCount: Default::default(),
             pTimes: ptr::null(),
@@ -73,19 +74,19 @@ impl Default for VkPresentTimesInfoGOOGLE {
 
 /// See [`vkGetRefreshCycleDurationGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRefreshCycleDurationGOOGLE)
 /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
-pub type PFN_vkGetRefreshCycleDurationGOOGLE = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> VkResult;
+pub type PFN_vkGetRefreshCycleDurationGOOGLE = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> core::VkResult;
 
 /// See [`vkGetPastPresentationTimingGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPastPresentationTimingGOOGLE)
 /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
-pub type PFN_vkGetPastPresentationTimingGOOGLE = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut VkPastPresentationTimingGOOGLE) -> VkResult;
+pub type PFN_vkGetPastPresentationTimingGOOGLE = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut VkPastPresentationTimingGOOGLE) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkGetRefreshCycleDurationGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRefreshCycleDurationGOOGLE)
     /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
-    pub fn vkGetRefreshCycleDurationGOOGLE(device: VkDevice, swapchain: VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> VkResult;
+    pub fn vkGetRefreshCycleDurationGOOGLE(device: core::VkDevice, swapchain: VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> core::VkResult;
 
     /// See [`vkGetPastPresentationTimingGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPastPresentationTimingGOOGLE)
     /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
-    pub fn vkGetPastPresentationTimingGOOGLE(device: VkDevice, swapchain: VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut VkPastPresentationTimingGOOGLE) -> VkResult;
+    pub fn vkGetPastPresentationTimingGOOGLE(device: core::VkDevice, swapchain: VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut VkPastPresentationTimingGOOGLE) -> core::VkResult;
 }

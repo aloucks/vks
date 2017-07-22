@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -41,7 +42,7 @@ pub type VkXlibSurfaceCreateFlagBitsKHR = VkXlibSurfaceCreateFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkXlibSurfaceCreateInfoKHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkXlibSurfaceCreateFlagsKHR,
     pub dpy: *mut xlib_wrapper::Display,
@@ -51,7 +52,7 @@ pub struct VkXlibSurfaceCreateInfoKHR {
 impl Default for VkXlibSurfaceCreateInfoKHR {
     fn default() -> Self {
         VkXlibSurfaceCreateInfoKHR  {
-            sType: VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR,
+            sType: core::VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             dpy: ptr::null_mut(),
@@ -62,19 +63,19 @@ impl Default for VkXlibSurfaceCreateInfoKHR {
 
 /// See [`vkCreateXlibSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateXlibSurfaceKHR)
 /// and extension [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
-pub type PFN_vkCreateXlibSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+pub type PFN_vkCreateXlibSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXlibPresentationSupportKHR)
 /// and extension [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
-pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_wrapper::Display, visualID: xlib_wrapper::VisualID) -> VkBool32;
+pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_wrapper::Display, visualID: xlib_wrapper::VisualID) -> core::VkBool32;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCreateXlibSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateXlibSurfaceKHR)
     /// and extension [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
-    pub fn vkCreateXlibSurfaceKHR(instance: VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+    pub fn vkCreateXlibSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkXlibSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXlibPresentationSupportKHR)
     /// and extension [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
-    pub fn vkGetPhysicalDeviceXlibPresentationSupportKHR(physicalDevice: VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_wrapper::Display, visualID: xlib_wrapper::VisualID) -> VkBool32;
+    pub fn vkGetPhysicalDeviceXlibPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, dpy: *mut xlib_wrapper::Display, visualID: xlib_wrapper::VisualID) -> core::VkBool32;
 }

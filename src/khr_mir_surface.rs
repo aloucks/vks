@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -41,7 +42,7 @@ pub type VkMirSurfaceCreateFlagBitsKHR = VkMirSurfaceCreateFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMirSurfaceCreateInfoKHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkMirSurfaceCreateFlagsKHR,
     pub connection: *mut mir_wrapper::MirConnection,
@@ -51,7 +52,7 @@ pub struct VkMirSurfaceCreateInfoKHR {
 impl Default for VkMirSurfaceCreateInfoKHR {
     fn default() -> Self {
         VkMirSurfaceCreateInfoKHR  {
-            sType: VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR,
+            sType: core::VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             connection: ptr::null_mut(),
@@ -62,19 +63,19 @@ impl Default for VkMirSurfaceCreateInfoKHR {
 
 /// See [`vkCreateMirSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMirSurfaceKHR)
 /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
-pub type PFN_vkCreateMirSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+pub type PFN_vkCreateMirSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceMirPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceMirPresentationSupportKHR)
 /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
-pub type PFN_vkGetPhysicalDeviceMirPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_wrapper::MirConnection) -> VkBool32;
+pub type PFN_vkGetPhysicalDeviceMirPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_wrapper::MirConnection) -> core::VkBool32;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCreateMirSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMirSurfaceKHR)
     /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
-    pub fn vkCreateMirSurfaceKHR(instance: VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+    pub fn vkCreateMirSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkMirSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceMirPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceMirPresentationSupportKHR)
     /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
-    pub fn vkGetPhysicalDeviceMirPresentationSupportKHR(physicalDevice: VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_wrapper::MirConnection) -> VkBool32;
+    pub fn vkGetPhysicalDeviceMirPresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut mir_wrapper::MirConnection) -> core::VkBool32;
 }

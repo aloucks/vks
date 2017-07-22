@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -53,30 +54,30 @@ pub type VkSwapchainCreateFlagBitsKHR = VkSwapchainCreateFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSwapchainCreateInfoKHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkSwapchainCreateFlagsKHR,
     pub surface: VkSurfaceKHR,
     pub minImageCount: u32,
-    pub imageFormat: VkFormat,
+    pub imageFormat: core::VkFormat,
     pub imageColorSpace: VkColorSpaceKHR,
-    pub imageExtent: VkExtent2D,
+    pub imageExtent: core::VkExtent2D,
     pub imageArrayLayers: u32,
-    pub imageUsage: VkImageUsageFlags,
-    pub imageSharingMode: VkSharingMode,
+    pub imageUsage: core::VkImageUsageFlags,
+    pub imageSharingMode: core::VkSharingMode,
     pub queueFamilyIndexCount: u32,
     pub pQueueFamilyIndices: *const u32,
     pub preTransform: VkSurfaceTransformFlagBitsKHR,
     pub compositeAlpha: VkCompositeAlphaFlagBitsKHR,
     pub presentMode: VkPresentModeKHR,
-    pub clipped: VkBool32,
+    pub clipped: core::VkBool32,
     pub oldSwapchain: VkSwapchainKHR,
 }
 
 impl Default for VkSwapchainCreateInfoKHR {
     fn default() -> Self {
         VkSwapchainCreateInfoKHR  {
-            sType: VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR,
+            sType: core::VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             surface: Default::default(),
@@ -103,20 +104,20 @@ impl Default for VkSwapchainCreateInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentInfoKHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub waitSemaphoreCount: u32,
-    pub pWaitSemaphores: *const VkSemaphore,
+    pub pWaitSemaphores: *const core::VkSemaphore,
     pub swapchainCount: u32,
     pub pSwapchains: *const VkSwapchainKHR,
     pub pImageIndices: *const u32,
-    pub pResults: *mut VkResult,
+    pub pResults: *mut core::VkResult,
 }
 
 impl Default for VkPresentInfoKHR {
     fn default() -> Self {
         VkPresentInfoKHR  {
-            sType: VK_STRUCTURE_TYPE_PRESENT_INFO_KHR,
+            sType: core::VK_STRUCTURE_TYPE_PRESENT_INFO_KHR,
             pNext: ptr::null(),
             waitSemaphoreCount: Default::default(),
             pWaitSemaphores: ptr::null(),
@@ -130,43 +131,43 @@ impl Default for VkPresentInfoKHR {
 
 /// See [`vkCreateSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSwapchainKHR)
 /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-pub type PFN_vkCreateSwapchainKHR = unsafe extern "system" fn(device: VkDevice, pCreateInfo: *const VkSwapchainCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSwapchain: *mut VkSwapchainKHR) -> VkResult;
+pub type PFN_vkCreateSwapchainKHR = unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchain: *mut VkSwapchainKHR) -> core::VkResult;
 
 /// See [`vkDestroySwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroySwapchainKHR)
 /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-pub type PFN_vkDestroySwapchainKHR = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR, pAllocator: *const VkAllocationCallbacks);
+pub type PFN_vkDestroySwapchainKHR = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR, pAllocator: *const core::VkAllocationCallbacks);
 
 /// See [`vkGetSwapchainImagesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSwapchainImagesKHR)
 /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-pub type PFN_vkGetSwapchainImagesKHR = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR, pSwapchainImageCount: *mut u32, pSwapchainImages: *mut VkImage) -> VkResult;
+pub type PFN_vkGetSwapchainImagesKHR = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR, pSwapchainImageCount: *mut u32, pSwapchainImages: *mut core::VkImage) -> core::VkResult;
 
 /// See [`vkAcquireNextImageKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImageKHR)
 /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-pub type PFN_vkAcquireNextImageKHR = unsafe extern "system" fn(device: VkDevice, swapchain: VkSwapchainKHR, timeout: u64, semaphore: VkSemaphore, fence: VkFence, pImageIndex: *mut u32) -> VkResult;
+pub type PFN_vkAcquireNextImageKHR = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR, timeout: u64, semaphore: core::VkSemaphore, fence: core::VkFence, pImageIndex: *mut u32) -> core::VkResult;
 
 /// See [`vkQueuePresentKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkQueuePresentKHR)
 /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-pub type PFN_vkQueuePresentKHR = unsafe extern "system" fn(queue: VkQueue, pPresentInfo: *const VkPresentInfoKHR) -> VkResult;
+pub type PFN_vkQueuePresentKHR = unsafe extern "system" fn(queue: core::VkQueue, pPresentInfo: *const VkPresentInfoKHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCreateSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSwapchainKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    pub fn vkCreateSwapchainKHR(device: VkDevice, pCreateInfo: *const VkSwapchainCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSwapchain: *mut VkSwapchainKHR) -> VkResult;
+    pub fn vkCreateSwapchainKHR(device: core::VkDevice, pCreateInfo: *const VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchain: *mut VkSwapchainKHR) -> core::VkResult;
 
     /// See [`vkDestroySwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroySwapchainKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    pub fn vkDestroySwapchainKHR(device: VkDevice, swapchain: VkSwapchainKHR, pAllocator: *const VkAllocationCallbacks);
+    pub fn vkDestroySwapchainKHR(device: core::VkDevice, swapchain: VkSwapchainKHR, pAllocator: *const core::VkAllocationCallbacks);
 
     /// See [`vkGetSwapchainImagesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSwapchainImagesKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    pub fn vkGetSwapchainImagesKHR(device: VkDevice, swapchain: VkSwapchainKHR, pSwapchainImageCount: *mut u32, pSwapchainImages: *mut VkImage) -> VkResult;
+    pub fn vkGetSwapchainImagesKHR(device: core::VkDevice, swapchain: VkSwapchainKHR, pSwapchainImageCount: *mut u32, pSwapchainImages: *mut core::VkImage) -> core::VkResult;
 
     /// See [`vkAcquireNextImageKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImageKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    pub fn vkAcquireNextImageKHR(device: VkDevice, swapchain: VkSwapchainKHR, timeout: u64, semaphore: VkSemaphore, fence: VkFence, pImageIndex: *mut u32) -> VkResult;
+    pub fn vkAcquireNextImageKHR(device: core::VkDevice, swapchain: VkSwapchainKHR, timeout: u64, semaphore: core::VkSemaphore, fence: core::VkFence, pImageIndex: *mut u32) -> core::VkResult;
 
     /// See [`vkQueuePresentKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkQueuePresentKHR)
     /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    pub fn vkQueuePresentKHR(queue: VkQueue, pPresentInfo: *const VkPresentInfoKHR) -> VkResult;
+    pub fn vkQueuePresentKHR(queue: core::VkQueue, pPresentInfo: *const VkPresentInfoKHR) -> core::VkResult;
 }

@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -85,7 +85,7 @@ pub type VkExternalSemaphoreFeatureFlagBitsKHX = VkExternalSemaphoreFeatureFlags
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceExternalSemaphoreInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleType: VkExternalSemaphoreHandleTypeFlagBitsKHX,
 }
@@ -93,7 +93,7 @@ pub struct VkPhysicalDeviceExternalSemaphoreInfoKHX {
 impl Default for VkPhysicalDeviceExternalSemaphoreInfoKHX {
     fn default() -> Self {
         VkPhysicalDeviceExternalSemaphoreInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHX,
             pNext: ptr::null(),
             handleType: Default::default(),
         }
@@ -105,7 +105,7 @@ impl Default for VkPhysicalDeviceExternalSemaphoreInfoKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalSemaphorePropertiesKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub exportFromImportedHandleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
     pub compatibleHandleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
@@ -115,7 +115,7 @@ pub struct VkExternalSemaphorePropertiesKHX {
 impl Default for VkExternalSemaphorePropertiesKHX {
     fn default() -> Self {
         VkExternalSemaphorePropertiesKHX  {
-            sType: VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             exportFromImportedHandleTypes: Default::default(),
             compatibleHandleTypes: Default::default(),
@@ -126,11 +126,11 @@ impl Default for VkExternalSemaphorePropertiesKHX {
 
 /// See [`vkGetPhysicalDeviceExternalSemaphorePropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalSemaphorePropertiesKHX)
 /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
-pub type PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHX = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);
+pub type PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkGetPhysicalDeviceExternalSemaphorePropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalSemaphorePropertiesKHX)
     /// and extension [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
-    pub fn vkGetPhysicalDeviceExternalSemaphorePropertiesKHX(physicalDevice: VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);
+    pub fn vkGetPhysicalDeviceExternalSemaphorePropertiesKHX(physicalDevice: core::VkPhysicalDevice, pExternalSemaphoreInfo: *const VkPhysicalDeviceExternalSemaphoreInfoKHX, pExternalSemaphoreProperties: *mut VkExternalSemaphorePropertiesKHX);
 }

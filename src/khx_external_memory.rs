@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -26,7 +27,7 @@ pub const VK_QUEUE_FAMILY_EXTERNAL_KHX: u32 = 0xfffffffe;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryImageCreateInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
 }
@@ -34,7 +35,7 @@ pub struct VkExternalMemoryImageCreateInfoKHX {
 impl Default for VkExternalMemoryImageCreateInfoKHX {
     fn default() -> Self {
         VkExternalMemoryImageCreateInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -46,7 +47,7 @@ impl Default for VkExternalMemoryImageCreateInfoKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryBufferCreateInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
 }
@@ -54,7 +55,7 @@ pub struct VkExternalMemoryBufferCreateInfoKHX {
 impl Default for VkExternalMemoryBufferCreateInfoKHX {
     fn default() -> Self {
         VkExternalMemoryBufferCreateInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -66,7 +67,7 @@ impl Default for VkExternalMemoryBufferCreateInfoKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
 }
@@ -74,7 +75,7 @@ pub struct VkExportMemoryAllocateInfoKHX {
 impl Default for VkExportMemoryAllocateInfoKHX {
     fn default() -> Self {
         VkExportMemoryAllocateInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

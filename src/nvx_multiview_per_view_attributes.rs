@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,15 +25,15 @@ pub const VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME_STR: &'static str 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub perViewPositionAllComponents: VkBool32,
+    pub perViewPositionAllComponents: core::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     fn default() -> Self {
         VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX,
             pNext: ptr::null_mut(),
             perViewPositionAllComponents: Default::default(),
         }

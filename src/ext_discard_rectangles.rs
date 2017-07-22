@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -51,7 +51,7 @@ pub type VkPipelineDiscardRectangleStateCreateFlagBitsEXT = VkPipelineDiscardRec
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub maxDiscardRectangles: u32,
 }
@@ -59,7 +59,7 @@ pub struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
 impl Default for VkPhysicalDeviceDiscardRectanglePropertiesEXT {
     fn default() -> Self {
         VkPhysicalDeviceDiscardRectanglePropertiesEXT  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             maxDiscardRectangles: Default::default(),
         }
@@ -71,18 +71,18 @@ impl Default for VkPhysicalDeviceDiscardRectanglePropertiesEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineDiscardRectangleStateCreateInfoEXT {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkPipelineDiscardRectangleStateCreateFlagsEXT,
     pub discardRectangleMode: VkDiscardRectangleModeEXT,
     pub discardRectangleCount: u32,
-    pub pDiscardRectangles: *const VkRect2D,
+    pub pDiscardRectangles: *const core::VkRect2D,
 }
 
 impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
     fn default() -> Self {
         VkPipelineDiscardRectangleStateCreateInfoEXT  {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT,
+            sType: core::VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             flags: Default::default(),
             discardRectangleMode: Default::default(),
@@ -94,11 +94,11 @@ impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
 
 /// See [`vkCmdSetDiscardRectangleEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDiscardRectangleEXT)
 /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
-pub type PFN_vkCmdSetDiscardRectangleEXT = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const VkRect2D);
+pub type PFN_vkCmdSetDiscardRectangleEXT = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D);
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCmdSetDiscardRectangleEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDiscardRectangleEXT)
     /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
-    pub fn vkCmdSetDiscardRectangleEXT(commandBuffer: VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const VkRect2D);
+    pub fn vkCmdSetDiscardRectangleEXT(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D);
 }

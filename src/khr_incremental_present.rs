@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,8 +25,8 @@ pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME_STR: &'static str = "VK_KHR_
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkRectLayerKHR {
-    pub offset: VkOffset2D,
-    pub extent: VkExtent2D,
+    pub offset: core::VkOffset2D,
+    pub extent: core::VkExtent2D,
     pub layer: u32,
 }
 
@@ -53,7 +53,7 @@ impl Default for VkPresentRegionKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentRegionsKHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub swapchainCount: u32,
     pub pRegions: *const VkPresentRegionKHR,
@@ -62,7 +62,7 @@ pub struct VkPresentRegionsKHR {
 impl Default for VkPresentRegionsKHR {
     fn default() -> Self {
         VkPresentRegionsKHR  {
-            sType: VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
+            sType: core::VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
             pNext: ptr::null(),
             swapchainCount: Default::default(),
             pRegions: ptr::null(),

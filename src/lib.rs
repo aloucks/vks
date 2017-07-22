@@ -21,24 +21,19 @@
 
 extern crate libc;
 
+mod version;
+
 #[macro_use]
 mod cenum;
 
 #[macro_use]
-mod vks_bitflags;
-
-#[macro_use]
 mod handle;
 
-#[cfg(windows)]
-pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
+#[macro_use]
+mod vks_bitflags;
 
-#[cfg(not(windows))]
-pub const VULKAN_LIBRARY_NAME: &'static str = "libvulkan.so.1";
+pub mod core;
 
-mod core;
-pub use core::*;
-mod version;
 pub use version::*;
 // pub mod instance_proc_addr_loader;
 // pub use instance_proc_addr_loader::InstanceProcAddrLoader;
@@ -207,3 +202,9 @@ pub use nv_win32_keyed_mutex::*;
 #[cfg(feature = "experimental")] pub use khx_multiview::*;
 #[cfg(feature = "experimental")] mod khx_win32_keyed_mutex;
 #[cfg(feature = "experimental")] pub use khx_win32_keyed_mutex::*;
+
+#[cfg(windows)]
+pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
+
+#[cfg(not(windows))]
+pub const VULKAN_LIBRARY_NAME: &'static str = "libvulkan.so.1";

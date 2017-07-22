@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 
 pub const VK_KHR_MAINTENANCE1_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_MAINTENANCE1_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHR_maintenance1\x00";
@@ -36,11 +36,11 @@ pub type VkCommandPoolTrimFlagBitsKHR = VkCommandPoolTrimFlagsKHR;
 
 /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
 /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
-pub type PFN_vkTrimCommandPoolKHR = unsafe extern "system" fn(device: VkDevice, commandPool: VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
+pub type PFN_vkTrimCommandPoolKHR = unsafe extern "system" fn(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
     /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
-    pub fn vkTrimCommandPoolKHR(device: VkDevice, commandPool: VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
+    pub fn vkTrimCommandPoolKHR(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 }

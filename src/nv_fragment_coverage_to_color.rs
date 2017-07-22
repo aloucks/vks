@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -41,17 +41,17 @@ pub type VkPipelineCoverageToColorStateCreateFlagBitsNV = VkPipelineCoverageToCo
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineCoverageToColorStateCreateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkPipelineCoverageToColorStateCreateFlagsNV,
-    pub coverageToColorEnable: VkBool32,
+    pub coverageToColorEnable: core::VkBool32,
     pub coverageToColorLocation: u32,
 }
 
 impl Default for VkPipelineCoverageToColorStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineCoverageToColorStateCreateInfoNV {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             coverageToColorEnable: Default::default(),

@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,7 +26,7 @@ pub const VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME_STR: &'static str = "
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceSurfaceInfo2KHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub surface: VkSurfaceKHR,
 }
@@ -33,7 +34,7 @@ pub struct VkPhysicalDeviceSurfaceInfo2KHR {
 impl Default for VkPhysicalDeviceSurfaceInfo2KHR {
     fn default() -> Self {
         VkPhysicalDeviceSurfaceInfo2KHR  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR,
             pNext: ptr::null(),
             surface: Default::default(),
         }
@@ -45,7 +46,7 @@ impl Default for VkPhysicalDeviceSurfaceInfo2KHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSurfaceCapabilities2KHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub surfaceCapabilities: VkSurfaceCapabilitiesKHR,
 }
@@ -53,7 +54,7 @@ pub struct VkSurfaceCapabilities2KHR {
 impl Default for VkSurfaceCapabilities2KHR {
     fn default() -> Self {
         VkSurfaceCapabilities2KHR  {
-            sType: VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR,
+            sType: core::VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR,
             pNext: ptr::null_mut(),
             surfaceCapabilities: Default::default(),
         }
@@ -65,7 +66,7 @@ impl Default for VkSurfaceCapabilities2KHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSurfaceFormat2KHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub surfaceFormat: VkSurfaceFormatKHR,
 }
@@ -73,7 +74,7 @@ pub struct VkSurfaceFormat2KHR {
 impl Default for VkSurfaceFormat2KHR {
     fn default() -> Self {
         VkSurfaceFormat2KHR  {
-            sType: VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR,
+            sType: core::VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR,
             pNext: ptr::null_mut(),
             surfaceFormat: Default::default(),
         }
@@ -82,19 +83,19 @@ impl Default for VkSurfaceFormat2KHR {
 
 /// See [`PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)
 /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2KHR) -> VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2KHR) -> core::VkResult;
 
 /// See [`PFN_vkGetPhysicalDeviceSurfaceFormats2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)
 /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-pub type PFN_vkGetPhysicalDeviceSurfaceFormats2KHR = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormat2KHR) -> VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceFormats2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormat2KHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)
     /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-    pub fn vkGetPhysicalDeviceSurfaceCapabilities2KHR(physicalDevice: VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2KHR) -> VkResult;
+    pub fn vkGetPhysicalDeviceSurfaceCapabilities2KHR(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2KHR) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)
     /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-    pub fn vkGetPhysicalDeviceSurfaceFormats2KHR(physicalDevice: VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormat2KHR) -> VkResult;
+    pub fn vkGetPhysicalDeviceSurfaceFormats2KHR(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormat2KHR) -> core::VkResult;
 }

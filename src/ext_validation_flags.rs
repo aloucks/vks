@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -35,7 +35,7 @@ cenum!(VkValidationCheckEXT: u32 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkValidationFlagsEXT {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub disabledValidationCheckCount: u32,
     pub pDisabledValidationChecks: *mut VkValidationCheckEXT,
@@ -44,7 +44,7 @@ pub struct VkValidationFlagsEXT {
 impl Default for VkValidationFlagsEXT {
     fn default() -> Self {
         VkValidationFlagsEXT  {
-            sType: VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
+            sType: core::VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
             pNext: ptr::null(),
             disabledValidationCheckCount: Default::default(),
             pDisabledValidationChecks: ptr::null_mut(),

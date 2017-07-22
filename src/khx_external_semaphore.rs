@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,7 +26,7 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME_STR: &'static str = "VK_KHX_e
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportSemaphoreCreateInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
 }
@@ -33,7 +34,7 @@ pub struct VkExportSemaphoreCreateInfoKHX {
 impl Default for VkExportSemaphoreCreateInfoKHX {
     fn default() -> Self {
         VkExportSemaphoreCreateInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

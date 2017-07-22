@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,15 +25,15 @@ pub const VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME_STR: &'static str = "VK_NV_d
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationImageCreateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub dedicatedAllocation: VkBool32,
+    pub dedicatedAllocation: core::VkBool32,
 }
 
 impl Default for VkDedicatedAllocationImageCreateInfoNV {
     fn default() -> Self {
         VkDedicatedAllocationImageCreateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,
             pNext: ptr::null(),
             dedicatedAllocation: Default::default(),
         }
@@ -45,15 +45,15 @@ impl Default for VkDedicatedAllocationImageCreateInfoNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationBufferCreateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub dedicatedAllocation: VkBool32,
+    pub dedicatedAllocation: core::VkBool32,
 }
 
 impl Default for VkDedicatedAllocationBufferCreateInfoNV {
     fn default() -> Self {
         VkDedicatedAllocationBufferCreateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV,
             pNext: ptr::null(),
             dedicatedAllocation: Default::default(),
         }
@@ -65,16 +65,16 @@ impl Default for VkDedicatedAllocationBufferCreateInfoNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationMemoryAllocateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub image: VkImage,
-    pub buffer: VkBuffer,
+    pub image: core::VkImage,
+    pub buffer: core::VkBuffer,
 }
 
 impl Default for VkDedicatedAllocationMemoryAllocateInfoNV {
     fn default() -> Self {
         VkDedicatedAllocationMemoryAllocateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
             image: Default::default(),
             buffer: Default::default(),

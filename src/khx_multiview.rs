@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,7 +25,7 @@ pub const VK_KHX_MULTIVIEW_EXTENSION_NAME_STR: &'static str = "VK_KHX_multiview"
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkRenderPassMultiviewCreateInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub subpassCount: u32,
     pub pViewMasks: *const u32,
@@ -38,7 +38,7 @@ pub struct VkRenderPassMultiviewCreateInfoKHX {
 impl Default for VkRenderPassMultiviewCreateInfoKHX {
     fn default() -> Self {
         VkRenderPassMultiviewCreateInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX,
             pNext: ptr::null(),
             subpassCount: Default::default(),
             pViewMasks: ptr::null(),
@@ -55,17 +55,17 @@ impl Default for VkRenderPassMultiviewCreateInfoKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewFeaturesKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub multiview: VkBool32,
-    pub multiviewGeometryShader: VkBool32,
-    pub multiviewTessellationShader: VkBool32,
+    pub multiview: core::VkBool32,
+    pub multiviewGeometryShader: core::VkBool32,
+    pub multiviewTessellationShader: core::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceMultiviewFeaturesKHX {
     fn default() -> Self {
         VkPhysicalDeviceMultiviewFeaturesKHX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX,
             pNext: ptr::null_mut(),
             multiview: Default::default(),
             multiviewGeometryShader: Default::default(),
@@ -79,7 +79,7 @@ impl Default for VkPhysicalDeviceMultiviewFeaturesKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewPropertiesKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub maxMultiviewViewCount: u32,
     pub maxMultiviewInstanceIndex: u32,
@@ -88,7 +88,7 @@ pub struct VkPhysicalDeviceMultiviewPropertiesKHX {
 impl Default for VkPhysicalDeviceMultiviewPropertiesKHX {
     fn default() -> Self {
         VkPhysicalDeviceMultiviewPropertiesKHX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             maxMultiviewViewCount: Default::default(),
             maxMultiviewInstanceIndex: Default::default(),

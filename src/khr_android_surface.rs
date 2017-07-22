@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -41,7 +42,7 @@ pub type VkAndroidSurfaceCreateFlagBitsKHR = VkAndroidSurfaceCreateFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkAndroidSurfaceCreateInfoKHR {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkAndroidSurfaceCreateFlagsKHR,
     pub window: *mut android_wrapper::ANativeWindow,
@@ -50,7 +51,7 @@ pub struct VkAndroidSurfaceCreateInfoKHR {
 impl Default for VkAndroidSurfaceCreateInfoKHR {
     fn default() -> Self {
         VkAndroidSurfaceCreateInfoKHR  {
-            sType: VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR,
+            sType: core::VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             window: ptr::null_mut(),
@@ -60,11 +61,11 @@ impl Default for VkAndroidSurfaceCreateInfoKHR {
 
 /// See [`vkCreateAndroidSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateAndroidSurfaceKHR)
 /// and extension [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
-pub type PFN_vkCreateAndroidSurfaceKHR = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+pub type PFN_vkCreateAndroidSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCreateAndroidSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateAndroidSurfaceKHR)
     /// and extension [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
-    pub fn vkCreateAndroidSurfaceKHR(instance: VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+    pub fn vkCreateAndroidSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkAndroidSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 }

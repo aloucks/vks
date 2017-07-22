@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -34,9 +34,9 @@ pub struct VkViewportWScalingNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineViewportWScalingStateCreateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub viewportWScalingEnable: VkBool32,
+    pub viewportWScalingEnable: core::VkBool32,
     pub viewportCount: u32,
     pub pViewportWScalings: *const VkViewportWScalingNV,
 }
@@ -44,7 +44,7 @@ pub struct VkPipelineViewportWScalingStateCreateInfoNV {
 impl Default for VkPipelineViewportWScalingStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineViewportWScalingStateCreateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             viewportWScalingEnable: Default::default(),
             viewportCount: Default::default(),
@@ -55,11 +55,11 @@ impl Default for VkPipelineViewportWScalingStateCreateInfoNV {
 
 /// See [`vkCmdSetViewportWScalingNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetViewportWScalingNV)
 /// and extension [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
-pub type PFN_vkCmdSetViewportWScalingNV = unsafe extern "system" fn(commandBuffer: VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV);
+pub type PFN_vkCmdSetViewportWScalingNV = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV);
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCmdSetViewportWScalingNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetViewportWScalingNV)
     /// and extension [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
-    pub fn vkCmdSetViewportWScalingNV(commandBuffer: VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV);
+    pub fn vkCmdSetViewportWScalingNV(commandBuffer: core::VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV);
 }

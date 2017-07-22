@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,7 +26,7 @@ pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &'static str = "VK_NV_extern
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryImageCreateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsNV,
 }
@@ -33,7 +34,7 @@ pub struct VkExternalMemoryImageCreateInfoNV {
 impl Default for VkExternalMemoryImageCreateInfoNV {
     fn default() -> Self {
         VkExternalMemoryImageCreateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -45,7 +46,7 @@ impl Default for VkExternalMemoryImageCreateInfoNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: VkExternalMemoryHandleTypeFlagsNV,
 }
@@ -53,7 +54,7 @@ pub struct VkExportMemoryAllocateInfoNV {
 impl Default for VkExportMemoryAllocateInfoNV {
     fn default() -> Self {
         VkExportMemoryAllocateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -34,7 +35,7 @@ pub struct VkXYColorEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkHdrMetadataEXT {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub displayPrimaryRed: VkXYColorEXT,
     pub displayPrimaryGreen: VkXYColorEXT,
@@ -49,7 +50,7 @@ pub struct VkHdrMetadataEXT {
 impl Default for VkHdrMetadataEXT {
     fn default() -> Self {
         VkHdrMetadataEXT  {
-            sType: VK_STRUCTURE_TYPE_HDR_METADATA_EXT,
+            sType: core::VK_STRUCTURE_TYPE_HDR_METADATA_EXT,
             pNext: ptr::null(),
             displayPrimaryRed: Default::default(),
             displayPrimaryGreen: Default::default(),
@@ -65,11 +66,11 @@ impl Default for VkHdrMetadataEXT {
 
 /// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
 /// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
-pub type PFN_vkSetHdrMetadataEXT = unsafe extern "system" fn(device: VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
+pub type PFN_vkSetHdrMetadataEXT = unsafe extern "system" fn(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
     /// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
-    pub fn vkSetHdrMetadataEXT(device: VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
+    pub fn vkSetHdrMetadataEXT(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
 }

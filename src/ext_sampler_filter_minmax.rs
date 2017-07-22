@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -41,7 +41,7 @@ cenum!(VkSamplerReductionModeEXT: u32 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSamplerReductionModeCreateInfoEXT {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub reductionMode: VkSamplerReductionModeEXT,
 }
@@ -49,7 +49,7 @@ pub struct VkSamplerReductionModeCreateInfoEXT {
 impl Default for VkSamplerReductionModeCreateInfoEXT {
     fn default() -> Self {
         VkSamplerReductionModeCreateInfoEXT {
-            sType: VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT,
+            sType: core::VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             reductionMode: Default::default(),
         }
@@ -61,16 +61,16 @@ impl Default for VkSamplerReductionModeCreateInfoEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub filterMinmaxSingleComponentFormats: VkBool32,
-    pub filterMinmaxImageComponentMapping: VkBool32,
+    pub filterMinmaxSingleComponentFormats: core::VkBool32,
+    pub filterMinmaxImageComponentMapping: core::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
     fn default() -> Self {
         VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             filterMinmaxSingleComponentFormats: Default::default(),
             filterMinmaxImageComponentMapping: Default::default(),

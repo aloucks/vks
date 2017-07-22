@@ -13,6 +13,7 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -41,7 +42,7 @@ pub type VkMacOSSurfaceCreateFlagBitsMVK = VkMacOSSurfaceCreateFlagsMVK;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMacOSSurfaceCreateInfoMVK {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkMacOSSurfaceCreateFlagsMVK,
     pub pView: *const c_void,
@@ -50,7 +51,7 @@ pub struct VkMacOSSurfaceCreateInfoMVK {
 impl Default for VkMacOSSurfaceCreateInfoMVK {
     fn default() -> Self {
         VkMacOSSurfaceCreateInfoMVK  {
-            sType: VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK,
+            sType: core::VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK,
             pNext: ptr::null(),
             flags: Default::default(),
             pView: ptr::null(),
@@ -60,11 +61,11 @@ impl Default for VkMacOSSurfaceCreateInfoMVK {
 
 /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
 /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
-pub type PFN_vkCreateMacOSSurfaceMVK = unsafe extern "system" fn(instance: VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+pub type PFN_vkCreateMacOSSurfaceMVK = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
     /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
-    pub fn vkCreateMacOSSurfaceMVK(instance: VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> VkResult;
+    pub fn vkCreateMacOSSurfaceMVK(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
 }

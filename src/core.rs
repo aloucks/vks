@@ -12,6 +12,8 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
+//! Core Vulkan specification
+
 use libc::{c_char, c_void};
 use std::fmt;
 use std::mem;

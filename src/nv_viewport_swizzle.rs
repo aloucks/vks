@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -86,7 +86,7 @@ pub struct VkViewportSwizzleNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineViewportSwizzleStateCreateInfoNV {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkPipelineViewportSwizzleStateCreateFlagsNV,
     pub viewportCount: u32,
@@ -96,7 +96,7 @@ pub struct VkPipelineViewportSwizzleStateCreateInfoNV {
 impl Default for VkPipelineViewportSwizzleStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineViewportSwizzleStateCreateInfoNV  {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV,
+            sType: core::VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             viewportCount: Default::default(),

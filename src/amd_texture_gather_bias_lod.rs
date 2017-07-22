@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -25,15 +25,15 @@ pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME_STR: &'static str = "VK_
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkTextureLODGatherFormatPropertiesAMD {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub supportsTextureGatherLODBiasAMD: VkBool32,
+    pub supportsTextureGatherLODBiasAMD: core::VkBool32,
 }
 
 impl Default for VkTextureLODGatherFormatPropertiesAMD {
     fn default() -> Self {
         VkTextureLODGatherFormatPropertiesAMD {
-            sType: VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD,
+            sType: core::VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD,
             pNext: ptr::null_mut(),
             supportsTextureGatherLODBiasAMD: Default::default(),
         }

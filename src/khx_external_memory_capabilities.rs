@@ -12,7 +12,7 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+use core;
 use libc::c_void;
 use std::ptr;
 
@@ -108,7 +108,7 @@ pub struct VkExternalMemoryPropertiesKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceExternalImageFormatInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub handleType: VkExternalMemoryHandleTypeFlagBitsKHX,
 }
@@ -116,7 +116,7 @@ pub struct VkPhysicalDeviceExternalImageFormatInfoKHX {
 impl Default for VkPhysicalDeviceExternalImageFormatInfoKHX {
     fn default() -> Self {
         VkPhysicalDeviceExternalImageFormatInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHX,
             pNext: ptr::null(),
             handleType: Default::default(),
         }
@@ -128,7 +128,7 @@ impl Default for VkPhysicalDeviceExternalImageFormatInfoKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalImageFormatPropertiesKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub externalMemoryProperties: VkExternalMemoryPropertiesKHX,
 }
@@ -136,7 +136,7 @@ pub struct VkExternalImageFormatPropertiesKHX {
 impl Default for VkExternalImageFormatPropertiesKHX {
     fn default() -> Self {
         VkExternalImageFormatPropertiesKHX  {
-            sType: VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             externalMemoryProperties: Default::default(),
         }
@@ -148,17 +148,17 @@ impl Default for VkExternalImageFormatPropertiesKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceExternalBufferInfoKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub flags: VkBufferCreateFlags,
-    pub usage: VkBufferUsageFlags,
+    pub flags: core::VkBufferCreateFlags,
+    pub usage: core::VkBufferUsageFlags,
     pub handleType: VkExternalMemoryHandleTypeFlagBitsKHX,
 }
 
 impl Default for VkPhysicalDeviceExternalBufferInfoKHX {
     fn default() -> Self {
         VkPhysicalDeviceExternalBufferInfoKHX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHX,
             pNext: ptr::null(),
             flags: Default::default(),
             usage: Default::default(),
@@ -172,7 +172,7 @@ impl Default for VkPhysicalDeviceExternalBufferInfoKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalBufferPropertiesKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub externalMemoryProperties: VkExternalMemoryPropertiesKHX,
 }
@@ -180,7 +180,7 @@ pub struct VkExternalBufferPropertiesKHX {
 impl Default for VkExternalBufferPropertiesKHX {
     fn default() -> Self {
         VkExternalBufferPropertiesKHX  {
-            sType: VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHX,
+            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             externalMemoryProperties: Default::default(),
         }
@@ -192,18 +192,18 @@ impl Default for VkExternalBufferPropertiesKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceIDPropertiesKHX {
-    pub sType: VkStructureType,
+    pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub deviceUUID: [u8; VK_UUID_SIZE],
-    pub driverUUID: [u8; VK_UUID_SIZE],
+    pub deviceUUID: [u8; core::VK_UUID_SIZE],
+    pub driverUUID: [u8; core::VK_UUID_SIZE],
     pub deviceLUID: [u8; VK_LUID_SIZE_KHX],
-    pub deviceLUIDValid: VkBool32,
+    pub deviceLUIDValid: core::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceIDPropertiesKHX {
     fn default() -> Self {
         VkPhysicalDeviceIDPropertiesKHX  {
-            sType: VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX,
+            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             deviceUUID: Default::default(),
             driverUUID: Default::default(),
@@ -215,11 +215,11 @@ impl Default for VkPhysicalDeviceIDPropertiesKHX {
 
 /// See [`vkGetPhysicalDeviceExternalBufferPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferPropertiesKHX)
 /// and extension [`VK_KHX_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_capabilities)
-pub type PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHX = unsafe extern "system" fn(physicalDevice: VkPhysicalDevice, pExternalBufferInfo: *const VkPhysicalDeviceExternalBufferInfoKHX, pExternalBufferProperties: *mut VkExternalBufferPropertiesKHX);
+pub type PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pExternalBufferInfo: *const VkPhysicalDeviceExternalBufferInfoKHX, pExternalBufferProperties: *mut VkExternalBufferPropertiesKHX);
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkGetPhysicalDeviceExternalBufferPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferPropertiesKHX)
     /// and extension [`VK_KHX_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_capabilities)
-    pub fn vkGetPhysicalDeviceExternalBufferPropertiesKHX(physicalDevice: VkPhysicalDevice, pExternalBufferInfo: *const VkPhysicalDeviceExternalBufferInfoKHX, pExternalBufferProperties: *mut VkExternalBufferPropertiesKHX);
+    pub fn vkGetPhysicalDeviceExternalBufferPropertiesKHX(physicalDevice: core::VkPhysicalDevice, pExternalBufferInfo: *const VkPhysicalDeviceExternalBufferInfoKHX, pExternalBufferProperties: *mut VkExternalBufferPropertiesKHX);
 }
