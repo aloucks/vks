@@ -40,10 +40,10 @@ mod core;
 pub use core::*;
 mod version;
 pub use version::*;
-pub mod instance_proc_addr_loader;
-pub use instance_proc_addr_loader::InstanceProcAddrLoader;
-pub mod device_proc_addr_loader;
-pub use device_proc_addr_loader::DeviceProcAddrLoader;
+// pub mod instance_proc_addr_loader;
+// pub use instance_proc_addr_loader::InstanceProcAddrLoader;
+// pub mod device_proc_addr_loader;
+// pub use device_proc_addr_loader::DeviceProcAddrLoader;
 #[cfg(not(feature = "unstable_rust"))] pub mod union_field;
 
 mod amd_draw_indirect_count;
