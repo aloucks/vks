@@ -20,8 +20,6 @@
 
 extern crate libc;
 
-mod version;
-
 #[macro_use]
 mod cenum;
 
@@ -111,10 +109,38 @@ pub mod xlib_types;
 #[cfg(feature = "experimental")]
 pub mod experimental;
 
-pub use version::*;
-
 #[cfg(windows)]
 pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
 
 #[cfg(not(windows))]
 pub const VULKAN_LIBRARY_NAME: &'static str = "libvulkan.so.1";
+
+/// See [`VK_API_VERSION_1_0`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_API_VERSION_1_0)
+pub const VK_API_VERSION_1_0: u32 = 0x00400000;
+
+/// See [`VK_HEADER_VERSION`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_HEADER_VERSION)
+pub const VK_HEADER_VERSION: u32 = 53;
+
+/// See [`VK_VERSION_MAJOR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_VERSION_MAJOR)
+#[inline]
+pub fn vk_version_major(version: u32) -> u32 {
+    version >> 22
+}
+
+/// See [`VK_VERSION_MINOR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_VERSION_MINOR)
+#[inline]
+pub fn vk_version_minor(version: u32) -> u32 {
+    (version >> 12) & 0x3ff
+}
+
+/// See [`VK_VERSION_PATCH`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_VERSION_PATCH)
+#[inline]
+pub fn vk_version_patch(version: u32) -> u32 {
+    version & 0xfff
+}
+
+/// See [`VK_MAKE_VERSION`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MAKE_VERSION)
+#[inline]
+pub fn vk_make_version(major: u32, minor: u32, patch: u32) -> u32 {
+    (major << 22) | (minor << 12) | patch
+}
