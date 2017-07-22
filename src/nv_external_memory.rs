@@ -24,7 +24,6 @@ pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 22] = b"VK_NV_exte
 pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &'static str = "VK_NV_external_memory";
 
 /// See [`VkExternalMemoryImageCreateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryImageCreateInfoNV)
-/// and extension [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryImageCreateInfoNV {
@@ -44,7 +43,6 @@ impl Default for VkExternalMemoryImageCreateInfoNV {
 }
 
 /// See [`VkExportMemoryAllocateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExportMemoryAllocateInfoNV)
-/// and extension [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoNV {

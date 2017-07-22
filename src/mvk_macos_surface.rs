@@ -25,22 +25,18 @@ pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_MVK_macos_
 
 vks_bitflags! {
     /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
-    /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkMacOSSurfaceCreateFlagsMVK: u32 {
         /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
-        /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
         const VK_MAC_OS_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_MVK = 0x7fffffff;
     }
 }
 
 /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
-/// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
 pub type VkMacOSSurfaceCreateFlagBitsMVK = VkMacOSSurfaceCreateFlagsMVK;
 
 /// See [`VkMacOSSurfaceCreateInfoMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateInfoMVK)
-/// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMacOSSurfaceCreateInfoMVK {
@@ -62,12 +58,10 @@ impl Default for VkMacOSSurfaceCreateInfoMVK {
 }
 
 /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
-/// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
 pub type PFN_vkCreateMacOSSurfaceMVK = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
-    /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
     pub fn vkCreateMacOSSurfaceMVK(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 }

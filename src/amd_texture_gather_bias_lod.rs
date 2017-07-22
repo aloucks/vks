@@ -23,7 +23,6 @@ pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME: &'static [u8; 31] = b"V
 pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME_STR: &'static str = "VK_AMD_texture_gather_bias_lod";
 
 /// See [`VkTextureLODGatherFormatPropertiesAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkTextureLODGatherFormatPropertiesAMD)
-/// and extension [`VK_AMD_texture_gather_bias_lod`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkTextureLODGatherFormatPropertiesAMD {

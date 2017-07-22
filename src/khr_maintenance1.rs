@@ -22,27 +22,22 @@ pub const VK_KHR_MAINTENANCE1_EXTENSION_NAME_STR: &'static str = "VK_KHR_mainten
 
 vks_bitflags! {
     /// See [`VkCommandPoolTrimFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolTrimFlagsKHR)
-    /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkCommandPoolTrimFlagsKHR: u32 {
         /// See [`VkCommandPoolTrimFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolTrimFlagsKHR)
-        /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
         const VK_COMMAND_POOL_TRIM_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 
 /// See [`VkCommandPoolTrimFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPoolTrimFlagsKHR)
-/// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
 pub type VkCommandPoolTrimFlagBitsKHR = VkCommandPoolTrimFlagsKHR;
 
 /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
-/// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
 pub type PFN_vkTrimCommandPoolKHR = unsafe extern "system" fn(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
-    /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
     pub fn vkTrimCommandPoolKHR(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 }

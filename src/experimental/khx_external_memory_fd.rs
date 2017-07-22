@@ -24,7 +24,6 @@ pub const VK_KHX_EXTERNAL_MEMORY_FD_EXTENSION_NAME: &'static [u8; 26] = b"VK_KHX
 pub const VK_KHX_EXTERNAL_MEMORY_FD_EXTENSION_NAME_STR: &'static str = "VK_KHX_external_memory_fd";
 
 /// See [`VkImportMemoryFdInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportMemoryFdInfoKHX)
-/// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportMemoryFdInfoKHX {
@@ -46,7 +45,6 @@ impl Default for VkImportMemoryFdInfoKHX {
 }
 
 /// See [`VkMemoryFdPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMemoryFdPropertiesKHX)
-/// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryFdPropertiesKHX {
@@ -66,20 +64,16 @@ impl Default for VkMemoryFdPropertiesKHX {
 }
 
 /// See [`vkGetMemoryFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdKHX)
-/// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
 pub type PFN_vkGetMemoryFdKHX = unsafe extern "system" fn(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, pFd: *mut c_int) -> core::VkResult;
 
 /// See [`vkGetMemoryFdPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdPropertiesKHX)
-/// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
 pub type PFN_vkGetMemoryFdPropertiesKHX = unsafe extern "system" fn(device: core::VkDevice, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHX) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetMemoryFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdKHX)
-    /// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
     pub fn vkGetMemoryFdKHX(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, pFd: *mut c_int) -> core::VkResult;
 
     /// See [`vkGetMemoryFdPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdPropertiesKHX)
-    /// and extension [`VK_KHX_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_fd)
     pub fn vkGetMemoryFdPropertiesKHX(device: core::VkDevice, handleType: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHX, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHX) -> core::VkResult;
 }

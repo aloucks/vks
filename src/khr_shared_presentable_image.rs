@@ -24,7 +24,6 @@ pub const VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME: &'static [u8; 32] = b"
 pub const VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME_STR: &'static str = "VK_KHR_shared_presentable_image";
 
 /// See [`VkSharedPresentSurfaceCapabilitiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
-/// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSharedPresentSurfaceCapabilitiesKHR {
@@ -44,12 +43,10 @@ impl Default for VkSharedPresentSurfaceCapabilitiesKHR {
 }
 
 /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
-/// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
 pub type PFN_vkGetSwapchainStatusKHR = unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
-    /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
     pub fn vkGetSwapchainStatusKHR(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult;
 }

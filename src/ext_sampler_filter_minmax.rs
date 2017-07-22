@@ -23,23 +23,18 @@ pub const VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME: &'static [u8; 29] = b"VK_
 pub const VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME_STR: &'static str = "VK_EXT_sampler_filter_minmax";
 
 /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-/// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
 cenum!(VkSamplerReductionModeEXT: u32 {
     /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
     const VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_EXT = 0,
 
     /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
     const VK_SAMPLER_REDUCTION_MODE_MIN_EXT = 1,
 
     /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
     const VK_SAMPLER_REDUCTION_MODE_MAX_EXT = 2,
 });
 
 /// See [`VkSamplerReductionModeCreateInfoEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeCreateInfoEXT)
-/// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSamplerReductionModeCreateInfoEXT {
@@ -59,7 +54,6 @@ impl Default for VkSamplerReductionModeCreateInfoEXT {
 }
 
 /// See [`VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT)
-/// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {

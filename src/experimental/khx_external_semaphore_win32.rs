@@ -25,7 +25,6 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME: &'static [u8; 32] = b"
 pub const VK_KHX_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME_STR: &'static str = "VK_KHX_external_semaphore_win32";
 
 /// See [`VkImportSemaphoreWin32HandleInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreWin32HandleInfoKHX)
-/// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportSemaphoreWin32HandleInfoKHX {
@@ -49,7 +48,6 @@ impl Default for VkImportSemaphoreWin32HandleInfoKHX {
 }
 
 /// See [`VkExportSemaphoreWin32HandleInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExportSemaphoreWin32HandleInfoKHX)
-/// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportSemaphoreWin32HandleInfoKHX {
@@ -73,7 +71,6 @@ impl Default for VkExportSemaphoreWin32HandleInfoKHX {
 }
 
 /// See [`VkD3D12FenceSubmitInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkD3D12FenceSubmitInfoKHX)
-/// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkD3D12FenceSubmitInfoKHX {
@@ -99,20 +96,16 @@ impl Default for VkD3D12FenceSubmitInfoKHX {
 }
 
 /// See [`vkImportSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportSemaphoreWin32HandleKHX)
-/// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
 pub type PFN_vkImportSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHX) -> core::VkResult;
 
 /// See [`vkGetSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHX)
-/// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
 pub type PFN_vkGetSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkImportSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportSemaphoreWin32HandleKHX)
-    /// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
     pub fn vkImportSemaphoreWin32HandleKHX(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHX) -> core::VkResult;
 
     /// See [`vkGetSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHX)
-    /// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
     pub fn vkGetSemaphoreWin32HandleKHX(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
 }

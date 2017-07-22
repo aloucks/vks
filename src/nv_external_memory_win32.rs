@@ -25,7 +25,6 @@ pub const VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 28] = b"VK_N
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME_STR: &'static str = "VK_NV_external_memory_win32";
 
 /// See [`VkImportMemoryWin32HandleInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportMemoryWin32HandleInfoNV)
-/// and extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportMemoryWin32HandleInfoNV {
@@ -47,7 +46,6 @@ impl Default for VkImportMemoryWin32HandleInfoNV {
 }
 
 /// See [`VkExportMemoryWin32HandleInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExportMemoryWin32HandleInfoNV)
-/// and extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryWin32HandleInfoNV {
@@ -69,12 +67,10 @@ impl Default for VkExportMemoryWin32HandleInfoNV {
 }
 
 /// See [`vkGetMemoryWin32HandleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleNV)
-/// and extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
 pub type PFN_vkGetMemoryWin32HandleNV = unsafe extern "system" fn(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetMemoryWin32HandleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleNV)
-    /// and extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
     pub fn vkGetMemoryWin32HandleNV(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
 }

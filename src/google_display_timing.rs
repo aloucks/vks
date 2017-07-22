@@ -24,7 +24,6 @@ pub const VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME: &'static [u8; 25] = b"VK_GOOG
 pub const VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME_STR: &'static str = "VK_GOOGLE_display_timing";
 
 /// See [`VkRefreshCycleDurationGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRefreshCycleDurationGOOGLE)
-/// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkRefreshCycleDurationGOOGLE {
@@ -32,7 +31,6 @@ pub struct VkRefreshCycleDurationGOOGLE {
 }
 
 /// See [`VkPastPresentationTimingGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPastPresentationTimingGOOGLE)
-/// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkPastPresentationTimingGOOGLE {
@@ -44,7 +42,6 @@ pub struct VkPastPresentationTimingGOOGLE {
 }
 
 /// See [`VkPresentTimeGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPresentTimeGOOGLE)
-/// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkPresentTimeGOOGLE {
@@ -53,7 +50,6 @@ pub struct VkPresentTimeGOOGLE {
 }
 
 /// See [`VkPresentTimesInfoGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPresentTimesInfoGOOGLE)
-/// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentTimesInfoGOOGLE {
@@ -75,20 +71,16 @@ impl Default for VkPresentTimesInfoGOOGLE {
 }
 
 /// See [`vkGetRefreshCycleDurationGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRefreshCycleDurationGOOGLE)
-/// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 pub type PFN_vkGetRefreshCycleDurationGOOGLE = unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> core::VkResult;
 
 /// See [`vkGetPastPresentationTimingGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPastPresentationTimingGOOGLE)
-/// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 pub type PFN_vkGetPastPresentationTimingGOOGLE = unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut VkPastPresentationTimingGOOGLE) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetRefreshCycleDurationGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRefreshCycleDurationGOOGLE)
-    /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
     pub fn vkGetRefreshCycleDurationGOOGLE(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, pDisplayTimingProperties: *mut VkRefreshCycleDurationGOOGLE) -> core::VkResult;
 
     /// See [`vkGetPastPresentationTimingGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPastPresentationTimingGOOGLE)
-    /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
     pub fn vkGetPastPresentationTimingGOOGLE(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut VkPastPresentationTimingGOOGLE) -> core::VkResult;
 }

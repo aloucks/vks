@@ -24,130 +24,102 @@ pub const VK_NVX_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME_STR: &'static str = "V
 
 define_non_dispatchable_handle!(
     /// See [`VkObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTableNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     struct VkObjectTableNVX;
 );
 
 define_non_dispatchable_handle!(
     /// See [`VkIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     struct VkIndirectCommandsLayoutNVX;
 );
 
 cenum!(VkIndirectCommandsTokenTypeNVX: u32 {
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NVX = 0,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_DESCRIPTOR_SET_NVX = 1,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NVX = 2,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NVX = 3,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NVX = 4,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NVX = 5,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NVX = 6,
 
     /// See [`VkIndirectCommandsTokenTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NVX = 7,
 });
 
 cenum!(VkObjectEntryTypeNVX: u32 {
     /// See [`VkObjectEntryTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX = 0,
 
     /// See [`VkObjectEntryTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_OBJECT_ENTRY_TYPE_PIPELINE_NVX = 1,
 
     /// See [`VkObjectEntryTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX = 2,
 
     /// See [`VkObjectEntryTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX = 3,
 
     /// See [`VkObjectEntryTypeNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryTypeNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     const VK_OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX = 4,
 });
 
 vks_bitflags! {
     /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkIndirectCommandsLayoutUsageFlagsNVX: u32 {
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_FLAG_BITS_MAX_ENUM_NVX = 0x7fffffff;
 
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x00000001;
 
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX = 0x00000002;
 
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX = 0x00000004;
 
         /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX = 0x00000008;
     }
 }
 
 /// See [`VkIndirectCommandsLayoutUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutUsageFlagBitsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type VkIndirectCommandsLayoutUsageFlagBitsNVX = VkIndirectCommandsLayoutUsageFlagsNVX;
 
 vks_bitflags! {
     /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkObjectEntryUsageFlagsNVX: u32 {
         /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_OBJECT_ENTRY_USAGE_FLAG_BITS_MAX_ENUM_NVX = 0x7fffffff;
 
         /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x00000001;
 
         /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
-        /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
         const VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX = 0x00000002;
     }
 }
 
 /// See [`VkObjectEntryUsageFlagBitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectEntryUsageFlagBitsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type VkObjectEntryUsageFlagBitsNVX = VkObjectEntryUsageFlagsNVX;
 
 /// See [`VkDeviceGeneratedCommandsFeaturesNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGeneratedCommandsFeaturesNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGeneratedCommandsFeaturesNVX {
@@ -167,7 +139,6 @@ impl Default for VkDeviceGeneratedCommandsFeaturesNVX {
 }
 
 /// See [`VkDeviceGeneratedCommandsLimitsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceGeneratedCommandsLimitsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGeneratedCommandsLimitsNVX {
@@ -195,7 +166,6 @@ impl Default for VkDeviceGeneratedCommandsLimitsNVX {
 }
 
 /// See [`VkIndirectCommandsTokenNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsTokenNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkIndirectCommandsTokenNVX {
@@ -205,7 +175,6 @@ pub struct VkIndirectCommandsTokenNVX {
 }
 
 /// See [`VkIndirectCommandsLayoutTokenNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutTokenNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkIndirectCommandsLayoutTokenNVX {
@@ -216,7 +185,6 @@ pub struct VkIndirectCommandsLayoutTokenNVX {
 }
 
 /// See [`VkIndirectCommandsLayoutCreateInfoNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndirectCommandsLayoutCreateInfoNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkIndirectCommandsLayoutCreateInfoNVX {
@@ -242,7 +210,6 @@ impl Default for VkIndirectCommandsLayoutCreateInfoNVX {
 }
 
 /// See [`VkCmdProcessCommandsInfoNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCmdProcessCommandsInfoNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkCmdProcessCommandsInfoNVX {
@@ -280,7 +247,6 @@ impl Default for VkCmdProcessCommandsInfoNVX {
 }
 
 /// See [`VkCmdReserveSpaceForCommandsInfoNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCmdReserveSpaceForCommandsInfoNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkCmdReserveSpaceForCommandsInfoNVX {
@@ -304,7 +270,6 @@ impl Default for VkCmdReserveSpaceForCommandsInfoNVX {
 }
 
 /// See [`VkObjectTableCreateInfoNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTableCreateInfoNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkObjectTableCreateInfoNVX {
@@ -340,7 +305,6 @@ impl Default for VkObjectTableCreateInfoNVX {
 }
 
 /// See [`VkObjectTableEntryNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTableEntryNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTableEntryNVX {
@@ -349,7 +313,6 @@ pub struct VkObjectTableEntryNVX {
 }
 
 /// See [`VkObjectTablePipelineEntryNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTablePipelineEntryNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTablePipelineEntryNVX {
@@ -359,7 +322,6 @@ pub struct VkObjectTablePipelineEntryNVX {
 }
 
 /// See [`VkObjectTableDescriptorSetEntryNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTableDescriptorSetEntryNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTableDescriptorSetEntryNVX {
@@ -370,7 +332,6 @@ pub struct VkObjectTableDescriptorSetEntryNVX {
 }
 
 /// See [`VkObjectTableVertexBufferEntryNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTableVertexBufferEntryNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTableVertexBufferEntryNVX {
@@ -380,7 +341,6 @@ pub struct VkObjectTableVertexBufferEntryNVX {
 }
 
 /// See [`VkObjectTableIndexBufferEntryNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTableIndexBufferEntryNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTableIndexBufferEntryNVX {
@@ -391,7 +351,6 @@ pub struct VkObjectTableIndexBufferEntryNVX {
 }
 
 /// See [`VkObjectTablePushConstantEntryNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkObjectTablePushConstantEntryNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkObjectTablePushConstantEntryNVX {
@@ -402,76 +361,58 @@ pub struct VkObjectTablePushConstantEntryNVX {
 }
 
 /// See [`vkCmdProcessCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdProcessCommandsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkCmdProcessCommandsNVX = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pProcessCommandsInfo: *const VkCmdProcessCommandsInfoNVX);
 
 /// See [`vkCmdReserveSpaceForCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdReserveSpaceForCommandsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkCmdReserveSpaceForCommandsNVX = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pReserveSpaceInfo: *const VkCmdReserveSpaceForCommandsInfoNVX);
 
 /// See [`vkCreateIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIndirectCommandsLayoutNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkCreateIndirectCommandsLayoutNVX = unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkIndirectCommandsLayoutCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pIndirectCommandsLayout: *mut VkIndirectCommandsLayoutNVX) -> core::VkResult;
 
 /// See [`vkDestroyIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyIndirectCommandsLayoutNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkDestroyIndirectCommandsLayoutNVX = unsafe extern "system" fn(device: core::VkDevice, indirectCommandsLayout: VkIndirectCommandsLayoutNVX, pAllocator: *const core::VkAllocationCallbacks);
 
 /// See [`vkCreateObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateObjectTableNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkCreateObjectTableNVX = unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkObjectTableCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pObjectTable: *mut VkObjectTableNVX) -> core::VkResult;
 
 /// See [`vkDestroyObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyObjectTableNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkDestroyObjectTableNVX = unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, pAllocator: *const core::VkAllocationCallbacks);
 
 /// See [`vkRegisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterObjectsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkRegisterObjectsNVX = unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, ppObjectTableEntries: *const *const VkObjectTableEntryNVX, pObjectIndices: *const u32) -> core::VkResult;
 
 /// See [`vkUnregisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkUnregisterObjectsNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkUnregisterObjectsNVX = unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, pObjectEntryTypes: *const VkObjectEntryTypeNVX, pObjectIndices: *const u32) -> core::VkResult;
 
 /// See [`vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX)
-/// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
 pub type PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFeatures: *mut VkDeviceGeneratedCommandsFeaturesNVX, pLimits: *mut VkDeviceGeneratedCommandsLimitsNVX);
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCmdProcessCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdProcessCommandsNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkCmdProcessCommandsNVX(commandBuffer: core::VkCommandBuffer, pProcessCommandsInfo: *const VkCmdProcessCommandsInfoNVX);
 
     /// See [`vkCmdReserveSpaceForCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdReserveSpaceForCommandsNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkCmdReserveSpaceForCommandsNVX(commandBuffer: core::VkCommandBuffer, pReserveSpaceInfo: *const VkCmdReserveSpaceForCommandsInfoNVX);
 
     /// See [`vkCreateIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIndirectCommandsLayoutNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkCreateIndirectCommandsLayoutNVX(device: core::VkDevice, pCreateInfo: *const VkIndirectCommandsLayoutCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pIndirectCommandsLayout: *mut VkIndirectCommandsLayoutNVX) -> core::VkResult;
 
     /// See [`vkDestroyIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyIndirectCommandsLayoutNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkDestroyIndirectCommandsLayoutNVX(device: core::VkDevice, indirectCommandsLayout: VkIndirectCommandsLayoutNVX, pAllocator: *const core::VkAllocationCallbacks);
 
     /// See [`vkCreateObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateObjectTableNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkCreateObjectTableNVX(device: core::VkDevice, pCreateInfo: *const VkObjectTableCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pObjectTable: *mut VkObjectTableNVX) -> core::VkResult;
 
     /// See [`vkDestroyObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyObjectTableNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkDestroyObjectTableNVX(device: core::VkDevice, objectTable: VkObjectTableNVX, pAllocator: *const core::VkAllocationCallbacks);
 
     /// See [`vkRegisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterObjectsNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkRegisterObjectsNVX(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, ppObjectTableEntries: *const *const VkObjectTableEntryNVX, pObjectIndices: *const u32) -> core::VkResult;
 
     /// See [`vkUnregisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkUnregisterObjectsNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkUnregisterObjectsNVX(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, pObjectEntryTypes: *const VkObjectEntryTypeNVX, pObjectIndices: *const u32) -> core::VkResult;
 
     /// See [`vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX)
-    /// and extension [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
     pub fn vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX(physicalDevice: core::VkPhysicalDevice, pFeatures: *mut VkDeviceGeneratedCommandsFeaturesNVX, pLimits: *mut VkDeviceGeneratedCommandsLimitsNVX);
 }

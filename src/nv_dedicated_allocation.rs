@@ -23,7 +23,6 @@ pub const VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME: &'static [u8; 27] = b"VK_NV
 pub const VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME_STR: &'static str = "VK_NV_dedicated_allocation";
 
 /// See [`VkDedicatedAllocationImageCreateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDedicatedAllocationImageCreateInfoNV)
-/// and extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationImageCreateInfoNV {
@@ -43,7 +42,6 @@ impl Default for VkDedicatedAllocationImageCreateInfoNV {
 }
 
 /// See [`VkDedicatedAllocationBufferCreateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDedicatedAllocationBufferCreateInfoNV)
-/// and extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationBufferCreateInfoNV {
@@ -63,7 +61,6 @@ impl Default for VkDedicatedAllocationBufferCreateInfoNV {
 }
 
 /// See [`VkDedicatedAllocationMemoryAllocateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDedicatedAllocationMemoryAllocateInfoNV)
-/// and extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationMemoryAllocateInfoNV {

@@ -24,7 +24,6 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME: &'static [u8; 29] = b"VK_
 pub const VK_KHX_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME_STR: &'static str = "VK_KHX_external_semaphore_fd";
 
 /// See [`VkImportSemaphoreFdInfoKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreFdInfoKHX)
-/// and extension [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportSemaphoreFdInfoKHX {
@@ -48,20 +47,16 @@ impl Default for VkImportSemaphoreFdInfoKHX {
 }
 
 /// See [`vkImportSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportSemaphoreFdKHX)
-/// and extension [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
 pub type PFN_vkImportSemaphoreFdKHX = unsafe extern "system" fn(device: core::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHX) -> core::VkResult;
 
 /// See [`vkGetSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHX)
-/// and extension [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
 pub type PFN_vkGetSemaphoreFdKHX = unsafe extern "system" fn(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pFd: *mut c_int) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkImportSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportSemaphoreFdKHX)
-    /// and extension [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
     pub fn vkImportSemaphoreFdKHX(device: core::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHX) -> core::VkResult;
 
     /// See [`vkGetSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHX)
-    /// and extension [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
     pub fn vkGetSemaphoreFdKHX(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pFd: *mut c_int) -> core::VkResult;
 }

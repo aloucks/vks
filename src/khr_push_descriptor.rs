@@ -23,7 +23,6 @@ pub const VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHR_pu
 pub const VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME_STR: &'static str = "VK_KHR_push_descriptor";
 
 /// See [`VkPhysicalDevicePushDescriptorPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevicePushDescriptorPropertiesKHR)
-/// and extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDevicePushDescriptorPropertiesKHR {
@@ -43,12 +42,10 @@ impl Default for VkPhysicalDevicePushDescriptorPropertiesKHR {
 }
 
 /// See [`vkCmdPushDescriptorSetKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetKHR)
-/// and extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
 pub type PFN_vkCmdPushDescriptorSetKHR = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pipelineBindPoint: core::VkPipelineBindPoint, layout: core::VkPipelineLayout, set: u32, descriptorWriteCount: u32, pDescriptorWrites: *const core::VkWriteDescriptorSet);
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCmdPushDescriptorSetKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetKHR)
-    /// and extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
     pub fn vkCmdPushDescriptorSetKHR(commandBuffer: core::VkCommandBuffer, pipelineBindPoint: core::VkPipelineBindPoint, layout: core::VkPipelineLayout, set: u32, descriptorWriteCount: u32, pDescriptorWrites: *const core::VkWriteDescriptorSet);
 }

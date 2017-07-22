@@ -25,22 +25,18 @@ pub const VK_MVK_IOS_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_MVK_ios_surf
 
 vks_bitflags! {
     /// See [`VkIOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIOSSurfaceCreateFlagsMVK)
-    /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkIOSSurfaceCreateFlagsMVK: u32 {
         /// See [`VkIOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIOSSurfaceCreateFlagsMVK)
-        /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
         const VK_IOS_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_MVK = 0x7fffffff;
     }
 }
 
 /// See [`VkIOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIOSSurfaceCreateFlagsMVK)
-/// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
 pub type VkIOSSurfaceCreateFlagBitsMVK = VkIOSSurfaceCreateFlagsMVK;
 
 /// See [`VkIOSSurfaceCreateInfoMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIOSSurfaceCreateInfoMVK)
-/// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkIOSSurfaceCreateInfoMVK {
@@ -62,12 +58,10 @@ impl Default for VkIOSSurfaceCreateInfoMVK {
 }
 
 /// See [`vkCreateIOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIOSSurfaceMVK)
-/// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
 pub type PFN_vkCreateIOSSurfaceMVK = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateIOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIOSSurfaceMVK)
-    /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
     pub fn vkCreateIOSSurfaceMVK(instance: core::VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 }

@@ -23,7 +23,6 @@ pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME: &'static [u8; 27] = b"VK_KH
 pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME_STR: &'static str = "VK_KHR_incremental_present";
 
 /// See [`VkRectLayerKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRectLayerKHR)
-/// and extension [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkRectLayerKHR {
@@ -33,7 +32,6 @@ pub struct VkRectLayerKHR {
 }
 
 /// See [`VkPresentRegionKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPresentRegionKHR)
-/// and extension [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentRegionKHR {
@@ -51,7 +49,6 @@ impl Default for VkPresentRegionKHR {
 }
 
 /// See [`VkPresentRegionsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPresentRegionsKHR)
-/// and extension [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentRegionsKHR {

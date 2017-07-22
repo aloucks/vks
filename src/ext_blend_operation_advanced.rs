@@ -23,23 +23,18 @@ pub const VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME: &'static [u8; 32] = b"
 pub const VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME_STR: &'static str = "VK_EXT_blend_operation_advanced";
 
 /// See [`VkBlendOverlapEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOverlapEXT)
-/// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
 cenum!(VkBlendOverlapEXT: u32 {
     /// See [`VkBlendOverlapEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOverlapEXT)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
     const VK_BLEND_OVERLAP_UNCORRELATED_EXT = 0,
 
     /// See [`VkBlendOverlapEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOverlapEXT)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
     const VK_BLEND_OVERLAP_DISJOINT_EXT = 1,
 
     /// See [`VkBlendOverlapEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOverlapEXT)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
     const VK_BLEND_OVERLAP_CONJOINT_EXT = 2,
 });
 
 /// See [`VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT)
-/// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
@@ -59,7 +54,6 @@ impl Default for VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
 }
 
 /// See [`VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT)
-/// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
@@ -89,7 +83,6 @@ impl Default for VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
 }
 
 /// See [`VkPipelineColorBlendAdvancedStateCreateInfoEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineColorBlendAdvancedStateCreateInfoEXT)
-/// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineColorBlendAdvancedStateCreateInfoEXT {

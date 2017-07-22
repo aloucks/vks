@@ -23,43 +23,34 @@ pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME: &'static [u8; 32] = b"
 pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME_STR: &'static str = "VK_NV_framebuffer_mixed_samples";
 
 /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-/// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
 cenum!(VkCoverageModulationModeNV: u32 {
     /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
     const VK_COVERAGE_MODULATION_MODE_NONE_NV = 0,
 
     /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
     const VK_COVERAGE_MODULATION_MODE_RGB_NV = 1,
 
     /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
     const VK_COVERAGE_MODULATION_MODE_ALPHA_NV = 2,
 
     /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
     const VK_COVERAGE_MODULATION_MODE_RGBA_NV = 3,
 });
 
 vks_bitflags! {
     /// See [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateFlagsNV)
-    /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkPipelineCoverageModulationStateCreateFlagsNV: u32 {
         /// See [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateFlagsNV)
-        /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
         const VK_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_FLAG_BITS_MAX_ENUM_NV = 0x7fffffff;
     }
 }
 
 /// See [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateFlagsNV)
-/// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
 pub type VkPipelineCoverageModulationStateCreateFlagBitsNV = VkPipelineCoverageModulationStateCreateFlagsNV;
 
 /// See [`VkPipelineCoverageModulationStateCreateInfoNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateInfoNV)
-/// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineCoverageModulationStateCreateInfoNV {

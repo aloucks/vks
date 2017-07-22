@@ -24,32 +24,26 @@ pub const VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME_STR: &'static str = "VK_EXT_d
 
 cenum!(VkDiscardRectangleModeEXT: u32 {
     /// See [`VkDiscardRectangleModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDiscardRectangleModeEXT)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
     const VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT = 0,
 
     /// See [`VkDiscardRectangleModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDiscardRectangleModeEXT)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
     const VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT = 1,
 });
 
 vks_bitflags! {
     /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkPipelineDiscardRectangleStateCreateFlagsEXT: u32 {
         /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
-        /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
         const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_FLAG_BITS_MAX_ENUM_EXT = 0x7fffffff;
     }
 }
 
 /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
-/// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
 pub type VkPipelineDiscardRectangleStateCreateFlagBitsEXT = VkPipelineDiscardRectangleStateCreateFlagsEXT;
 
 /// See [`VkPhysicalDeviceDiscardRectanglePropertiesEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceDiscardRectanglePropertiesEXT)
-/// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
@@ -69,7 +63,6 @@ impl Default for VkPhysicalDeviceDiscardRectanglePropertiesEXT {
 }
 
 /// See [`VkPipelineDiscardRectangleStateCreateInfoEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateInfoEXT)
-/// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineDiscardRectangleStateCreateInfoEXT {
@@ -95,12 +88,10 @@ impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
 }
 
 /// See [`vkCmdSetDiscardRectangleEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDiscardRectangleEXT)
-/// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
 pub type PFN_vkCmdSetDiscardRectangleEXT = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D);
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCmdSetDiscardRectangleEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDiscardRectangleEXT)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
     pub fn vkCmdSetDiscardRectangleEXT(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D);
 }

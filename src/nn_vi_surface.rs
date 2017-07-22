@@ -25,22 +25,18 @@ pub const VK_NN_VI_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_NN_vi_surface"
 
 vks_bitflags! {
     /// See [`VkViSurfaceCreateFlagsNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateFlagsNN)
-    /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
     // #[repr(C)]
     // #[derive(Default)]
     pub struct VkViSurfaceCreateFlagsNN: u32 {
         /// See [`VkViSurfaceCreateFlagsNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateFlagsNN)
-        /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
         const VK_VI_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_NN = 0x7fffffff;
     }
 }
 
 /// See [`VkViSurfaceCreateFlagsNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateFlagsNN)
-/// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
 pub type VkViSurfaceCreateFlagBitsNN = VkViSurfaceCreateFlagsNN;
 
 /// See [`VkViSurfaceCreateInfoNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateInfoNN)
-/// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkViSurfaceCreateInfoNN {
@@ -62,12 +58,10 @@ impl Default for VkViSurfaceCreateInfoNN {
 }
 
 /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
-/// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
 pub type PFN_vkCreateViSurfaceNN = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
-    /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
     pub fn vkCreateViSurfaceNN(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 }
