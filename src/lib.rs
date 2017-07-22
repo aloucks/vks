@@ -29,10 +29,8 @@ mod handle;
 #[macro_use]
 mod vks_bitflags;
 
-// pub mod instance_proc_addr_loader;
-// pub use instance_proc_addr_loader::InstanceProcAddrLoader;
+pub mod instance_proc_addr_loader;
 // pub mod device_proc_addr_loader;
-// pub use device_proc_addr_loader::DeviceProcAddrLoader;
 
 pub mod core;
 pub mod amd_draw_indirect_count;
@@ -108,6 +106,9 @@ pub mod xlib_types;
 
 #[cfg(feature = "experimental")]
 pub mod experimental;
+
+pub use instance_proc_addr_loader::InstanceProcAddrLoader;
+// pub use device_proc_addr_loader::DeviceProcAddrLoader;
 
 #[cfg(windows)]
 pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
