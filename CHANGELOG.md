@@ -1,5 +1,29 @@
 # vks Changelog
 
+## Current Git master branch
+
+This release includes many breaking changes from the previous version. A detailed list of all
+breaking changes is provided below.
+
+This most obvious change, is that you can no longer select specific Vulkan revisions or extensions
+via Cargo features. All such features have been removed. This has been too much of a maintenance
+burden in the past. Moreover, the benefits were questionable at best, because all vks does, is
+provide types and function definitions. There was no benefit in selecting just a few extensions over
+all of them.
+
+### Breaking changes
+
+ - Vks requires at least Rust 1.19.
+ - Untagged unions are now used instead of the previous work-around. The feature `unstable_rust` has been removed.
+ - Most Cargo features have been removed. Every vks release will now reflect a specific Vulkan release.
+ - The feature `no_function_prototypes` has been renamed to `function_prototypes` and its meaning has been inverted.
+ - Core Vulkan definitions are now in the `core` module.
+ - Every extension is now in a separate module.
+ - Experimental extensions (currently `KHX` and `NVX`) are only available, if the `experimental` Cargo feature is enabled.
+ - Experimental extensions have been moved into a separate sub-module `experimental`.
+ - `instance_proc_addr_loader::CoreNullInstance` has been renamed to `CoreGlobal`.
+
+
 ## Version 0.19.1, released on 01.07.2017
 
  * Vulkan 1.0.53
