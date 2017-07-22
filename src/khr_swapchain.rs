@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+
 use core;
+use khr_surface;
 use libc::c_void;
 use std::ptr;
 
@@ -57,19 +59,19 @@ pub struct VkSwapchainCreateInfoKHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkSwapchainCreateFlagsKHR,
-    pub surface: VkSurfaceKHR,
+    pub surface: khr_surface::VkSurfaceKHR,
     pub minImageCount: u32,
     pub imageFormat: core::VkFormat,
-    pub imageColorSpace: VkColorSpaceKHR,
+    pub imageColorSpace: khr_surface::VkColorSpaceKHR,
     pub imageExtent: core::VkExtent2D,
     pub imageArrayLayers: u32,
     pub imageUsage: core::VkImageUsageFlags,
     pub imageSharingMode: core::VkSharingMode,
     pub queueFamilyIndexCount: u32,
     pub pQueueFamilyIndices: *const u32,
-    pub preTransform: VkSurfaceTransformFlagBitsKHR,
-    pub compositeAlpha: VkCompositeAlphaFlagBitsKHR,
-    pub presentMode: VkPresentModeKHR,
+    pub preTransform: khr_surface::VkSurfaceTransformFlagBitsKHR,
+    pub compositeAlpha: khr_surface::VkCompositeAlphaFlagBitsKHR,
+    pub presentMode: khr_surface::VkPresentModeKHR,
     pub clipped: core::VkBool32,
     pub oldSwapchain: VkSwapchainKHR,
 }

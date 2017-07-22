@@ -12,8 +12,11 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
+//! [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
+
 use ::*;
 use core;
+use khx_external_semaphore_capabilities;
 use libc::c_void;
 use std::ptr;
 
@@ -29,7 +32,7 @@ pub struct VkImportSemaphoreWin32HandleInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
     pub semaphore: core::VkSemaphore,
-    pub handleType: VkExternalSemaphoreHandleTypeFlagsKHX,
+    pub handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagsKHX,
     pub handle: win32_wrapper::HANDLE,
 }
 
@@ -101,7 +104,7 @@ pub type PFN_vkImportSemaphoreWin32HandleKHX = unsafe extern "system" fn(device:
 
 /// See [`vkGetSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHX)
 /// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
-pub type PFN_vkGetSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
+pub type PFN_vkGetSemaphoreWin32HandleKHX = unsafe extern "system" fn(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
@@ -111,5 +114,5 @@ extern "system" {
 
     /// See [`vkGetSemaphoreWin32HandleKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHX)
     /// and extension [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
-    pub fn vkGetSemaphoreWin32HandleKHX(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
+    pub fn vkGetSemaphoreWin32HandleKHX(device: core::VkDevice, semaphore: core::VkSemaphore, handleType: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHX, pHandle: *mut win32_wrapper::HANDLE) -> core::VkResult;
 }

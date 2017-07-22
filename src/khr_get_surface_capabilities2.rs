@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
+
 use core;
+use khr_surface;
 use libc::c_void;
 use std::ptr;
 
@@ -28,7 +30,7 @@ pub const VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME_STR: &'static str = "
 pub struct VkPhysicalDeviceSurfaceInfo2KHR {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub surface: VkSurfaceKHR,
+    pub surface: khr_surface::VkSurfaceKHR,
 }
 
 impl Default for VkPhysicalDeviceSurfaceInfo2KHR {
@@ -48,7 +50,7 @@ impl Default for VkPhysicalDeviceSurfaceInfo2KHR {
 pub struct VkSurfaceCapabilities2KHR {
     pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub surfaceCapabilities: VkSurfaceCapabilitiesKHR,
+    pub surfaceCapabilities: khr_surface::VkSurfaceCapabilitiesKHR,
 }
 
 impl Default for VkSurfaceCapabilities2KHR {
@@ -68,7 +70,7 @@ impl Default for VkSurfaceCapabilities2KHR {
 pub struct VkSurfaceFormat2KHR {
     pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
-    pub surfaceFormat: VkSurfaceFormatKHR,
+    pub surfaceFormat: khr_surface::VkSurfaceFormatKHR,
 }
 
 impl Default for VkSurfaceFormat2KHR {

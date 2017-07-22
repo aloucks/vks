@@ -12,6 +12,8 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
+//! [`VK_AMD_shader_trinary_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_shader_trinary_minmax)
+
 pub const VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME: &'static [u8; 29] = b"VK_AMD_shader_trinary_minmax\x00";
 pub const VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME_STR: &'static str = "VK_AMD_shader_trinary_minmax";

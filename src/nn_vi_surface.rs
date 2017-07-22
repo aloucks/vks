@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
+
 use core;
+use khr_surface;
 use libc::c_void;
 use std::ptr;
 
@@ -61,11 +63,11 @@ impl Default for VkViSurfaceCreateInfoNN {
 
 /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
 /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
-pub type PFN_vkCreateViSurfaceNN = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateViSurfaceNN = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
     /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
-    pub fn vkCreateViSurfaceNN(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
+    pub fn vkCreateViSurfaceNN(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 }

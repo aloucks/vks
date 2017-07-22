@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
+
 use core;
+use khr_swapchain;
 use libc::c_void;
 use std::ptr;
 
@@ -43,11 +45,11 @@ impl Default for VkSharedPresentSurfaceCapabilitiesKHR {
 
 /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
 /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
-pub type PFN_vkGetSwapchainStatusKHR = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR) -> core::VkResult;
+pub type PFN_vkGetSwapchainStatusKHR = unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
     /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
-    pub fn vkGetSwapchainStatusKHR(device: core::VkDevice, swapchain: VkSwapchainKHR) -> core::VkResult;
+    pub fn vkGetSwapchainStatusKHR(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult;
 }

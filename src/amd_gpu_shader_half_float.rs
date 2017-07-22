@@ -12,6 +12,8 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
+//! [`VK_AMD_gpu_shader_half_float`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_gpu_shader_half_float)
+
 pub const VK_AMD_GPU_SHADER_HALF_FLOAT_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_GPU_SHADER_HALF_FLOAT_EXTENSION_NAME: &'static [u8; 29] = b"VK_AMD_gpu_shader_half_float\x00";
 pub const VK_AMD_GPU_SHADER_HALF_FLOAT_EXTENSION_NAME_STR: &'static str = "VK_AMD_gpu_shader_half_float";

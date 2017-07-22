@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHX_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore)
+
 use core;
+use khx_external_semaphore_capabilities;
 use libc::c_void;
 use std::ptr;
 
@@ -28,7 +30,7 @@ pub const VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME_STR: &'static str = "VK_KHX_e
 pub struct VkExportSemaphoreCreateInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub handleTypes: VkExternalSemaphoreHandleTypeFlagsKHX,
+    pub handleTypes: khx_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagsKHX,
 }
 
 impl Default for VkExportSemaphoreCreateInfoKHX {

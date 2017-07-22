@@ -12,8 +12,12 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
+
 use core;
+use ext_display_surface_counter;
+use khr_display;
+use khr_swapchain;
 use libc::c_void;
 use std::ptr;
 
@@ -114,7 +118,7 @@ impl Default for VkDisplayEventInfoEXT {
 pub struct VkSwapchainCounterCreateInfoEXT {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub surfaceCounters: VkSurfaceCounterFlagsEXT,
+    pub surfaceCounters: ext_display_surface_counter::VkSurfaceCounterFlagsEXT,
 }
 
 impl Default for VkSwapchainCounterCreateInfoEXT {
@@ -129,7 +133,7 @@ impl Default for VkSwapchainCounterCreateInfoEXT {
 
 /// See [`vkDisplayPowerControlEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDisplayPowerControlEXT)
 /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-pub type PFN_vkDisplayPowerControlEXT = unsafe extern "system" fn(device: core::VkDevice, display: VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> core::VkResult;
+pub type PFN_vkDisplayPowerControlEXT = unsafe extern "system" fn(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> core::VkResult;
 
 /// See [`vkRegisterDeviceEventEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterDeviceEventEXT)
 /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
@@ -137,17 +141,17 @@ pub type PFN_vkRegisterDeviceEventEXT = unsafe extern "system" fn(device: core::
 
 /// See [`vkRegisterDisplayEventEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterDisplayEventEXT)
 /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-pub type PFN_vkRegisterDisplayEventEXT = unsafe extern "system" fn(device: core::VkDevice, display: VkDisplayKHR, pDisplayEventInfo: *const VkDisplayEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult;
+pub type PFN_vkRegisterDisplayEventEXT = unsafe extern "system" fn(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayEventInfo: *const VkDisplayEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult;
 
 /// See [`vkGetSwapchainCounterEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSwapchainCounterEXT)
 /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-pub type PFN_vkGetSwapchainCounterEXT = unsafe extern "system" fn(device: core::VkDevice, swapchain: VkSwapchainKHR, counter: VkSurfaceCounterFlagBitsEXT, pCounterValue: *mut u64) -> core::VkResult;
+pub type PFN_vkGetSwapchainCounterEXT = unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, counter: ext_display_surface_counter::VkSurfaceCounterFlagBitsEXT, pCounterValue: *mut u64) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkDisplayPowerControlEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDisplayPowerControlEXT)
     /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    pub fn vkDisplayPowerControlEXT(device: core::VkDevice, display: VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> core::VkResult;
+    pub fn vkDisplayPowerControlEXT(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> core::VkResult;
 
     /// See [`vkRegisterDeviceEventEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterDeviceEventEXT)
     /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
@@ -155,9 +159,9 @@ extern "system" {
 
     /// See [`vkRegisterDisplayEventEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterDisplayEventEXT)
     /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    pub fn vkRegisterDisplayEventEXT(device: core::VkDevice, display: VkDisplayKHR, pDisplayEventInfo: *const VkDisplayEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult;
+    pub fn vkRegisterDisplayEventEXT(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayEventInfo: *const VkDisplayEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult;
 
     /// See [`vkGetSwapchainCounterEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSwapchainCounterEXT)
     /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    pub fn vkGetSwapchainCounterEXT(device: core::VkDevice, swapchain: VkSwapchainKHR, counter: VkSurfaceCounterFlagBitsEXT, pCounterValue: *mut u64) -> core::VkResult;
+    pub fn vkGetSwapchainCounterEXT(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, counter: ext_display_surface_counter::VkSurfaceCounterFlagBitsEXT, pCounterValue: *mut u64) -> core::VkResult;
 }

@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
+
 use core;
+use khx_device_group;
 use libc::c_void;
 use std::mem;
 use std::ptr;
@@ -30,7 +32,7 @@ pub struct VkPhysicalDeviceGroupPropertiesKHX {
     pub sType: core::VkStructureType,
     pub pNext: *mut c_void,
     pub physicalDeviceCount: u32,
-    pub physicalDevices: [core::VkPhysicalDevice; VK_MAX_DEVICE_GROUP_SIZE_KHX],
+    pub physicalDevices: [core::VkPhysicalDevice; khx_device_group::VK_MAX_DEVICE_GROUP_SIZE_KHX],
     pub subsetAllocation: core::VkBool32,
 }
 

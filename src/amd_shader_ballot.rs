@@ -12,6 +12,8 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
+//! [`VK_AMD_shader_ballot`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_shader_ballot)
+
 pub const VK_AMD_SHADER_BALLOT_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_SHADER_BALLOT_EXTENSION_NAME: &'static [u8; 21] = b"VK_AMD_shader_ballot\x00";
 pub const VK_AMD_SHADER_BALLOT_EXTENSION_NAME_STR: &'static str = "VK_AMD_shader_ballot";

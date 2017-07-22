@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
+
 use core;
+use khr_surface;
 use libc::c_void;
 use std::ptr;
 
@@ -54,9 +56,9 @@ pub struct VkSurfaceCapabilities2EXT {
     pub minImageExtent: core::VkExtent2D,
     pub maxImageExtent: core::VkExtent2D,
     pub maxImageArrayLayers: u32,
-    pub supportedTransforms: VkSurfaceTransformFlagsKHR,
-    pub currentTransform: VkSurfaceTransformFlagBitsKHR,
-    pub supportedCompositeAlpha: VkCompositeAlphaFlagsKHR,
+    pub supportedTransforms: khr_surface::VkSurfaceTransformFlagsKHR,
+    pub currentTransform: khr_surface::VkSurfaceTransformFlagBitsKHR,
+    pub supportedCompositeAlpha: khr_surface::VkCompositeAlphaFlagsKHR,
     pub supportedUsageFlags: core::VkImageUsageFlags,
     pub supportedSurfaceCounters: VkSurfaceCounterFlagsEXT,
 }
@@ -83,11 +85,11 @@ impl Default for VkSurfaceCapabilities2EXT {
 
 /// See [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilities2EXT)
 /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
-pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
     /// See [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilities2EXT)
     /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
-    pub fn vkGetPhysicalDeviceSurfaceCapabilities2EXT(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult;
+    pub fn vkGetPhysicalDeviceSurfaceCapabilities2EXT(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult;
 }

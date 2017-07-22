@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHX_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory)
+
 use core;
+use khx_external_memory_capabilities;
 use libc::c_void;
 use std::ptr;
 
@@ -29,7 +31,7 @@ pub const VK_QUEUE_FAMILY_EXTERNAL_KHX: u32 = 0xfffffffe;
 pub struct VkExternalMemoryImageCreateInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
+    pub handleTypes: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsKHX,
 }
 
 impl Default for VkExternalMemoryImageCreateInfoKHX {
@@ -49,7 +51,7 @@ impl Default for VkExternalMemoryImageCreateInfoKHX {
 pub struct VkExternalMemoryBufferCreateInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
+    pub handleTypes: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsKHX,
 }
 
 impl Default for VkExternalMemoryBufferCreateInfoKHX {
@@ -69,7 +71,7 @@ impl Default for VkExternalMemoryBufferCreateInfoKHX {
 pub struct VkExportMemoryAllocateInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub handleTypes: VkExternalMemoryHandleTypeFlagsKHX,
+    pub handleTypes: khx_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsKHX,
 }
 
 impl Default for VkExportMemoryAllocateInfoKHX {

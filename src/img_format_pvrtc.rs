@@ -12,6 +12,8 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
+//! [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+
 pub const VK_IMG_FORMAT_PVRTC_SPEC_VERSION: u32 = 1;
 pub const VK_IMG_FORMAT_PVRTC_EXTENSION_NAME: &'static [u8; 20] = b"VK_IMG_format_pvrtc\x00";
 pub const VK_IMG_FORMAT_PVRTC_EXTENSION_NAME_STR: &'static str = "VK_IMG_format_pvrtc";

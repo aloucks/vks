@@ -12,9 +12,11 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
+
 use core;
 use libc::c_void;
+use nv_external_memory_capabilities;
 use std::ptr;
 
 pub const VK_NV_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;
@@ -28,7 +30,7 @@ pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &'static str = "VK_NV_extern
 pub struct VkExternalMemoryImageCreateInfoNV {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub handleTypes: VkExternalMemoryHandleTypeFlagsNV,
+    pub handleTypes: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV,
 }
 
 impl Default for VkExternalMemoryImageCreateInfoNV {
@@ -48,7 +50,7 @@ impl Default for VkExternalMemoryImageCreateInfoNV {
 pub struct VkExportMemoryAllocateInfoNV {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub handleTypes: VkExternalMemoryHandleTypeFlagsNV,
+    pub handleTypes: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV,
 }
 
 impl Default for VkExportMemoryAllocateInfoNV {

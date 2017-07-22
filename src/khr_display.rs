@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+
 use core;
+use khr_surface;
 use libc::{c_char, c_void};
 use std::ptr;
 
@@ -106,7 +108,7 @@ pub struct VkDisplayPropertiesKHR {
     pub displayName: *const c_char,
     pub physicalDimensions: core::VkExtent2D,
     pub physicalResolution: core::VkExtent2D,
-    pub supportedTransforms: VkSurfaceTransformFlagsKHR,
+    pub supportedTransforms: khr_surface::VkSurfaceTransformFlagsKHR,
     pub planeReorderPossible: core::VkBool32,
     pub persistentContent: core::VkBool32,
 }
@@ -201,7 +203,7 @@ pub struct VkDisplaySurfaceCreateInfoKHR {
     pub displayMode: VkDisplayModeKHR,
     pub planeIndex: u32,
     pub planeStackIndex: u32,
-    pub transform: VkSurfaceTransformFlagBitsKHR,
+    pub transform: khr_surface::VkSurfaceTransformFlagBitsKHR,
     pub globalAlpha: f32,
     pub alphaMode: VkDisplayPlaneAlphaFlagBitsKHR,
     pub imageExtent: core::VkExtent2D,
@@ -250,7 +252,7 @@ pub type PFN_vkGetDisplayPlaneCapabilitiesKHR = unsafe extern "system" fn(physic
 
 /// See [`vkCreateDisplayPlaneSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDisplayPlaneSurfaceKHR)
 /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-pub type PFN_vkCreateDisplayPlaneSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkDisplaySurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateDisplayPlaneSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkDisplaySurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
@@ -280,5 +282,5 @@ extern "system" {
 
     /// See [`vkCreateDisplayPlaneSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDisplayPlaneSurfaceKHR)
     /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    pub fn vkCreateDisplayPlaneSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkDisplaySurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut VkSurfaceKHR) -> core::VkResult;
+    pub fn vkCreateDisplayPlaneSurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkDisplaySurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
 }

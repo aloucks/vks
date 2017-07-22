@@ -12,8 +12,10 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
+
 use core;
+use ext_debug_report;
 use libc::{c_char, c_void};
 use std::ptr;
 
@@ -28,7 +30,7 @@ pub const VK_EXT_DEBUG_MARKER_EXTENSION_NAME_STR: &'static str = "VK_EXT_debug_m
 pub struct VkDebugMarkerObjectNameInfoEXT {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub objectType: VkDebugReportObjectTypeEXT,
+    pub objectType: ext_debug_report::VkDebugReportObjectTypeEXT,
     pub object: u64,
     pub pObjectName: *const c_char,
 }
@@ -52,7 +54,7 @@ impl Default for VkDebugMarkerObjectNameInfoEXT {
 pub struct VkDebugMarkerObjectTagInfoEXT {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub objectType: VkDebugReportObjectTypeEXT,
+    pub objectType: ext_debug_report::VkDebugReportObjectTypeEXT,
     pub object: u64,
     pub tagName: u64,
     pub tagSize: usize,

@@ -12,8 +12,11 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-use ::*;
+//! [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
+
 use core;
+use khr_surface;
+use khr_swapchain;
 use libc::c_void;
 use std::ptr;
 
@@ -313,7 +316,7 @@ impl Default for VkDeviceGroupPresentCapabilitiesKHX {
 pub struct VkImageSwapchainCreateInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub swapchain: VkSwapchainKHR,
+    pub swapchain: khr_swapchain::VkSwapchainKHR,
 }
 
 impl Default for VkImageSwapchainCreateInfoKHX {
@@ -333,7 +336,7 @@ impl Default for VkImageSwapchainCreateInfoKHX {
 pub struct VkBindImageMemorySwapchainInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub swapchain: VkSwapchainKHR,
+    pub swapchain: khr_swapchain::VkSwapchainKHR,
     pub imageIndex: u32,
 }
 
@@ -355,7 +358,7 @@ impl Default for VkBindImageMemorySwapchainInfoKHX {
 pub struct VkAcquireNextImageInfoKHX {
     pub sType: core::VkStructureType,
     pub pNext: *const c_void,
-    pub swapchain: VkSwapchainKHR,
+    pub swapchain: khr_swapchain::VkSwapchainKHR,
     pub timeout: u64,
     pub semaphore: core::VkSemaphore,
     pub fence: core::VkFence,
@@ -442,7 +445,7 @@ pub type PFN_vkGetDeviceGroupPresentCapabilitiesKHX = unsafe extern "system" fn(
 
 /// See [`vkGetDeviceGroupSurfacePresentModesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupSurfacePresentModesKHX)
 /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-pub type PFN_vkGetDeviceGroupSurfacePresentModesKHX = unsafe extern "system" fn(device: core::VkDevice, surface: VkSurfaceKHR, pModes: *mut VkDeviceGroupPresentModeFlagsKHX) -> core::VkResult;
+pub type PFN_vkGetDeviceGroupSurfacePresentModesKHX = unsafe extern "system" fn(device: core::VkDevice, surface: khr_surface::VkSurfaceKHR, pModes: *mut VkDeviceGroupPresentModeFlagsKHX) -> core::VkResult;
 
 /// See [`vkAcquireNextImage2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImage2KHX)
 /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
@@ -454,7 +457,7 @@ pub type PFN_vkCmdDispatchBaseKHX = unsafe extern "system" fn(commandBuffer: cor
 
 /// See [`vkGetPhysicalDevicePresentRectanglesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDevicePresentRectanglesKHX)
 /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-pub type PFN_vkGetPhysicalDevicePresentRectanglesKHX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pRectCount: *mut u32, pRects: *mut core::VkRect2D) -> core::VkResult;
+pub type PFN_vkGetPhysicalDevicePresentRectanglesKHX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pRectCount: *mut u32, pRects: *mut core::VkRect2D) -> core::VkResult;
 
 #[cfg(not(feature = "no_function_prototypes"))]
 extern "system" {
@@ -480,7 +483,7 @@ extern "system" {
 
     /// See [`vkGetDeviceGroupSurfacePresentModesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupSurfacePresentModesKHX)
     /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-    pub fn vkGetDeviceGroupSurfacePresentModesKHX(device: core::VkDevice, surface: VkSurfaceKHR, pModes: *mut VkDeviceGroupPresentModeFlagsKHX) -> core::VkResult;
+    pub fn vkGetDeviceGroupSurfacePresentModesKHX(device: core::VkDevice, surface: khr_surface::VkSurfaceKHR, pModes: *mut VkDeviceGroupPresentModeFlagsKHX) -> core::VkResult;
 
     /// See [`vkAcquireNextImage2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImage2KHX)
     /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
@@ -492,5 +495,5 @@ extern "system" {
 
     /// See [`vkGetPhysicalDevicePresentRectanglesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDevicePresentRectanglesKHX)
     /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-    pub fn vkGetPhysicalDevicePresentRectanglesKHX(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pRectCount: *mut u32, pRects: *mut core::VkRect2D) -> core::VkResult;
+    pub fn vkGetPhysicalDevicePresentRectanglesKHX(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pRectCount: *mut u32, pRects: *mut core::VkRect2D) -> core::VkResult;
 }
