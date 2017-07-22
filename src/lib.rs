@@ -112,20 +112,8 @@ pub mod win32_wrapper;
 pub mod xcb_wrapper;
 pub mod xlib_wrapper;
 
-#[cfg(feature = "experimental")] pub mod nvx_device_generated_commands;
-#[cfg(feature = "experimental")] pub mod nvx_multiview_per_view_attributes;
-#[cfg(feature = "experimental")] pub mod khx_device_group;
-#[cfg(feature = "experimental")] pub mod khx_device_group_creation;
-#[cfg(feature = "experimental")] pub mod khx_external_memory;
-#[cfg(feature = "experimental")] pub mod khx_external_memory_capabilities;
-#[cfg(feature = "experimental")] pub mod khx_external_memory_fd;
-#[cfg(feature = "experimental")] pub mod khx_external_memory_win32;
-#[cfg(feature = "experimental")] pub mod khx_external_semaphore;
-#[cfg(feature = "experimental")] pub mod khx_external_semaphore_capabilities;
-#[cfg(feature = "experimental")] pub mod khx_external_semaphore_fd;
-#[cfg(feature = "experimental")] pub mod khx_external_semaphore_win32;
-#[cfg(feature = "experimental")] pub mod khx_multiview;
-#[cfg(feature = "experimental")] pub mod khx_win32_keyed_mutex;
+#[cfg(feature = "experimental")]
+pub mod experimental;
 
 pub use version::*;
 

@@ -15,7 +15,7 @@
 //! [`VK_KHX_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory)
 
 use core;
-use khx_external_memory_capabilities;
+use experimental::khx_external_memory_capabilities;
 use libc::c_void;
 use std::ptr;
 

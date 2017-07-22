@@ -16,7 +16,7 @@
 
 use ::*;
 use core;
-use khx_external_memory_capabilities;
+use experimental::khx_external_memory_capabilities;
 use libc::c_void;
 use std::ptr;
 

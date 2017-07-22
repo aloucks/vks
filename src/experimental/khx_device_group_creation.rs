@@ -15,7 +15,7 @@
 //! [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
 
 use core;
-use khx_device_group;
+use experimental::khx_device_group;
 use libc::c_void;
 use std::mem;
 use std::ptr;

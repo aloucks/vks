@@ -15,7 +15,7 @@
 //! [`VK_KHX_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore)
 
 use core;
-use khx_external_semaphore_capabilities;
+use experimental::khx_external_semaphore_capabilities;
 use libc::c_void;
 use std::ptr;
 
