@@ -143,16 +143,16 @@ gen_device_proc_addr_loader!(
     "khr_display_swapchain_9" => khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
     "ext_debug_marker_3" => ext_debug_marker: EXT_debug_marker [fn load_ext_debug_marker],
     "amd_draw_indirect_count_1" => amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
-    "nvx_device_generated_commands_1" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
+    "experimental" => nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
     "khr_maintenance1_1" => khr_maintenance1: KHR_maintenance1 [fn load_khr_maintenance1],
     "ext_display_control_1" => ext_display_control: EXT_display_control [fn load_ext_display_control],
     "khr_push_descriptor_1" => khr_push_descriptor: KHR_push_descriptor [fn load_khr_push_descriptor],
     "khr_descriptor_update_template_1" => khr_descriptor_update_template: KHR_descriptor_update_template [fn load_khr_descriptor_update_template],
-    "khx_device_group_1" => khx_device_group: KHX_device_group [fn load_khx_device_group],
-    "khx_external_memory_win32_1" => khx_external_memory_win32: KHX_external_memory_win32 [fn load_khx_external_memory_win32],
-    "khx_external_memory_fd_1" => khx_external_memory_fd: KHX_external_memory_fd [fn load_khx_external_memory_fd],
-    "khx_external_semaphore_win32_1" => khx_external_semaphore_win32: KHX_external_semaphore_win32 [fn load_khx_external_semaphore_win32],
-    "khx_external_semaphore_fd_1" => khx_external_semaphore_fd: KHX_external_semaphore_fd [fn load_khx_external_semaphore_fd],
+    "experimental" => khx_device_group: KHX_device_group [fn load_khx_device_group],
+    "experimental" => khx_external_memory_win32: KHX_external_memory_win32 [fn load_khx_external_memory_win32],
+    "experimental" => khx_external_memory_fd: KHX_external_memory_fd [fn load_khx_external_memory_fd],
+    "experimental" => khx_external_semaphore_win32: KHX_external_semaphore_win32 [fn load_khx_external_semaphore_win32],
+    "experimental" => khx_external_semaphore_fd: KHX_external_semaphore_fd [fn load_khx_external_semaphore_fd],
     "nv_clip_space_w_scaling_1" => nv_clip_space_w_scaling: NV_clip_space_w_scaling [fn load_nv_clip_space_w_scaling],
     "ext_discard_rectangles_1" => ext_discard_rectangles: EXT_discard_rectangles [fn load_ext_discard_rectangles],
     "google_display_timing_1" => google_display_timing: GOOGLE_display_timing [fn load_google_display_timing],
@@ -303,7 +303,7 @@ addr_proc_struct!(AMD_draw_indirect_count {
     pfn vkCmdDrawIndexedIndirectCountAMD: PFN_vkCmdDrawIndexedIndirectCountAMD,
 });
 
-#[cfg(feature = "nvx_device_generated_commands_1")]
+#[cfg(feature = "experimental")]
 addr_proc_struct!(NVX_device_generated_commands {
     pfn vkCmdProcessCommandsNVX: PFN_vkCmdProcessCommandsNVX,
     pfn vkCmdReserveSpaceForCommandsNVX: PFN_vkCmdReserveSpaceForCommandsNVX,
@@ -337,7 +337,7 @@ addr_proc_struct!(KHR_descriptor_update_template {
     pfn vkCmdPushDescriptorSetWithTemplateKHR: PFN_vkCmdPushDescriptorSetWithTemplateKHR,
 });
 
-#[cfg(feature = "khx_device_group_1")]
+#[cfg(feature = "experimental")]
 addr_proc_struct!(KHX_device_group {
     pfn vkGetDeviceGroupPeerMemoryFeaturesKHX: PFN_vkGetDeviceGroupPeerMemoryFeaturesKHX,
     pfn vkBindBufferMemory2KHX: PFN_vkBindBufferMemory2KHX,
@@ -349,25 +349,25 @@ addr_proc_struct!(KHX_device_group {
     pfn vkCmdDispatchBaseKHX: PFN_vkCmdDispatchBaseKHX,
 });
 
-#[cfg(feature = "khx_external_memory_win32_1")]
+#[cfg(feature = "experimental")]
 addr_proc_struct!(KHX_external_memory_win32 {
     pfn vkGetMemoryWin32HandleKHX: PFN_vkGetMemoryWin32HandleKHX,
     pfn vkGetMemoryWin32HandlePropertiesKHX: PFN_vkGetMemoryWin32HandlePropertiesKHX,
 });
 
-#[cfg(feature = "khx_external_memory_fd_1")]
+#[cfg(feature = "experimental")]
 addr_proc_struct!(KHX_external_memory_fd {
     pfn vkGetMemoryFdKHX: PFN_vkGetMemoryFdKHX,
     pfn vkGetMemoryFdPropertiesKHX: PFN_vkGetMemoryFdPropertiesKHX,
 });
 
-#[cfg(feature = "khx_external_semaphore_win32_1")]
+#[cfg(feature = "experimental")]
 addr_proc_struct!(KHX_external_semaphore_win32 {
     pfn vkImportSemaphoreWin32HandleKHX: PFN_vkImportSemaphoreWin32HandleKHX,
     pfn vkGetSemaphoreWin32HandleKHX: PFN_vkGetSemaphoreWin32HandleKHX,
 });
 
-#[cfg(feature = "khx_external_semaphore_fd_1")]
+#[cfg(feature = "experimental")]
 addr_proc_struct!(KHX_external_semaphore_fd {
     pfn vkImportSemaphoreFdKHX: PFN_vkImportSemaphoreFdKHX,
     pfn vkGetSemaphoreFdKHX: PFN_vkGetSemaphoreFdKHX,
