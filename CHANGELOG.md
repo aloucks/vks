@@ -28,6 +28,7 @@ all of them.
 ### Breaking changes in `experimental`
 
  - The following extensions have been removed:
+   - `VK_KHX_external_memory_fd`
    - `VK_KHX_external_semaphore_capabilities`
    - `VK_KHX_external_semaphore_fd`
    - `VK_KHX_external_semaphore_win32`

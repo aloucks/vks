@@ -20,6 +20,5 @@ pub mod khx_device_group;
 pub mod khx_device_group_creation;
 pub mod khx_external_memory;
 pub mod khx_external_memory_capabilities;
-pub mod khx_external_memory_fd;
 pub mod khx_external_memory_win32;
 pub mod khx_multiview;
