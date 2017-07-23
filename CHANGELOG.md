@@ -29,6 +29,7 @@ all of them.
 
  - The following extensions have been removed:
    - `VK_KHX_external_semaphore_fd`
+   - `VK_KHX_external_semaphore_win32`
    - `VK_KHX_win32_keyed_mutex`
 
 

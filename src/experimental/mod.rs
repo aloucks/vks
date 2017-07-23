@@ -24,5 +24,4 @@ pub mod khx_external_memory_fd;
 pub mod khx_external_memory_win32;
 pub mod khx_external_semaphore;
 pub mod khx_external_semaphore_capabilities;
-pub mod khx_external_semaphore_win32;
 pub mod khx_multiview;
