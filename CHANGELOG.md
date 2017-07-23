@@ -11,6 +11,8 @@ burden in the past. Moreover, the benefits were questionable at best, because al
 provide types and function definitions. There was no benefit in selecting just a few extensions over
 all of them.
 
+ - Vulkan 1.0.54
+
 ### Breaking changes
 
  - Vks requires at least Rust 1.19.

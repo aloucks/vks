@@ -2,7 +2,7 @@
 name = "vks"
 version = "0.19.1"
 authors = [ "Dennis Hamester <dennis.hamester@startmail.com>" ]
-description = "Vulkan FFI bindings and symbol loader. Vulkan 1.0.53 and all extensions are supported."
+description = "Vulkan FFI bindings and symbol loader. Vulkan 1.0.54 and all extensions are supported."
 documentation = "https://docs.rs/vks"
 homepage = "https://gitlab.com/dennis-hamester/vks"
 repository = "https://gitlab.com/dennis-hamester/vks"
