@@ -18,6 +18,5 @@ pub mod nvx_device_generated_commands;
 pub mod nvx_multiview_per_view_attributes;
 pub mod khx_device_group;
 pub mod khx_device_group_creation;
-pub mod khx_external_memory;
 pub mod khx_external_memory_capabilities;
 pub mod khx_multiview;
