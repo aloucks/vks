@@ -358,9 +358,6 @@ gen_instance_proc_addr_loader!(
             /// [`VK_KHX_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_capabilities)
             pub khx_external_semaphore_capabilities: KHX_external_semaphore_capabilities [fn load_khx_external_semaphore_capabilities],
 
-            /// [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
-            pub khx_external_semaphore_fd: KHX_external_semaphore_fd [fn load_khx_external_semaphore_fd],
-
             /// [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
             pub khx_external_semaphore_win32: KHX_external_semaphore_win32 [fn load_khx_external_semaphore_win32],
 
@@ -1248,18 +1245,6 @@ addr_proc_struct!(
     pub struct KHX_external_semaphore_capabilities {
         /// [`vkGetPhysicalDeviceExternalSemaphorePropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalSemaphorePropertiesKHX)
         pub vkGetPhysicalDeviceExternalSemaphorePropertiesKHX: khx_external_semaphore_capabilities::PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHX,
-    }
-);
-
-#[cfg(feature = "experimental")]
-addr_proc_struct!(
-    /// [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
-    pub struct KHX_external_semaphore_fd {
-        /// [`vkGetSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHX)
-        pub vkGetSemaphoreFdKHX: khx_external_semaphore_fd::PFN_vkGetSemaphoreFdKHX,
-
-        /// [`vkImportSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportSemaphoreFdKHX)
-        pub vkImportSemaphoreFdKHX: khx_external_semaphore_fd::PFN_vkImportSemaphoreFdKHX,
     }
 );
 

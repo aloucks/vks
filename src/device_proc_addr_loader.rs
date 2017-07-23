@@ -269,9 +269,6 @@ gen_device_proc_addr_loader!(
             /// [`VK_KHX_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_win32)
             pub khx_external_memory_win32: KHX_external_memory_win32 [fn load_khx_external_memory_win32],
 
-            /// [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
-            pub khx_external_semaphore_fd: KHX_external_semaphore_fd [fn load_khx_external_semaphore_fd],
-
             /// [`VK_KHX_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_win32)
             pub khx_external_semaphore_win32: KHX_external_semaphore_win32 [fn load_khx_external_semaphore_win32],
 
@@ -860,18 +857,6 @@ addr_proc_struct!(
 
         /// [`vkGetMemoryWin32HandlePropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHX)
         pub vkGetMemoryWin32HandlePropertiesKHX: khx_external_memory_win32::PFN_vkGetMemoryWin32HandlePropertiesKHX,
-    }
-);
-
-#[cfg(feature = "experimental")]
-addr_proc_struct!(
-    /// [`VK_KHX_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_semaphore_fd)
-    pub struct KHX_external_semaphore_fd {
-        /// [`vkGetSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHX)
-        pub vkGetSemaphoreFdKHX: khx_external_semaphore_fd::PFN_vkGetSemaphoreFdKHX,
-
-        /// [`vkImportSemaphoreFdKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportSemaphoreFdKHX)
-        pub vkImportSemaphoreFdKHX: khx_external_semaphore_fd::PFN_vkImportSemaphoreFdKHX,
     }
 );
 
