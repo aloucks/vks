@@ -346,9 +346,6 @@ gen_instance_proc_addr_loader!(
             /// [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
             pub khx_device_group_creation: KHX_device_group_creation [fn load_khx_device_group_creation],
 
-            /// [`VK_KHX_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_capabilities)
-            pub khx_external_memory_capabilities: KHX_external_memory_capabilities [fn load_khx_external_memory_capabilities],
-
             /// [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
             pub nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
         }
@@ -1191,15 +1188,6 @@ addr_proc_struct!(
     pub struct KHX_device_group_creation {
         /// [`vkEnumeratePhysicalDeviceGroupsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkEnumeratePhysicalDeviceGroupsKHX)
         pub vkEnumeratePhysicalDeviceGroupsKHX: khx_device_group_creation::PFN_vkEnumeratePhysicalDeviceGroupsKHX,
-    }
-);
-
-#[cfg(feature = "experimental")]
-addr_proc_struct!(
-    /// [`VK_KHX_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_external_memory_capabilities)
-    pub struct KHX_external_memory_capabilities {
-        /// [`vkGetPhysicalDeviceExternalBufferPropertiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferPropertiesKHX)
-        pub vkGetPhysicalDeviceExternalBufferPropertiesKHX: khx_external_memory_capabilities::PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHX,
     }
 );
 

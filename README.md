@@ -171,7 +171,6 @@ You must enable the `experimental` feature to use any of these extensions.
 | --- | --- |
 | `VK_KHX_device_group_creation` | 1 |
 | `VK_KHX_device_group` | 1 |
-| `VK_KHX_external_memory_capabilities` | 1 |
 | `VK_KHX_multiview` | 1 |
 
 ### `NVX` Extensions
