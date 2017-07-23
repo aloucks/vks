@@ -23,6 +23,11 @@ all of them.
  - Experimental extensions have been moved into a separate sub-module `experimental`.
  - `instance_proc_addr_loader::CoreNullInstance` has been renamed to `CoreGlobal`.
 
+### Breaking changes in `experimental`
+
+ - The following extensions have been removed:
+   - `VK_KHX_win32_keyed_mutex`
+
 
 ## Version 0.19.1, released on 01.07.2017
 

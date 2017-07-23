@@ -27,4 +27,3 @@ pub mod khx_external_semaphore_capabilities;
 pub mod khx_external_semaphore_fd;
 pub mod khx_external_semaphore_win32;
 pub mod khx_multiview;
-pub mod khx_win32_keyed_mutex;

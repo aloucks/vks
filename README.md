@@ -180,7 +180,6 @@ You must enable the `experimental` feature to use any of these extensions.
 | `VK_KHX_external_semaphore_win32` | 1 |
 | `VK_KHX_external_semaphore` | 1 |
 | `VK_KHX_multiview` | 1 |
-| `VK_KHX_win32_keyed_mutex` | 1 |
 
 ### `NVX` Extensions
 
