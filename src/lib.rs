@@ -64,6 +64,7 @@ pub mod khr_android_surface;
 pub mod khr_descriptor_update_template;
 pub mod khr_display;
 pub mod khr_display_swapchain;
+pub mod khr_external_memory_capabilities;
 pub mod khr_get_physical_device_properties2;
 pub mod khr_get_surface_capabilities2;
 pub mod khr_incremental_present;

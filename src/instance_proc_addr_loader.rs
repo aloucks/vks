@@ -27,6 +27,7 @@ use khr_android_surface;
 use khr_descriptor_update_template;
 use khr_display;
 use khr_display_swapchain;
+use khr_external_memory_capabilities;
 use khr_get_physical_device_properties2;
 use khr_get_surface_capabilities2;
 use khr_maintenance1;
@@ -284,6 +285,9 @@ gen_instance_proc_addr_loader!(
 
         /// [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
         pub khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
+
+        /// [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+        pub khr_external_memory_capabilities: KHR_external_memory_capabilities [fn load_khr_external_memory_capabilities],
 
         /// [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
         pub khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
@@ -942,6 +946,14 @@ addr_proc_struct!(
     pub struct KHR_display_swapchain {
         /// [`vkCreateSharedSwapchainsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSharedSwapchainsKHR)
         pub vkCreateSharedSwapchainsKHR: khr_display_swapchain::PFN_vkCreateSharedSwapchainsKHR,
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+    pub struct KHR_external_memory_capabilities {
+        /// See [`vkGetPhysicalDeviceExternalBufferPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferPropertiesKHR)
+        pub vkGetPhysicalDeviceExternalBufferPropertiesKHR: khr_external_memory_capabilities::PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR,
     }
 );
 
