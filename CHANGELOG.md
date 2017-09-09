@@ -16,7 +16,7 @@ all of them.
 
 ### Breaking changes
 
- - Vks requires at least Rust 1.19.
+ - Vks requires at least Rust 1.20.
  - Untagged unions are now used instead of the previous work-around. The feature `unstable_rust` has been removed.
  - Most Cargo features have been removed. Every vks release will now reflect a specific Vulkan release.
  - The feature `no_function_prototypes` has been renamed to `function_prototypes` and its meaning has been inverted.

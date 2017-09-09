@@ -30,7 +30,6 @@ use nv_clip_space_w_scaling;
 use nv_external_memory_win32;
 use std::fmt;
 use std::mem;
-use std::ptr;
 
 #[cfg(feature = "experimental")]
 use experimental::*;
@@ -111,23 +110,14 @@ macro_rules! gen_device_proc_addr_loader {
             }
 
             pub fn from_get_device_proc_addr(vkGetDeviceProcAddr: core::PFN_vkGetDeviceProcAddr) -> Self {
-                unsafe {
-                    let mut res: DeviceProcAddrLoader = mem::uninitialized();
-
-                    ptr::write(&mut res.vkGetDeviceProcAddr, vkGetDeviceProcAddr);
-
-                    $(
-                        ptr::write(&mut res.$field, $ty::new());
-                    )*
-
+                DeviceProcAddrLoader {
+                    vkGetDeviceProcAddr: vkGetDeviceProcAddr,
+                    $( $field: $ty::new(), )*
                     $(
                         #[cfg(feature = "experimental")]
-                        ptr::write(&mut res.$exp_field, $exp_ty::new());
+                        $exp_field: $exp_ty::new(),
                     )*
-
-                    ptr::write(&mut res.guard, ());
-
-                    res
+                    guard: (),
                 }
             }
 

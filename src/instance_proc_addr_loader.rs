@@ -133,24 +133,15 @@ macro_rules! gen_instance_proc_addr_loader {
             }
 
             pub fn from_get_instance_proc_addr(vkGetInstanceProcAddr: core::PFN_vkGetInstanceProcAddr) -> Self {
-                unsafe {
-                    let mut res: InstanceProcAddrLoader = mem::uninitialized();
-
-                    ptr::write(&mut res.vkGetInstanceProcAddr, vkGetInstanceProcAddr);
-                    ptr::write(&mut res.core_global, CoreGlobal::new());
-
-                    $(
-                        ptr::write(&mut res.$field, $ty::new());
-                    )*
-
+                InstanceProcAddrLoader {
+                    vkGetInstanceProcAddr: vkGetInstanceProcAddr,
+                    core_global: CoreGlobal::new(),
+                    $( $field: $ty::new(), )*
                     $(
                         #[cfg(feature = "experimental")]
-                        ptr::write(&mut res.$exp_field, $exp_ty::new());
+                        $exp_field: $exp_ty::new(),
                     )*
-
-                    ptr::write(&mut res.guard, ());
-
-                    res
+                    guard: (),
                 }
             }
 
