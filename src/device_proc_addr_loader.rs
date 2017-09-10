@@ -23,6 +23,8 @@ use google_display_timing;
 use khr_descriptor_update_template;
 use khr_display;
 use khr_display_swapchain;
+use khr_external_memory_capabilities;
+use khr_external_memory_win32;
 use khr_maintenance1;
 use khr_push_descriptor;
 use khr_shared_presentable_image;
@@ -256,6 +258,9 @@ gen_device_proc_addr_loader!(
 
         /// [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
         pub khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
+
+        /// [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+        pub khr_external_memory_win32: KHR_external_memory_win32 [fn load_khr_external_memory_win32],
 
         /// [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
         pub khr_maintenance1: KHR_maintenance1 [fn load_khr_maintenance1],
@@ -750,6 +755,17 @@ addr_proc_struct!(
     pub struct KHR_display_swapchain {
         /// [`vkCreateSharedSwapchainsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSharedSwapchainsKHR)
         pub fn vkCreateSharedSwapchainsKHR(device: core::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> core::VkResult; [pfn_vkCreateSharedSwapchainsKHR: khr_display_swapchain::PFN_vkCreateSharedSwapchainsKHR],
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+    pub struct KHR_external_memory_win32 {
+        /// See [`vkGetMemoryWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHR)
+        pub fn vkGetMemoryWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const khr_external_memory_win32::VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetMemoryWin32HandleKHR: khr_external_memory_win32::PFN_vkGetMemoryWin32HandleKHR],
+
+        /// See [`vkGetMemoryWin32HandlePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHR)
+        pub fn vkGetMemoryWin32HandlePropertiesKHR(device: core::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut khr_external_memory_win32::VkMemoryWin32HandlePropertiesKHR) -> core::VkResult; [pfn_vkGetMemoryWin32HandlePropertiesKHR: khr_external_memory_win32::PFN_vkGetMemoryWin32HandlePropertiesKHR],
     }
 );
 

@@ -28,6 +28,7 @@ use khr_descriptor_update_template;
 use khr_display;
 use khr_display_swapchain;
 use khr_external_memory_capabilities;
+use khr_external_memory_win32;
 use khr_get_physical_device_properties2;
 use khr_get_surface_capabilities2;
 use khr_maintenance1;
@@ -305,6 +306,9 @@ gen_instance_proc_addr_loader!(
 
         /// [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
         pub khr_external_memory_capabilities: KHR_external_memory_capabilities [fn load_khr_external_memory_capabilities],
+
+        /// [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+        pub khr_external_memory_win32: KHR_external_memory_win32 [fn load_khr_external_memory_win32],
 
         /// [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
         pub khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
@@ -971,6 +975,17 @@ addr_proc_struct!(
     pub struct KHR_external_memory_capabilities {
         /// See [`vkGetPhysicalDeviceExternalBufferPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferPropertiesKHR)
         pub fn vkGetPhysicalDeviceExternalBufferPropertiesKHR(physicalDevice: core::VkPhysicalDevice, pExternalBufferInfo: *const khr_external_memory_capabilities::VkPhysicalDeviceExternalBufferInfoKHR, pExternalBufferProperties: *mut khr_external_memory_capabilities::VkExternalBufferPropertiesKHR); [pfn_vkGetPhysicalDeviceExternalBufferPropertiesKHR: khr_external_memory_capabilities::PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR],
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+    pub struct KHR_external_memory_win32 {
+        /// See [`vkGetMemoryWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHR)
+        pub fn vkGetMemoryWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const khr_external_memory_win32::VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetMemoryWin32HandleKHR: khr_external_memory_win32::PFN_vkGetMemoryWin32HandleKHR],
+
+        /// See [`vkGetMemoryWin32HandlePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHR)
+        pub fn vkGetMemoryWin32HandlePropertiesKHR(device: core::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut khr_external_memory_win32::VkMemoryWin32HandlePropertiesKHR) -> core::VkResult; [pfn_vkGetMemoryWin32HandlePropertiesKHR: khr_external_memory_win32::PFN_vkGetMemoryWin32HandlePropertiesKHR],
     }
 );
 

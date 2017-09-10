@@ -69,6 +69,7 @@ function pointers.
 | `VK_KHR_display_swapchain` | 9 |
 | `VK_KHR_display` | 21 |
 | `VK_KHR_external_memory_capabilities` | 1 |
+| `VK_KHR_external_memory_win32` | 1 |
 | `VK_KHR_external_memory` | 1 |
 | `VK_KHR_get_physical_device_properties2` | 1 |
 | `VK_KHR_get_surface_capabilities2` | 1 |
