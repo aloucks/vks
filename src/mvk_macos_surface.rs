@@ -58,7 +58,7 @@ impl Default for VkMacOSSurfaceCreateInfoMVK {
 }
 
 /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
-pub type PFN_vkCreateMacOSSurfaceMVK = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateMacOSSurfaceMVK = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

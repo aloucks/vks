@@ -65,7 +65,7 @@ impl Default for VkHdrMetadataEXT {
 }
 
 /// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
-pub type PFN_vkSetHdrMetadataEXT = unsafe extern "system" fn(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
+pub type PFN_vkSetHdrMetadataEXT = Option<unsafe extern "system" fn(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

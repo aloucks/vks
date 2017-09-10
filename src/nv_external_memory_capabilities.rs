@@ -78,7 +78,7 @@ pub struct VkExternalImageFormatPropertiesNV {
 }
 
 /// See [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalImageFormatPropertiesNV)
-pub type PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, format: core::VkFormat, type_: core::VkImageType, tiling: core::VkImageTiling, usage: core::VkImageUsageFlags, flags: core::VkImageCreateFlags, externalHandleType: VkExternalMemoryHandleTypeFlagsNV, pExternalImageFormatProperties: *mut VkExternalImageFormatPropertiesNV) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, format: core::VkFormat, type_: core::VkImageType, tiling: core::VkImageTiling, usage: core::VkImageUsageFlags, flags: core::VkImageCreateFlags, externalHandleType: VkExternalMemoryHandleTypeFlagsNV, pExternalImageFormatProperties: *mut VkExternalImageFormatPropertiesNV) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

@@ -54,7 +54,7 @@ impl Default for VkPipelineViewportWScalingStateCreateInfoNV {
 }
 
 /// See [`vkCmdSetViewportWScalingNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetViewportWScalingNV)
-pub type PFN_vkCmdSetViewportWScalingNV = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV);
+pub type PFN_vkCmdSetViewportWScalingNV = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const VkViewportWScalingNV)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

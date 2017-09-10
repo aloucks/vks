@@ -69,7 +69,7 @@ impl Default for VkDeviceGroupDeviceCreateInfoKHX {
 }
 
 /// See [`vkEnumeratePhysicalDeviceGroupsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkEnumeratePhysicalDeviceGroupsKHX)
-pub type PFN_vkEnumeratePhysicalDeviceGroupsKHX = unsafe extern "system" fn(instance: core::VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> core::VkResult;
+pub type PFN_vkEnumeratePhysicalDeviceGroupsKHX = Option<unsafe extern "system" fn(instance: core::VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

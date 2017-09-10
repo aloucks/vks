@@ -210,25 +210,25 @@ impl Default for VkPhysicalDeviceSparseImageFormatInfo2KHR {
 }
 
 /// See [`vkGetPhysicalDeviceFeatures2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceFeatures2KHR)
-pub type PFN_vkGetPhysicalDeviceFeatures2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFeatures: *mut VkPhysicalDeviceFeatures2KHR);
+pub type PFN_vkGetPhysicalDeviceFeatures2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFeatures: *mut VkPhysicalDeviceFeatures2KHR)>;
 
 /// See [`vkGetPhysicalDeviceProperties2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceProperties2KHR)
-pub type PFN_vkGetPhysicalDeviceProperties2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pProperties: *mut VkPhysicalDeviceProperties2KHR);
+pub type PFN_vkGetPhysicalDeviceProperties2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pProperties: *mut VkPhysicalDeviceProperties2KHR)>;
 
 /// See [`vkGetPhysicalDeviceFormatProperties2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceFormatProperties2KHR)
-pub type PFN_vkGetPhysicalDeviceFormatProperties2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, format: core::VkFormat, pFormatProperties: *mut VkFormatProperties2KHR);
+pub type PFN_vkGetPhysicalDeviceFormatProperties2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, format: core::VkFormat, pFormatProperties: *mut VkFormatProperties2KHR)>;
 
 /// See [`vkGetPhysicalDeviceImageFormatProperties2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceImageFormatProperties2KHR)
-pub type PFN_vkGetPhysicalDeviceImageFormatProperties2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pImageFormatInfo: *const VkPhysicalDeviceImageFormatInfo2KHR, pImageFormatProperties: *mut VkImageFormatProperties2KHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceImageFormatProperties2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pImageFormatInfo: *const VkPhysicalDeviceImageFormatInfo2KHR, pImageFormatProperties: *mut VkImageFormatProperties2KHR) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceQueueFamilyProperties2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceQueueFamilyProperties2KHR)
-pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pQueueFamilyPropertyCount: *mut u32, pQueueFamilyProperties: *mut VkQueueFamilyProperties2KHR);
+pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pQueueFamilyPropertyCount: *mut u32, pQueueFamilyProperties: *mut VkQueueFamilyProperties2KHR)>;
 
 /// See [`vkGetPhysicalDeviceMemoryProperties2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceMemoryProperties2KHR)
-pub type PFN_vkGetPhysicalDeviceMemoryProperties2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pMemoryProperties: *mut VkPhysicalDeviceMemoryProperties2KHR);
+pub type PFN_vkGetPhysicalDeviceMemoryProperties2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pMemoryProperties: *mut VkPhysicalDeviceMemoryProperties2KHR)>;
 
 /// See [`vkGetPhysicalDeviceSparseImageFormatProperties2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSparseImageFormatProperties2KHR)
-pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFormatInfo: *const VkPhysicalDeviceSparseImageFormatInfo2KHR, pPropertyCount: *mut u32, pProperties: *mut VkSparseImageFormatProperties2KHR);
+pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFormatInfo: *const VkPhysicalDeviceSparseImageFormatInfo2KHR, pPropertyCount: *mut u32, pProperties: *mut VkSparseImageFormatProperties2KHR)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

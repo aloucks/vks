@@ -197,19 +197,19 @@ pub struct VkSurfaceFormatKHR {
 }
 
 /// See [`vkDestroySurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroySurfaceKHR)
-pub type PFN_vkDestroySurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, surface: VkSurfaceKHR, pAllocator: *const core::VkAllocationCallbacks);
+pub type PFN_vkDestroySurfaceKHR = Option<unsafe extern "system" fn(instance: core::VkInstance, surface: VkSurfaceKHR, pAllocator: *const core::VkAllocationCallbacks)>;
 
 /// See [`vkGetPhysicalDeviceSurfaceSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceSupportKHR)
-pub type PFN_vkGetPhysicalDeviceSurfaceSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, surface: VkSurfaceKHR, pSupported: *mut core::VkBool32) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceSupportKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, surface: VkSurfaceKHR, pSupported: *mut core::VkBool32) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilitiesKHR)
-pub type PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilitiesKHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilitiesKHR) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceSurfaceFormatsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceFormatsKHR)
-pub type PFN_vkGetPhysicalDeviceSurfaceFormatsKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormatKHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceFormatsKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormatKHR) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceSurfacePresentModesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfacePresentModesKHR)
-pub type PFN_vkGetPhysicalDeviceSurfacePresentModesKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pPresentModeCount: *mut u32, pPresentModes: *mut VkPresentModeKHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfacePresentModesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: VkSurfaceKHR, pPresentModeCount: *mut u32, pPresentModes: *mut VkPresentModeKHR) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

@@ -79,7 +79,7 @@ impl Default for VkSurfaceCapabilities2EXT {
 }
 
 /// See [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilities2EXT)
-pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

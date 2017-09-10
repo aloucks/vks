@@ -61,10 +61,10 @@ impl Default for VkXcbSurfaceCreateInfoKHR {
 }
 
 /// See [`vkCreateXcbSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateXcbSurfaceKHR)
-pub type PFN_vkCreateXcbSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkXcbSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateXcbSurfaceKHR = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkXcbSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceXcbPresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut xcb_types::xcb_connection_t, visual_id: xcb_types::xcb_visualid_t) -> core::VkBool32;
+pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, connection: *mut xcb_types::xcb_connection_t, visual_id: xcb_types::xcb_visualid_t) -> core::VkBool32>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

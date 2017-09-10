@@ -21,10 +21,10 @@ pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME: &'static [u8; 27] = b"VK_AM
 pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME_STR: &'static str = "VK_AMD_draw_indirect_count";
 
 /// See [`vkCmdDrawIndirectCountAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDrawIndirectCountAMD)
-pub type PFN_vkCmdDrawIndirectCountAMD = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, buffer: core::VkBuffer, offset: core::VkDeviceSize, countBuffer: core::VkBuffer, countBufferOffset: core::VkDeviceSize, maxDrawCount: u32, stride: u32);
+pub type PFN_vkCmdDrawIndirectCountAMD = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, buffer: core::VkBuffer, offset: core::VkDeviceSize, countBuffer: core::VkBuffer, countBufferOffset: core::VkDeviceSize, maxDrawCount: u32, stride: u32)>;
 
 /// See [`vkCmdDrawIndexedIndirectCountAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDrawIndexedIndirectCountAMD)
-pub type PFN_vkCmdDrawIndexedIndirectCountAMD = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, buffer: core::VkBuffer, offset: core::VkDeviceSize, countBuffer: core::VkBuffer, countBufferOffset: core::VkDeviceSize, maxDrawCount: u32, stride: u32);
+pub type PFN_vkCmdDrawIndexedIndirectCountAMD = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, buffer: core::VkBuffer, offset: core::VkDeviceSize, countBuffer: core::VkBuffer, countBufferOffset: core::VkDeviceSize, maxDrawCount: u32, stride: u32)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

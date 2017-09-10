@@ -34,7 +34,7 @@ vks_bitflags! {
 pub type VkCommandPoolTrimFlagBitsKHR = VkCommandPoolTrimFlagsKHR;
 
 /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
-pub type PFN_vkTrimCommandPoolKHR = unsafe extern "system" fn(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
+pub type PFN_vkTrimCommandPoolKHR = Option<unsafe extern "system" fn(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

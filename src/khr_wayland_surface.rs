@@ -61,10 +61,10 @@ impl Default for VkWaylandSurfaceCreateInfoKHR {
 }
 
 /// See [`vkCreateWaylandSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateWaylandSurfaceKHR)
-pub type PFN_vkCreateWaylandSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkWaylandSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateWaylandSurfaceKHR = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkWaylandSurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceWaylandPresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, display: *mut wayland_types::wl_display) -> core::VkBool32;
+pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32, display: *mut wayland_types::wl_display) -> core::VkBool32>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

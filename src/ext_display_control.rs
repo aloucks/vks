@@ -123,16 +123,16 @@ impl Default for VkSwapchainCounterCreateInfoEXT {
 }
 
 /// See [`vkDisplayPowerControlEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDisplayPowerControlEXT)
-pub type PFN_vkDisplayPowerControlEXT = unsafe extern "system" fn(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> core::VkResult;
+pub type PFN_vkDisplayPowerControlEXT = Option<unsafe extern "system" fn(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayPowerInfo: *const VkDisplayPowerInfoEXT) -> core::VkResult>;
 
 /// See [`vkRegisterDeviceEventEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterDeviceEventEXT)
-pub type PFN_vkRegisterDeviceEventEXT = unsafe extern "system" fn(device: core::VkDevice, pDeviceEventInfo: *const VkDeviceEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult;
+pub type PFN_vkRegisterDeviceEventEXT = Option<unsafe extern "system" fn(device: core::VkDevice, pDeviceEventInfo: *const VkDeviceEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult>;
 
 /// See [`vkRegisterDisplayEventEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterDisplayEventEXT)
-pub type PFN_vkRegisterDisplayEventEXT = unsafe extern "system" fn(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayEventInfo: *const VkDisplayEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult;
+pub type PFN_vkRegisterDisplayEventEXT = Option<unsafe extern "system" fn(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayEventInfo: *const VkDisplayEventInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pFence: *mut core::VkFence) -> core::VkResult>;
 
 /// See [`vkGetSwapchainCounterEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSwapchainCounterEXT)
-pub type PFN_vkGetSwapchainCounterEXT = unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, counter: ext_display_surface_counter::VkSurfaceCounterFlagBitsEXT, pCounterValue: *mut u64) -> core::VkResult;
+pub type PFN_vkGetSwapchainCounterEXT = Option<unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, counter: ext_display_surface_counter::VkSurfaceCounterFlagBitsEXT, pCounterValue: *mut u64) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

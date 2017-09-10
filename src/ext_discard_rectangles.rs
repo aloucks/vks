@@ -88,7 +88,7 @@ impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
 }
 
 /// See [`vkCmdSetDiscardRectangleEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDiscardRectangleEXT)
-pub type PFN_vkCmdSetDiscardRectangleEXT = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D);
+pub type PFN_vkCmdSetDiscardRectangleEXT = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

@@ -25,6 +25,11 @@ all of them.
  - Experimental extensions (currently `KHX` and `NVX`) are only available, if the `experimental` Cargo feature is enabled.
  - Experimental extensions have been moved into a separate sub-module `experimental`.
  - `instance_proc_addr_loader::CoreNullInstance` has been renamed to `CoreGlobal`.
+ - All `PFN_` types are now `Option<T>`.
+ - All symbols in all loaders have been prefixed with `pfn_`.
+ - All loaders now define functions in additions to the existing function pointers.
+   For example, write `loader.core_global.vkCreateInstance(...)` instead of
+   `(loader.core_global.vkCreateInstance)(...)`.
 
 ### Breaking changes in `experimental`
 

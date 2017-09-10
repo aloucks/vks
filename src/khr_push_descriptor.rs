@@ -42,7 +42,7 @@ impl Default for VkPhysicalDevicePushDescriptorPropertiesKHR {
 }
 
 /// See [`vkCmdPushDescriptorSetKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetKHR)
-pub type PFN_vkCmdPushDescriptorSetKHR = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pipelineBindPoint: core::VkPipelineBindPoint, layout: core::VkPipelineLayout, set: u32, descriptorWriteCount: u32, pDescriptorWrites: *const core::VkWriteDescriptorSet);
+pub type PFN_vkCmdPushDescriptorSetKHR = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pipelineBindPoint: core::VkPipelineBindPoint, layout: core::VkPipelineLayout, set: u32, descriptorWriteCount: u32, pDescriptorWrites: *const core::VkWriteDescriptorSet)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

@@ -361,31 +361,31 @@ pub struct VkObjectTablePushConstantEntryNVX {
 }
 
 /// See [`vkCmdProcessCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdProcessCommandsNVX)
-pub type PFN_vkCmdProcessCommandsNVX = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pProcessCommandsInfo: *const VkCmdProcessCommandsInfoNVX);
+pub type PFN_vkCmdProcessCommandsNVX = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pProcessCommandsInfo: *const VkCmdProcessCommandsInfoNVX)>;
 
 /// See [`vkCmdReserveSpaceForCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdReserveSpaceForCommandsNVX)
-pub type PFN_vkCmdReserveSpaceForCommandsNVX = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pReserveSpaceInfo: *const VkCmdReserveSpaceForCommandsInfoNVX);
+pub type PFN_vkCmdReserveSpaceForCommandsNVX = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pReserveSpaceInfo: *const VkCmdReserveSpaceForCommandsInfoNVX)>;
 
 /// See [`vkCreateIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIndirectCommandsLayoutNVX)
-pub type PFN_vkCreateIndirectCommandsLayoutNVX = unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkIndirectCommandsLayoutCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pIndirectCommandsLayout: *mut VkIndirectCommandsLayoutNVX) -> core::VkResult;
+pub type PFN_vkCreateIndirectCommandsLayoutNVX = Option<unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkIndirectCommandsLayoutCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pIndirectCommandsLayout: *mut VkIndirectCommandsLayoutNVX) -> core::VkResult>;
 
 /// See [`vkDestroyIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyIndirectCommandsLayoutNVX)
-pub type PFN_vkDestroyIndirectCommandsLayoutNVX = unsafe extern "system" fn(device: core::VkDevice, indirectCommandsLayout: VkIndirectCommandsLayoutNVX, pAllocator: *const core::VkAllocationCallbacks);
+pub type PFN_vkDestroyIndirectCommandsLayoutNVX = Option<unsafe extern "system" fn(device: core::VkDevice, indirectCommandsLayout: VkIndirectCommandsLayoutNVX, pAllocator: *const core::VkAllocationCallbacks)>;
 
 /// See [`vkCreateObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateObjectTableNVX)
-pub type PFN_vkCreateObjectTableNVX = unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkObjectTableCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pObjectTable: *mut VkObjectTableNVX) -> core::VkResult;
+pub type PFN_vkCreateObjectTableNVX = Option<unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkObjectTableCreateInfoNVX, pAllocator: *const core::VkAllocationCallbacks, pObjectTable: *mut VkObjectTableNVX) -> core::VkResult>;
 
 /// See [`vkDestroyObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyObjectTableNVX)
-pub type PFN_vkDestroyObjectTableNVX = unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, pAllocator: *const core::VkAllocationCallbacks);
+pub type PFN_vkDestroyObjectTableNVX = Option<unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, pAllocator: *const core::VkAllocationCallbacks)>;
 
 /// See [`vkRegisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterObjectsNVX)
-pub type PFN_vkRegisterObjectsNVX = unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, ppObjectTableEntries: *const *const VkObjectTableEntryNVX, pObjectIndices: *const u32) -> core::VkResult;
+pub type PFN_vkRegisterObjectsNVX = Option<unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, ppObjectTableEntries: *const *const VkObjectTableEntryNVX, pObjectIndices: *const u32) -> core::VkResult>;
 
 /// See [`vkUnregisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkUnregisterObjectsNVX)
-pub type PFN_vkUnregisterObjectsNVX = unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, pObjectEntryTypes: *const VkObjectEntryTypeNVX, pObjectIndices: *const u32) -> core::VkResult;
+pub type PFN_vkUnregisterObjectsNVX = Option<unsafe extern "system" fn(device: core::VkDevice, objectTable: VkObjectTableNVX, objectCount: u32, pObjectEntryTypes: *const VkObjectEntryTypeNVX, pObjectIndices: *const u32) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX)
-pub type PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFeatures: *mut VkDeviceGeneratedCommandsFeaturesNVX, pLimits: *mut VkDeviceGeneratedCommandsLimitsNVX);
+pub type PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pFeatures: *mut VkDeviceGeneratedCommandsFeaturesNVX, pLimits: *mut VkDeviceGeneratedCommandsLimitsNVX)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

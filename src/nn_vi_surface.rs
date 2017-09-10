@@ -58,7 +58,7 @@ impl Default for VkViSurfaceCreateInfoNN {
 }
 
 /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
-pub type PFN_vkCreateViSurfaceNN = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateViSurfaceNN = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

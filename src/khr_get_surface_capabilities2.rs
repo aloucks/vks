@@ -81,10 +81,10 @@ impl Default for VkSurfaceFormat2KHR {
 }
 
 /// See [`PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)
-pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2KHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2KHR) -> core::VkResult>;
 
 /// See [`PFN_vkGetPhysicalDeviceSurfaceFormats2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)
-pub type PFN_vkGetPhysicalDeviceSurfaceFormats2KHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormat2KHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceSurfaceFormats2KHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pSurfaceInfo: *const VkPhysicalDeviceSurfaceInfo2KHR, pSurfaceFormatCount: *mut u32, pSurfaceFormats: *mut VkSurfaceFormat2KHR) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

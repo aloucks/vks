@@ -205,25 +205,25 @@ impl Default for VkDisplaySurfaceCreateInfoKHR {
 }
 
 /// See [`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceDisplayPropertiesKHR)
-pub type PFN_vkGetPhysicalDeviceDisplayPropertiesKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pPropertyCount: *mut u32, pProperties: *mut VkDisplayPropertiesKHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceDisplayPropertiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pPropertyCount: *mut u32, pProperties: *mut VkDisplayPropertiesKHR) -> core::VkResult>;
 
 /// See [`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceDisplayPlanePropertiesKHR)
-pub type PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pPropertyCount: *mut u32, pProperties: *mut VkDisplayPlanePropertiesKHR) -> core::VkResult;
+pub type PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pPropertyCount: *mut u32, pProperties: *mut VkDisplayPlanePropertiesKHR) -> core::VkResult>;
 
 /// See [`vkGetDisplayPlaneSupportedDisplaysKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDisplayPlaneSupportedDisplaysKHR)
-pub type PFN_vkGetDisplayPlaneSupportedDisplaysKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, planeIndex: u32, pDisplayCount: *mut u32, pDisplays: *mut VkDisplayKHR) -> core::VkResult;
+pub type PFN_vkGetDisplayPlaneSupportedDisplaysKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, planeIndex: u32, pDisplayCount: *mut u32, pDisplays: *mut VkDisplayKHR) -> core::VkResult>;
 
 /// See [`vkGetDisplayModePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDisplayModePropertiesKHR)
-pub type PFN_vkGetDisplayModePropertiesKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, display: VkDisplayKHR, pPropertyCount: *mut u32, pProperties: *mut VkDisplayModePropertiesKHR) -> core::VkResult;
+pub type PFN_vkGetDisplayModePropertiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, display: VkDisplayKHR, pPropertyCount: *mut u32, pProperties: *mut VkDisplayModePropertiesKHR) -> core::VkResult>;
 
 /// See [`vkCreateDisplayModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDisplayModeKHR)
-pub type PFN_vkCreateDisplayModeKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, display: VkDisplayKHR, pCreateInfo: *const VkDisplayModeCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pMode: *mut VkDisplayModeKHR) -> core::VkResult;
+pub type PFN_vkCreateDisplayModeKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, display: VkDisplayKHR, pCreateInfo: *const VkDisplayModeCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pMode: *mut VkDisplayModeKHR) -> core::VkResult>;
 
 /// See [`vkGetDisplayPlaneCapabilitiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDisplayPlaneCapabilitiesKHR)
-pub type PFN_vkGetDisplayPlaneCapabilitiesKHR = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, mode: VkDisplayModeKHR, planeIndex: u32, pCapabilities: *mut VkDisplayPlaneCapabilitiesKHR) -> core::VkResult;
+pub type PFN_vkGetDisplayPlaneCapabilitiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, mode: VkDisplayModeKHR, planeIndex: u32, pCapabilities: *mut VkDisplayPlaneCapabilitiesKHR) -> core::VkResult>;
 
 /// See [`vkCreateDisplayPlaneSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDisplayPlaneSurfaceKHR)
-pub type PFN_vkCreateDisplayPlaneSurfaceKHR = unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkDisplaySurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+pub type PFN_vkCreateDisplayPlaneSurfaceKHR = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkDisplaySurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

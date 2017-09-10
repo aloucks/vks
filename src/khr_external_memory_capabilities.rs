@@ -193,8 +193,7 @@ impl Default for VkPhysicalDeviceIDPropertiesKHR {
 }
 
 /// See [`vkGetPhysicalDeviceExternalBufferPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferPropertiesKHR)
-pub type PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR =
-    unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pExternalBufferInfo: *const VkPhysicalDeviceExternalBufferInfoKHR, pExternalBufferProperties: *mut VkExternalBufferPropertiesKHR);
+pub type PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pExternalBufferInfo: *const VkPhysicalDeviceExternalBufferInfoKHR, pExternalBufferProperties: *mut VkExternalBufferPropertiesKHR)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

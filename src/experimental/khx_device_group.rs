@@ -393,31 +393,31 @@ impl Default for VkDeviceGroupSwapchainCreateInfoKHX {
 }
 
 /// See [`vkGetDeviceGroupPeerMemoryFeaturesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupPeerMemoryFeaturesKHX)
-pub type PFN_vkGetDeviceGroupPeerMemoryFeaturesKHX = unsafe extern "system" fn(device: core::VkDevice, heapIndex: u32, localDeviceIndex: u32, remoteDeviceIndex: u32, pPeerMemoryFeatures: *mut VkPeerMemoryFeatureFlagsKHX);
+pub type PFN_vkGetDeviceGroupPeerMemoryFeaturesKHX = Option<unsafe extern "system" fn(device: core::VkDevice, heapIndex: u32, localDeviceIndex: u32, remoteDeviceIndex: u32, pPeerMemoryFeatures: *mut VkPeerMemoryFeatureFlagsKHX)>;
 
 /// See [`vkBindBufferMemory2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkBindBufferMemory2KHX)
-pub type PFN_vkBindBufferMemory2KHX = unsafe extern "system" fn(device: core::VkDevice, bindInfoCount: u32, pBindInfos: *const VkBindBufferMemoryInfoKHX) -> core::VkResult;
+pub type PFN_vkBindBufferMemory2KHX = Option<unsafe extern "system" fn(device: core::VkDevice, bindInfoCount: u32, pBindInfos: *const VkBindBufferMemoryInfoKHX) -> core::VkResult>;
 
 /// See [`vkBindImageMemory2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkBindImageMemory2KHX)
-pub type PFN_vkBindImageMemory2KHX = unsafe extern "system" fn(device: core::VkDevice, bindInfoCount: u32, pBindInfos: *const VkBindImageMemoryInfoKHX) -> core::VkResult;
+pub type PFN_vkBindImageMemory2KHX = Option<unsafe extern "system" fn(device: core::VkDevice, bindInfoCount: u32, pBindInfos: *const VkBindImageMemoryInfoKHX) -> core::VkResult>;
 
 /// See [`vkCmdSetDeviceMaskKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDeviceMaskKHX)
-pub type PFN_vkCmdSetDeviceMaskKHX = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, deviceMask: u32);
+pub type PFN_vkCmdSetDeviceMaskKHX = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, deviceMask: u32)>;
 
 /// See [`vkGetDeviceGroupPresentCapabilitiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupPresentCapabilitiesKHX)
-pub type PFN_vkGetDeviceGroupPresentCapabilitiesKHX = unsafe extern "system" fn(device: core::VkDevice, pDeviceGroupPresentCapabilities: *mut VkDeviceGroupPresentCapabilitiesKHX) -> core::VkResult;
+pub type PFN_vkGetDeviceGroupPresentCapabilitiesKHX = Option<unsafe extern "system" fn(device: core::VkDevice, pDeviceGroupPresentCapabilities: *mut VkDeviceGroupPresentCapabilitiesKHX) -> core::VkResult>;
 
 /// See [`vkGetDeviceGroupSurfacePresentModesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupSurfacePresentModesKHX)
-pub type PFN_vkGetDeviceGroupSurfacePresentModesKHX = unsafe extern "system" fn(device: core::VkDevice, surface: khr_surface::VkSurfaceKHR, pModes: *mut VkDeviceGroupPresentModeFlagsKHX) -> core::VkResult;
+pub type PFN_vkGetDeviceGroupSurfacePresentModesKHX = Option<unsafe extern "system" fn(device: core::VkDevice, surface: khr_surface::VkSurfaceKHR, pModes: *mut VkDeviceGroupPresentModeFlagsKHX) -> core::VkResult>;
 
 /// See [`vkAcquireNextImage2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImage2KHX)
-pub type PFN_vkAcquireNextImage2KHX = unsafe extern "system" fn(device: core::VkDevice, pAcquireInfo: *const VkAcquireNextImageInfoKHX, pImageIndex: *mut u32) -> core::VkResult;
+pub type PFN_vkAcquireNextImage2KHX = Option<unsafe extern "system" fn(device: core::VkDevice, pAcquireInfo: *const VkAcquireNextImageInfoKHX, pImageIndex: *mut u32) -> core::VkResult>;
 
 /// See [`vkCmdDispatchBaseKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDispatchBaseKHX)
-pub type PFN_vkCmdDispatchBaseKHX = unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, baseGroupX: u32, baseGroupY: u32, baseGroupZ: u32, groupCountX: u32, groupCountY: u32, groupCountZ: u32);
+pub type PFN_vkCmdDispatchBaseKHX = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, baseGroupX: u32, baseGroupY: u32, baseGroupZ: u32, groupCountX: u32, groupCountY: u32, groupCountZ: u32)>;
 
 /// See [`vkGetPhysicalDevicePresentRectanglesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDevicePresentRectanglesKHX)
-pub type PFN_vkGetPhysicalDevicePresentRectanglesKHX = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pRectCount: *mut u32, pRects: *mut core::VkRect2D) -> core::VkResult;
+pub type PFN_vkGetPhysicalDevicePresentRectanglesKHX = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pRectCount: *mut u32, pRects: *mut core::VkRect2D) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

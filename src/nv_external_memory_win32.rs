@@ -67,7 +67,7 @@ impl Default for VkExportMemoryWin32HandleInfoNV {
 }
 
 /// See [`vkGetMemoryWin32HandleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleNV)
-pub type PFN_vkGetMemoryWin32HandleNV = unsafe extern "system" fn(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
+pub type PFN_vkGetMemoryWin32HandleNV = Option<unsafe extern "system" fn(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_types::HANDLE) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {

@@ -22,7 +22,7 @@ pub const VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME: &'static [u8; 27] = b"VK_EX
 pub const VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_EXT_direct_mode_display";
 
 /// See [`vkReleaseDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkReleaseDisplayEXT)
-pub type PFN_vkReleaseDisplayEXT = unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, display: khr_display::VkDisplayKHR) -> core::VkResult;
+pub type PFN_vkReleaseDisplayEXT = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, display: khr_display::VkDisplayKHR) -> core::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
