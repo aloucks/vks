@@ -13,6 +13,7 @@ all of them.
 
  - Vulkan 1.0.54
  - Add extension `VK_KHR_external_memory_capabilities` (revision 1)
+ - Add extension `VK_KHR_external_memory` (revision 1)
 
 ### Breaking changes
 
