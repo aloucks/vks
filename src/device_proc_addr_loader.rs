@@ -100,7 +100,7 @@ macro_rules! gen_device_proc_addr_loader {
 
                 $(
                     #[cfg(feature = "experimental")]
-                    debug_struct.field(stringify!($field), &self.$field);
+                    debug_struct.field(stringify!($exp_field), &self.$exp_field);
                 )*
 
                 debug_struct.finish()
