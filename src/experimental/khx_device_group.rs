@@ -103,7 +103,7 @@ pub struct VkMemoryAllocateFlagsInfoKHX {
 
 impl Default for VkMemoryAllocateFlagsInfoKHX {
     fn default() -> Self {
-        VkMemoryAllocateFlagsInfoKHX  {
+        VkMemoryAllocateFlagsInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX,
             pNext: ptr::null(),
             flags: Default::default(),
@@ -127,7 +127,7 @@ pub struct VkBindBufferMemoryInfoKHX {
 
 impl Default for VkBindBufferMemoryInfoKHX {
     fn default() -> Self {
-        VkBindBufferMemoryInfoKHX  {
+        VkBindBufferMemoryInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX,
             pNext: ptr::null(),
             buffer: Default::default(),
@@ -156,7 +156,7 @@ pub struct VkBindImageMemoryInfoKHX {
 
 impl Default for VkBindImageMemoryInfoKHX {
     fn default() -> Self {
-        VkBindImageMemoryInfoKHX  {
+        VkBindImageMemoryInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX,
             pNext: ptr::null(),
             image: Default::default(),
@@ -183,7 +183,7 @@ pub struct VkDeviceGroupRenderPassBeginInfoKHX {
 
 impl Default for VkDeviceGroupRenderPassBeginInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupRenderPassBeginInfoKHX  {
+        VkDeviceGroupRenderPassBeginInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX,
             pNext: ptr::null(),
             deviceMask: Default::default(),
@@ -204,7 +204,7 @@ pub struct VkDeviceGroupCommandBufferBeginInfoKHX {
 
 impl Default for VkDeviceGroupCommandBufferBeginInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupCommandBufferBeginInfoKHX  {
+        VkDeviceGroupCommandBufferBeginInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHX,
             pNext: ptr::null(),
             deviceMask: Default::default(),
@@ -228,7 +228,7 @@ pub struct VkDeviceGroupSubmitInfoKHX {
 
 impl Default for VkDeviceGroupSubmitInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupSubmitInfoKHX  {
+        VkDeviceGroupSubmitInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX,
             pNext: ptr::null(),
             waitSemaphoreCount: Default::default(),
@@ -253,7 +253,7 @@ pub struct VkDeviceGroupBindSparseInfoKHX {
 
 impl Default for VkDeviceGroupBindSparseInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupBindSparseInfoKHX  {
+        VkDeviceGroupBindSparseInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX,
             pNext: ptr::null(),
             resourceDeviceIndex: Default::default(),
@@ -274,7 +274,7 @@ pub struct VkDeviceGroupPresentCapabilitiesKHX {
 
 impl Default for VkDeviceGroupPresentCapabilitiesKHX {
     fn default() -> Self {
-        VkDeviceGroupPresentCapabilitiesKHX  {
+        VkDeviceGroupPresentCapabilitiesKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX,
             pNext: ptr::null(),
             presentMask: Default::default(),
@@ -294,7 +294,7 @@ pub struct VkImageSwapchainCreateInfoKHX {
 
 impl Default for VkImageSwapchainCreateInfoKHX {
     fn default() -> Self {
-        VkImageSwapchainCreateInfoKHX  {
+        VkImageSwapchainCreateInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX,
             pNext: ptr::null(),
             swapchain: Default::default(),
@@ -314,7 +314,7 @@ pub struct VkBindImageMemorySwapchainInfoKHX {
 
 impl Default for VkBindImageMemorySwapchainInfoKHX {
     fn default() -> Self {
-        VkBindImageMemorySwapchainInfoKHX  {
+        VkBindImageMemorySwapchainInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX,
             pNext: ptr::null(),
             swapchain: Default::default(),
@@ -338,7 +338,7 @@ pub struct VkAcquireNextImageInfoKHX {
 
 impl Default for VkAcquireNextImageInfoKHX {
     fn default() -> Self {
-        VkAcquireNextImageInfoKHX  {
+        VkAcquireNextImageInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX,
             pNext: ptr::null(),
             swapchain: Default::default(),
@@ -363,7 +363,7 @@ pub struct VkDeviceGroupPresentInfoKHX {
 
 impl Default for VkDeviceGroupPresentInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupPresentInfoKHX  {
+        VkDeviceGroupPresentInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX,
             pNext: ptr::null(),
             swapchainCount: Default::default(),
@@ -384,7 +384,7 @@ pub struct VkDeviceGroupSwapchainCreateInfoKHX {
 
 impl Default for VkDeviceGroupSwapchainCreateInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupSwapchainCreateInfoKHX  {
+        VkDeviceGroupSwapchainCreateInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX,
             pNext: ptr::null(),
             modes: Default::default(),

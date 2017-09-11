@@ -215,7 +215,7 @@ impl fmt::Debug for VkDebugReportCallbackCreateInfoEXT {
 
 impl Default for VkDebugReportCallbackCreateInfoEXT {
     fn default() -> Self {
-        VkDebugReportCallbackCreateInfoEXT  {
+        VkDebugReportCallbackCreateInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,
             pNext: ptr::null(),
             flags: Default::default(),

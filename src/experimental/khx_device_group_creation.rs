@@ -37,7 +37,7 @@ pub struct VkPhysicalDeviceGroupPropertiesKHX {
 
 impl Default for VkPhysicalDeviceGroupPropertiesKHX {
     fn default() -> Self {
-        VkPhysicalDeviceGroupPropertiesKHX  {
+        VkPhysicalDeviceGroupPropertiesKHX {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             physicalDeviceCount: Default::default(),
@@ -59,7 +59,7 @@ pub struct VkDeviceGroupDeviceCreateInfoKHX {
 
 impl Default for VkDeviceGroupDeviceCreateInfoKHX {
     fn default() -> Self {
-        VkDeviceGroupDeviceCreateInfoKHX  {
+        VkDeviceGroupDeviceCreateInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX,
             pNext: ptr::null(),
             physicalDeviceCount: Default::default(),

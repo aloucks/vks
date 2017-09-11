@@ -50,7 +50,7 @@ pub struct VkWaylandSurfaceCreateInfoKHR {
 
 impl Default for VkWaylandSurfaceCreateInfoKHR {
     fn default() -> Self {
-        VkWaylandSurfaceCreateInfoKHR  {
+        VkWaylandSurfaceCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),

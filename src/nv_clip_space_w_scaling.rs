@@ -43,7 +43,7 @@ pub struct VkPipelineViewportWScalingStateCreateInfoNV {
 
 impl Default for VkPipelineViewportWScalingStateCreateInfoNV {
     fn default() -> Self {
-        VkPipelineViewportWScalingStateCreateInfoNV  {
+        VkPipelineViewportWScalingStateCreateInfoNV {
             sType: core::VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             viewportWScalingEnable: Default::default(),

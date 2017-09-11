@@ -41,7 +41,7 @@ pub struct VkPresentRegionKHR {
 
 impl Default for VkPresentRegionKHR {
     fn default() -> Self {
-        VkPresentRegionKHR  {
+        VkPresentRegionKHR {
             rectangleCount: Default::default(),
             pRectangles: ptr::null(),
         }
@@ -60,7 +60,7 @@ pub struct VkPresentRegionsKHR {
 
 impl Default for VkPresentRegionsKHR {
     fn default() -> Self {
-        VkPresentRegionsKHR  {
+        VkPresentRegionsKHR {
             sType: core::VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
             pNext: ptr::null(),
             swapchainCount: Default::default(),

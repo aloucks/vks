@@ -57,7 +57,7 @@ pub struct VkDisplayPowerInfoEXT {
 
 impl Default for VkDisplayPowerInfoEXT {
     fn default() -> Self {
-        VkDisplayPowerInfoEXT  {
+        VkDisplayPowerInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT,
             pNext: ptr::null(),
             powerState: Default::default(),
@@ -76,7 +76,7 @@ pub struct VkDeviceEventInfoEXT {
 
 impl Default for VkDeviceEventInfoEXT {
     fn default() -> Self {
-        VkDeviceEventInfoEXT  {
+        VkDeviceEventInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT,
             pNext: ptr::null(),
             deviceEvent: Default::default(),
@@ -95,7 +95,7 @@ pub struct VkDisplayEventInfoEXT {
 
 impl Default for VkDisplayEventInfoEXT {
     fn default() -> Self {
-        VkDisplayEventInfoEXT  {
+        VkDisplayEventInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT,
             pNext: ptr::null(),
             displayEvent: Default::default(),
@@ -114,7 +114,7 @@ pub struct VkSwapchainCounterCreateInfoEXT {
 
 impl Default for VkSwapchainCounterCreateInfoEXT {
     fn default() -> Self {
-        VkSwapchainCounterCreateInfoEXT  {
+        VkSwapchainCounterCreateInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT,
             pNext: ptr::null(),
             surfaceCounters: Default::default(),

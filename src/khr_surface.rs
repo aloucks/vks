@@ -18,7 +18,7 @@ use core;
 
 pub const VK_KHR_SURFACE_SPEC_VERSION: u32 = 25;
 pub const VK_KHR_SURFACE_EXTENSION_NAME: &'static [u8; 15] = b"VK_KHR_surface\x00";
-pub const VK_KHR_SURFACE_EXTENSION_NAME_STR: &'static str  = "VK_KHR_surface";
+pub const VK_KHR_SURFACE_EXTENSION_NAME_STR: &'static str = "VK_KHR_surface";
 
 define_non_dispatchable_handle!(
     /// See [`VkSurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceKHR)

@@ -50,7 +50,7 @@ pub struct VkWin32SurfaceCreateInfoKHR {
 
 impl Default for VkWin32SurfaceCreateInfoKHR {
     fn default() -> Self {
-        VkWin32SurfaceCreateInfoKHR  {
+        VkWin32SurfaceCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),

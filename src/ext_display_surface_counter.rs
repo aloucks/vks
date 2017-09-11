@@ -60,7 +60,7 @@ pub struct VkSurfaceCapabilities2EXT {
 
 impl Default for VkSurfaceCapabilities2EXT {
     fn default() -> Self {
-        VkSurfaceCapabilities2EXT  {
+        VkSurfaceCapabilities2EXT {
             sType: core::VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT,
             pNext: ptr::null_mut(),
             minImageCount: Default::default(),

@@ -42,7 +42,7 @@ pub struct VkValidationFlagsEXT {
 
 impl Default for VkValidationFlagsEXT {
     fn default() -> Self {
-        VkValidationFlagsEXT  {
+        VkValidationFlagsEXT {
             sType: core::VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
             pNext: ptr::null(),
             disabledValidationCheckCount: Default::default(),

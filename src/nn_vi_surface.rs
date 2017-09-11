@@ -48,7 +48,7 @@ pub struct VkViSurfaceCreateInfoNN {
 
 impl Default for VkViSurfaceCreateInfoNN {
     fn default() -> Self {
-        VkViSurfaceCreateInfoNN  {
+        VkViSurfaceCreateInfoNN {
             sType: core::VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN,
             pNext: ptr::null(),
             flags: Default::default(),

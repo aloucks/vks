@@ -72,7 +72,7 @@ pub struct VkSwapchainCreateInfoKHR {
 
 impl Default for VkSwapchainCreateInfoKHR {
     fn default() -> Self {
-        VkSwapchainCreateInfoKHR  {
+        VkSwapchainCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
@@ -111,7 +111,7 @@ pub struct VkPresentInfoKHR {
 
 impl Default for VkPresentInfoKHR {
     fn default() -> Self {
-        VkPresentInfoKHR  {
+        VkPresentInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_PRESENT_INFO_KHR,
             pNext: ptr::null(),
             waitSemaphoreCount: Default::default(),

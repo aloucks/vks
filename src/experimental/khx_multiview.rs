@@ -38,7 +38,7 @@ pub struct VkRenderPassMultiviewCreateInfoKHX {
 
 impl Default for VkRenderPassMultiviewCreateInfoKHX {
     fn default() -> Self {
-        VkRenderPassMultiviewCreateInfoKHX  {
+        VkRenderPassMultiviewCreateInfoKHX {
             sType: core::VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX,
             pNext: ptr::null(),
             subpassCount: Default::default(),
@@ -64,7 +64,7 @@ pub struct VkPhysicalDeviceMultiviewFeaturesKHX {
 
 impl Default for VkPhysicalDeviceMultiviewFeaturesKHX {
     fn default() -> Self {
-        VkPhysicalDeviceMultiviewFeaturesKHX  {
+        VkPhysicalDeviceMultiviewFeaturesKHX {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX,
             pNext: ptr::null_mut(),
             multiview: Default::default(),
@@ -86,7 +86,7 @@ pub struct VkPhysicalDeviceMultiviewPropertiesKHX {
 
 impl Default for VkPhysicalDeviceMultiviewPropertiesKHX {
     fn default() -> Self {
-        VkPhysicalDeviceMultiviewPropertiesKHX  {
+        VkPhysicalDeviceMultiviewPropertiesKHX {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             maxMultiviewViewCount: Default::default(),

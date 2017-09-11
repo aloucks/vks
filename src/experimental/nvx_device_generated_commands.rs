@@ -130,7 +130,7 @@ pub struct VkDeviceGeneratedCommandsFeaturesNVX {
 
 impl Default for VkDeviceGeneratedCommandsFeaturesNVX {
     fn default() -> Self {
-        VkDeviceGeneratedCommandsFeaturesNVX  {
+        VkDeviceGeneratedCommandsFeaturesNVX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_FEATURES_NVX,
             pNext: ptr::null(),
             computeBindingPointSupport: Default::default(),
@@ -153,7 +153,7 @@ pub struct VkDeviceGeneratedCommandsLimitsNVX {
 
 impl Default for VkDeviceGeneratedCommandsLimitsNVX {
     fn default() -> Self {
-        VkDeviceGeneratedCommandsLimitsNVX  {
+        VkDeviceGeneratedCommandsLimitsNVX {
             sType: core::VK_STRUCTURE_TYPE_DEVICE_GENERATED_COMMANDS_LIMITS_NVX,
             pNext: ptr::null(),
             maxIndirectCommandsLayoutTokenCount: Default::default(),
@@ -198,7 +198,7 @@ pub struct VkIndirectCommandsLayoutCreateInfoNVX {
 
 impl Default for VkIndirectCommandsLayoutCreateInfoNVX {
     fn default() -> Self {
-        VkIndirectCommandsLayoutCreateInfoNVX  {
+        VkIndirectCommandsLayoutCreateInfoNVX {
             sType: core::VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NVX,
             pNext: ptr::null(),
             pipelineBindPoint: Default::default(),
@@ -229,7 +229,7 @@ pub struct VkCmdProcessCommandsInfoNVX {
 
 impl Default for VkCmdProcessCommandsInfoNVX {
     fn default() -> Self {
-        VkCmdProcessCommandsInfoNVX  {
+        VkCmdProcessCommandsInfoNVX {
             sType: core::VK_STRUCTURE_TYPE_CMD_PROCESS_COMMANDS_INFO_NVX,
             pNext: ptr::null(),
             objectTable: Default::default(),
@@ -259,7 +259,7 @@ pub struct VkCmdReserveSpaceForCommandsInfoNVX {
 
 impl Default for VkCmdReserveSpaceForCommandsInfoNVX {
     fn default() -> Self {
-        VkCmdReserveSpaceForCommandsInfoNVX  {
+        VkCmdReserveSpaceForCommandsInfoNVX {
             sType: core::VK_STRUCTURE_TYPE_CMD_RESERVE_SPACE_FOR_COMMANDS_INFO_NVX,
             pNext: ptr::null(),
             objectTable: Default::default(),
@@ -288,7 +288,7 @@ pub struct VkObjectTableCreateInfoNVX {
 
 impl Default for VkObjectTableCreateInfoNVX {
     fn default() -> Self {
-        VkObjectTableCreateInfoNVX  {
+        VkObjectTableCreateInfoNVX {
             sType: core::VK_STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX,
             pNext: ptr::null(),
             objectCount: Default::default(),

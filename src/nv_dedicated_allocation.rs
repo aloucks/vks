@@ -33,7 +33,7 @@ pub struct VkDedicatedAllocationImageCreateInfoNV {
 
 impl Default for VkDedicatedAllocationImageCreateInfoNV {
     fn default() -> Self {
-        VkDedicatedAllocationImageCreateInfoNV  {
+        VkDedicatedAllocationImageCreateInfoNV {
             sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,
             pNext: ptr::null(),
             dedicatedAllocation: Default::default(),
@@ -52,7 +52,7 @@ pub struct VkDedicatedAllocationBufferCreateInfoNV {
 
 impl Default for VkDedicatedAllocationBufferCreateInfoNV {
     fn default() -> Self {
-        VkDedicatedAllocationBufferCreateInfoNV  {
+        VkDedicatedAllocationBufferCreateInfoNV {
             sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV,
             pNext: ptr::null(),
             dedicatedAllocation: Default::default(),
@@ -72,7 +72,7 @@ pub struct VkDedicatedAllocationMemoryAllocateInfoNV {
 
 impl Default for VkDedicatedAllocationMemoryAllocateInfoNV {
     fn default() -> Self {
-        VkDedicatedAllocationMemoryAllocateInfoNV  {
+        VkDedicatedAllocationMemoryAllocateInfoNV {
             sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
             image: Default::default(),

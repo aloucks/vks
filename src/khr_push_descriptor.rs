@@ -33,7 +33,7 @@ pub struct VkPhysicalDevicePushDescriptorPropertiesKHR {
 
 impl Default for VkPhysicalDevicePushDescriptorPropertiesKHR {
     fn default() -> Self {
-        VkPhysicalDevicePushDescriptorPropertiesKHR  {
+        VkPhysicalDevicePushDescriptorPropertiesKHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             maxPushDescriptors: Default::default(),

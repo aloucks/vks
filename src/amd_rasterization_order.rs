@@ -41,7 +41,7 @@ pub struct VkPipelineRasterizationStateRasterizationOrderAMD {
 
 impl Default for VkPipelineRasterizationStateRasterizationOrderAMD {
     fn default() -> Self {
-        VkPipelineRasterizationStateRasterizationOrderAMD  {
+        VkPipelineRasterizationStateRasterizationOrderAMD {
             sType: core::VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD,
             pNext: ptr::null(),
             rasterizationOrder: Default::default(),

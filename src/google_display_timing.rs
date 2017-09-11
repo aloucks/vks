@@ -61,7 +61,7 @@ pub struct VkPresentTimesInfoGOOGLE {
 
 impl Default for VkPresentTimesInfoGOOGLE {
     fn default() -> Self {
-        VkPresentTimesInfoGOOGLE  {
+        VkPresentTimesInfoGOOGLE {
             sType: core::VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE,
             pNext: ptr::null(),
             swapchainCount: Default::default(),

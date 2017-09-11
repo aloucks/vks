@@ -69,7 +69,7 @@ vks_bitflags! {
 }
 
 /// See [`VkDisplayModeCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeCreateFlagsKHR)
-pub type VkDisplayModeCreateFlagBitsKHR = VkDisplayModeCreateFlagsKHR ;
+pub type VkDisplayModeCreateFlagBitsKHR = VkDisplayModeCreateFlagsKHR;
 
 vks_bitflags! {
     /// See [`VkDisplaySurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplaySurfaceCreateFlagsKHR)
@@ -99,7 +99,7 @@ pub struct VkDisplayPropertiesKHR {
 
 impl Default for VkDisplayPropertiesKHR {
     fn default() -> Self {
-        VkDisplayPropertiesKHR  {
+        VkDisplayPropertiesKHR {
             display: Default::default(),
             displayName: ptr::null(),
             physicalDimensions: Default::default(),
@@ -139,7 +139,7 @@ pub struct VkDisplayModeCreateInfoKHR {
 
 impl Default for VkDisplayModeCreateInfoKHR {
     fn default() -> Self {
-        VkDisplayModeCreateInfoKHR  {
+        VkDisplayModeCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
@@ -189,7 +189,7 @@ pub struct VkDisplaySurfaceCreateInfoKHR {
 
 impl Default for VkDisplaySurfaceCreateInfoKHR {
     fn default() -> Self {
-        VkDisplaySurfaceCreateInfoKHR  {
+        VkDisplaySurfaceCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),

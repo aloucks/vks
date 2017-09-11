@@ -36,7 +36,7 @@ pub struct VkDisplayPresentInfoKHR {
 
 impl Default for VkDisplayPresentInfoKHR {
     fn default() -> Self {
-        VkDisplayPresentInfoKHR  {
+        VkDisplayPresentInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR,
             pNext: ptr::null(),
             srcRect: Default::default(),

@@ -33,7 +33,7 @@ pub struct VkPhysicalDeviceFeatures2KHR {
 
 impl Default for VkPhysicalDeviceFeatures2KHR {
     fn default() -> Self {
-        VkPhysicalDeviceFeatures2KHR  {
+        VkPhysicalDeviceFeatures2KHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR,
             pNext: ptr::null_mut(),
             features: Default::default(),
@@ -52,7 +52,7 @@ pub struct VkPhysicalDeviceProperties2KHR {
 
 impl Default for VkPhysicalDeviceProperties2KHR {
     fn default() -> Self {
-        VkPhysicalDeviceProperties2KHR  {
+        VkPhysicalDeviceProperties2KHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR,
             pNext: ptr::null_mut(),
             properties: Default::default(),
@@ -71,7 +71,7 @@ pub struct VkFormatProperties2KHR {
 
 impl Default for VkFormatProperties2KHR {
     fn default() -> Self {
-        VkFormatProperties2KHR  {
+        VkFormatProperties2KHR {
             sType: core::VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR,
             pNext: ptr::null_mut(),
             formatProperties: Default::default(),
@@ -90,7 +90,7 @@ pub struct VkImageFormatProperties2KHR {
 
 impl Default for VkImageFormatProperties2KHR {
     fn default() -> Self {
-        VkImageFormatProperties2KHR  {
+        VkImageFormatProperties2KHR {
             sType: core::VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR,
             pNext: ptr::null_mut(),
             imageFormatProperties: Default::default(),
@@ -113,7 +113,7 @@ pub struct VkPhysicalDeviceImageFormatInfo2KHR {
 
 impl Default for VkPhysicalDeviceImageFormatInfo2KHR {
     fn default() -> Self {
-        VkPhysicalDeviceImageFormatInfo2KHR  {
+        VkPhysicalDeviceImageFormatInfo2KHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR,
             pNext: ptr::null(),
             format: Default::default(),
@@ -136,7 +136,7 @@ pub struct VkQueueFamilyProperties2KHR {
 
 impl Default for VkQueueFamilyProperties2KHR {
     fn default() -> Self {
-        VkQueueFamilyProperties2KHR  {
+        VkQueueFamilyProperties2KHR {
             sType: core::VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR,
             pNext: ptr::null_mut(),
             queueFamilyProperties: Default::default(),
@@ -155,7 +155,7 @@ pub struct VkPhysicalDeviceMemoryProperties2KHR {
 
 impl Default for VkPhysicalDeviceMemoryProperties2KHR {
     fn default() -> Self {
-        VkPhysicalDeviceMemoryProperties2KHR  {
+        VkPhysicalDeviceMemoryProperties2KHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR,
             pNext: ptr::null_mut(),
             memoryProperties: Default::default(),
@@ -174,7 +174,7 @@ pub struct VkSparseImageFormatProperties2KHR {
 
 impl Default for VkSparseImageFormatProperties2KHR {
     fn default() -> Self {
-        VkSparseImageFormatProperties2KHR  {
+        VkSparseImageFormatProperties2KHR {
             sType: core::VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR,
             pNext: ptr::null_mut(),
             properties: Default::default(),
@@ -197,7 +197,7 @@ pub struct VkPhysicalDeviceSparseImageFormatInfo2KHR {
 
 impl Default for VkPhysicalDeviceSparseImageFormatInfo2KHR {
     fn default() -> Self {
-        VkPhysicalDeviceSparseImageFormatInfo2KHR  {
+        VkPhysicalDeviceSparseImageFormatInfo2KHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR,
             pNext: ptr::null(),
             format: Default::default(),

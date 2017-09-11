@@ -48,7 +48,7 @@ pub struct VkMacOSSurfaceCreateInfoMVK {
 
 impl Default for VkMacOSSurfaceCreateInfoMVK {
     fn default() -> Self {
-        VkMacOSSurfaceCreateInfoMVK  {
+        VkMacOSSurfaceCreateInfoMVK {
             sType: core::VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK,
             pNext: ptr::null(),
             flags: Default::default(),

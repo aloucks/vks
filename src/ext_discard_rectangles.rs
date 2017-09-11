@@ -54,7 +54,7 @@ pub struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
 
 impl Default for VkPhysicalDeviceDiscardRectanglePropertiesEXT {
     fn default() -> Self {
-        VkPhysicalDeviceDiscardRectanglePropertiesEXT  {
+        VkPhysicalDeviceDiscardRectanglePropertiesEXT {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             maxDiscardRectangles: Default::default(),
@@ -76,7 +76,7 @@ pub struct VkPipelineDiscardRectangleStateCreateInfoEXT {
 
 impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
     fn default() -> Self {
-        VkPipelineDiscardRectangleStateCreateInfoEXT  {
+        VkPipelineDiscardRectangleStateCreateInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             flags: Default::default(),

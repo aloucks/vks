@@ -34,7 +34,7 @@ pub struct VkPhysicalDeviceSurfaceInfo2KHR {
 
 impl Default for VkPhysicalDeviceSurfaceInfo2KHR {
     fn default() -> Self {
-        VkPhysicalDeviceSurfaceInfo2KHR  {
+        VkPhysicalDeviceSurfaceInfo2KHR {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR,
             pNext: ptr::null(),
             surface: Default::default(),
@@ -53,7 +53,7 @@ pub struct VkSurfaceCapabilities2KHR {
 
 impl Default for VkSurfaceCapabilities2KHR {
     fn default() -> Self {
-        VkSurfaceCapabilities2KHR  {
+        VkSurfaceCapabilities2KHR {
             sType: core::VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR,
             pNext: ptr::null_mut(),
             surfaceCapabilities: Default::default(),
@@ -72,7 +72,7 @@ pub struct VkSurfaceFormat2KHR {
 
 impl Default for VkSurfaceFormat2KHR {
     fn default() -> Self {
-        VkSurfaceFormat2KHR  {
+        VkSurfaceFormat2KHR {
             sType: core::VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR,
             pNext: ptr::null_mut(),
             surfaceFormat: Default::default(),

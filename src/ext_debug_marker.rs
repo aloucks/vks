@@ -36,7 +36,7 @@ pub struct VkDebugMarkerObjectNameInfoEXT {
 
 impl Default for VkDebugMarkerObjectNameInfoEXT {
     fn default() -> Self {
-        VkDebugMarkerObjectNameInfoEXT  {
+        VkDebugMarkerObjectNameInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT,
             pNext: ptr::null(),
             objectType: Default::default(),
@@ -61,7 +61,7 @@ pub struct VkDebugMarkerObjectTagInfoEXT {
 
 impl Default for VkDebugMarkerObjectTagInfoEXT {
     fn default() -> Self {
-        VkDebugMarkerObjectTagInfoEXT  {
+        VkDebugMarkerObjectTagInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT,
             pNext: ptr::null(),
             objectType: Default::default(),
@@ -85,7 +85,7 @@ pub struct VkDebugMarkerMarkerInfoEXT {
 
 impl Default for VkDebugMarkerMarkerInfoEXT {
     fn default() -> Self {
-        VkDebugMarkerMarkerInfoEXT  {
+        VkDebugMarkerMarkerInfoEXT {
             sType: core::VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT,
             pNext: ptr::null(),
             pMarkerName: ptr::null(),

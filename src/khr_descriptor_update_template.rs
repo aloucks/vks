@@ -78,7 +78,7 @@ pub struct VkDescriptorUpdateTemplateCreateInfoKHR {
 
 impl Default for VkDescriptorUpdateTemplateCreateInfoKHR {
     fn default() -> Self {
-        VkDescriptorUpdateTemplateCreateInfoKHR  {
+        VkDescriptorUpdateTemplateCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,
             pNext: ptr::null_mut(),
             flags: Default::default(),

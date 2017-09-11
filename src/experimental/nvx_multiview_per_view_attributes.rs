@@ -33,7 +33,7 @@ pub struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
 
 impl Default for VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     fn default() -> Self {
-        VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX  {
+        VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
             sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX,
             pNext: ptr::null_mut(),
             perViewPositionAllComponents: Default::default(),

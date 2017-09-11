@@ -84,7 +84,7 @@ pub struct VkPipelineViewportSwizzleStateCreateInfoNV {
 
 impl Default for VkPipelineViewportSwizzleStateCreateInfoNV {
     fn default() -> Self {
-        VkPipelineViewportSwizzleStateCreateInfoNV  {
+        VkPipelineViewportSwizzleStateCreateInfoNV {
             sType: core::VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),

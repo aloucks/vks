@@ -50,7 +50,7 @@ pub struct VkMirSurfaceCreateInfoKHR {
 
 impl Default for VkMirSurfaceCreateInfoKHR {
     fn default() -> Self {
-        VkMirSurfaceCreateInfoKHR  {
+        VkMirSurfaceCreateInfoKHR {
             sType: core::VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
