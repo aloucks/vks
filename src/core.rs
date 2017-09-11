@@ -3714,15 +3714,13 @@ impl fmt::Debug for VkAllocationCallbacks {
 
 impl Default for VkAllocationCallbacks {
     fn default() -> Self {
-        unsafe {
-            VkAllocationCallbacks {
-                pUserData: ptr::null_mut(),
-                pfnAllocation: mem::transmute(0usize),
-                pfnReallocation: mem::transmute(0usize),
-                pfnFree: mem::transmute(0usize),
-                pfnInternalAllocation: mem::transmute(0usize),
-                pfnInternalFree: mem::transmute(0usize),
-            }
+        VkAllocationCallbacks {
+            pUserData: ptr::null_mut(),
+            pfnAllocation: None,
+            pfnReallocation: None,
+            pfnFree: None,
+            pfnInternalAllocation: None,
+            pfnInternalFree: None,
         }
     }
 }
