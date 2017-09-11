@@ -66,6 +66,7 @@ pub mod khr_display;
 pub mod khr_display_swapchain;
 pub mod khr_external_memory;
 pub mod khr_external_memory_capabilities;
+pub mod khr_external_memory_fd;
 pub mod khr_external_memory_win32;
 pub mod khr_get_physical_device_properties2;
 pub mod khr_get_surface_capabilities2;
