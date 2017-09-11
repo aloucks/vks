@@ -84,6 +84,7 @@ function pointers.
 | `VK_KHR_surface` | 25 |
 | `VK_KHR_swapchain` | 68 |
 | `VK_KHR_wayland_surface` | 6 |
+| `VK_KHR_win32_keyed_mutex` | 1 |
 | `VK_KHR_win32_surface` | 6 |
 | `VK_KHR_xcb_surface` | 6 |
 | `VK_KHR_xlib_surface` | 6 |

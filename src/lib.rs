@@ -80,6 +80,7 @@ pub mod khr_shared_presentable_image;
 pub mod khr_surface;
 pub mod khr_swapchain;
 pub mod khr_wayland_surface;
+pub mod khr_win32_keyed_mutex;
 pub mod khr_win32_surface;
 pub mod khr_xcb_surface;
 pub mod khr_xlib_surface;
