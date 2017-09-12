@@ -684,7 +684,8 @@ cenum!(VkStructureType: u32 {
     const VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHR = 1000071003,
 
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+    /// and extensions [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities),
+    /// [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
     const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHR = 1000071004,
 
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
@@ -730,6 +731,14 @@ cenum!(VkStructureType: u32 {
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_KHR_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#win32_keyed_mutex)
     const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR = 1000075000,
+
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
+    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR = 1000076000,
+
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    /// and extension [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
+    const VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHR = 1000076001,
 
     /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
     /// and extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
