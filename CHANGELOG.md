@@ -20,6 +20,7 @@ all of them.
  - Add extension `VK_KHR_external_semaphore_capabilities` (revision 1)
  - Add extension `VK_KHR_external_semaphore` (revision 1)
  - Add extension `VK_KHR_external_semaphore_win32` (revision 1)
+ - Add extension `VK_KHR_external_semaphore_fd` (revision 1)
 
 ### Breaking changes
 
