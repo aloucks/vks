@@ -31,6 +31,7 @@ use khr_external_memory_capabilities;
 use khr_external_memory_fd;
 use khr_external_memory_win32;
 use khr_external_semaphore_capabilities;
+use khr_external_semaphore_win32;
 use khr_get_physical_device_properties2;
 use khr_get_surface_capabilities2;
 use khr_maintenance1;
@@ -317,6 +318,9 @@ gen_instance_proc_addr_loader!(
 
         /// [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
         pub khr_external_semaphore_capabilities: KHR_external_semaphore_capabilities [fn load_khr_external_semaphore_capabilities],
+
+        /// [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
+        pub khr_external_semaphore_win32: KHR_external_semaphore_win32 [fn load_khr_external_semaphore_win32],
 
         /// [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
         pub khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
@@ -1013,6 +1017,17 @@ addr_proc_struct!(
     pub struct KHR_external_semaphore_capabilities {
         /// See [`vkGetPhysicalDeviceExternalSemaphorePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalSemaphorePropertiesKHR)
         pub fn vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(physicalDevice: core::VkPhysicalDevice, pExternalSemaphoreInfo: *const khr_external_semaphore_capabilities::VkPhysicalDeviceExternalSemaphoreInfoKHR, pExternalSemaphoreProperties: *mut khr_external_semaphore_capabilities::VkExternalSemaphorePropertiesKHR); [pfn_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR: khr_external_semaphore_capabilities::PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR],
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
+    pub struct KHR_external_semaphore_win32 {
+        /// See [`VkImportSemaphoreWin32HandleInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreWin32HandleInfoKHR)
+        pub fn vkImportSemaphoreWin32HandleKHR(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const khr_external_semaphore_win32::VkImportSemaphoreWin32HandleInfoKHR) -> core::VkResult; [pfn_vkImportSemaphoreWin32HandleKHR: khr_external_semaphore_win32::PFN_vkImportSemaphoreWin32HandleKHR],
+
+        /// See [`vkGetSemaphoreWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHR)
+        pub fn vkGetSemaphoreWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const khr_external_semaphore_win32::VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetSemaphoreWin32HandleKHR: khr_external_semaphore_win32::PFN_vkGetSemaphoreWin32HandleKHR],
     }
 );
 
