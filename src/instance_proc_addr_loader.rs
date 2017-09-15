@@ -243,6 +243,7 @@ macro_rules! addr_proc_struct {
             $(
                 #[inline]
                 $( #[$symbol_attr] )*
+                #[cfg_attr(feature = "cargo-clippy", allow(too_many_arguments))]
                 pub unsafe fn $fn(&self, $( $arg: $arg_ty ),* ) $( -> $fn_ret )* {
                     let $symbol = self.$symbol.expect(concat!(stringify!($symbol), " is None"));
                     ($symbol)($( $arg ),*)

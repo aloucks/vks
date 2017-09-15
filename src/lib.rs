@@ -18,6 +18,11 @@
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
 
+#![cfg_attr(feature = "cargo-clippy", allow(unreadable_literal))]
+
+// https://github.com/rust-lang-nursery/rust-clippy/issues/1254
+#![cfg_attr(feature = "cargo-clippy", allow(expl_impl_clone_on_copy))]
+
 extern crate libc;
 
 #[macro_use]
