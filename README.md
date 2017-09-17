@@ -64,6 +64,7 @@ function pointers.
 
 | Extension | Revision |
 | --- | --- |
+| `VK_KHR_16bit_storage` | 1 |
 | `VK_KHR_android_surface` | 6 |
 | `VK_KHR_descriptor_update_template` | 1 |
 | `VK_KHR_display_swapchain` | 9 |
