@@ -70,6 +70,7 @@ pub mod khr_android_surface;
 pub mod khr_descriptor_update_template;
 pub mod khr_display;
 pub mod khr_display_swapchain;
+pub mod khr_external_fence_capabilities;
 pub mod khr_external_memory;
 pub mod khr_external_memory_capabilities;
 pub mod khr_external_memory_fd;

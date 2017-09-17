@@ -27,6 +27,7 @@ use khr_android_surface;
 use khr_descriptor_update_template;
 use khr_display;
 use khr_display_swapchain;
+use khr_external_fence_capabilities;
 use khr_external_memory_capabilities;
 use khr_external_memory_fd;
 use khr_external_memory_win32;
@@ -308,6 +309,9 @@ gen_instance_proc_addr_loader!(
 
         /// [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
         pub khr_display_swapchain: KHR_display_swapchain [fn load_khr_display_swapchain],
+
+        /// [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
+        pub khr_external_fence_capabilities: KHR_external_fence_capabilities [fn load_khr_external_fence_capabilities],
 
         /// [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
         pub khr_external_memory_capabilities: KHR_external_memory_capabilities [fn load_khr_external_memory_capabilities],
@@ -984,6 +988,14 @@ addr_proc_struct!(
     pub struct KHR_display_swapchain {
         /// [`vkCreateSharedSwapchainsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSharedSwapchainsKHR)
         pub fn vkCreateSharedSwapchainsKHR(device: core::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> core::VkResult; [pfn_vkCreateSharedSwapchainsKHR: khr_display_swapchain::PFN_vkCreateSharedSwapchainsKHR],
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
+    pub struct KHR_external_fence_capabilities {
+        /// See [`vkGetPhysicalDeviceExternalFencePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalFencePropertiesKHR)
+        pub fn vkGetPhysicalDeviceExternalFencePropertiesKHR(physicalDevice: core::VkPhysicalDevice, pExternalFenceInfo: *const khr_external_fence_capabilities::VkPhysicalDeviceExternalFenceInfoKHR, pExternalFenceProperties: *mut khr_external_fence_capabilities::VkExternalFencePropertiesKHR); [pfn_vkGetPhysicalDeviceExternalFencePropertiesKHR: khr_external_fence_capabilities::PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR],
     }
 );
 

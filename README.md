@@ -69,6 +69,7 @@ function pointers.
 | `VK_KHR_descriptor_update_template` | 1 |
 | `VK_KHR_display_swapchain` | 9 |
 | `VK_KHR_display` | 21 |
+| `VK_KHR_external_fence_capabilities` | 1 |
 | `VK_KHR_external_memory_capabilities` | 1 |
 | `VK_KHR_external_memory_fd` | 1 |
 | `VK_KHR_external_memory_win32` | 1 |
