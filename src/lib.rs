@@ -72,6 +72,7 @@ pub mod khr_display;
 pub mod khr_display_swapchain;
 pub mod khr_external_fence;
 pub mod khr_external_fence_capabilities;
+pub mod khr_external_fence_fd;
 pub mod khr_external_fence_win32;
 pub mod khr_external_memory;
 pub mod khr_external_memory_capabilities;
