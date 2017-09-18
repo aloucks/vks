@@ -127,6 +127,7 @@ pub type PFN_vkImportSemaphoreWin32HandleKHR = Option<unsafe extern "system" fn(
 /// See [`vkGetSemaphoreWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHR)
 pub type PFN_vkGetSemaphoreWin32HandleKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pGetWin32HandleInfo: *const VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult>;
 
+#[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`VkImportSemaphoreWin32HandleInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreWin32HandleInfoKHR)
     pub fn vkImportSemaphoreWin32HandleKHR(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHR) -> core::VkResult;
