@@ -67,6 +67,7 @@ pub mod img_filter_cubic;
 pub mod img_format_pvrtc;
 pub mod khr_16bit_storage;
 pub mod khr_android_surface;
+pub mod khr_dedicated_allocation;
 pub mod khr_descriptor_update_template;
 pub mod khr_display;
 pub mod khr_display_swapchain;
