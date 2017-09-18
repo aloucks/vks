@@ -76,6 +76,7 @@ pub type PFN_vkImportSemaphoreFdKHR = Option<unsafe extern "system" fn(device: c
 /// See [`vkGetSemaphoreFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHR)
 pub type PFN_vkGetSemaphoreFdKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pGetFdInfo: *const VkSemaphoreGetFdInfoKHR, pFd: *mut c_int) -> core::VkResult>;
 
+#[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`VkImportSemaphoreFdInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreFdInfoKHR)
     pub fn vkImportSemaphoreFdKHR(device: core::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHR) -> core::VkResult;
