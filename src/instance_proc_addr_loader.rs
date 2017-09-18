@@ -36,6 +36,7 @@ use khr_external_memory_win32;
 use khr_external_semaphore_capabilities;
 use khr_external_semaphore_fd;
 use khr_external_semaphore_win32;
+use khr_get_memory_requirements2;
 use khr_get_physical_device_properties2;
 use khr_get_surface_capabilities2;
 use khr_maintenance1;
@@ -338,6 +339,9 @@ gen_instance_proc_addr_loader!(
 
         /// [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
         pub khr_external_semaphore_win32: KHR_external_semaphore_win32 [fn load_khr_external_semaphore_win32],
+
+        /// [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+        pub khr_get_memory_requirements2: KHR_get_memory_requirements2 [fn load_khr_get_memory_requirements2],
 
         /// [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
         pub khr_get_physical_device_properties2: KHR_get_physical_device_properties2 [fn load_khr_get_physical_device_properties2],
@@ -1086,6 +1090,20 @@ addr_proc_struct!(
 
         /// See [`vkGetSemaphoreWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHR)
         pub fn vkGetSemaphoreWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const khr_external_semaphore_win32::VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetSemaphoreWin32HandleKHR: khr_external_semaphore_win32::PFN_vkGetSemaphoreWin32HandleKHR],
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+    pub struct KHR_get_memory_requirements2 {
+        /// See [`vkGetImageMemoryRequirements2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetImageMemoryRequirements2KHR)
+        pub fn vkGetImageMemoryRequirements2KHR(device: core::VkDevice, pInfo: *const khr_get_memory_requirements2::VkImageMemoryRequirementsInfo2KHR, pMemoryRequirements: *mut khr_get_memory_requirements2::VkMemoryRequirements2KHR); [pfn_vkGetImageMemoryRequirements2KHR: khr_get_memory_requirements2::PFN_vkGetImageMemoryRequirements2KHR],
+
+        /// See [`vkGetBufferMemoryRequirements2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetBufferMemoryRequirements2KHR)
+        pub fn vkGetBufferMemoryRequirements2KHR(device: core::VkDevice, pInfo: *const khr_get_memory_requirements2::VkBufferMemoryRequirementsInfo2KHR, pMemoryRequirements: *mut khr_get_memory_requirements2::VkMemoryRequirements2KHR); [pfn_vkGetBufferMemoryRequirements2KHR: khr_get_memory_requirements2::PFN_vkGetBufferMemoryRequirements2KHR],
+
+        /// See [`vkGetImageSparseMemoryRequirements2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetImageSparseMemoryRequirements2KHR)
+        pub fn vkGetImageSparseMemoryRequirements2KHR(device: core::VkDevice, pInfo: *const khr_get_memory_requirements2::VkImageSparseMemoryRequirementsInfo2KHR, pSparseMemoryRequirementCount: *mut u32, pSparseMemoryRequirements: *mut khr_get_memory_requirements2::VkSparseImageMemoryRequirements2KHR); [pfn_vkGetImageSparseMemoryRequirements2KHR: khr_get_memory_requirements2::PFN_vkGetImageSparseMemoryRequirements2KHR],
     }
 );
 

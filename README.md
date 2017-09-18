@@ -82,6 +82,7 @@ function pointers.
 | `VK_KHR_external_semaphore_fd` | 1 |
 | `VK_KHR_external_semaphore_win32` | 1 |
 | `VK_KHR_external_semaphore` | 1 |
+| `VK_KHR_get_memory_requirements2` | 1 |
 | `VK_KHR_get_physical_device_properties2` | 1 |
 | `VK_KHR_get_surface_capabilities2` | 1 |
 | `VK_KHR_incremental_present` | 1 |

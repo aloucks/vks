@@ -29,6 +29,7 @@ all of them.
  - Add extension `VK_KHR_variable_pointers` (revision 1)
  - Add extension `VK_KHR_dedicated_allocation` (revision 1)
  - Add extension `VK_KHR_storage_buffer_storage_class` (revision 1)
+ - Add extension `VK_KHR_get_memory_requirements2` (revision 1)
 
 ### Breaking changes
 

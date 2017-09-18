@@ -65,6 +65,7 @@ pub mod ext_validation_flags;
 pub mod google_display_timing;
 pub mod img_filter_cubic;
 pub mod img_format_pvrtc;
+pub mod khr_get_memory_requirements2;
 pub mod khr_16bit_storage;
 pub mod khr_android_surface;
 pub mod khr_dedicated_allocation;
