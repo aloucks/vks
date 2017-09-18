@@ -92,6 +92,7 @@ pub mod khr_push_descriptor;
 pub mod khr_sampler_mirror_clamp_to_edge;
 pub mod khr_shader_draw_parameters;
 pub mod khr_shared_presentable_image;
+pub mod khr_storage_buffer_storage_class;
 pub mod khr_surface;
 pub mod khr_swapchain;
 pub mod khr_variable_pointers;
