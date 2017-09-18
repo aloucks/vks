@@ -28,6 +28,7 @@ use khr_descriptor_update_template;
 use khr_display;
 use khr_display_swapchain;
 use khr_external_fence_capabilities;
+use khr_external_fence_win32;
 use khr_external_memory_capabilities;
 use khr_external_memory_fd;
 use khr_external_memory_win32;
@@ -312,6 +313,9 @@ gen_instance_proc_addr_loader!(
 
         /// [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
         pub khr_external_fence_capabilities: KHR_external_fence_capabilities [fn load_khr_external_fence_capabilities],
+
+        /// [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
+        pub khr_external_fence_win32: KHR_external_fence_win32 [fn load_khr_external_fence_win32],
 
         /// [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
         pub khr_external_memory_capabilities: KHR_external_memory_capabilities [fn load_khr_external_memory_capabilities],
@@ -996,6 +1000,17 @@ addr_proc_struct!(
     pub struct KHR_external_fence_capabilities {
         /// See [`vkGetPhysicalDeviceExternalFencePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalFencePropertiesKHR)
         pub fn vkGetPhysicalDeviceExternalFencePropertiesKHR(physicalDevice: core::VkPhysicalDevice, pExternalFenceInfo: *const khr_external_fence_capabilities::VkPhysicalDeviceExternalFenceInfoKHR, pExternalFenceProperties: *mut khr_external_fence_capabilities::VkExternalFencePropertiesKHR); [pfn_vkGetPhysicalDeviceExternalFencePropertiesKHR: khr_external_fence_capabilities::PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR],
+    }
+);
+
+addr_proc_struct!(
+    /// [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
+    pub struct KHR_external_fence_win32 {
+        /// See [`vkImportFenceWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportFenceWin32HandleKHR)
+        pub fn vkImportFenceWin32HandleKHR(device: core::VkDevice, pImportFenceWin32HandleInfo: *const khr_external_fence_win32::VkImportFenceWin32HandleInfoKHR) -> core::VkResult; [pfn_vkImportFenceWin32HandleKHR: khr_external_fence_win32::PFN_vkImportFenceWin32HandleKHR],
+
+        /// See [`vkGetFenceWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetFenceWin32HandleKHR)
+        pub fn vkGetFenceWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const khr_external_fence_win32::VkFenceGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetFenceWin32HandleKHR: khr_external_fence_win32::PFN_vkGetFenceWin32HandleKHR],
     }
 );
 

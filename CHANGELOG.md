@@ -24,6 +24,7 @@ all of them.
  - Add extension `VK_KHR_16bit_storage` (revision 1)
  - Add extension `VK_KHR_external_fence_capabilities` (revision 1)
  - Add extension `VK_KHR_external_fence` (revision 1)
+ - Add extension `VK_KHR_external_fence_win32` (revision 1)
 
 ### Breaking changes
 
