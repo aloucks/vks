@@ -26,6 +26,7 @@ all of them.
  - Add extension `VK_KHR_external_fence` (revision 1)
  - Add extension `VK_KHR_external_fence_win32` (revision 1)
  - Add extension `VK_KHR_external_fence_fd` (revision 1)
+ - Add extension `VK_KHR_variable_pointers` (revision 1)
 
 ### Breaking changes
 

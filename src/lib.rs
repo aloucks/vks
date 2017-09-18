@@ -93,6 +93,7 @@ pub mod khr_shader_draw_parameters;
 pub mod khr_shared_presentable_image;
 pub mod khr_surface;
 pub mod khr_swapchain;
+pub mod khr_variable_pointers;
 pub mod khr_wayland_surface;
 pub mod khr_win32_keyed_mutex;
 pub mod khr_win32_surface;
