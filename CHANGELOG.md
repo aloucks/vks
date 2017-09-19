@@ -38,6 +38,7 @@ all of them.
  - Extension `VK_KHR_dedicated_allocation` (revision 1)
  - Extension `VK_KHR_storage_buffer_storage_class` (revision 1)
  - Extension `VK_KHR_get_memory_requirements2` (revision 1)
+ - Revision 3 of `VK_EXT_swapchain_colorspace`
 
 ### Fixed
  - **BREAKING**: All `PFN_` function pointer types are now `Option<T>`, otherwise it is undefined

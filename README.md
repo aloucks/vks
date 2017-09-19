@@ -118,7 +118,7 @@ function pointers.
 | `VK_EXT_sampler_filter_minmax` | 1 |
 | `VK_EXT_shader_subgroup_ballot` | 1 |
 | `VK_EXT_shader_subgroup_vote` | 1 |
-| `VK_EXT_swapchain_colorspace` | 2 |
+| `VK_EXT_swapchain_colorspace` | 3 |
 | `VK_EXT_validation_flags` | 1 |
 
 ### `AMD` Extensions

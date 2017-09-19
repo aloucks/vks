@@ -83,6 +83,10 @@ cenum!(VkColorSpaceKHR: u32 {
     /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
     /// and extension [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
     const VK_COLOR_SPACE_PASS_THROUGH_EXT = 1000104013,
+
+    /// See [`VkColorSpaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkColorSpaceKHR)
+    /// and extension [`VK_EXT_swapchain_colorspace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace)
+    const VK_COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT = 1000104014,
 });
 
 cenum!(VkPresentModeKHR: u32 {
