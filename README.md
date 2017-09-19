@@ -110,6 +110,7 @@ function pointers.
 | `VK_EXT_blend_operation_advanced` | 2 |
 | `VK_EXT_debug_marker` | 4 |
 | `VK_EXT_debug_report` | 8 |
+| `VK_EXT_depth_range_unrestricted` | 1 |
 | `VK_EXT_direct_mode_display` | 1 |
 | `VK_EXT_discard_rectangles` | 1 |
 | `VK_EXT_display_control` | 1 |
