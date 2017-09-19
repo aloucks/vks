@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+Items listed in "Changed" sub-sections are usually breaking changes. Any additional breaking changes
+in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
+
 
 ## [Unreleased]
 This release includes many breaking changes from the previous version. A detailed list of all
@@ -37,8 +40,8 @@ all of them.
  - Extension `VK_KHR_get_memory_requirements2` (revision 1)
 
 ### Fixed
- - All `PFN_` function pointer types are now `Option<T>`, otherwise it is undefined behaviour if the
-   pointer is `NULL`.
+ - **BREAKING**: All `PFN_` function pointer types are now `Option<T>`, otherwise it is undefined
+   behaviour if the pointer is `NULL`.
 
 ### Changed
  - Vks requires at least Rust 1.20.
@@ -84,19 +87,23 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.19.0] - 2017-06-25
+This release contains breaking changes.
 
 ### Fixed
- - Non-dispatchable Vulkan objects, bitflags and enumerations are no longer newtypes. See issue
+ - **BREAKING**: Non-dispatchable Vulkan objects, bitflags and enumerations are no longer newtypes.
+   See issue #111.
 
 
 ## [0.18.0] - 2017-06-16
+This release contains breaking changes.
 
 ### Fixed
- - Fixed a rather serious bug on 32-bit targets: non-dispatchable Vulkan objects are now represented
-   with a `u64` newtype. Before this change, vks used pointers as a representation, which is
-   incorrect on 32-bit platforms. This bug basically made vks completely unusable on such platforms.
-   Default (as in uninitialized or NULL) non-dispatchable objects must now be created via the
-   `Default` trait, or the `null()` function of that type, instead of `std::ptr::null_mut()`.
+ - **BREAKING**: Fixed a rather serious bug on 32-bit targets: non-dispatchable Vulkan objects are
+   now represented with a `u64` newtype. Before this change, vks used pointers as a representation,
+   which is incorrect on 32-bit platforms. This bug basically made vks completely unusable on such
+   platforms.  Default (as in uninitialized or NULL) non-dispatchable objects must now be created
+   via the `Default` trait, or the `null()` function of that type, instead of
+   `std::ptr::null_mut()`.
 
 ### Changed
  - `InstanceProcAddrLoader` and `DeviceProcAddrLoader` can no longer be created outside of vks. This
@@ -105,6 +112,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.17.0] - 2017-06-05
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.51
@@ -127,6 +135,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.16.0] - 2017-05-28
+This release contains breaking changes.
 
 ### Added
  - Using `vks` on Windows should now be easier, if the environment variable `VULKAN_SDK` points to
@@ -138,6 +147,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.15.0] - 2017-05-21
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.50
@@ -176,6 +186,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.13.0] - 2017-05-07
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.48
@@ -226,6 +237,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.10.0] - 2017-04-02
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.41, 1.0.42, 1.0.43, 1.0.44, 1.0.45
@@ -327,6 +339,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.6.0] - 2017-03-26
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.21, 1.0.22, 1.0.23, 1.0.24, 1.0.25
@@ -346,6 +359,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.5.0] - 2017-03-26
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.16, 1.0.17, 1.0.18, 1.0.19, 1.0.20
@@ -362,6 +376,7 @@ part of this change, the corresponding `KHX` extensions have been removed.
 
 
 ## [0.4.0] - 2017-03-25
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.12, 1.0.13, 1.0.14, 1.0.15
