@@ -131,6 +131,7 @@ function pointers.
 | `VK_AMD_gcn_shader` | 1 |
 | `VK_AMD_gpu_shader_half_float` | 1 |
 | `VK_AMD_gpu_shader_int16` | 1 |
+| `VK_AMD_mixed_attachment_samples` | 1 |
 | `VK_AMD_negative_viewport_height` | 1 |
 | `VK_AMD_rasterization_order` | 1 |
 | `VK_AMD_shader_ballot` | 1 |

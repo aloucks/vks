@@ -42,6 +42,7 @@ pub mod amd_draw_indirect_count;
 pub mod amd_gcn_shader;
 pub mod amd_gpu_shader_half_float;
 pub mod amd_gpu_shader_int16;
+pub mod amd_mixed_attachment_samples;
 pub mod amd_negative_viewport_height;
 pub mod amd_rasterization_order;
 pub mod amd_shader_ballot;
