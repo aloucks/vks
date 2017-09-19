@@ -19,7 +19,7 @@ provide types and function definitions. There was no benefit in selecting just a
 all of them.
 
 ### Added
- - Vulkan 1.0.54, 1.0.55
+ - Vulkan 1.0.54, 1.0.55, 1.0.56
  - Extension `VK_KHR_external_memory_capabilities` (revision 1)
  - Extension `VK_KHR_external_memory` (revision 1)
  - Extension `VK_KHR_external_memory_win32` (revision 1)
