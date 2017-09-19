@@ -59,6 +59,7 @@ pub mod ext_discard_rectangles;
 pub mod ext_display_control;
 pub mod ext_display_surface_counter;
 pub mod ext_hdr_metadata;
+pub mod ext_post_depth_coverage;
 pub mod ext_sampler_filter_minmax;
 pub mod ext_shader_subgroup_ballot;
 pub mod ext_shader_subgroup_vote;

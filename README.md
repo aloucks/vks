@@ -117,6 +117,7 @@ function pointers.
 | `VK_EXT_display_control` | 1 |
 | `VK_EXT_display_surface_counter` | 1 |
 | `VK_EXT_hdr_metadata` | 1 |
+| `VK_EXT_post_depth_coverage` | 1 |
 | `VK_EXT_sampler_filter_minmax` | 1 |
 | `VK_EXT_shader_subgroup_ballot` | 1 |
 | `VK_EXT_shader_subgroup_vote` | 1 |

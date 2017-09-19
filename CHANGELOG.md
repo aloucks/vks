@@ -42,6 +42,7 @@ all of them.
  - Extension `VK_EXT_depth_range_unrestricted` (revision 1)
  - Extension `VK_KHR_relaxed_block_layout` (revision 1)
  - Extension `VK_AMD_mixed_attachment_samples` (revision 1)
+ - Extension `VK_EXT_post_depth_coverage` (revision 1)
 
 ### Fixed
  - **BREAKING**: All `PFN_` function pointer types are now `Option<T>`, otherwise it is undefined
