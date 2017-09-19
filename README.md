@@ -2,7 +2,7 @@
 
 Vulkan FFI bindings and symbol loader for Rust
 
-Latest supported Vulkan specification: 1.0.54 + all extensions
+Latest supported Vulkan specification: 1.0.55 + all extensions
 
 If you are looking for a safe and more Rust-like interface, checkout the [dacite] project.
 
