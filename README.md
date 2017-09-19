@@ -89,6 +89,7 @@ function pointers.
 | `VK_KHR_maintenance1` | 1 |
 | `VK_KHR_mir_surface` | 4 |
 | `VK_KHR_push_descriptor` | 1 |
+| `VK_KHR_relaxed_block_layout` | 1 |
 | `VK_KHR_sampler_mirror_clamp_to_edge` | 1 |
 | `VK_KHR_shader_draw_parameters` | 1 |
 | `VK_KHR_shared_presentable_image` | 1 |

@@ -91,6 +91,7 @@ pub mod khr_incremental_present;
 pub mod khr_maintenance1;
 pub mod khr_mir_surface;
 pub mod khr_push_descriptor;
+pub mod khr_relaxed_block_layout;
 pub mod khr_sampler_mirror_clamp_to_edge;
 pub mod khr_shader_draw_parameters;
 pub mod khr_shared_presentable_image;
