@@ -59,6 +59,8 @@ all of them.
  - All loaders now define functions in addition to the existing function pointers.
    For example, write `loader.core_global.vkCreateInstance(...)` instead of
    `(loader.core_global.vkCreateInstance)(...)`.
+ - Functions of the extension `VK_EXT_debug_marker` now take parameters by `*const` pointers instead
+   of `*mut`. See https://github.com/KhronosGroup/Vulkan-Docs/issues/513
 
 ### Removed (`experimental`)
 Several `KHX` extensions have been stabilized and are now available as regular `KHR` extensions. As
