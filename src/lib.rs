@@ -144,7 +144,7 @@ pub const VULKAN_LIBRARY_NAME: &'static str = "libvulkan.so.1";
 pub const VK_API_VERSION_1_0: u32 = 0x00400000;
 
 /// See [`VK_HEADER_VERSION`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_HEADER_VERSION)
-pub const VK_HEADER_VERSION: u32 = 56;
+pub const VK_HEADER_VERSION: u32 = 57;
 
 /// See [`VK_VERSION_MAJOR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_VERSION_MAJOR)
 #[inline]
