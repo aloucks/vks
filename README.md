@@ -66,7 +66,7 @@ function pointers.
 | --- | --- |
 | `VK_KHR_16bit_storage` | 1 |
 | `VK_KHR_android_surface` | 6 |
-| `VK_KHR_dedicated_allocation` | 1 |
+| `VK_KHR_dedicated_allocation` | 3 |
 | `VK_KHR_descriptor_update_template` | 1 |
 | `VK_KHR_display_swapchain` | 9 |
 | `VK_KHR_display` | 21 |

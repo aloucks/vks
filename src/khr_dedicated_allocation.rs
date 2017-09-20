@@ -18,7 +18,7 @@ use core;
 use libc::c_void;
 use std::ptr;
 
-pub const VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION: u32 = 1;
+pub const VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION: u32 = 3;
 pub const VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME: &'static [u8; 28] = b"VK_KHR_dedicated_allocation\x00";
 pub const VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME_STR: &'static str = "VK_KHR_dedicated_allocation";
 

@@ -12,6 +12,7 @@ in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
 
 ### Added
  - Vulkan 1.0.58
+ - Revision 3 of `VK_KHR_dedicated_allocation`
 
 
 ## [0.20.0] - 2017-09-19
