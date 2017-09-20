@@ -162,7 +162,7 @@ macro_rules! gen_device_proc_addr_loader {
 macro_rules! addr_proc_struct {
     (
         $( #[$attr:meta] )*
-        pub struct $name:ident {
+        pub struct $name:ident [$ext_field:ident] {
             $(
                 $( #[$symbol_attr:meta] )*
                 pub fn $fn:ident( $( $arg:ident: $arg_ty:ty ),* ) $( -> $fn_ret:ty )* ; [$symbol:ident: $ty:ty],
@@ -234,6 +234,17 @@ macro_rules! addr_proc_struct {
                 )*
             }
         }
+
+        $(
+            impl DeviceProcAddrLoader {
+                #[inline]
+                $( #[$symbol_attr] )*
+                #[cfg_attr(feature = "cargo-clippy", allow(too_many_arguments))]
+                pub unsafe fn $fn(&self, $( $arg: $arg_ty ),* ) $( -> $fn_ret )* {
+                    self.$ext_field.$fn($( $arg ),*)
+                }
+            }
+        )*
     )
 }
 
@@ -317,7 +328,7 @@ gen_device_proc_addr_loader!(
 
 addr_proc_struct!(
     /// [`Core Vulkan specification`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html)
-    pub struct Core {
+    pub struct Core [core] {
         /// [`vkAllocateCommandBuffers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAllocateCommandBuffers)
         pub fn vkAllocateCommandBuffers(device: core::VkDevice, pAllocateInfo: *const core::VkCommandBufferAllocateInfo, pCommandBuffers: *mut core::VkCommandBuffer) -> core::VkResult; [pfn_vkAllocateCommandBuffers: core::PFN_vkAllocateCommandBuffers],
 
@@ -606,9 +617,6 @@ addr_proc_struct!(
         /// [`vkGetDeviceMemoryCommitment`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceMemoryCommitment)
         pub fn vkGetDeviceMemoryCommitment(device: core::VkDevice, memory: core::VkDeviceMemory, pCommittedMemoryInBytes: *mut core::VkDeviceSize); [pfn_vkGetDeviceMemoryCommitment: core::PFN_vkGetDeviceMemoryCommitment],
 
-        /// [`vkGetDeviceProcAddr`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceProcAddr)
-        pub fn vkGetDeviceProcAddr(device: core::VkDevice, pName: *const c_char) -> core::PFN_vkVoidFunction; [pfn_vkGetDeviceProcAddr: core::PFN_vkGetDeviceProcAddr],
-
         /// [`vkGetDeviceQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceQueue)
         pub fn vkGetDeviceQueue(device: core::VkDevice, queueFamilyIndex: u32, queueIndex: u32, pQueue: *mut core::VkQueue); [pfn_vkGetDeviceQueue: core::PFN_vkGetDeviceQueue],
 
@@ -685,7 +693,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_AMD_draw_indirect_count`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_draw_indirect_count)
-    pub struct AMD_draw_indirect_count {
+    pub struct AMD_draw_indirect_count [amd_draw_indirect_count] {
         /// [`vkCmdDrawIndexedIndirectCountAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDrawIndexedIndirectCountAMD)
         pub fn vkCmdDrawIndexedIndirectCountAMD(commandBuffer: core::VkCommandBuffer, buffer: core::VkBuffer, offset: core::VkDeviceSize, countBuffer: core::VkBuffer, countBufferOffset: core::VkDeviceSize, maxDrawCount: u32, stride: u32); [pfn_vkCmdDrawIndexedIndirectCountAMD: amd_draw_indirect_count::PFN_vkCmdDrawIndexedIndirectCountAMD],
 
@@ -696,7 +704,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
-    pub struct EXT_debug_marker {
+    pub struct EXT_debug_marker [ext_debug_marker] {
         /// [`vkCmdDebugMarkerBeginEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerBeginEXT)
         pub fn vkCmdDebugMarkerBeginEXT(commandBuffer: core::VkCommandBuffer, pMarkerInfo: *const ext_debug_marker::VkDebugMarkerMarkerInfoEXT); [pfn_vkCmdDebugMarkerBeginEXT: ext_debug_marker::PFN_vkCmdDebugMarkerBeginEXT],
 
@@ -716,7 +724,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
-    pub struct EXT_discard_rectangles {
+    pub struct EXT_discard_rectangles [ext_discard_rectangles] {
         /// [`vkCmdSetDiscardRectangleEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDiscardRectangleEXT)
         pub fn vkCmdSetDiscardRectangleEXT(commandBuffer: core::VkCommandBuffer, firstDiscardRectangle: u32, discardRectangleCount: u32, pDiscardRectangles: *const core::VkRect2D); [pfn_vkCmdSetDiscardRectangleEXT: ext_discard_rectangles::PFN_vkCmdSetDiscardRectangleEXT],
     }
@@ -724,7 +732,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    pub struct EXT_display_control {
+    pub struct EXT_display_control [ext_display_control] {
         /// [`vkDisplayPowerControlEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDisplayPowerControlEXT)
         pub fn vkDisplayPowerControlEXT(device: core::VkDevice, display: khr_display::VkDisplayKHR, pDisplayPowerInfo: *const ext_display_control::VkDisplayPowerInfoEXT) -> core::VkResult; [pfn_vkDisplayPowerControlEXT: ext_display_control::PFN_vkDisplayPowerControlEXT],
 
@@ -741,7 +749,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
-    pub struct EXT_hdr_metadata {
+    pub struct EXT_hdr_metadata [ext_hdr_metadata] {
         /// [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
         pub fn vkSetHdrMetadataEXT(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const ext_hdr_metadata::VkHdrMetadataEXT); [pfn_vkSetHdrMetadataEXT: ext_hdr_metadata::PFN_vkSetHdrMetadataEXT],
     }
@@ -749,7 +757,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
-    pub struct GOOGLE_display_timing {
+    pub struct GOOGLE_display_timing [google_display_timing] {
         /// [`vkGetPastPresentationTimingGOOGLE`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPastPresentationTimingGOOGLE)
         pub fn vkGetPastPresentationTimingGOOGLE(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, pPresentationTimingCount: *mut u32, pPresentationTimings: *mut google_display_timing::VkPastPresentationTimingGOOGLE) -> core::VkResult; [pfn_vkGetPastPresentationTimingGOOGLE: google_display_timing::PFN_vkGetPastPresentationTimingGOOGLE],
 
@@ -760,7 +768,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
-    pub struct KHR_descriptor_update_template {
+    pub struct KHR_descriptor_update_template [khr_descriptor_update_template] {
         /// [`vkCmdPushDescriptorSetWithTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetWithTemplateKHR)
         pub fn vkCmdPushDescriptorSetWithTemplateKHR(commandBuffer: core::VkCommandBuffer, descriptorUpdateTemplate: khr_descriptor_update_template::VkDescriptorUpdateTemplateKHR, layout: core::VkPipelineLayout, set: u32, pData: *const c_void); [pfn_vkCmdPushDescriptorSetWithTemplateKHR: khr_descriptor_update_template::PFN_vkCmdPushDescriptorSetWithTemplateKHR],
 
@@ -777,7 +785,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
-    pub struct KHR_display_swapchain {
+    pub struct KHR_display_swapchain [khr_display_swapchain] {
         /// [`vkCreateSharedSwapchainsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSharedSwapchainsKHR)
         pub fn vkCreateSharedSwapchainsKHR(device: core::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> core::VkResult; [pfn_vkCreateSharedSwapchainsKHR: khr_display_swapchain::PFN_vkCreateSharedSwapchainsKHR],
     }
@@ -785,7 +793,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_external_fence_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_fd)
-    pub struct KHR_external_fence_fd {
+    pub struct KHR_external_fence_fd [khr_external_fence_fd] {
         /// See [`vkImportFenceFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportFenceFdKHR)
         pub fn vkImportFenceFdKHR(device: core::VkDevice, pImportFenceFdInfo: *const khr_external_fence_fd::VkImportFenceFdInfoKHR) -> core::VkResult; [pfn_vkImportFenceFdKHR: khr_external_fence_fd::PFN_vkImportFenceFdKHR],
 
@@ -796,7 +804,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
-    pub struct KHR_external_fence_win32 {
+    pub struct KHR_external_fence_win32 [khr_external_fence_win32] {
         /// See [`vkImportFenceWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkImportFenceWin32HandleKHR)
         pub fn vkImportFenceWin32HandleKHR(device: core::VkDevice, pImportFenceWin32HandleInfo: *const khr_external_fence_win32::VkImportFenceWin32HandleInfoKHR) -> core::VkResult; [pfn_vkImportFenceWin32HandleKHR: khr_external_fence_win32::PFN_vkImportFenceWin32HandleKHR],
 
@@ -807,7 +815,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
-    pub struct KHR_external_memory_fd {
+    pub struct KHR_external_memory_fd [khr_external_memory_fd] {
         /// See [`vkGetMemoryFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdKHR)
         pub fn vkGetMemoryFdKHR(device: core::VkDevice, pGetFdInfo: *const khr_external_memory_fd::VkMemoryGetFdInfoKHR, pFd: *mut c_int) -> core::VkResult; [pfn_vkGetMemoryFdKHR: khr_external_memory_fd::PFN_vkGetMemoryFdKHR],
 
@@ -818,7 +826,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
-    pub struct KHR_external_memory_win32 {
+    pub struct KHR_external_memory_win32 [khr_external_memory_win32] {
         /// See [`vkGetMemoryWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHR)
         pub fn vkGetMemoryWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const khr_external_memory_win32::VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetMemoryWin32HandleKHR: khr_external_memory_win32::PFN_vkGetMemoryWin32HandleKHR],
 
@@ -829,7 +837,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
-    pub struct KHR_external_semaphore_fd {
+    pub struct KHR_external_semaphore_fd [khr_external_semaphore_fd] {
         /// See [`VkImportSemaphoreFdInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreFdInfoKHR)
         pub fn vkImportSemaphoreFdKHR(device: core::VkDevice, pImportSemaphoreFdInfo: *const khr_external_semaphore_fd::VkImportSemaphoreFdInfoKHR) -> core::VkResult; [pfn_vkImportSemaphoreFdKHR: khr_external_semaphore_fd::PFN_vkImportSemaphoreFdKHR],
 
@@ -840,7 +848,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
-    pub struct KHR_get_memory_requirements2 {
+    pub struct KHR_get_memory_requirements2 [khr_get_memory_requirements2] {
         /// See [`vkGetImageMemoryRequirements2KHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetImageMemoryRequirements2KHR)
         pub fn vkGetImageMemoryRequirements2KHR(device: core::VkDevice, pInfo: *const khr_get_memory_requirements2::VkImageMemoryRequirementsInfo2KHR, pMemoryRequirements: *mut khr_get_memory_requirements2::VkMemoryRequirements2KHR); [pfn_vkGetImageMemoryRequirements2KHR: khr_get_memory_requirements2::PFN_vkGetImageMemoryRequirements2KHR],
 
@@ -854,7 +862,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
-    pub struct KHR_external_semaphore_win32 {
+    pub struct KHR_external_semaphore_win32 [khr_external_semaphore_win32] {
         /// See [`VkImportSemaphoreWin32HandleInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreWin32HandleInfoKHR)
         pub fn vkImportSemaphoreWin32HandleKHR(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const khr_external_semaphore_win32::VkImportSemaphoreWin32HandleInfoKHR) -> core::VkResult; [pfn_vkImportSemaphoreWin32HandleKHR: khr_external_semaphore_win32::PFN_vkImportSemaphoreWin32HandleKHR],
 
@@ -865,7 +873,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
-    pub struct KHR_maintenance1 {
+    pub struct KHR_maintenance1 [khr_maintenance1] {
         /// [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
         pub fn vkTrimCommandPoolKHR(device: core::VkDevice, commandPool: core::VkCommandPool, flags: khr_maintenance1::VkCommandPoolTrimFlagsKHR); [pfn_vkTrimCommandPoolKHR: khr_maintenance1::PFN_vkTrimCommandPoolKHR],
     }
@@ -873,7 +881,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
-    pub struct KHR_push_descriptor {
+    pub struct KHR_push_descriptor [khr_push_descriptor] {
         /// [`vkCmdPushDescriptorSetKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetKHR)
         pub fn vkCmdPushDescriptorSetKHR(commandBuffer: core::VkCommandBuffer, pipelineBindPoint: core::VkPipelineBindPoint, layout: core::VkPipelineLayout, set: u32, descriptorWriteCount: u32, pDescriptorWrites: *const core::VkWriteDescriptorSet); [pfn_vkCmdPushDescriptorSetKHR: khr_push_descriptor::PFN_vkCmdPushDescriptorSetKHR],
     }
@@ -881,7 +889,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_shared_presentable_image)
-    pub struct KHR_shared_presentable_image {
+    pub struct KHR_shared_presentable_image [khr_shared_presentable_image] {
         /// [`vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSwapchainStatusKHR)
         pub fn vkGetSwapchainStatusKHR(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult; [pfn_vkGetSwapchainStatusKHR: khr_shared_presentable_image::PFN_vkGetSwapchainStatusKHR],
     }
@@ -889,7 +897,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    pub struct KHR_swapchain {
+    pub struct KHR_swapchain [khr_swapchain] {
         /// [`vkAcquireNextImageKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImageKHR)
         pub fn vkAcquireNextImageKHR(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR, timeout: u64, semaphore: core::VkSemaphore, fence: core::VkFence, pImageIndex: *mut u32) -> core::VkResult; [pfn_vkAcquireNextImageKHR: khr_swapchain::PFN_vkAcquireNextImageKHR],
 
@@ -909,7 +917,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
-    pub struct NV_clip_space_w_scaling {
+    pub struct NV_clip_space_w_scaling [nv_clip_space_w_scaling] {
         /// [`vkCmdSetViewportWScalingNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetViewportWScalingNV)
         pub fn vkCmdSetViewportWScalingNV(commandBuffer: core::VkCommandBuffer, firstViewport: u32, viewportCount: u32, pViewportWScalings: *const nv_clip_space_w_scaling::VkViewportWScalingNV); [pfn_vkCmdSetViewportWScalingNV: nv_clip_space_w_scaling::PFN_vkCmdSetViewportWScalingNV],
     }
@@ -917,7 +925,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
-    pub struct NV_external_memory_win32 {
+    pub struct NV_external_memory_win32 [nv_external_memory_win32] {
         /// [`vkGetMemoryWin32HandleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleNV)
         pub fn vkGetMemoryWin32HandleNV(device: core::VkDevice, memory: core::VkDeviceMemory, handleType: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_types::HANDLE) -> core::VkResult; [pfn_vkGetMemoryWin32HandleNV: nv_external_memory_win32::PFN_vkGetMemoryWin32HandleNV],
     }
@@ -926,7 +934,7 @@ addr_proc_struct!(
 #[cfg(feature = "experimental")]
 addr_proc_struct!(
     /// [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-    pub struct KHX_device_group {
+    pub struct KHX_device_group [khx_device_group] {
         /// [`vkAcquireNextImage2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImage2KHX)
         pub fn vkAcquireNextImage2KHX(device: core::VkDevice, pAcquireInfo: *const khx_device_group::VkAcquireNextImageInfoKHX, pImageIndex: *mut u32) -> core::VkResult; [pfn_vkAcquireNextImage2KHX: khx_device_group::PFN_vkAcquireNextImage2KHX],
 
@@ -956,7 +964,7 @@ addr_proc_struct!(
 #[cfg(feature = "experimental")]
 addr_proc_struct!(
     /// [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
-    pub struct NVX_device_generated_commands {
+    pub struct NVX_device_generated_commands [nvx_device_generated_commands] {
         /// [`vkCmdProcessCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdProcessCommandsNVX)
         pub fn vkCmdProcessCommandsNVX(commandBuffer: core::VkCommandBuffer, pProcessCommandsInfo: *const nvx_device_generated_commands::VkCmdProcessCommandsInfoNVX); [pfn_vkCmdProcessCommandsNVX: nvx_device_generated_commands::PFN_vkCmdProcessCommandsNVX],
 

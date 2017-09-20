@@ -19,6 +19,12 @@ This release contains breaking changes.
    `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT` is still available and will be kept for
    backwards-compatibility.
  - Extension `VK_EXT_shader_stencil_export` (revision 1)
+ - All loader functions are now re-implemented on the base
+   `InstanceProcAddrLoader` and `DeviceProcAddrLoader` structs. This obviates
+   the need to reference a function by prefixing it with the name of its
+   corresponding extension (e.g. before:
+   `loader.khr_swapchain.vkGetSwapchainImagesKHR(...)`, after:
+   `loader.vkGetSwapchainImagesKHR(...)`).
 
 ### Changed
  - Several Xlib and Xcb types have been corrected.
