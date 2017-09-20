@@ -63,6 +63,7 @@ pub mod ext_post_depth_coverage;
 pub mod ext_sampler_filter_minmax;
 pub mod ext_shader_subgroup_ballot;
 pub mod ext_shader_subgroup_vote;
+pub mod ext_shader_viewport_index_layer;
 pub mod ext_swapchain_colorspace;
 pub mod ext_validation_flags;
 pub mod google_display_timing;
