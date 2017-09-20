@@ -11,7 +11,7 @@ in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
 ## [Unreleased]
 
 ### Added
- - Vulkan 1.0.58
+ - Vulkan 1.0.58, 1.0.59
  - Revision 3 of `VK_KHR_dedicated_allocation`
  - Extension `VK_EXT_shader_viewport_index_layer` (revision 1)
 
