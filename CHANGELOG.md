@@ -14,6 +14,9 @@ in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
  - Vulkan 1.0.58
  - Revision 3 of `VK_KHR_dedicated_allocation`
 
+### Added (`experimental`)
+ - Revision 3 of `VK_NVX_device_generated_commands`
+
 
 ## [0.20.0] - 2017-09-19
 This release includes many breaking changes from the previous version. A detailed list of all

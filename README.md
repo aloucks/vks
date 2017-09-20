@@ -201,7 +201,7 @@ You must enable the `experimental` feature to use any of these extensions.
 
 | Extension | Revision |
 | --- | --- |
-| `VK_NVX_device_generated_commands` | 1 |
+| `VK_NVX_device_generated_commands` | 3 |
 | `VK_NVX_multiview_per_view_attributes` | 1 |
 
 ## License
