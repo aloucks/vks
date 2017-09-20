@@ -8,6 +8,12 @@ Items listed in "Changed" sub-sections are usually breaking changes. Any additio
 in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
 
 
+## [Unreleased]
+
+### Added
+ - Vulkan 1.0.58
+
+
 ## [0.20.0] - 2017-09-19
 This release includes many breaking changes from the previous version. A detailed list of all
 breaking changes is provided below.
