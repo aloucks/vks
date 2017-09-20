@@ -14,6 +14,9 @@ in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
  - Vulkan 1.0.58, 1.0.59
  - Revision 3 of `VK_KHR_dedicated_allocation`
  - Extension `VK_EXT_shader_viewport_index_layer` (revision 1)
+ - Added `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT` (from `VK_EXT_display_surface_counter`).
+   `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT` is still available and will be kept for
+   backwards-compatibility.
 
 ### Added (`experimental`)
  - Revision 3 of `VK_NVX_device_generated_commands`
