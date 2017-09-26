@@ -9,6 +9,7 @@ in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
 
 
 ## [Unreleased]
+This release contains breaking changes.
 
 ### Added
  - Vulkan 1.0.58, 1.0.59
@@ -18,6 +19,9 @@ in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
    `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT` is still available and will be kept for
    backwards-compatibility.
  - Extension `VK_EXT_shader_stencil_export` (revision 1)
+
+### Changed
+ - Several Xlib and Xcb types have been corrected.
 
 ### Added (`experimental`)
  - Revision 3 of `VK_NVX_device_generated_commands`

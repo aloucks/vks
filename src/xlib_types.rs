@@ -14,19 +14,11 @@
 
 //! X11 xlib type definitions
 
-use libc::c_void;
+use libc::{c_ulong, c_void};
 
 #[repr(C)]
 pub struct Display(c_void);
 
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
-pub struct Window(pub u32);
-
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
-pub struct VisualID(pub u32);
-
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Default)]
-pub struct RROutput(pub u32);
+pub type Window = c_ulong;
+pub type VisualID = c_ulong;
+pub type RROutput = c_ulong;
