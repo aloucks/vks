@@ -14,8 +14,8 @@
 
 //! [`VK_EXT_acquire_xlib_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_acquire_xlib_display)
 
-use core;
 use khr_display;
+use vk;
 use xlib_types;
 
 pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_SPEC_VERSION: u32 = 1;
@@ -23,16 +23,16 @@ pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME: &'static [u8; 28] = b"VK_E
 pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_EXT_acquire_xlib_display";
 
 /// See [`vkAcquireXlibDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireXlibDisplayEXT)
-pub type PFN_vkAcquireXlibDisplayEXT = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, dpy: *mut xlib_types::Display, display: khr_display::VkDisplayKHR) -> core::VkResult>;
+pub type PFN_vkAcquireXlibDisplayEXT = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, dpy: *mut xlib_types::Display, display: khr_display::VkDisplayKHR) -> vk::VkResult>;
 
 /// See [`vkGetRandROutputDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRandROutputDisplayEXT)
-pub type PFN_vkGetRandROutputDisplayEXT = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, dpy: *mut xlib_types::Display, rrOutput: xlib_types::RROutput, pDisplay: *mut khr_display::VkDisplayKHR) -> core::VkResult>;
+pub type PFN_vkGetRandROutputDisplayEXT = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, dpy: *mut xlib_types::Display, rrOutput: xlib_types::RROutput, pDisplay: *mut khr_display::VkDisplayKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkAcquireXlibDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireXlibDisplayEXT)
-    pub fn vkAcquireXlibDisplayEXT(physicalDevice: core::VkPhysicalDevice, dpy: *mut xlib_types::Display, display: khr_display::VkDisplayKHR) -> core::VkResult;
+    pub fn vkAcquireXlibDisplayEXT(physicalDevice: vk::VkPhysicalDevice, dpy: *mut xlib_types::Display, display: khr_display::VkDisplayKHR) -> vk::VkResult;
 
     /// See [`vkGetRandROutputDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetRandROutputDisplayEXT)
-    pub fn vkGetRandROutputDisplayEXT(physicalDevice: core::VkPhysicalDevice, dpy: *mut xlib_types::Display, rrOutput: xlib_types::RROutput, pDisplay: *mut khr_display::VkDisplayKHR) -> core::VkResult;
+    pub fn vkGetRandROutputDisplayEXT(physicalDevice: vk::VkPhysicalDevice, dpy: *mut xlib_types::Display, rrOutput: xlib_types::RROutput, pDisplay: *mut khr_display::VkDisplayKHR) -> vk::VkResult;
 }

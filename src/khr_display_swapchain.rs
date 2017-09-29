@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
 
-use core;
 use khr_swapchain;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION: u32 = 9;
 pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHR_display_swapchain\x00";
@@ -27,17 +27,17 @@ pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME_STR: &'static str = "VK_KHR_di
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDisplayPresentInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub srcRect: core::VkRect2D,
-    pub dstRect: core::VkRect2D,
-    pub persistent: core::VkBool32,
+    pub srcRect: vk::VkRect2D,
+    pub dstRect: vk::VkRect2D,
+    pub persistent: vk::VkBool32,
 }
 
 impl Default for VkDisplayPresentInfoKHR {
     fn default() -> Self {
         VkDisplayPresentInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR,
             pNext: ptr::null(),
             srcRect: Default::default(),
             dstRect: Default::default(),
@@ -47,10 +47,10 @@ impl Default for VkDisplayPresentInfoKHR {
 }
 
 /// See [`vkCreateSharedSwapchainsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSharedSwapchainsKHR)
-pub type PFN_vkCreateSharedSwapchainsKHR = Option<unsafe extern "system" fn(device: core::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> core::VkResult>;
+pub type PFN_vkCreateSharedSwapchainsKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const vk::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateSharedSwapchainsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateSharedSwapchainsKHR)
-    pub fn vkCreateSharedSwapchainsKHR(device: core::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> core::VkResult;
+    pub fn vkCreateSharedSwapchainsKHR(device: vk::VkDevice, swapchainCount: u32, pCreateInfos: *const khr_swapchain::VkSwapchainCreateInfoKHR, pAllocator: *const vk::VkAllocationCallbacks, pSwapchains: *mut khr_swapchain::VkSwapchainKHR) -> vk::VkResult;
 }

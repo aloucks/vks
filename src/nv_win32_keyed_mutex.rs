@@ -14,9 +14,9 @@
 
 //! [`VK_NV_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_win32_keyed_mutex)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NV_WIN32_KEYED_MUTEX_SPEC_VERSION: u32 = 1;
 pub const VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME: &'static [u8; 24] = b"VK_NV_win32_keyed_mutex\x00";
@@ -26,21 +26,21 @@ pub const VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME_STR: &'static str = "VK_NV_win3
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkWin32KeyedMutexAcquireReleaseInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub acquireCount: u32,
-    pub pAcquireSyncs: *const core::VkDeviceMemory,
+    pub pAcquireSyncs: *const vk::VkDeviceMemory,
     pub pAcquireKeys: *const u64,
     pub pAcquireTimeoutMilliseconds: *const u32,
     pub releaseCount: u32,
-    pub pReleaseSyncs: *const core::VkDeviceMemory,
+    pub pReleaseSyncs: *const vk::VkDeviceMemory,
     pub pReleaseKeys: *const u64,
 }
 
 impl Default for VkWin32KeyedMutexAcquireReleaseInfoNV {
     fn default() -> Self {
         VkWin32KeyedMutexAcquireReleaseInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV,
             pNext: ptr::null(),
             acquireCount: Default::default(),
             pAcquireSyncs: ptr::null(),

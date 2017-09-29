@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME: &'static [u8; 27] = b"VK_KHR_incremental_present\x00";
@@ -26,8 +26,8 @@ pub const VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME_STR: &'static str = "VK_KHR_
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkRectLayerKHR {
-    pub offset: core::VkOffset2D,
-    pub extent: core::VkExtent2D,
+    pub offset: vk::VkOffset2D,
+    pub extent: vk::VkExtent2D,
     pub layer: u32,
 }
 
@@ -52,7 +52,7 @@ impl Default for VkPresentRegionKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPresentRegionsKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub swapchainCount: u32,
     pub pRegions: *const VkPresentRegionKHR,
@@ -61,7 +61,7 @@ pub struct VkPresentRegionsKHR {
 impl Default for VkPresentRegionsKHR {
     fn default() -> Self {
         VkPresentRegionsKHR {
-            sType: core::VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
             pNext: ptr::null(),
             swapchainCount: Default::default(),
             pRegions: ptr::null(),

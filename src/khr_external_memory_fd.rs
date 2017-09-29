@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
 
-use core;
 use khr_external_memory_capabilities;
 use libc::{c_int, c_void};
 use std::ptr;
+use vk;
 
 pub const VK_KHR_EXTERNAL_MEMORY_FD_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME: &'static [u8; 26] = b"VK_KHR_external_memory_fd\x00";
@@ -27,7 +27,7 @@ pub const VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME_STR: &'static str = "VK_KHR_e
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportMemoryFdInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR,
     pub fd: c_int,
@@ -36,7 +36,7 @@ pub struct VkImportMemoryFdInfoKHR {
 impl Default for VkImportMemoryFdInfoKHR {
     fn default() -> Self {
         VkImportMemoryFdInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
             fd: Default::default(),
@@ -48,7 +48,7 @@ impl Default for VkImportMemoryFdInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryFdPropertiesKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub memoryTypeBits: u32,
 }
@@ -56,7 +56,7 @@ pub struct VkMemoryFdPropertiesKHR {
 impl Default for VkMemoryFdPropertiesKHR {
     fn default() -> Self {
         VkMemoryFdPropertiesKHR {
-            sType: core::VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             memoryTypeBits: Default::default(),
         }
@@ -67,16 +67,16 @@ impl Default for VkMemoryFdPropertiesKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryGetFdInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub memory: core::VkDeviceMemory,
+    pub memory: vk::VkDeviceMemory,
     pub handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR,
 }
 
 impl Default for VkMemoryGetFdInfoKHR {
     fn default() -> Self {
         VkMemoryGetFdInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR,
             pNext: ptr::null(),
             memory: Default::default(),
             handleType: Default::default(),
@@ -85,16 +85,16 @@ impl Default for VkMemoryGetFdInfoKHR {
 }
 
 /// See [`vkGetMemoryFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdKHR)
-pub type PFN_vkGetMemoryFdKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pGetFdInfo: *const VkMemoryGetFdInfoKHR, pFd: *mut c_int) -> core::VkResult>;
+pub type PFN_vkGetMemoryFdKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pGetFdInfo: *const VkMemoryGetFdInfoKHR, pFd: *mut c_int) -> vk::VkResult>;
 
 /// See [`vkGetMemoryFdPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdPropertiesKHR)
-pub type PFN_vkGetMemoryFdPropertiesKHR = Option<unsafe extern "system" fn(device: core::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHR) -> core::VkResult>;
+pub type PFN_vkGetMemoryFdPropertiesKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetMemoryFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdKHR)
-    pub fn vkGetMemoryFdKHR(device: core::VkDevice, pGetFdInfo: *const VkMemoryGetFdInfoKHR, pFd: *mut c_int) -> core::VkResult;
+    pub fn vkGetMemoryFdKHR(device: vk::VkDevice, pGetFdInfo: *const VkMemoryGetFdInfoKHR, pFd: *mut c_int) -> vk::VkResult;
 
     /// See [`vkGetMemoryFdPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryFdPropertiesKHR)
-    pub fn vkGetMemoryFdPropertiesKHR(device: core::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHR) -> core::VkResult;
+    pub fn vkGetMemoryFdPropertiesKHR(device: vk::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, fd: c_int, pMemoryFdProperties: *mut VkMemoryFdPropertiesKHR) -> vk::VkResult;
 }

@@ -14,7 +14,7 @@
 
 //! [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
 
-use core;
+use vk;
 
 pub const VK_KHR_MAINTENANCE1_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_MAINTENANCE1_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHR_maintenance1\x00";
@@ -34,10 +34,10 @@ vks_bitflags! {
 pub type VkCommandPoolTrimFlagBitsKHR = VkCommandPoolTrimFlagsKHR;
 
 /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
-pub type PFN_vkTrimCommandPoolKHR = Option<unsafe extern "system" fn(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR)>;
+pub type PFN_vkTrimCommandPoolKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, commandPool: vk::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkTrimCommandPoolKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkTrimCommandPoolKHR)
-    pub fn vkTrimCommandPoolKHR(device: core::VkDevice, commandPool: core::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
+    pub fn vkTrimCommandPoolKHR(device: vk::VkDevice, commandPool: vk::VkCommandPool, flags: VkCommandPoolTrimFlagsKHR);
 }

@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
 
-use core;
 use khr_external_semaphore;
 use khr_external_semaphore_capabilities;
 use libc::c_void;
 use std::ptr;
+use vk;
 use win32_types;
 
 pub const VK_KHR_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION: u32 = 1;
@@ -29,9 +29,9 @@ pub const VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME_STR: &'static str = "VK
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportSemaphoreWin32HandleInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub semaphore: core::VkSemaphore,
+    pub semaphore: vk::VkSemaphore,
     pub flags: khr_external_semaphore::VkSemaphoreImportFlagsKHR,
     pub handleType: khr_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHR,
     pub handle: win32_types::HANDLE,
@@ -41,7 +41,7 @@ pub struct VkImportSemaphoreWin32HandleInfoKHR {
 impl Default for VkImportSemaphoreWin32HandleInfoKHR {
     fn default() -> Self {
         VkImportSemaphoreWin32HandleInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -56,7 +56,7 @@ impl Default for VkImportSemaphoreWin32HandleInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportSemaphoreWin32HandleInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub pAttributes: *const win32_types::SECURITY_ATTRIBUTES,
     pub dwAccess: win32_types::DWORD,
@@ -66,7 +66,7 @@ pub struct VkExportSemaphoreWin32HandleInfoKHR {
 impl Default for VkExportSemaphoreWin32HandleInfoKHR {
     fn default() -> Self {
         VkExportSemaphoreWin32HandleInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             pAttributes: ptr::null(),
             dwAccess: Default::default(),
@@ -79,7 +79,7 @@ impl Default for VkExportSemaphoreWin32HandleInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkD3D12FenceSubmitInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub waitSemaphoreValuesCount: u32,
     pub pWaitSemaphoreValues: *const u64,
@@ -90,7 +90,7 @@ pub struct VkD3D12FenceSubmitInfoKHR {
 impl Default for VkD3D12FenceSubmitInfoKHR {
     fn default() -> Self {
         VkD3D12FenceSubmitInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR,
             pNext: ptr::null(),
             waitSemaphoreValuesCount: Default::default(),
             pWaitSemaphoreValues: ptr::null(),
@@ -104,16 +104,16 @@ impl Default for VkD3D12FenceSubmitInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSemaphoreGetWin32HandleInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub semaphore: core::VkSemaphore,
+    pub semaphore: vk::VkSemaphore,
     pub handleType: khr_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHR,
 }
 
 impl Default for VkSemaphoreGetWin32HandleInfoKHR {
     fn default() -> Self {
         VkSemaphoreGetWin32HandleInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             handleType: Default::default(),
@@ -122,16 +122,16 @@ impl Default for VkSemaphoreGetWin32HandleInfoKHR {
 }
 
 /// See [`VkImportSemaphoreWin32HandleInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreWin32HandleInfoKHR)
-pub type PFN_vkImportSemaphoreWin32HandleKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHR) -> core::VkResult>;
+pub type PFN_vkImportSemaphoreWin32HandleKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHR) -> vk::VkResult>;
 
 /// See [`vkGetSemaphoreWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHR)
-pub type PFN_vkGetSemaphoreWin32HandleKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pGetWin32HandleInfo: *const VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult>;
+pub type PFN_vkGetSemaphoreWin32HandleKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pGetWin32HandleInfo: *const VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`VkImportSemaphoreWin32HandleInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreWin32HandleInfoKHR)
-    pub fn vkImportSemaphoreWin32HandleKHR(device: core::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHR) -> core::VkResult;
+    pub fn vkImportSemaphoreWin32HandleKHR(device: vk::VkDevice, pImportSemaphoreWin32HandleInfo: *const VkImportSemaphoreWin32HandleInfoKHR) -> vk::VkResult;
 
     /// See [`vkGetSemaphoreWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreWin32HandleKHR)
-    pub fn vkGetSemaphoreWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
+    pub fn vkGetSemaphoreWin32HandleKHR(device: vk::VkDevice, pGetWin32HandleInfo: *const VkSemaphoreGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> vk::VkResult;
 }

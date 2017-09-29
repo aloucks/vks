@@ -14,10 +14,10 @@
 
 //! [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
 
-use core;
 use libc::{c_char, c_void};
 use std::fmt;
 use std::ptr;
+use vk;
 
 pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 8;
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_debug_report\x00";
@@ -181,12 +181,12 @@ vks_bitflags! {
 pub type VkDebugReportFlagBitsEXT = VkDebugReportFlagsEXT;
 
 /// See [`PFN_vkDebugReportCallbackEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkDebugReportCallbackEXT)
-pub type PFN_vkDebugReportCallbackEXT = Option<unsafe extern "system" fn(flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char, pUserData: *mut c_void) -> core::VkBool32>;
+pub type PFN_vkDebugReportCallbackEXT = Option<unsafe extern "system" fn(flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char, pUserData: *mut c_void) -> vk::VkBool32>;
 
 /// See [`VkDebugReportCallbackCreateInfoEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportCallbackCreateInfoEXT)
 #[repr(C)]
 pub struct VkDebugReportCallbackCreateInfoEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkDebugReportFlagsEXT,
     pub pfnCallback: PFN_vkDebugReportCallbackEXT,
@@ -216,7 +216,7 @@ impl fmt::Debug for VkDebugReportCallbackCreateInfoEXT {
 impl Default for VkDebugReportCallbackCreateInfoEXT {
     fn default() -> Self {
         VkDebugReportCallbackCreateInfoEXT {
-            sType: core::VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,
             pNext: ptr::null(),
             flags: Default::default(),
             pfnCallback: None,
@@ -226,22 +226,22 @@ impl Default for VkDebugReportCallbackCreateInfoEXT {
 }
 
 /// See [`vkCreateDebugReportCallbackEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDebugReportCallbackEXT)
-pub type PFN_vkCreateDebugReportCallbackEXT = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkDebugReportCallbackCreateInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pCallback: *mut VkDebugReportCallbackEXT) -> core::VkResult>;
+pub type PFN_vkCreateDebugReportCallbackEXT = Option<unsafe extern "system" fn(instance: vk::VkInstance, pCreateInfo: *const VkDebugReportCallbackCreateInfoEXT, pAllocator: *const vk::VkAllocationCallbacks, pCallback: *mut VkDebugReportCallbackEXT) -> vk::VkResult>;
 
 /// See [`vkDestroyDebugReportCallbackEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyDebugReportCallbackEXT)
-pub type PFN_vkDestroyDebugReportCallbackEXT = Option<unsafe extern "system" fn(instance: core::VkInstance, callback: VkDebugReportCallbackEXT, pAllocator: *const core::VkAllocationCallbacks)>;
+pub type PFN_vkDestroyDebugReportCallbackEXT = Option<unsafe extern "system" fn(instance: vk::VkInstance, callback: VkDebugReportCallbackEXT, pAllocator: *const vk::VkAllocationCallbacks)>;
 
 /// See [`vkDebugReportMessageEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDebugReportMessageEXT)
-pub type PFN_vkDebugReportMessageEXT = Option<unsafe extern "system" fn(instance: core::VkInstance, flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char)>;
+pub type PFN_vkDebugReportMessageEXT = Option<unsafe extern "system" fn(instance: vk::VkInstance, flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateDebugReportCallbackEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDebugReportCallbackEXT)
-    pub fn vkCreateDebugReportCallbackEXT(instance: core::VkInstance, pCreateInfo: *const VkDebugReportCallbackCreateInfoEXT, pAllocator: *const core::VkAllocationCallbacks, pCallback: *mut VkDebugReportCallbackEXT) -> core::VkResult;
+    pub fn vkCreateDebugReportCallbackEXT(instance: vk::VkInstance, pCreateInfo: *const VkDebugReportCallbackCreateInfoEXT, pAllocator: *const vk::VkAllocationCallbacks, pCallback: *mut VkDebugReportCallbackEXT) -> vk::VkResult;
 
     /// See [`vkDestroyDebugReportCallbackEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyDebugReportCallbackEXT)
-    pub fn vkDestroyDebugReportCallbackEXT(instance: core::VkInstance, callback: VkDebugReportCallbackEXT, pAllocator: *const core::VkAllocationCallbacks);
+    pub fn vkDestroyDebugReportCallbackEXT(instance: vk::VkInstance, callback: VkDebugReportCallbackEXT, pAllocator: *const vk::VkAllocationCallbacks);
 
     /// See [`vkDebugReportMessageEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDebugReportMessageEXT)
-    pub fn vkDebugReportMessageEXT(instance: core::VkInstance, flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char);
+    pub fn vkDebugReportMessageEXT(instance: vk::VkInstance, flags: VkDebugReportFlagsEXT, objectType: VkDebugReportObjectTypeEXT, object: u64, location: usize, messageCode: i32, pLayerPrefix: *const c_char, pMessage: *const c_char);
 }

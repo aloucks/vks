@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_EXT_BLEND_OPERATION_ADVANCED_SPEC_VERSION: u32 = 2;
 pub const VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME: &'static [u8; 32] = b"VK_EXT_blend_operation_advanced\x00";
@@ -38,15 +38,15 @@ cenum!(VkBlendOverlapEXT: u32 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub advancedBlendCoherentOperations: core::VkBool32,
+    pub advancedBlendCoherentOperations: vk::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     fn default() -> Self {
         VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT,
             pNext: ptr::null_mut(),
             advancedBlendCoherentOperations: Default::default(),
         }
@@ -57,20 +57,20 @@ impl Default for VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub advancedBlendMaxColorAttachments: u32,
-    pub advancedBlendIndependentBlend: core::VkBool32,
-    pub advancedBlendNonPremultipliedSrcColor: core::VkBool32,
-    pub advancedBlendNonPremultipliedDstColor: core::VkBool32,
-    pub advancedBlendCorrelatedOverlap: core::VkBool32,
-    pub advancedBlendAllOperations: core::VkBool32,
+    pub advancedBlendIndependentBlend: vk::VkBool32,
+    pub advancedBlendNonPremultipliedSrcColor: vk::VkBool32,
+    pub advancedBlendNonPremultipliedDstColor: vk::VkBool32,
+    pub advancedBlendCorrelatedOverlap: vk::VkBool32,
+    pub advancedBlendAllOperations: vk::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     fn default() -> Self {
         VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             advancedBlendMaxColorAttachments: Default::default(),
             advancedBlendIndependentBlend: Default::default(),
@@ -86,17 +86,17 @@ impl Default for VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineColorBlendAdvancedStateCreateInfoEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub srcPremultiplied: core::VkBool32,
-    pub dstPremultiplied: core::VkBool32,
+    pub srcPremultiplied: vk::VkBool32,
+    pub dstPremultiplied: vk::VkBool32,
     pub blendOverlap: VkBlendOverlapEXT,
 }
 
 impl Default for VkPipelineColorBlendAdvancedStateCreateInfoEXT {
     fn default() -> Self {
         VkPipelineColorBlendAdvancedStateCreateInfoEXT {
-            sType: core::VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             srcPremultiplied: Default::default(),
             dstPremultiplied: Default::default(),

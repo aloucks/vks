@@ -14,7 +14,7 @@
 
 //! [`VK_NV_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_capabilities)
 
-use core;
+use vk;
 
 pub const VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION: u32 = 1;
 pub const VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME: &'static [u8; 35] = b"VK_NV_external_memory_capabilities\x00";
@@ -71,17 +71,17 @@ pub type VkExternalMemoryFeatureFlagBitsNV = VkExternalMemoryFeatureFlagsNV;
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct VkExternalImageFormatPropertiesNV {
-    pub imageFormatProperties: core::VkImageFormatProperties,
+    pub imageFormatProperties: vk::VkImageFormatProperties,
     pub externalMemoryFeatures: VkExternalMemoryFeatureFlagsNV,
     pub exportFromImportedHandleTypes: VkExternalMemoryHandleTypeFlagsNV,
     pub compatibleHandleTypes: VkExternalMemoryHandleTypeFlagsNV,
 }
 
 /// See [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalImageFormatPropertiesNV)
-pub type PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, format: core::VkFormat, type_: core::VkImageType, tiling: core::VkImageTiling, usage: core::VkImageUsageFlags, flags: core::VkImageCreateFlags, externalHandleType: VkExternalMemoryHandleTypeFlagsNV, pExternalImageFormatProperties: *mut VkExternalImageFormatPropertiesNV) -> core::VkResult>;
+pub type PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, format: vk::VkFormat, type_: vk::VkImageType, tiling: vk::VkImageTiling, usage: vk::VkImageUsageFlags, flags: vk::VkImageCreateFlags, externalHandleType: VkExternalMemoryHandleTypeFlagsNV, pExternalImageFormatProperties: *mut VkExternalImageFormatPropertiesNV) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalImageFormatPropertiesNV)
-    pub fn vkGetPhysicalDeviceExternalImageFormatPropertiesNV(physicalDevice: core::VkPhysicalDevice, format: core::VkFormat, type_: core::VkImageType, tiling: core::VkImageTiling, usage: core::VkImageUsageFlags, flags: core::VkImageCreateFlags, externalHandleType: VkExternalMemoryHandleTypeFlagsNV, pExternalImageFormatProperties: *mut VkExternalImageFormatPropertiesNV) -> core::VkResult;
+    pub fn vkGetPhysicalDeviceExternalImageFormatPropertiesNV(physicalDevice: vk::VkPhysicalDevice, format: vk::VkFormat, type_: vk::VkImageType, tiling: vk::VkImageTiling, usage: vk::VkImageUsageFlags, flags: vk::VkImageCreateFlags, externalHandleType: VkExternalMemoryHandleTypeFlagsNV, pExternalImageFormatProperties: *mut VkExternalImageFormatPropertiesNV) -> vk::VkResult;
 }

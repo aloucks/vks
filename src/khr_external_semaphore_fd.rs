@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
 
-use core;
 use khr_external_semaphore;
 use khr_external_semaphore_capabilities;
 use libc::{c_int, c_void};
 use std::ptr;
+use vk;
 
 pub const VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHR_external_semaphore_fd\x00";
@@ -28,9 +28,9 @@ pub const VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME_STR: &'static str = "VK_KH
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportSemaphoreFdInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub semaphore: core::VkSemaphore,
+    pub semaphore: vk::VkSemaphore,
     pub flags: khr_external_semaphore::VkSemaphoreImportFlagsKHR,
     pub handleType: khr_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHR,
     pub fd: c_int,
@@ -39,7 +39,7 @@ pub struct VkImportSemaphoreFdInfoKHR {
 impl Default for VkImportSemaphoreFdInfoKHR {
     fn default() -> Self {
         VkImportSemaphoreFdInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -53,16 +53,16 @@ impl Default for VkImportSemaphoreFdInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSemaphoreGetFdInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub semaphore: core::VkSemaphore,
+    pub semaphore: vk::VkSemaphore,
     pub handleType: khr_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagBitsKHR,
 }
 
 impl Default for VkSemaphoreGetFdInfoKHR {
     fn default() -> Self {
         VkSemaphoreGetFdInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             handleType: Default::default(),
@@ -71,16 +71,16 @@ impl Default for VkSemaphoreGetFdInfoKHR {
 }
 
 /// See [`VkImportSemaphoreFdInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreFdInfoKHR)
-pub type PFN_vkImportSemaphoreFdKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHR) -> core::VkResult>;
+pub type PFN_vkImportSemaphoreFdKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHR) -> vk::VkResult>;
 
 /// See [`vkGetSemaphoreFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHR)
-pub type PFN_vkGetSemaphoreFdKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pGetFdInfo: *const VkSemaphoreGetFdInfoKHR, pFd: *mut c_int) -> core::VkResult>;
+pub type PFN_vkGetSemaphoreFdKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pGetFdInfo: *const VkSemaphoreGetFdInfoKHR, pFd: *mut c_int) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`VkImportSemaphoreFdInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportSemaphoreFdInfoKHR)
-    pub fn vkImportSemaphoreFdKHR(device: core::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHR) -> core::VkResult;
+    pub fn vkImportSemaphoreFdKHR(device: vk::VkDevice, pImportSemaphoreFdInfo: *const VkImportSemaphoreFdInfoKHR) -> vk::VkResult;
 
     /// See [`vkGetSemaphoreFdKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetSemaphoreFdKHR)
-    pub fn vkGetSemaphoreFdKHR(device: core::VkDevice, pGetFdInfo: *const VkSemaphoreGetFdInfoKHR, pFd: *mut c_int) -> core::VkResult;
+    pub fn vkGetSemaphoreFdKHR(device: vk::VkDevice, pGetFdInfo: *const VkSemaphoreGetFdInfoKHR, pFd: *mut c_int) -> vk::VkResult;
 }

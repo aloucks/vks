@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
 
-use core;
 use khr_external_memory_capabilities;
 use libc::c_void;
 use std::ptr;
+use vk;
 use win32_types;
 
 pub const VK_KHR_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
@@ -28,7 +28,7 @@ pub const VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME_STR: &'static str = "VK_KH
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkImportMemoryWin32HandleInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR,
     pub handle: win32_types::HANDLE,
@@ -38,7 +38,7 @@ pub struct VkImportMemoryWin32HandleInfoKHR {
 impl Default for VkImportMemoryWin32HandleInfoKHR {
     fn default() -> Self {
         VkImportMemoryWin32HandleInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
             handle: ptr::null_mut(),
@@ -51,7 +51,7 @@ impl Default for VkImportMemoryWin32HandleInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryWin32HandleInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub pAttributes: *const win32_types::SECURITY_ATTRIBUTES,
     pub dwAccess: win32_types::DWORD,
@@ -61,7 +61,7 @@ pub struct VkExportMemoryWin32HandleInfoKHR {
 impl Default for VkExportMemoryWin32HandleInfoKHR {
     fn default() -> Self {
         VkExportMemoryWin32HandleInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             pAttributes: ptr::null(),
             dwAccess: Default::default(),
@@ -74,7 +74,7 @@ impl Default for VkExportMemoryWin32HandleInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryWin32HandlePropertiesKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub memoryTypeBits: u32,
 }
@@ -82,7 +82,7 @@ pub struct VkMemoryWin32HandlePropertiesKHR {
 impl Default for VkMemoryWin32HandlePropertiesKHR {
     fn default() -> Self {
         VkMemoryWin32HandlePropertiesKHR {
-            sType: core::VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             memoryTypeBits: Default::default(),
         }
@@ -93,16 +93,16 @@ impl Default for VkMemoryWin32HandlePropertiesKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryGetWin32HandleInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub memory: core::VkDeviceMemory,
+    pub memory: vk::VkDeviceMemory,
     pub handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR,
 }
 
 impl Default for VkMemoryGetWin32HandleInfoKHR {
     fn default() -> Self {
         VkMemoryGetWin32HandleInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             memory: Default::default(),
             handleType: Default::default(),
@@ -111,16 +111,16 @@ impl Default for VkMemoryGetWin32HandleInfoKHR {
 }
 
 /// See [`vkGetMemoryWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHR)
-pub type PFN_vkGetMemoryWin32HandleKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pGetWin32HandleInfo: *const VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult>;
+pub type PFN_vkGetMemoryWin32HandleKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pGetWin32HandleInfo: *const VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> vk::VkResult>;
 
 /// See [`vkGetMemoryWin32HandlePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHR)
-pub type PFN_vkGetMemoryWin32HandlePropertiesKHR = Option<unsafe extern "system" fn(device: core::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHR) -> core::VkResult>;
+pub type PFN_vkGetMemoryWin32HandlePropertiesKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetMemoryWin32HandleKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleKHR)
-    pub fn vkGetMemoryWin32HandleKHR(device: core::VkDevice, pGetWin32HandleInfo: *const VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> core::VkResult;
+    pub fn vkGetMemoryWin32HandleKHR(device: vk::VkDevice, pGetWin32HandleInfo: *const VkMemoryGetWin32HandleInfoKHR, pHandle: *mut win32_types::HANDLE) -> vk::VkResult;
 
     /// See [`vkGetMemoryWin32HandlePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandlePropertiesKHR)
-    pub fn vkGetMemoryWin32HandlePropertiesKHR(device: core::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHR) -> core::VkResult;
+    pub fn vkGetMemoryWin32HandlePropertiesKHR(device: vk::VkDevice, handleType: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagBitsKHR, handle: win32_types::HANDLE, pMemoryWin32HandleProperties: *mut VkMemoryWin32HandlePropertiesKHR) -> vk::VkResult;
 }

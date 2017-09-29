@@ -14,9 +14,9 @@
 
 //! [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_SPEC_VERSION: u32 = 1;
 pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME: &'static [u8; 32] = b"VK_NV_framebuffer_mixed_samples\x00";
@@ -54,11 +54,11 @@ pub type VkPipelineCoverageModulationStateCreateFlagBitsNV = VkPipelineCoverageM
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineCoverageModulationStateCreateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkPipelineCoverageModulationStateCreateFlagsNV,
     pub coverageModulationMode: VkCoverageModulationModeNV,
-    pub coverageModulationTableEnable: core::VkBool32,
+    pub coverageModulationTableEnable: vk::VkBool32,
     pub coverageModulationTableCount: u32,
     pub pCoverageModulationTable: *const f32,
 }
@@ -66,7 +66,7 @@ pub struct VkPipelineCoverageModulationStateCreateInfoNV {
 impl Default for VkPipelineCoverageModulationStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineCoverageModulationStateCreateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             coverageModulationMode: Default::default(),

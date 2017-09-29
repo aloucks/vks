@@ -14,9 +14,9 @@
 
 //! [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION: u32 = 1;
 pub const VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME: &'static [u8; 27] = b"VK_NV_dedicated_allocation\x00";
@@ -26,15 +26,15 @@ pub const VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME_STR: &'static str = "VK_NV_d
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationImageCreateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub dedicatedAllocation: core::VkBool32,
+    pub dedicatedAllocation: vk::VkBool32,
 }
 
 impl Default for VkDedicatedAllocationImageCreateInfoNV {
     fn default() -> Self {
         VkDedicatedAllocationImageCreateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,
             pNext: ptr::null(),
             dedicatedAllocation: Default::default(),
         }
@@ -45,15 +45,15 @@ impl Default for VkDedicatedAllocationImageCreateInfoNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationBufferCreateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub dedicatedAllocation: core::VkBool32,
+    pub dedicatedAllocation: vk::VkBool32,
 }
 
 impl Default for VkDedicatedAllocationBufferCreateInfoNV {
     fn default() -> Self {
         VkDedicatedAllocationBufferCreateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV,
             pNext: ptr::null(),
             dedicatedAllocation: Default::default(),
         }
@@ -64,16 +64,16 @@ impl Default for VkDedicatedAllocationBufferCreateInfoNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDedicatedAllocationMemoryAllocateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub image: core::VkImage,
-    pub buffer: core::VkBuffer,
+    pub image: vk::VkImage,
+    pub buffer: vk::VkBuffer,
 }
 
 impl Default for VkDedicatedAllocationMemoryAllocateInfoNV {
     fn default() -> Self {
         VkDedicatedAllocationMemoryAllocateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
             image: Default::default(),
             buffer: Default::default(),

@@ -14,9 +14,9 @@
 
 //! [`VK_AMD_texture_gather_bias_lod`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME: &'static [u8; 31] = b"VK_AMD_texture_gather_bias_lod\x00";
@@ -26,15 +26,15 @@ pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME_STR: &'static str = "VK_
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkTextureLODGatherFormatPropertiesAMD {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub supportsTextureGatherLODBiasAMD: core::VkBool32,
+    pub supportsTextureGatherLODBiasAMD: vk::VkBool32,
 }
 
 impl Default for VkTextureLODGatherFormatPropertiesAMD {
     fn default() -> Self {
         VkTextureLODGatherFormatPropertiesAMD {
-            sType: core::VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD,
+            sType: vk::VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD,
             pNext: ptr::null_mut(),
             supportsTextureGatherLODBiasAMD: Default::default(),
         }

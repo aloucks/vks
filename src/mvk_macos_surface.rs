@@ -14,10 +14,10 @@
 
 //! [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
 
-use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_MVK_MACOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME: &'static [u8; 21] = b"VK_MVK_macos_surface\x00";
@@ -40,7 +40,7 @@ pub type VkMacOSSurfaceCreateFlagBitsMVK = VkMacOSSurfaceCreateFlagsMVK;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMacOSSurfaceCreateInfoMVK {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkMacOSSurfaceCreateFlagsMVK,
     pub pView: *const c_void,
@@ -49,7 +49,7 @@ pub struct VkMacOSSurfaceCreateInfoMVK {
 impl Default for VkMacOSSurfaceCreateInfoMVK {
     fn default() -> Self {
         VkMacOSSurfaceCreateInfoMVK {
-            sType: core::VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK,
+            sType: vk::VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK,
             pNext: ptr::null(),
             flags: Default::default(),
             pView: ptr::null(),
@@ -58,10 +58,10 @@ impl Default for VkMacOSSurfaceCreateInfoMVK {
 }
 
 /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
-pub type PFN_vkCreateMacOSSurfaceMVK = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
+pub type PFN_vkCreateMacOSSurfaceMVK = Option<unsafe extern "system" fn(instance: vk::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateMacOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK)
-    pub fn vkCreateMacOSSurfaceMVK(instance: core::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+    pub fn vkCreateMacOSSurfaceMVK(instance: vk::VkInstance, pCreateInfo: *const VkMacOSSurfaceCreateInfoMVK, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult;
 }

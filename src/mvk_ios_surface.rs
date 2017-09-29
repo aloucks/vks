@@ -14,10 +14,10 @@
 
 //! [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
 
-use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_MVK_IOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_IOS_SURFACE_EXTENSION_NAME: &'static [u8; 19] = b"VK_MVK_ios_surface\x00";
@@ -40,7 +40,7 @@ pub type VkIOSSurfaceCreateFlagBitsMVK = VkIOSSurfaceCreateFlagsMVK;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkIOSSurfaceCreateInfoMVK {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkIOSSurfaceCreateFlagsMVK,
     pub pView: *const c_void,
@@ -49,7 +49,7 @@ pub struct VkIOSSurfaceCreateInfoMVK {
 impl Default for VkIOSSurfaceCreateInfoMVK {
     fn default() -> Self {
         VkIOSSurfaceCreateInfoMVK {
-            sType: core::VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK,
+            sType: vk::VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK,
             pNext: ptr::null(),
             flags: Default::default(),
             pView: ptr::null(),
@@ -58,10 +58,10 @@ impl Default for VkIOSSurfaceCreateInfoMVK {
 }
 
 /// See [`vkCreateIOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIOSSurfaceMVK)
-pub type PFN_vkCreateIOSSurfaceMVK = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
+pub type PFN_vkCreateIOSSurfaceMVK = Option<unsafe extern "system" fn(instance: vk::VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateIOSSurfaceMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIOSSurfaceMVK)
-    pub fn vkCreateIOSSurfaceMVK(instance: core::VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+    pub fn vkCreateIOSSurfaceMVK(instance: vk::VkInstance, pCreateInfo: *const VkIOSSurfaceCreateInfoMVK, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult;
 }

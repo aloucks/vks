@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_EXT_VALIDATION_FLAGS_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME: &'static [u8; 24] = b"VK_EXT_validation_flags\x00";
@@ -34,7 +34,7 @@ cenum!(VkValidationCheckEXT: u32 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkValidationFlagsEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub disabledValidationCheckCount: u32,
     pub pDisabledValidationChecks: *mut VkValidationCheckEXT,
@@ -43,7 +43,7 @@ pub struct VkValidationFlagsEXT {
 impl Default for VkValidationFlagsEXT {
     fn default() -> Self {
         VkValidationFlagsEXT {
-            sType: core::VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
             pNext: ptr::null(),
             disabledValidationCheckCount: Default::default(),
             pDisabledValidationChecks: ptr::null_mut(),

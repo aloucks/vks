@@ -14,10 +14,10 @@
 
 //! [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
 
-use core;
 use khr_swapchain;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_EXT_HDR_METADATA_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_HDR_METADATA_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_hdr_metadata\x00";
@@ -35,7 +35,7 @@ pub struct VkXYColorEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkHdrMetadataEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub displayPrimaryRed: VkXYColorEXT,
     pub displayPrimaryGreen: VkXYColorEXT,
@@ -50,7 +50,7 @@ pub struct VkHdrMetadataEXT {
 impl Default for VkHdrMetadataEXT {
     fn default() -> Self {
         VkHdrMetadataEXT {
-            sType: core::VK_STRUCTURE_TYPE_HDR_METADATA_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_HDR_METADATA_EXT,
             pNext: ptr::null(),
             displayPrimaryRed: Default::default(),
             displayPrimaryGreen: Default::default(),
@@ -65,10 +65,10 @@ impl Default for VkHdrMetadataEXT {
 }
 
 /// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
-pub type PFN_vkSetHdrMetadataEXT = Option<unsafe extern "system" fn(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT)>;
+pub type PFN_vkSetHdrMetadataEXT = Option<unsafe extern "system" fn(device: vk::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkSetHdrMetadataEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkSetHdrMetadataEXT)
-    pub fn vkSetHdrMetadataEXT(device: core::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
+    pub fn vkSetHdrMetadataEXT(device: vk::VkDevice, swapchainCount: u32, pSwapchains: *const khr_swapchain::VkSwapchainKHR, pMetadata: *const VkHdrMetadataEXT);
 }

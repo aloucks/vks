@@ -14,9 +14,9 @@
 
 //! [`VK_NVX_multiview_per_view_attributes`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_multiview_per_view_attributes)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_SPEC_VERSION: u32 = 1;
 pub const VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME: &'static [u8; 37] = b"VK_NVX_multiview_per_view_attributes\x00";
@@ -26,15 +26,15 @@ pub const VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME_STR: &'static str 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub perViewPositionAllComponents: core::VkBool32,
+    pub perViewPositionAllComponents: vk::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     fn default() -> Self {
         VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX,
             pNext: ptr::null_mut(),
             perViewPositionAllComponents: Default::default(),
         }

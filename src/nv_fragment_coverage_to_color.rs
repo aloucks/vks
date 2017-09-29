@@ -14,9 +14,9 @@
 
 //! [`VK_NV_fragment_coverage_to_color`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fragment_coverage_to_color)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NV_FRAGMENT_COVERAGE_TO_COLOR_SPEC_VERSION: u32 = 1;
 pub const VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME: &'static [u8; 33] = b"VK_NV_fragment_coverage_to_color\x00";
@@ -39,17 +39,17 @@ pub type VkPipelineCoverageToColorStateCreateFlagBitsNV = VkPipelineCoverageToCo
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineCoverageToColorStateCreateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkPipelineCoverageToColorStateCreateFlagsNV,
-    pub coverageToColorEnable: core::VkBool32,
+    pub coverageToColorEnable: vk::VkBool32,
     pub coverageToColorLocation: u32,
 }
 
 impl Default for VkPipelineCoverageToColorStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineCoverageToColorStateCreateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             coverageToColorEnable: Default::default(),

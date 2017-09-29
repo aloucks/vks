@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_win32_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_win32_surface)
 
-use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use vk;
 use win32_types;
 
 pub const VK_KHR_WIN32_SURFACE_SPEC_VERSION: u32 = 6;
@@ -41,7 +41,7 @@ pub type VkWin32SurfaceCreateFlagBitsKHR = VkWin32SurfaceCreateFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkWin32SurfaceCreateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkWin32SurfaceCreateFlagsKHR,
     pub hinstance: win32_types::HINSTANCE,
@@ -51,7 +51,7 @@ pub struct VkWin32SurfaceCreateInfoKHR {
 impl Default for VkWin32SurfaceCreateInfoKHR {
     fn default() -> Self {
         VkWin32SurfaceCreateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             hinstance: ptr::null_mut(),
@@ -61,16 +61,16 @@ impl Default for VkWin32SurfaceCreateInfoKHR {
 }
 
 /// See [`vkCreateWin32SurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateWin32SurfaceKHR)
-pub type PFN_vkCreateWin32SurfaceKHR = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkWin32SurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
+pub type PFN_vkCreateWin32SurfaceKHR = Option<unsafe extern "system" fn(instance: vk::VkInstance, pCreateInfo: *const VkWin32SurfaceCreateInfoKHR, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult>;
 
 /// See [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceWin32PresentationSupportKHR)
-pub type PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32) -> core::VkBool32>;
+pub type PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, queueFamilyIndex: u32) -> vk::VkBool32>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateWin32SurfaceKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateWin32SurfaceKHR)
-    pub fn vkCreateWin32SurfaceKHR(instance: core::VkInstance, pCreateInfo: *const VkWin32SurfaceCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+    pub fn vkCreateWin32SurfaceKHR(instance: vk::VkInstance, pCreateInfo: *const VkWin32SurfaceCreateInfoKHR, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult;
 
     /// See [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceWin32PresentationSupportKHR)
-    pub fn vkGetPhysicalDeviceWin32PresentationSupportKHR(physicalDevice: core::VkPhysicalDevice, queueFamilyIndex: u32) -> core::VkBool32;
+    pub fn vkGetPhysicalDeviceWin32PresentationSupportKHR(physicalDevice: vk::VkPhysicalDevice, queueFamilyIndex: u32) -> vk::VkBool32;
 }

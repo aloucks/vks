@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore)
 
-use core;
 use khr_external_semaphore_capabilities;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_EXTERNAL_SEMAPHORE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME: &'static [u8; 26] = b"VK_KHR_external_semaphore\x00";
@@ -41,7 +41,7 @@ pub type VkSemaphoreImportFlagBitsKHR = VkSemaphoreImportFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportSemaphoreCreateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: khr_external_semaphore_capabilities::VkExternalSemaphoreHandleTypeFlagsKHR,
 }
@@ -49,7 +49,7 @@ pub struct VkExportSemaphoreCreateInfoKHR {
 impl Default for VkExportSemaphoreCreateInfoKHR {
     fn default() -> Self {
         VkExportSemaphoreCreateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

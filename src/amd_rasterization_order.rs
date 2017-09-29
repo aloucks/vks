@@ -14,9 +14,9 @@
 
 //! [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME: &'static [u8; 27] = b"VK_AMD_rasterization_order\x00";
@@ -34,7 +34,7 @@ cenum!(VkRasterizationOrderAMD: u32 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineRasterizationStateRasterizationOrderAMD {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub rasterizationOrder: VkRasterizationOrderAMD,
 }
@@ -42,7 +42,7 @@ pub struct VkPipelineRasterizationStateRasterizationOrderAMD {
 impl Default for VkPipelineRasterizationStateRasterizationOrderAMD {
     fn default() -> Self {
         VkPipelineRasterizationStateRasterizationOrderAMD {
-            sType: core::VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD,
+            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD,
             pNext: ptr::null(),
             rasterizationOrder: Default::default(),
         }

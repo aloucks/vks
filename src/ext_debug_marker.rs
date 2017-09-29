@@ -14,10 +14,10 @@
 
 //! [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
 
-use core;
 use ext_debug_report;
 use libc::{c_char, c_void};
 use std::ptr;
+use vk;
 
 pub const VK_EXT_DEBUG_MARKER_SPEC_VERSION: u32 = 4;
 pub const VK_EXT_DEBUG_MARKER_EXTENSION_NAME: &'static [u8; 20] = b"VK_EXT_debug_marker\x00";
@@ -27,7 +27,7 @@ pub const VK_EXT_DEBUG_MARKER_EXTENSION_NAME_STR: &'static str = "VK_EXT_debug_m
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDebugMarkerObjectNameInfoEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub objectType: ext_debug_report::VkDebugReportObjectTypeEXT,
     pub object: u64,
@@ -37,7 +37,7 @@ pub struct VkDebugMarkerObjectNameInfoEXT {
 impl Default for VkDebugMarkerObjectNameInfoEXT {
     fn default() -> Self {
         VkDebugMarkerObjectNameInfoEXT {
-            sType: core::VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT,
             pNext: ptr::null(),
             objectType: Default::default(),
             object: Default::default(),
@@ -50,7 +50,7 @@ impl Default for VkDebugMarkerObjectNameInfoEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDebugMarkerObjectTagInfoEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub objectType: ext_debug_report::VkDebugReportObjectTypeEXT,
     pub object: u64,
@@ -62,7 +62,7 @@ pub struct VkDebugMarkerObjectTagInfoEXT {
 impl Default for VkDebugMarkerObjectTagInfoEXT {
     fn default() -> Self {
         VkDebugMarkerObjectTagInfoEXT {
-            sType: core::VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT,
             pNext: ptr::null(),
             objectType: Default::default(),
             object: Default::default(),
@@ -77,7 +77,7 @@ impl Default for VkDebugMarkerObjectTagInfoEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDebugMarkerMarkerInfoEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub pMarkerName: *const c_char,
     pub color: [f32; 4],
@@ -86,7 +86,7 @@ pub struct VkDebugMarkerMarkerInfoEXT {
 impl Default for VkDebugMarkerMarkerInfoEXT {
     fn default() -> Self {
         VkDebugMarkerMarkerInfoEXT {
-            sType: core::VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT,
             pNext: ptr::null(),
             pMarkerName: ptr::null(),
             color: Default::default(),
@@ -95,34 +95,34 @@ impl Default for VkDebugMarkerMarkerInfoEXT {
 }
 
 /// See [`vkDebugMarkerSetObjectTagEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDebugMarkerSetObjectTagEXT)
-pub type PFN_vkDebugMarkerSetObjectTagEXT = Option<unsafe extern "system" fn(device: core::VkDevice, pTagInfo: *const VkDebugMarkerObjectTagInfoEXT) -> core::VkResult>;
+pub type PFN_vkDebugMarkerSetObjectTagEXT = Option<unsafe extern "system" fn(device: vk::VkDevice, pTagInfo: *const VkDebugMarkerObjectTagInfoEXT) -> vk::VkResult>;
 
 /// See [`vkDebugMarkerSetObjectNameEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDebugMarkerSetObjectNameEXT)
-pub type PFN_vkDebugMarkerSetObjectNameEXT = Option<unsafe extern "system" fn(device: core::VkDevice, pNameInfo: *const VkDebugMarkerObjectNameInfoEXT) -> core::VkResult>;
+pub type PFN_vkDebugMarkerSetObjectNameEXT = Option<unsafe extern "system" fn(device: vk::VkDevice, pNameInfo: *const VkDebugMarkerObjectNameInfoEXT) -> vk::VkResult>;
 
 /// See [`vkCmdDebugMarkerBeginEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerBeginEXT)
-pub type PFN_vkCmdDebugMarkerBeginEXT = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT)>;
+pub type PFN_vkCmdDebugMarkerBeginEXT = Option<unsafe extern "system" fn(commandBuffer: vk::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT)>;
 
 /// See [`vkCmdDebugMarkerEndEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerEndEXT)
-pub type PFN_vkCmdDebugMarkerEndEXT = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer)>;
+pub type PFN_vkCmdDebugMarkerEndEXT = Option<unsafe extern "system" fn(commandBuffer: vk::VkCommandBuffer)>;
 
 /// See [`vkCmdDebugMarkerInsertEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerInsertEXT)
-pub type PFN_vkCmdDebugMarkerInsertEXT = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT)>;
+pub type PFN_vkCmdDebugMarkerInsertEXT = Option<unsafe extern "system" fn(commandBuffer: vk::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkDebugMarkerSetObjectTagEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDebugMarkerSetObjectTagEXT)
-    pub fn vkDebugMarkerSetObjectTagEXT(device: core::VkDevice, pTagInfo: *const VkDebugMarkerObjectTagInfoEXT) -> core::VkResult;
+    pub fn vkDebugMarkerSetObjectTagEXT(device: vk::VkDevice, pTagInfo: *const VkDebugMarkerObjectTagInfoEXT) -> vk::VkResult;
 
     /// See [`vkDebugMarkerSetObjectNameEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDebugMarkerSetObjectNameEXT)
-    pub fn vkDebugMarkerSetObjectNameEXT(device: core::VkDevice, pNameInfo: *const VkDebugMarkerObjectNameInfoEXT) -> core::VkResult;
+    pub fn vkDebugMarkerSetObjectNameEXT(device: vk::VkDevice, pNameInfo: *const VkDebugMarkerObjectNameInfoEXT) -> vk::VkResult;
 
     /// See [`vkCmdDebugMarkerBeginEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerBeginEXT)
-    pub fn vkCmdDebugMarkerBeginEXT(commandBuffer: core::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT);
+    pub fn vkCmdDebugMarkerBeginEXT(commandBuffer: vk::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT);
 
     /// See [`vkCmdDebugMarkerEndEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerEndEXT)
-    pub fn vkCmdDebugMarkerEndEXT(commandBuffer: core::VkCommandBuffer);
+    pub fn vkCmdDebugMarkerEndEXT(commandBuffer: vk::VkCommandBuffer);
 
     /// See [`vkCmdDebugMarkerInsertEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDebugMarkerInsertEXT)
-    pub fn vkCmdDebugMarkerInsertEXT(commandBuffer: core::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT);
+    pub fn vkCmdDebugMarkerInsertEXT(commandBuffer: vk::VkCommandBuffer, pMarkerInfo: *const VkDebugMarkerMarkerInfoEXT);
 }

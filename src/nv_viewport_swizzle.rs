@@ -14,9 +14,9 @@
 
 //! [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION: u32 = 1;
 pub const VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME: &'static [u8; 23] = b"VK_NV_viewport_swizzle\x00";
@@ -75,7 +75,7 @@ pub struct VkViewportSwizzleNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPipelineViewportSwizzleStateCreateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkPipelineViewportSwizzleStateCreateFlagsNV,
     pub viewportCount: u32,
@@ -85,7 +85,7 @@ pub struct VkPipelineViewportSwizzleStateCreateInfoNV {
 impl Default for VkPipelineViewportSwizzleStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineViewportSwizzleStateCreateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             viewportCount: Default::default(),

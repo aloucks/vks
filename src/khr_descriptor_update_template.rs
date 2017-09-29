@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME: &'static [u8; 34] = b"VK_KHR_descriptor_update_template\x00";
@@ -55,7 +55,7 @@ pub struct VkDescriptorUpdateTemplateEntryKHR {
     pub dstBinding: u32,
     pub dstArrayElement: u32,
     pub descriptorCount: u32,
-    pub descriptorType: core::VkDescriptorType,
+    pub descriptorType: vk::VkDescriptorType,
     pub offset: usize,
     pub stride: usize,
 }
@@ -64,22 +64,22 @@ pub struct VkDescriptorUpdateTemplateEntryKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDescriptorUpdateTemplateCreateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub flags: VkDescriptorUpdateTemplateCreateFlagsKHR,
     pub descriptorUpdateEntryCount: u32,
     pub pDescriptorUpdateEntries: *const VkDescriptorUpdateTemplateEntryKHR,
     pub templateType: VkDescriptorUpdateTemplateTypeKHR,
-    pub descriptorSetLayout: core::VkDescriptorSetLayout,
-    pub pipelineBindPoint: core::VkPipelineBindPoint,
-    pub pipelineLayout: core::VkPipelineLayout,
+    pub descriptorSetLayout: vk::VkDescriptorSetLayout,
+    pub pipelineBindPoint: vk::VkPipelineBindPoint,
+    pub pipelineLayout: vk::VkPipelineLayout,
     pub set: u32,
 }
 
 impl Default for VkDescriptorUpdateTemplateCreateInfoKHR {
     fn default() -> Self {
         VkDescriptorUpdateTemplateCreateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,
             pNext: ptr::null_mut(),
             flags: Default::default(),
             descriptorUpdateEntryCount: Default::default(),
@@ -94,28 +94,28 @@ impl Default for VkDescriptorUpdateTemplateCreateInfoKHR {
 }
 
 /// See [`vkCreateDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDescriptorUpdateTemplateKHR)
-pub type PFN_vkCreateDescriptorUpdateTemplateKHR = Option<unsafe extern "system" fn(device: core::VkDevice, pCreateInfo: *const VkDescriptorUpdateTemplateCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pDescriptorUpdateTemplate: *mut VkDescriptorUpdateTemplateKHR) -> core::VkResult>;
+pub type PFN_vkCreateDescriptorUpdateTemplateKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, pCreateInfo: *const VkDescriptorUpdateTemplateCreateInfoKHR, pAllocator: *const vk::VkAllocationCallbacks, pDescriptorUpdateTemplate: *mut VkDescriptorUpdateTemplateKHR) -> vk::VkResult>;
 
 /// See [`vkDestroyDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyDescriptorUpdateTemplateKHR)
-pub type PFN_vkDestroyDescriptorUpdateTemplateKHR = Option<unsafe extern "system" fn(device: core::VkDevice, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pAllocator: *const core::VkAllocationCallbacks)>;
+pub type PFN_vkDestroyDescriptorUpdateTemplateKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pAllocator: *const vk::VkAllocationCallbacks)>;
 
 /// See [`vkUpdateDescriptorSetWithTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkUpdateDescriptorSetWithTemplateKHR)
-pub type PFN_vkUpdateDescriptorSetWithTemplateKHR = Option<unsafe extern "system" fn(device: core::VkDevice, descriptorSet: core::VkDescriptorSet, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pData: *const c_void)>;
+pub type PFN_vkUpdateDescriptorSetWithTemplateKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, descriptorSet: vk::VkDescriptorSet, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pData: *const c_void)>;
 
 /// See [`vkCmdPushDescriptorSetWithTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetWithTemplateKHR)
-pub type PFN_vkCmdPushDescriptorSetWithTemplateKHR = Option<unsafe extern "system" fn(commandBuffer: core::VkCommandBuffer, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, layout: core::VkPipelineLayout, set: u32, pData: *const c_void)>;
+pub type PFN_vkCmdPushDescriptorSetWithTemplateKHR = Option<unsafe extern "system" fn(commandBuffer: vk::VkCommandBuffer, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, layout: vk::VkPipelineLayout, set: u32, pData: *const c_void)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateDescriptorUpdateTemplateKHR)
-    pub fn vkCreateDescriptorUpdateTemplateKHR(device: core::VkDevice, pCreateInfo: *const VkDescriptorUpdateTemplateCreateInfoKHR, pAllocator: *const core::VkAllocationCallbacks, pDescriptorUpdateTemplate: *mut VkDescriptorUpdateTemplateKHR) -> core::VkResult;
+    pub fn vkCreateDescriptorUpdateTemplateKHR(device: vk::VkDevice, pCreateInfo: *const VkDescriptorUpdateTemplateCreateInfoKHR, pAllocator: *const vk::VkAllocationCallbacks, pDescriptorUpdateTemplate: *mut VkDescriptorUpdateTemplateKHR) -> vk::VkResult;
 
     /// See [`vkDestroyDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyDescriptorUpdateTemplateKHR)
-    pub fn vkDestroyDescriptorUpdateTemplateKHR(device: core::VkDevice, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pAllocator: *const core::VkAllocationCallbacks);
+    pub fn vkDestroyDescriptorUpdateTemplateKHR(device: vk::VkDevice, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pAllocator: *const vk::VkAllocationCallbacks);
 
     /// See [`vkUpdateDescriptorSetWithTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkUpdateDescriptorSetWithTemplateKHR)
-    pub fn vkUpdateDescriptorSetWithTemplateKHR(device: core::VkDevice, descriptorSet: core::VkDescriptorSet, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pData: *const c_void);
+    pub fn vkUpdateDescriptorSetWithTemplateKHR(device: vk::VkDevice, descriptorSet: vk::VkDescriptorSet, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, pData: *const c_void);
 
     /// See [`vkCmdPushDescriptorSetWithTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdPushDescriptorSetWithTemplateKHR)
-    pub fn vkCmdPushDescriptorSetWithTemplateKHR(commandBuffer: core::VkCommandBuffer, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, layout: core::VkPipelineLayout, set: u32, pData: *const c_void);
+    pub fn vkCmdPushDescriptorSetWithTemplateKHR(commandBuffer: vk::VkCommandBuffer, descriptorUpdateTemplate: VkDescriptorUpdateTemplateKHR, layout: vk::VkPipelineLayout, set: u32, pData: *const c_void);
 }

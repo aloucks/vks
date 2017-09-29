@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_variable_pointers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_variable_pointers)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_VARIABLE_POINTERS_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_VARIABLE_POINTERS_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHR_variable_pointers\x00";
@@ -26,16 +26,16 @@ pub const VK_KHR_VARIABLE_POINTERS_EXTENSION_NAME_STR: &'static str = "VK_KHR_va
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceVariablePointerFeaturesKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub variablePointersStorageBuffer: core::VkBool32,
-    pub variablePointers: core::VkBool32,
+    pub variablePointersStorageBuffer: vk::VkBool32,
+    pub variablePointers: vk::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceVariablePointerFeaturesKHR {
     fn default() -> Self {
         VkPhysicalDeviceVariablePointerFeaturesKHR {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR,
             pNext: ptr::null_mut(),
             variablePointersStorageBuffer: Default::default(),
             variablePointers: Default::default(),

@@ -14,10 +14,10 @@
 
 //! [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
 
-use core;
 use libc::c_void;
 use nv_external_memory_capabilities;
 use std::ptr;
+use vk;
 
 pub const VK_NV_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;
 pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 22] = b"VK_NV_external_memory\x00";
@@ -27,7 +27,7 @@ pub const VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &'static str = "VK_NV_extern
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryImageCreateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV,
 }
@@ -35,7 +35,7 @@ pub struct VkExternalMemoryImageCreateInfoNV {
 impl Default for VkExternalMemoryImageCreateInfoNV {
     fn default() -> Self {
         VkExternalMemoryImageCreateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -46,7 +46,7 @@ impl Default for VkExternalMemoryImageCreateInfoNV {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoNV {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV,
 }
@@ -54,7 +54,7 @@ pub struct VkExportMemoryAllocateInfoNV {
 impl Default for VkExportMemoryAllocateInfoNV {
     fn default() -> Self {
         VkExportMemoryAllocateInfoNV {
-            sType: core::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV,
+            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

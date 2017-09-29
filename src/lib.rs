@@ -37,7 +37,7 @@ mod vks_bitflags;
 pub mod device_proc_addr_loader;
 pub mod instance_proc_addr_loader;
 
-pub mod core;
+pub mod vk;
 pub mod amd_draw_indirect_count;
 pub mod amd_gcn_shader;
 pub mod amd_gpu_shader_half_float;

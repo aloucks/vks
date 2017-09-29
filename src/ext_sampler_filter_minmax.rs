@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME: &'static [u8; 29] = b"VK_EXT_sampler_filter_minmax\x00";
@@ -38,7 +38,7 @@ cenum!(VkSamplerReductionModeEXT: u32 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSamplerReductionModeCreateInfoEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub reductionMode: VkSamplerReductionModeEXT,
 }
@@ -46,7 +46,7 @@ pub struct VkSamplerReductionModeCreateInfoEXT {
 impl Default for VkSamplerReductionModeCreateInfoEXT {
     fn default() -> Self {
         VkSamplerReductionModeCreateInfoEXT {
-            sType: core::VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             reductionMode: Default::default(),
         }
@@ -57,16 +57,16 @@ impl Default for VkSamplerReductionModeCreateInfoEXT {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub filterMinmaxSingleComponentFormats: core::VkBool32,
-    pub filterMinmaxImageComponentMapping: core::VkBool32,
+    pub filterMinmaxSingleComponentFormats: vk::VkBool32,
+    pub filterMinmaxImageComponentMapping: vk::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
     fn default() -> Self {
         VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             filterMinmaxSingleComponentFormats: Default::default(),
             filterMinmaxImageComponentMapping: Default::default(),

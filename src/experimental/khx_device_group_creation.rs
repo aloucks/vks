@@ -14,11 +14,11 @@
 
 //! [`VK_KHX_device_group_creation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation)
 
-use core;
 use experimental::khx_device_group;
 use libc::c_void;
 use std::mem;
 use std::ptr;
+use vk;
 
 pub const VK_KHX_DEVICE_GROUP_CREATION_SPEC_VERSION: u32 = 1;
 pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHX_device_group_creation\x00";
@@ -28,17 +28,17 @@ pub const VK_KHX_DEVICE_GROUP_CREATION_EXTENSION_NAME_STR: &'static str = "VK_KH
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceGroupPropertiesKHX {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub physicalDeviceCount: u32,
-    pub physicalDevices: [core::VkPhysicalDevice; khx_device_group::VK_MAX_DEVICE_GROUP_SIZE_KHX],
-    pub subsetAllocation: core::VkBool32,
+    pub physicalDevices: [vk::VkPhysicalDevice; khx_device_group::VK_MAX_DEVICE_GROUP_SIZE_KHX],
+    pub subsetAllocation: vk::VkBool32,
 }
 
 impl Default for VkPhysicalDeviceGroupPropertiesKHX {
     fn default() -> Self {
         VkPhysicalDeviceGroupPropertiesKHX {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX,
             pNext: ptr::null_mut(),
             physicalDeviceCount: Default::default(),
             physicalDevices: unsafe { mem::zeroed() },
@@ -51,16 +51,16 @@ impl Default for VkPhysicalDeviceGroupPropertiesKHX {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkDeviceGroupDeviceCreateInfoKHX {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub physicalDeviceCount: u32,
-    pub pPhysicalDevices: *const core::VkPhysicalDevice,
+    pub pPhysicalDevices: *const vk::VkPhysicalDevice,
 }
 
 impl Default for VkDeviceGroupDeviceCreateInfoKHX {
     fn default() -> Self {
         VkDeviceGroupDeviceCreateInfoKHX {
-            sType: core::VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX,
+            sType: vk::VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX,
             pNext: ptr::null(),
             physicalDeviceCount: Default::default(),
             pPhysicalDevices: ptr::null(),
@@ -69,10 +69,10 @@ impl Default for VkDeviceGroupDeviceCreateInfoKHX {
 }
 
 /// See [`vkEnumeratePhysicalDeviceGroupsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkEnumeratePhysicalDeviceGroupsKHX)
-pub type PFN_vkEnumeratePhysicalDeviceGroupsKHX = Option<unsafe extern "system" fn(instance: core::VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> core::VkResult>;
+pub type PFN_vkEnumeratePhysicalDeviceGroupsKHX = Option<unsafe extern "system" fn(instance: vk::VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkEnumeratePhysicalDeviceGroupsKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkEnumeratePhysicalDeviceGroupsKHX)
-    pub fn vkEnumeratePhysicalDeviceGroupsKHX(instance: core::VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> core::VkResult;
+    pub fn vkEnumeratePhysicalDeviceGroupsKHX(instance: vk::VkInstance, pPhysicalDeviceGroupCount: *mut u32, pPhysicalDeviceGroupProperties: *mut VkPhysicalDeviceGroupPropertiesKHX) -> vk::VkResult;
 }

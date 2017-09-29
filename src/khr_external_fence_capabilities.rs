@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_EXTERNAL_FENCE_CAPABILITIES_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_FENCE_CAPABILITIES_EXTENSION_NAME: &'static [u8; 35] = b"VK_KHR_external_fence_capabilities\x00";
@@ -71,7 +71,7 @@ pub type VkExternalFenceFeatureFlagBitsKHR = VkExternalFenceFeatureFlagsKHR;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDeviceExternalFenceInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleType: VkExternalFenceHandleTypeFlagBitsKHR,
 }
@@ -79,7 +79,7 @@ pub struct VkPhysicalDeviceExternalFenceInfoKHR {
 impl Default for VkPhysicalDeviceExternalFenceInfoKHR {
     fn default() -> Self {
         VkPhysicalDeviceExternalFenceInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
         }
@@ -90,7 +90,7 @@ impl Default for VkPhysicalDeviceExternalFenceInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalFencePropertiesKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub exportFromImportedHandleTypes: VkExternalFenceHandleTypeFlagsKHR,
     pub compatibleHandleTypes: VkExternalFenceHandleTypeFlagsKHR,
@@ -100,7 +100,7 @@ pub struct VkExternalFencePropertiesKHR {
 impl Default for VkExternalFencePropertiesKHR {
     fn default() -> Self {
         VkExternalFencePropertiesKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             exportFromImportedHandleTypes: Default::default(),
             compatibleHandleTypes: Default::default(),
@@ -110,10 +110,10 @@ impl Default for VkExternalFencePropertiesKHR {
 }
 
 /// See [`vkGetPhysicalDeviceExternalFencePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalFencePropertiesKHR)
-pub type PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, pExternalFenceInfo: *const VkPhysicalDeviceExternalFenceInfoKHR, pExternalFenceProperties: *mut VkExternalFencePropertiesKHR)>;
+pub type PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, pExternalFenceInfo: *const VkPhysicalDeviceExternalFenceInfoKHR, pExternalFenceProperties: *mut VkExternalFencePropertiesKHR)>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetPhysicalDeviceExternalFencePropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalFencePropertiesKHR)
-    pub fn vkGetPhysicalDeviceExternalFencePropertiesKHR(physicalDevice: core::VkPhysicalDevice, pExternalFenceInfo: *const VkPhysicalDeviceExternalFenceInfoKHR, pExternalFenceProperties: *mut VkExternalFencePropertiesKHR);
+    pub fn vkGetPhysicalDeviceExternalFencePropertiesKHR(physicalDevice: vk::VkPhysicalDevice, pExternalFenceInfo: *const VkPhysicalDeviceExternalFenceInfoKHR, pExternalFenceProperties: *mut VkExternalFencePropertiesKHR);
 }

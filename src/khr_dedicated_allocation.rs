@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation)
 
-use core;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION: u32 = 3;
 pub const VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME: &'static [u8; 28] = b"VK_KHR_dedicated_allocation\x00";
@@ -26,16 +26,16 @@ pub const VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME_STR: &'static str = "VK_KHR
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryDedicatedRequirementsKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub prefersDedicatedAllocation: core::VkBool32,
-    pub requiresDedicatedAllocation: core::VkBool32,
+    pub prefersDedicatedAllocation: vk::VkBool32,
+    pub requiresDedicatedAllocation: vk::VkBool32,
 }
 
 impl Default for VkMemoryDedicatedRequirementsKHR {
     fn default() -> Self {
         VkMemoryDedicatedRequirementsKHR {
-            sType: core::VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS_KHR,
             pNext: ptr::null_mut(),
             prefersDedicatedAllocation: Default::default(),
             requiresDedicatedAllocation: Default::default(),
@@ -47,16 +47,16 @@ impl Default for VkMemoryDedicatedRequirementsKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkMemoryDedicatedAllocateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
-    pub image: core::VkImage,
-    pub buffer: core::VkBuffer,
+    pub image: vk::VkImage,
+    pub buffer: vk::VkBuffer,
 }
 
 impl Default for VkMemoryDedicatedAllocateInfoKHR {
     fn default() -> Self {
         VkMemoryDedicatedAllocateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_KHR,
             pNext: ptr::null(),
             image: Default::default(),
             buffer: Default::default(),

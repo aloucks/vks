@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
 
-use core;
 use khr_swapchain;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_SHARED_PRESENTABLE_IMAGE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME: &'static [u8; 32] = b"VK_KHR_shared_presentable_image\x00";
@@ -27,15 +27,15 @@ pub const VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME_STR: &'static str = "VK
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSharedPresentSurfaceCapabilitiesKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
-    pub sharedPresentSupportedUsageFlags: core::VkImageUsageFlags,
+    pub sharedPresentSupportedUsageFlags: vk::VkImageUsageFlags,
 }
 
 impl Default for VkSharedPresentSurfaceCapabilitiesKHR {
     fn default() -> Self {
         VkSharedPresentSurfaceCapabilitiesKHR {
-            sType: core::VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR,
             pNext: ptr::null_mut(),
             sharedPresentSupportedUsageFlags: Default::default(),
         }
@@ -43,10 +43,10 @@ impl Default for VkSharedPresentSurfaceCapabilitiesKHR {
 }
 
 /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
-pub type PFN_vkGetSwapchainStatusKHR = Option<unsafe extern "system" fn(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult>;
+pub type PFN_vkGetSwapchainStatusKHR = Option<unsafe extern "system" fn(device: vk::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`PFN_vkGetSwapchainStatusKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#PFN_vkGetSwapchainStatusKHR)
-    pub fn vkGetSwapchainStatusKHR(device: core::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> core::VkResult;
+    pub fn vkGetSwapchainStatusKHR(device: vk::VkDevice, swapchain: khr_swapchain::VkSwapchainKHR) -> vk::VkResult;
 }

@@ -14,10 +14,10 @@
 
 //! [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
 
-use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME: &'static [u8; 31] = b"VK_EXT_display_surface_counter\x00";
@@ -43,25 +43,25 @@ pub type VkSurfaceCounterFlagBitsEXT = VkSurfaceCounterFlagsEXT;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkSurfaceCapabilities2EXT {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *mut c_void,
     pub minImageCount: u32,
     pub maxImageCount: u32,
-    pub currentExtent: core::VkExtent2D,
-    pub minImageExtent: core::VkExtent2D,
-    pub maxImageExtent: core::VkExtent2D,
+    pub currentExtent: vk::VkExtent2D,
+    pub minImageExtent: vk::VkExtent2D,
+    pub maxImageExtent: vk::VkExtent2D,
     pub maxImageArrayLayers: u32,
     pub supportedTransforms: khr_surface::VkSurfaceTransformFlagsKHR,
     pub currentTransform: khr_surface::VkSurfaceTransformFlagBitsKHR,
     pub supportedCompositeAlpha: khr_surface::VkCompositeAlphaFlagsKHR,
-    pub supportedUsageFlags: core::VkImageUsageFlags,
+    pub supportedUsageFlags: vk::VkImageUsageFlags,
     pub supportedSurfaceCounters: VkSurfaceCounterFlagsEXT,
 }
 
 impl Default for VkSurfaceCapabilities2EXT {
     fn default() -> Self {
         VkSurfaceCapabilities2EXT {
-            sType: core::VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT,
+            sType: vk::VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT,
             pNext: ptr::null_mut(),
             minImageCount: Default::default(),
             maxImageCount: Default::default(),
@@ -79,10 +79,10 @@ impl Default for VkSurfaceCapabilities2EXT {
 }
 
 /// See [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilities2EXT)
-pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = Option<unsafe extern "system" fn(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult>;
+pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilities2EXT)
-    pub fn vkGetPhysicalDeviceSurfaceCapabilities2EXT(physicalDevice: core::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> core::VkResult;
+    pub fn vkGetPhysicalDeviceSurfaceCapabilities2EXT(physicalDevice: vk::VkPhysicalDevice, surface: khr_surface::VkSurfaceKHR, pSurfaceCapabilities: *mut VkSurfaceCapabilities2EXT) -> vk::VkResult;
 }

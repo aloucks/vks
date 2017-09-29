@@ -14,10 +14,10 @@
 
 //! [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
 
-use core;
 use khr_surface;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_NN_VI_SURFACE_SPEC_VERSION: u32 = 1;
 pub const VK_NN_VI_SURFACE_EXTENSION_NAME: &'static [u8; 17] = b"VK_NN_vi_surface\x00";
@@ -40,7 +40,7 @@ pub type VkViSurfaceCreateFlagBitsNN = VkViSurfaceCreateFlagsNN;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkViSurfaceCreateInfoNN {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub flags: VkViSurfaceCreateFlagsNN,
     pub window: *mut c_void,
@@ -49,7 +49,7 @@ pub struct VkViSurfaceCreateInfoNN {
 impl Default for VkViSurfaceCreateInfoNN {
     fn default() -> Self {
         VkViSurfaceCreateInfoNN {
-            sType: core::VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN,
+            sType: vk::VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN,
             pNext: ptr::null(),
             flags: Default::default(),
             window: ptr::null_mut(),
@@ -58,10 +58,10 @@ impl Default for VkViSurfaceCreateInfoNN {
 }
 
 /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
-pub type PFN_vkCreateViSurfaceNN = Option<unsafe extern "system" fn(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult>;
+pub type PFN_vkCreateViSurfaceNN = Option<unsafe extern "system" fn(instance: vk::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult>;
 
 #[cfg(feature = "function_prototypes")]
 extern "system" {
     /// See [`vkCreateViSurfaceNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateViSurfaceNN)
-    pub fn vkCreateViSurfaceNN(instance: core::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const core::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> core::VkResult;
+    pub fn vkCreateViSurfaceNN(instance: vk::VkInstance, pCreateInfo: *const VkViSurfaceCreateInfoNN, pAllocator: *const vk::VkAllocationCallbacks, pSurface: *mut khr_surface::VkSurfaceKHR) -> vk::VkResult;
 }

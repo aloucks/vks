@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
 
-use core;
 use khr_external_memory_capabilities;
 use libc::c_void;
 use std::ptr;
+use vk;
 
 pub const VK_KHR_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHR_external_memory\x00";
@@ -29,7 +29,7 @@ pub const VK_QUEUE_FAMILY_EXTERNAL_KHR: u32 = 0xfffffffe;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryImageCreateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsKHR,
 }
@@ -37,7 +37,7 @@ pub struct VkExternalMemoryImageCreateInfoKHR {
 impl Default for VkExternalMemoryImageCreateInfoKHR {
     fn default() -> Self {
         VkExternalMemoryImageCreateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -48,7 +48,7 @@ impl Default for VkExternalMemoryImageCreateInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExternalMemoryBufferCreateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsKHR,
 }
@@ -56,7 +56,7 @@ pub struct VkExternalMemoryBufferCreateInfoKHR {
 impl Default for VkExternalMemoryBufferCreateInfoKHR {
     fn default() -> Self {
         VkExternalMemoryBufferCreateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -67,7 +67,7 @@ impl Default for VkExternalMemoryBufferCreateInfoKHR {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VkExportMemoryAllocateInfoKHR {
-    pub sType: core::VkStructureType,
+    pub sType: vk::VkStructureType,
     pub pNext: *const c_void,
     pub handleTypes: khr_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsKHR,
 }
@@ -75,7 +75,7 @@ pub struct VkExportMemoryAllocateInfoKHR {
 impl Default for VkExportMemoryAllocateInfoKHR {
     fn default() -> Self {
         VkExportMemoryAllocateInfoKHR {
-            sType: core::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHR,
+            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
