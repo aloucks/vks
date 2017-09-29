@@ -14,8 +14,8 @@
 
 //! [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION: u32 = 1;

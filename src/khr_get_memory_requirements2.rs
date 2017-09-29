@@ -14,8 +14,8 @@
 
 //! [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_GET_MEMORY_REQUIREMENTS_2_SPEC_VERSION: u32 = 1;

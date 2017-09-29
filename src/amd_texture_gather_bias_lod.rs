@@ -14,8 +14,8 @@
 
 //! [`VK_AMD_texture_gather_bias_lod`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION: u32 = 1;

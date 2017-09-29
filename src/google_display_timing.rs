@@ -14,9 +14,9 @@
 
 //! [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
 
+use core::ptr;
 use khr_swapchain;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION: u32 = 1;

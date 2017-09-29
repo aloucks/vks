@@ -14,13 +14,13 @@
 
 //! [`VK_KHR_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_win32_keyed_mutex)
 
+use core::ptr;
+use libc::c_void;
+use vk;
+
 pub const VK_KHR_WIN32_KEYED_MUTEX_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_WIN32_KEYED_MUTEX_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHR_win32_keyed_mutex\x00";
 pub const VK_KHR_WIN32_KEYED_MUTEX_EXTENSION_NAME_STR: &'static str = "VK_KHR_win32_keyed_mutex";
-
-use libc::c_void;
-use std::ptr;
-use vk;
 
 /// See [`VkWin32KeyedMutexAcquireReleaseInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWin32KeyedMutexAcquireReleaseInfoKHR)
 #[repr(C)]

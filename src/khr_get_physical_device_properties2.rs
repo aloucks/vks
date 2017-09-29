@@ -14,8 +14,8 @@
 
 //! [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION: u32 = 1;

@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
 
+use core::ptr;
 use khr_swapchain;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_SHARED_PRESENTABLE_IMAGE_SPEC_VERSION: u32 = 1;

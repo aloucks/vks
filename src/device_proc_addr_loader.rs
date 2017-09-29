@@ -13,6 +13,8 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use amd_draw_indirect_count;
+use core::fmt;
+use core::mem;
 use ext_debug_marker;
 use ext_discard_rectangles;
 use ext_display_control;
@@ -38,8 +40,6 @@ use libc::{c_char, c_int, c_void};
 use nv_clip_space_w_scaling;
 use nv_external_memory_capabilities;
 use nv_external_memory_win32;
-use std::fmt;
-use std::mem;
 use vk;
 use win32_types;
 

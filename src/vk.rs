@@ -14,10 +14,10 @@
 
 //! [`Core Vulkan specification`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html)
 
+use core::fmt;
+use core::mem;
+use core::ptr;
 use libc::{c_char, c_void};
-use std::fmt;
-use std::mem;
-use std::ptr;
 
 /// See [`VkBool32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBool32)
 pub type VkBool32 = u32;

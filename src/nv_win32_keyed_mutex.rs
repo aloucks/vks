@@ -14,8 +14,8 @@
 
 //! [`VK_NV_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_win32_keyed_mutex)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_NV_WIN32_KEYED_MUTEX_SPEC_VERSION: u32 = 1;

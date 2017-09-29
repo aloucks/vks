@@ -14,8 +14,8 @@
 
 //! [`VK_KHR_variable_pointers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_variable_pointers)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_VARIABLE_POINTERS_SPEC_VERSION: u32 = 1;

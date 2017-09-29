@@ -14,8 +14,8 @@
 
 //! [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION: u32 = 1;

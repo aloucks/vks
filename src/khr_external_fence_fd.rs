@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_external_fence_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_fd)
 
+use core::ptr;
 use khr_external_fence;
 use khr_external_fence_capabilities;
 use libc::{c_int, c_void};
-use std::ptr;
 use vk;
 
 pub const VK_KHR_EXTERNAL_FENCE_FD_SPEC_VERSION: u32 = 1;

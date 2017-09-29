@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
 
+use core::ptr;
 use khr_external_semaphore;
 use khr_external_semaphore_capabilities;
 use libc::{c_int, c_void};
-use std::ptr;
 use vk;
 
 pub const VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION: u32 = 1;

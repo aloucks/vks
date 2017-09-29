@@ -14,8 +14,8 @@
 
 //! [`VK_KHR_16bit_storage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_16bit_storage)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_16BIT_STORAGE_SPEC_VERSION: u32 = 1;

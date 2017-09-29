@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
 
+use core::ptr;
 use khr_surface;
 use libc::{c_char, c_void};
-use std::ptr;
 use vk;
 
 pub const VK_KHR_DISPLAY_SPEC_VERSION: u32 = 21;

@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
 
+use core::ptr;
 use khr_external_memory_capabilities;
 use libc::c_void;
-use std::ptr;
 use vk;
 use win32_types;
 

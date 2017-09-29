@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
 
+use core::ptr;
 use khr_surface;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION: u32 = 1;

@@ -15,9 +15,9 @@
 //! [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
 
 use android_types;
+use core::ptr;
 use khr_surface;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_ANDROID_SURFACE_SPEC_VERSION: u32 = 6;

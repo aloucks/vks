@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
 
+use core::ptr;
 use ext_debug_report;
 use libc::{c_char, c_void};
-use std::ptr;
 use vk;
 
 pub const VK_EXT_DEBUG_MARKER_SPEC_VERSION: u32 = 4;

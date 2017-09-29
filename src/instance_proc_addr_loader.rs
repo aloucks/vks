@@ -13,6 +13,9 @@
 // PERFORMANCE OF THIS SOFTWARE.
 
 use amd_draw_indirect_count;
+use core::fmt;
+use core::mem;
+use core::ptr;
 use ext_acquire_xlib_display;
 use ext_debug_marker;
 use ext_debug_report;
@@ -56,9 +59,6 @@ use nn_vi_surface;
 use nv_clip_space_w_scaling;
 use nv_external_memory_capabilities;
 use nv_external_memory_win32;
-use std::fmt;
-use std::mem;
-use std::ptr;
 use vk;
 use wayland_types;
 use win32_types;

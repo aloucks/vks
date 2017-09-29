@@ -14,9 +14,9 @@
 
 //! [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
 
+use core::ptr;
 use libc::c_void;
 use nv_external_memory_capabilities;
-use std::ptr;
 use vk;
 
 pub const VK_NV_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;

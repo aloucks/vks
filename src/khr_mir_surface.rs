@@ -14,10 +14,10 @@
 
 //! [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
 
+use core::ptr;
 use khr_surface;
 use libc::c_void;
 use mir_types;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_MIR_SURFACE_SPEC_VERSION: u32 = 4;

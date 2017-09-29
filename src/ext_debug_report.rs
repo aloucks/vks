@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
 
+use core::fmt;
+use core::ptr;
 use libc::{c_char, c_void};
-use std::fmt;
-use std::ptr;
 use vk;
 
 pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 8;

@@ -14,8 +14,8 @@
 
 //! [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION: u32 = 1;

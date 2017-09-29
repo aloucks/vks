@@ -14,11 +14,11 @@
 
 //! [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
 
+use core::ptr;
 use libc::c_void;
 use nv_external_memory_capabilities;
-use std::ptr;
-use win32_types;
 use vk;
+use win32_types;
 
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
 pub const VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 28] = b"VK_NV_external_memory_win32\x00";

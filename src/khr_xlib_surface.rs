@@ -14,11 +14,11 @@
 
 //! [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
 
+use core::ptr;
 use khr_surface;
 use libc::c_void;
-use std::ptr;
-use xlib_types;
 use vk;
+use xlib_types;
 
 pub const VK_KHR_XLIB_SURFACE_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_XLIB_SURFACE_EXTENSION_NAME: &'static [u8; 20] = b"VK_KHR_xlib_surface\x00";

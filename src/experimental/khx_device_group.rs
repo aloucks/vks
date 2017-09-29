@@ -14,10 +14,10 @@
 
 //! [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
 
+use core::ptr;
 use khr_surface;
 use khr_swapchain;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHX_DEVICE_GROUP_SPEC_VERSION: u32 = 1;

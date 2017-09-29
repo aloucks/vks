@@ -14,9 +14,9 @@
 
 //! [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
 
+use core::ptr;
 use khr_swapchain;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_EXT_HDR_METADATA_SPEC_VERSION: u32 = 1;

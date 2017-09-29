@@ -14,11 +14,11 @@
 
 //! [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
 
+use core::ptr;
 use ext_display_surface_counter;
 use khr_display;
 use khr_swapchain;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_EXT_DISPLAY_CONTROL_SPEC_VERSION: u32 = 1;

@@ -14,8 +14,8 @@
 
 //! [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION: u32 = 1;

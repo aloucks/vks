@@ -14,9 +14,9 @@
 
 //! [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
 
+use core::ptr;
 use khr_surface;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_MVK_IOS_SURFACE_SPEC_VERSION: u32 = 2;

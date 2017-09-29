@@ -14,9 +14,9 @@
 
 //! [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
 
+use core::ptr;
 use khr_surface;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_KHR_GET_SURFACE_CAPABILITIES_2_SPEC_VERSION: u32 = 1;

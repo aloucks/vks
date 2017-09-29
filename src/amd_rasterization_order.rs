@@ -14,8 +14,8 @@
 
 //! [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION: u32 = 1;

@@ -28,6 +28,7 @@ This release contains breaking changes.
 
 ### Changed
  - Several Xlib and Xcb types have been corrected.
+ - Vks is now `no_std`. Unfortunately, the `core` module had to be renamed to `vk`.
 
 ### Removed
  - `device_proc_addr_loader::Core::vkGetDeviceProcAddr` has been removed, because this would

@@ -14,8 +14,8 @@
 
 //! [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
 
+use core::ptr;
 use libc::c_void;
-use std::ptr;
 use vk;
 
 pub const VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION: u32 = 1;
