@@ -4,8 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-Items listed in "Changed" sub-sections are usually breaking changes. Any additional breaking changes
-in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
+Items listed in "Changed" and "Removed" sub-sections are usually breaking changes. Any additional
+breaking changes in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
 
 
 ## [Unreleased]
@@ -28,6 +28,11 @@ This release contains breaking changes.
 
 ### Changed
  - Several Xlib and Xcb types have been corrected.
+
+### Removed
+ - `device_proc_addr_loader::Core::vkGetDeviceProcAddr` has been removed, because this would
+   otherwise collide with with the new `vkGetDeviceProcAddr` on
+   `device_proc_addr_loader::DeviceProcAddrLoader`.
 
 ### Added (`experimental`)
  - Revision 3 of `VK_NVX_device_generated_commands`
