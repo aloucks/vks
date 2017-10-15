@@ -251,7 +251,7 @@ macro_rules! addr_proc_struct {
 gen_device_proc_addr_loader!(
     pub struct DeviceProcAddrLoader {
         /// [`Core Vulkan specification`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html)
-        pub core: Core [fn load_core],
+        pub vk: Vk [fn load_vk],
 
         /// [`VK_AMD_draw_indirect_count`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_draw_indirect_count)
         pub amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
@@ -328,7 +328,7 @@ gen_device_proc_addr_loader!(
 
 addr_proc_struct!(
     /// [`Core Vulkan specification`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html)
-    pub struct Core [core] {
+    pub struct Vk [vk] {
         /// [`vkAllocateCommandBuffers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAllocateCommandBuffers)
         pub fn vkAllocateCommandBuffers(device: vk::VkDevice, pAllocateInfo: *const vk::VkCommandBufferAllocateInfo, pCommandBuffers: *mut vk::VkCommandBuffer) -> vk::VkResult; [pfn_vkAllocateCommandBuffers: vk::PFN_vkAllocateCommandBuffers],
 

@@ -89,8 +89,8 @@ macro_rules! gen_instance_proc_addr_loader {
         pub struct InstanceProcAddrLoader {
             pub pfn_vkGetInstanceProcAddr: vk::PFN_vkGetInstanceProcAddr,
 
-            /// Core functions, which don't require a dispatchable Vulkan object
-            pub core_global: CoreGlobal,
+            /// Core Vulkan functions, which don't require a dispatchable Vulkan object
+            pub vk_global: VkGlobal,
 
             $(
                 $( #[$field_attr] )*
@@ -122,7 +122,7 @@ macro_rules! gen_instance_proc_addr_loader {
                 let pfn_vkGetInstanceProcAddr = self.pfn_vkGetInstanceProcAddr.map(|pfn_vkGetInstanceProcAddr| pfn_vkGetInstanceProcAddr as *mut c_void);
                 debug_struct.field("pfn_vkGetInstanceProcAddr", &pfn_vkGetInstanceProcAddr);
 
-                debug_struct.field("core_global", &self.core_global);
+                debug_struct.field("vk_global", &self.vk_global);
 
                 $(
                     debug_struct.field(stringify!($field), &self.$field);
@@ -151,7 +151,7 @@ macro_rules! gen_instance_proc_addr_loader {
             pub fn from_get_instance_proc_addr(pfn_vkGetInstanceProcAddr: vk::PFN_vkGetInstanceProcAddr) -> Self {
                 InstanceProcAddrLoader {
                     pfn_vkGetInstanceProcAddr: pfn_vkGetInstanceProcAddr,
-                    core_global: CoreGlobal::new(),
+                    vk_global: VkGlobal::new(),
                     $( $field: $ty::new(), )*
                     $(
                         #[cfg(feature = "experimental")]
@@ -168,8 +168,8 @@ macro_rules! gen_instance_proc_addr_loader {
                 (pfn_vkGetInstanceProcAddr)(instance, pName)
             }
 
-            pub unsafe fn load_core_global(&mut self) {
-                self.core_global.load(self.pfn_vkGetInstanceProcAddr, ptr::null_mut());
+            pub unsafe fn load_vk_global(&mut self) {
+                self.vk_global.load(self.pfn_vkGetInstanceProcAddr, ptr::null_mut());
             }
 
             $(
@@ -280,7 +280,7 @@ macro_rules! addr_proc_struct {
 gen_instance_proc_addr_loader!(
     pub struct InstanceProcAddrLoader {
         /// [`Core Vulkan specification`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html)
-        pub core: Core [fn load_core],
+        pub vk: Vk [fn load_vk],
 
         /// [`VK_AMD_draw_indirect_count`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_draw_indirect_count)
         pub amd_draw_indirect_count: AMD_draw_indirect_count [fn load_amd_draw_indirect_count],
@@ -422,8 +422,8 @@ gen_instance_proc_addr_loader!(
 );
 
 addr_proc_struct!(
-    /// Core functions, which don't require a dispatchable Vulkan object
-    pub struct CoreGlobal [core_global] {
+    /// Core Vulkan functions, which don't require a dispatchable Vulkan object
+    pub struct VkGlobal [vk_global] {
         /// [`vkCreateInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateInstance)
         pub fn vkCreateInstance(pCreateInfo: *const vk::VkInstanceCreateInfo, pAllocator: *const vk::VkAllocationCallbacks, pInstance: *mut vk::VkInstance) -> vk::VkResult; [pfn_vkCreateInstance: vk::PFN_vkCreateInstance],
 
@@ -437,7 +437,7 @@ addr_proc_struct!(
 
 addr_proc_struct!(
     /// [`Core Vulkan specification`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html)
-    pub struct Core [core] {
+    pub struct Vk [vk] {
         /// [`vkAllocateCommandBuffers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAllocateCommandBuffers)
         pub fn vkAllocateCommandBuffers(device: vk::VkDevice, pAllocateInfo: *const vk::VkCommandBufferAllocateInfo, pCommandBuffers: *mut vk::VkCommandBuffer) -> vk::VkResult; [pfn_vkAllocateCommandBuffers: vk::PFN_vkAllocateCommandBuffers],
 
