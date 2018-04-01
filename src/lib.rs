@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -134,9 +134,6 @@ pub mod wayland_types;
 pub mod win32_types;
 pub mod xcb_types;
 pub mod xlib_types;
-
-#[cfg(feature = "experimental")]
-pub mod experimental;
 
 pub use device_proc_addr_loader::DeviceProcAddrLoader;
 pub use instance_proc_addr_loader::InstanceProcAddrLoader;

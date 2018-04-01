@@ -41,17 +41,6 @@ runtime and acquire the symbol `vkGetInstanceProcAddr`. With just this symbol, y
 `InstanceProcAddrLoader` (and by extension, `DeviceProcAddrLoader`) to load all remaining function
 pointers.
 
-### `experimental` Feature
-
-Vks includes support for experimental Vulkan extensions (recognizable by the prefix `KHX` or
-similar), but gates them behind a feature. The reason is, that these extensions can change in a
-backwards-incompatible way, or even be removed in future Vulkan releases.
-
-Be aware, that vks updates might break your code, if you use this feature. Everything behind this
-feature will be ignored in terms of Semantic Versioning requirements.
-
-You should not ship code that depends on these extensions or uses the `experimental` feature.
-
 ## Loader
 
 Vks includes two convenience Vulkan symbol loaders: `InstanceProcAddrLoader` and
@@ -187,31 +176,12 @@ function pointers.
 | `VK_NV_viewport_swizzle` | 1 |
 | `VK_NV_win32_keyed_mutex` | 1 |
 
-### `KHX` Extensions
-
-You must enable the `experimental` feature to use any of these extensions.
-
-| Extension | Revision |
-| --- | --- |
-| `VK_KHX_device_group_creation` | 1 |
-| `VK_KHX_device_group` | 1 |
-| `VK_KHX_multiview` | 1 |
-
-### `NVX` Extensions
-
-You must enable the `experimental` feature to use any of these extensions.
-
-| Extension | Revision |
-| --- | --- |
-| `VK_NVX_device_generated_commands` | 3 |
-| `VK_NVX_multiview_per_view_attributes` | 1 |
-
 ## License
 
 Vks is licensed under the ISC license:
 
 ```
-Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above

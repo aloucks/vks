@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -35,11 +35,6 @@ vks_bitflags! {
     pub struct VkSwapchainCreateFlagsKHR: u32 {
         /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
         const VK_SWAPCHAIN_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        #[cfg(feature = "experimental")]
-        /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
-        /// and extension [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-        const VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX = 0x00000001;
     }
 }
 

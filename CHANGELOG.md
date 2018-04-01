@@ -8,6 +8,12 @@ Items listed in "Changed" and "Removed" sub-sections are usually breaking change
 breaking changes in other sub-sections are prefixed with "**BREAKING**" to increase visibility.
 
 
+# [Unreleased]
+
+## Removed
+ - Support for experimental extensions was removed.
+
+
 ## [0.21.0] - 2017-10-15
 This release contains breaking changes.
 

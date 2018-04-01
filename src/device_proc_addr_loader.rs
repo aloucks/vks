@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -43,12 +43,6 @@ use nv_external_memory_win32;
 use vk;
 use win32_types;
 
-#[cfg(feature = "experimental")]
-use experimental::*;
-
-#[cfg(feature = "experimental")]
-use khr_surface;
-
 macro_rules! gen_device_proc_addr_loader {
     (
         $( #[$attr:meta] )*
@@ -57,13 +51,6 @@ macro_rules! gen_device_proc_addr_loader {
                 $( #[$field_attr:meta] )*
                 pub $field:ident: $ty:ident [fn $load:ident],
             )*
-
-            experimental {
-                $(
-                    $( #[$exp_field_attr:meta] )*
-                    pub $exp_field:ident: $exp_ty:ident [fn $exp_load:ident],
-                )*
-            }
         }
     ) => {
         $( #[$attr] )*
@@ -73,12 +60,6 @@ macro_rules! gen_device_proc_addr_loader {
             $(
                 $( #[$field_attr] )*
                 pub $field: $ty,
-            )*
-
-            $(
-                #[cfg(feature = "experimental")]
-                $( #[$exp_field_attr] )*
-                pub $exp_field: $exp_ty,
             )*
 
             #[allow(dead_code)]
@@ -104,11 +85,6 @@ macro_rules! gen_device_proc_addr_loader {
                     debug_struct.field(stringify!($field), &self.$field);
                 )*
 
-                $(
-                    #[cfg(feature = "experimental")]
-                    debug_struct.field(stringify!($exp_field), &self.$exp_field);
-                )*
-
                 debug_struct.finish()
             }
         }
@@ -128,10 +104,6 @@ macro_rules! gen_device_proc_addr_loader {
                 DeviceProcAddrLoader {
                     pfn_vkGetDeviceProcAddr: pfn_vkGetDeviceProcAddr,
                     $( $field: $ty::new(), )*
-                    $(
-                        #[cfg(feature = "experimental")]
-                        $exp_field: $exp_ty::new(),
-                    )*
                     guard: (),
                 }
             }
@@ -146,13 +118,6 @@ macro_rules! gen_device_proc_addr_loader {
             $(
                 pub unsafe fn $load(&mut self, device: vk::VkDevice) {
                     self.$field.load(self.pfn_vkGetDeviceProcAddr, device);
-                }
-            )*
-
-            $(
-                #[cfg(feature = "experimental")]
-                pub unsafe fn $exp_load(&mut self, device: vk::VkDevice) {
-                    self.$exp_field.load(self.pfn_vkGetDeviceProcAddr, device);
                 }
             )*
         }
@@ -315,14 +280,6 @@ gen_device_proc_addr_loader!(
 
         /// [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
         pub nv_external_memory_win32: NV_external_memory_win32 [fn load_nv_external_memory_win32],
-
-        experimental {
-            /// [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-            pub khx_device_group: KHX_device_group [fn load_khx_device_group],
-
-            /// [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
-            pub nvx_device_generated_commands: NVX_device_generated_commands [fn load_nvx_device_generated_commands],
-        }
     }
 );
 
@@ -928,65 +885,5 @@ addr_proc_struct!(
     pub struct NV_external_memory_win32 [nv_external_memory_win32] {
         /// [`vkGetMemoryWin32HandleNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetMemoryWin32HandleNV)
         pub fn vkGetMemoryWin32HandleNV(device: vk::VkDevice, memory: vk::VkDeviceMemory, handleType: nv_external_memory_capabilities::VkExternalMemoryHandleTypeFlagsNV, pHandle: *mut win32_types::HANDLE) -> vk::VkResult; [pfn_vkGetMemoryWin32HandleNV: nv_external_memory_win32::PFN_vkGetMemoryWin32HandleNV],
-    }
-);
-
-#[cfg(feature = "experimental")]
-addr_proc_struct!(
-    /// [`VK_KHX_device_group`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group)
-    pub struct KHX_device_group [khx_device_group] {
-        /// [`vkAcquireNextImage2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireNextImage2KHX)
-        pub fn vkAcquireNextImage2KHX(device: vk::VkDevice, pAcquireInfo: *const khx_device_group::VkAcquireNextImageInfoKHX, pImageIndex: *mut u32) -> vk::VkResult; [pfn_vkAcquireNextImage2KHX: khx_device_group::PFN_vkAcquireNextImage2KHX],
-
-        /// [`vkBindBufferMemory2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkBindBufferMemory2KHX)
-        pub fn vkBindBufferMemory2KHX(device: vk::VkDevice, bindInfoCount: u32, pBindInfos: *const khx_device_group::VkBindBufferMemoryInfoKHX) -> vk::VkResult; [pfn_vkBindBufferMemory2KHX: khx_device_group::PFN_vkBindBufferMemory2KHX],
-
-        /// [`vkBindImageMemory2KHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkBindImageMemory2KHX)
-        pub fn vkBindImageMemory2KHX(device: vk::VkDevice, bindInfoCount: u32, pBindInfos: *const khx_device_group::VkBindImageMemoryInfoKHX) -> vk::VkResult; [pfn_vkBindImageMemory2KHX: khx_device_group::PFN_vkBindImageMemory2KHX],
-
-        /// [`vkCmdDispatchBaseKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDispatchBaseKHX)
-        pub fn vkCmdDispatchBaseKHX(commandBuffer: vk::VkCommandBuffer, baseGroupX: u32, baseGroupY: u32, baseGroupZ: u32, groupCountX: u32, groupCountY: u32, groupCountZ: u32); [pfn_vkCmdDispatchBaseKHX: khx_device_group::PFN_vkCmdDispatchBaseKHX],
-
-        /// [`vkCmdSetDeviceMaskKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdSetDeviceMaskKHX)
-        pub fn vkCmdSetDeviceMaskKHX(commandBuffer: vk::VkCommandBuffer, deviceMask: u32); [pfn_vkCmdSetDeviceMaskKHX: khx_device_group::PFN_vkCmdSetDeviceMaskKHX],
-
-        /// [`vkGetDeviceGroupPeerMemoryFeaturesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupPeerMemoryFeaturesKHX)
-        pub fn vkGetDeviceGroupPeerMemoryFeaturesKHX(device: vk::VkDevice, heapIndex: u32, localDeviceIndex: u32, remoteDeviceIndex: u32, pPeerMemoryFeatures: *mut khx_device_group::VkPeerMemoryFeatureFlagsKHX); [pfn_vkGetDeviceGroupPeerMemoryFeaturesKHX: khx_device_group::PFN_vkGetDeviceGroupPeerMemoryFeaturesKHX],
-
-        /// [`vkGetDeviceGroupPresentCapabilitiesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupPresentCapabilitiesKHX)
-        pub fn vkGetDeviceGroupPresentCapabilitiesKHX(device: vk::VkDevice, pDeviceGroupPresentCapabilities: *mut khx_device_group::VkDeviceGroupPresentCapabilitiesKHX) -> vk::VkResult; [pfn_vkGetDeviceGroupPresentCapabilitiesKHX: khx_device_group::PFN_vkGetDeviceGroupPresentCapabilitiesKHX],
-
-        /// [`vkGetDeviceGroupSurfacePresentModesKHX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkGetDeviceGroupSurfacePresentModesKHX)
-        pub fn vkGetDeviceGroupSurfacePresentModesKHX(device: vk::VkDevice, surface: khr_surface::VkSurfaceKHR, pModes: *mut khx_device_group::VkDeviceGroupPresentModeFlagsKHX) -> vk::VkResult; [pfn_vkGetDeviceGroupSurfacePresentModesKHX: khx_device_group::PFN_vkGetDeviceGroupSurfacePresentModesKHX],
-    }
-);
-
-#[cfg(feature = "experimental")]
-addr_proc_struct!(
-    /// [`VK_NVX_device_generated_commands`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NVX_device_generated_commands)
-    pub struct NVX_device_generated_commands [nvx_device_generated_commands] {
-        /// [`vkCmdProcessCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdProcessCommandsNVX)
-        pub fn vkCmdProcessCommandsNVX(commandBuffer: vk::VkCommandBuffer, pProcessCommandsInfo: *const nvx_device_generated_commands::VkCmdProcessCommandsInfoNVX); [pfn_vkCmdProcessCommandsNVX: nvx_device_generated_commands::PFN_vkCmdProcessCommandsNVX],
-
-        /// [`vkCmdReserveSpaceForCommandsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdReserveSpaceForCommandsNVX)
-        pub fn vkCmdReserveSpaceForCommandsNVX(commandBuffer: vk::VkCommandBuffer, pReserveSpaceInfo: *const nvx_device_generated_commands::VkCmdReserveSpaceForCommandsInfoNVX); [pfn_vkCmdReserveSpaceForCommandsNVX: nvx_device_generated_commands::PFN_vkCmdReserveSpaceForCommandsNVX],
-
-        /// [`vkCreateIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateIndirectCommandsLayoutNVX)
-        pub fn vkCreateIndirectCommandsLayoutNVX(device: vk::VkDevice, pCreateInfo: *const nvx_device_generated_commands::VkIndirectCommandsLayoutCreateInfoNVX, pAllocator: *const vk::VkAllocationCallbacks, pIndirectCommandsLayout: *mut nvx_device_generated_commands::VkIndirectCommandsLayoutNVX) -> vk::VkResult; [pfn_vkCreateIndirectCommandsLayoutNVX: nvx_device_generated_commands::PFN_vkCreateIndirectCommandsLayoutNVX],
-
-        /// [`vkCreateObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCreateObjectTableNVX)
-        pub fn vkCreateObjectTableNVX(device: vk::VkDevice, pCreateInfo: *const nvx_device_generated_commands::VkObjectTableCreateInfoNVX, pAllocator: *const vk::VkAllocationCallbacks, pObjectTable: *mut nvx_device_generated_commands::VkObjectTableNVX) -> vk::VkResult; [pfn_vkCreateObjectTableNVX: nvx_device_generated_commands::PFN_vkCreateObjectTableNVX],
-
-        /// [`vkDestroyIndirectCommandsLayoutNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyIndirectCommandsLayoutNVX)
-        pub fn vkDestroyIndirectCommandsLayoutNVX(device: vk::VkDevice, indirectCommandsLayout: nvx_device_generated_commands::VkIndirectCommandsLayoutNVX, pAllocator: *const vk::VkAllocationCallbacks); [pfn_vkDestroyIndirectCommandsLayoutNVX: nvx_device_generated_commands::PFN_vkDestroyIndirectCommandsLayoutNVX],
-
-        /// [`vkDestroyObjectTableNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkDestroyObjectTableNVX)
-        pub fn vkDestroyObjectTableNVX(device: vk::VkDevice, objectTable: nvx_device_generated_commands::VkObjectTableNVX, pAllocator: *const vk::VkAllocationCallbacks); [pfn_vkDestroyObjectTableNVX: nvx_device_generated_commands::PFN_vkDestroyObjectTableNVX],
-
-        /// [`vkRegisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkRegisterObjectsNVX)
-        pub fn vkRegisterObjectsNVX(device: vk::VkDevice, objectTable: nvx_device_generated_commands::VkObjectTableNVX, objectCount: u32, ppObjectTableEntries: *const *const nvx_device_generated_commands::VkObjectTableEntryNVX, pObjectIndices: *const u32) -> vk::VkResult; [pfn_vkRegisterObjectsNVX: nvx_device_generated_commands::PFN_vkRegisterObjectsNVX],
-
-        /// [`vkUnregisterObjectsNVX`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkUnregisterObjectsNVX)
-        pub fn vkUnregisterObjectsNVX(device: vk::VkDevice, objectTable: nvx_device_generated_commands::VkObjectTableNVX, objectCount: u32, pObjectEntryTypes: *const nvx_device_generated_commands::VkObjectEntryTypeNVX, pObjectIndices: *const u32) -> vk::VkResult; [pfn_vkUnregisterObjectsNVX: nvx_device_generated_commands::PFN_vkUnregisterObjectsNVX],
     }
 );

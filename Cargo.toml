@@ -23,5 +23,4 @@ gitlab = { repository = "dennis-hamester/vks" }
 libc = "0.2"
 
 [features]
-experimental = [ ]
 function_prototypes = [ ]
