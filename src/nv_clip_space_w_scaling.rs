@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -19,8 +19,8 @@ use libc::c_void;
 use vk;
 
 pub const VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION: u32 = 1;
-pub const VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME: &'static [u8; 27] = b"VK_NV_clip_space_w_scaling\x00";
-pub const VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME_STR: &'static str = "VK_NV_clip_space_w_scaling";
+pub const VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME: &[u8; 27] = b"VK_NV_clip_space_w_scaling\x00";
+pub const VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME_STR: &str = "VK_NV_clip_space_w_scaling";
 
 /// See [`VkViewportWScalingNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViewportWScalingNV)
 #[repr(C)]

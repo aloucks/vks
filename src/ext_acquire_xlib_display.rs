@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -19,8 +19,8 @@ use vk;
 use xlib_types;
 
 pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_SPEC_VERSION: u32 = 1;
-pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME: &'static [u8; 28] = b"VK_EXT_acquire_xlib_display\x00";
-pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME_STR: &'static str = "VK_EXT_acquire_xlib_display";
+pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME: &[u8; 28] = b"VK_EXT_acquire_xlib_display\x00";
+pub const VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME_STR: &str = "VK_EXT_acquire_xlib_display";
 
 /// See [`vkAcquireXlibDisplayEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkAcquireXlibDisplayEXT)
 pub type PFN_vkAcquireXlibDisplayEXT = Option<unsafe extern "system" fn(physicalDevice: vk::VkPhysicalDevice, dpy: *mut xlib_types::Display, display: khr_display::VkDisplayKHR) -> vk::VkResult>;

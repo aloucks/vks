@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -20,8 +20,8 @@ use libc::c_void;
 use vk;
 
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION: u32 = 1;
-pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME: &'static [u8; 31] = b"VK_EXT_display_surface_counter\x00";
-pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME_STR: &'static str = "VK_EXT_display_surface_counter";
+pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME: &[u8; 31] = b"VK_EXT_display_surface_counter\x00";
+pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME_STR: &str = "VK_EXT_display_surface_counter";
 
 vks_bitflags! {
     /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)

@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -20,8 +20,8 @@ use libc::c_void;
 use vk;
 
 pub const VK_KHR_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1;
-pub const VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME: &'static [u8; 23] = b"VK_KHR_external_memory\x00";
-pub const VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &'static str = "VK_KHR_external_memory";
+pub const VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME: &[u8; 23] = b"VK_KHR_external_memory\x00";
+pub const VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME_STR: &str = "VK_KHR_external_memory";
 
 pub const VK_QUEUE_FAMILY_EXTERNAL_KHR: u32 = 0xfffffffe;
 

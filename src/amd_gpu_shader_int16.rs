@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -15,5 +15,5 @@
 //! [`VK_AMD_gpu_shader_int16`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_gpu_shader_int16)
 
 pub const VK_AMD_GPU_SHADER_INT16_SPEC_VERSION: u32 = 1;
-pub const VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME: &'static [u8; 24] = b"VK_AMD_gpu_shader_int16\x00";
-pub const VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME_STR: &'static str = "VK_AMD_gpu_shader_int16";
+pub const VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME: &[u8; 24] = b"VK_AMD_gpu_shader_int16\x00";
+pub const VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME_STR: &str = "VK_AMD_gpu_shader_int16";

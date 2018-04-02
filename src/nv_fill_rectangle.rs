@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -15,5 +15,5 @@
 //! [`VK_NV_fill_rectangle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fill_rectangle)
 
 pub const VK_NV_FILL_RECTANGLE_SPEC_VERSION: u32 = 1;
-pub const VK_NV_FILL_RECTANGLE_EXTENSION_NAME: &'static [u8; 21] = b"VK_NV_fill_rectangle\x00";
-pub const VK_NV_FILL_RECTANGLE_EXTENSION_NAME_STR: &'static str = "VK_NV_fill_rectangle";
+pub const VK_NV_FILL_RECTANGLE_EXTENSION_NAME: &[u8; 21] = b"VK_NV_fill_rectangle\x00";
+pub const VK_NV_FILL_RECTANGLE_EXTENSION_NAME_STR: &str = "VK_NV_fill_rectangle";

@@ -139,10 +139,10 @@ pub use device_proc_addr_loader::DeviceProcAddrLoader;
 pub use instance_proc_addr_loader::InstanceProcAddrLoader;
 
 #[cfg(windows)]
-pub const VULKAN_LIBRARY_NAME: &'static str = "vulkan-1.dll";
+pub const VULKAN_LIBRARY_NAME: &str = "vulkan-1.dll";
 
 #[cfg(not(windows))]
-pub const VULKAN_LIBRARY_NAME: &'static str = "libvulkan.so.1";
+pub const VULKAN_LIBRARY_NAME: &str = "libvulkan.so.1";
 
 /// See [`VK_API_VERSION_1_0`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_API_VERSION_1_0)
 pub const VK_API_VERSION_1_0: u32 = 0x00400000;

@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -21,8 +21,8 @@ use vk;
 use win32_types;
 
 pub const VK_KHR_EXTERNAL_MEMORY_WIN32_SPEC_VERSION: u32 = 1;
-pub const VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &'static [u8; 29] = b"VK_KHR_external_memory_win32\x00";
-pub const VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME_STR: &'static str = "VK_KHR_external_memory_win32";
+pub const VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME: &[u8; 29] = b"VK_KHR_external_memory_win32\x00";
+pub const VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME_STR: &str = "VK_KHR_external_memory_win32";
 
 /// See [`VkImportMemoryWin32HandleInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImportMemoryWin32HandleInfoKHR)
 #[repr(C)]

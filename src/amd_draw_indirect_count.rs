@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -17,8 +17,8 @@
 use vk;
 
 pub const VK_AMD_DRAW_INDIRECT_COUNT_SPEC_VERSION: u32 = 1;
-pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME: &'static [u8; 27] = b"VK_AMD_draw_indirect_count\x00";
-pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME_STR: &'static str = "VK_AMD_draw_indirect_count";
+pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME: &[u8; 27] = b"VK_AMD_draw_indirect_count\x00";
+pub const VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME_STR: &str = "VK_AMD_draw_indirect_count";
 
 /// See [`vkCmdDrawIndirectCountAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdDrawIndirectCountAMD)
 pub type PFN_vkCmdDrawIndirectCountAMD = Option<unsafe extern "system" fn(commandBuffer: vk::VkCommandBuffer, buffer: vk::VkBuffer, offset: vk::VkDeviceSize, countBuffer: vk::VkBuffer, countBufferOffset: vk::VkDeviceSize, maxDrawCount: u32, stride: u32)>;

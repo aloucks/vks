@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -20,8 +20,8 @@ use libc::c_void;
 use vk;
 
 pub const VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION: u32 = 9;
-pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME: &'static [u8; 25] = b"VK_KHR_display_swapchain\x00";
-pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME_STR: &'static str = "VK_KHR_display_swapchain";
+pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME: &[u8; 25] = b"VK_KHR_display_swapchain\x00";
+pub const VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME_STR: &str = "VK_KHR_display_swapchain";
 
 /// See [`VkDisplayPresentInfoKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPresentInfoKHR)
 #[repr(C)]
