@@ -22,13 +22,13 @@ pub const VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION: u32 = 1;
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME: &[u8; 27] = b"VK_AMD_rasterization_order\x00";
 pub const VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME_STR: &str = "VK_AMD_rasterization_order";
 
-cenum!(VkRasterizationOrderAMD: u32 {
+vks_enum! {
     /// See [`VkRasterizationOrderAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRasterizationOrderAMD)
-    const VK_RASTERIZATION_ORDER_STRICT_AMD = 0,
-
-    /// See [`VkRasterizationOrderAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRasterizationOrderAMD)
-    const VK_RASTERIZATION_ORDER_RELAXED_AMD = 1,
-});
+    pub VkRasterizationOrderAMD: u32 {
+        const STRICT_AMD = 0;
+        const RELAXED_AMD = 1;
+    }
+}
 
 /// See [`VkPipelineRasterizationStateRasterizationOrderAMD`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineRasterizationStateRasterizationOrderAMD)
 #[repr(C)]
@@ -42,7 +42,7 @@ pub struct VkPipelineRasterizationStateRasterizationOrderAMD {
 impl Default for VkPipelineRasterizationStateRasterizationOrderAMD {
     fn default() -> Self {
         VkPipelineRasterizationStateRasterizationOrderAMD {
-            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD,
+            sType: vk::VkStructureType::PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD,
             pNext: ptr::null(),
             rasterizationOrder: Default::default(),
         }

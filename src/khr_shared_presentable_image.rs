@@ -35,7 +35,7 @@ pub struct VkSharedPresentSurfaceCapabilitiesKHR {
 impl Default for VkSharedPresentSurfaceCapabilitiesKHR {
     fn default() -> Self {
         VkSharedPresentSurfaceCapabilitiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR,
+            sType: vk::VkStructureType::SHARED_PRESENT_SURFACE_CAPABILITIES_KHR,
             pNext: ptr::null_mut(),
             sharedPresentSupportedUsageFlags: Default::default(),
         }

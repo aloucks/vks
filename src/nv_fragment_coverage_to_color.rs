@@ -48,7 +48,7 @@ pub struct VkPipelineCoverageToColorStateCreateInfoNV {
 impl Default for VkPipelineCoverageToColorStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineCoverageToColorStateCreateInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV,
+            sType: vk::VkStructureType::PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             coverageToColorEnable: Default::default(),

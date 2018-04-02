@@ -79,7 +79,7 @@ pub struct VkPhysicalDeviceExternalImageFormatInfoKHR {
 impl Default for VkPhysicalDeviceExternalImageFormatInfoKHR {
     fn default() -> Self {
         VkPhysicalDeviceExternalImageFormatInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
         }
@@ -98,7 +98,7 @@ pub struct VkExternalImageFormatPropertiesKHR {
 impl Default for VkExternalImageFormatPropertiesKHR {
     fn default() -> Self {
         VkExternalImageFormatPropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHR,
+            sType: vk::VkStructureType::EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             externalMemoryProperties: Default::default(),
         }
@@ -119,7 +119,7 @@ pub struct VkPhysicalDeviceExternalBufferInfoKHR {
 impl Default for VkPhysicalDeviceExternalBufferInfoKHR {
     fn default() -> Self {
         VkPhysicalDeviceExternalBufferInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             usage: Default::default(),
@@ -140,7 +140,7 @@ pub struct VkExternalBufferPropertiesKHR {
 impl Default for VkExternalBufferPropertiesKHR {
     fn default() -> Self {
         VkExternalBufferPropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHR,
+            sType: vk::VkStructureType::EXTERNAL_BUFFER_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             externalMemoryProperties: Default::default(),
         }
@@ -163,7 +163,7 @@ pub struct VkPhysicalDeviceIDPropertiesKHR {
 impl Default for VkPhysicalDeviceIDPropertiesKHR {
     fn default() -> Self {
         VkPhysicalDeviceIDPropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_ID_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             deviceUUID: Default::default(),
             driverUUID: Default::default(),

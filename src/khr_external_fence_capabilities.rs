@@ -69,7 +69,7 @@ pub struct VkPhysicalDeviceExternalFenceInfoKHR {
 impl Default for VkPhysicalDeviceExternalFenceInfoKHR {
     fn default() -> Self {
         VkPhysicalDeviceExternalFenceInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
         }
@@ -90,7 +90,7 @@ pub struct VkExternalFencePropertiesKHR {
 impl Default for VkExternalFencePropertiesKHR {
     fn default() -> Self {
         VkExternalFencePropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR,
+            sType: vk::VkStructureType::EXTERNAL_FENCE_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             exportFromImportedHandleTypes: Default::default(),
             compatibleHandleTypes: Default::default(),

@@ -41,7 +41,7 @@ pub struct VkImportFenceWin32HandleInfoKHR {
 impl Default for VkImportFenceWin32HandleInfoKHR {
     fn default() -> Self {
         VkImportFenceWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::IMPORT_FENCE_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             fence: Default::default(),
             flags: Default::default(),
@@ -66,7 +66,7 @@ pub struct VkExportFenceWin32HandleInfoKHR {
 impl Default for VkExportFenceWin32HandleInfoKHR {
     fn default() -> Self {
         VkExportFenceWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_FENCE_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::EXPORT_FENCE_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             pAttributes: ptr::null(),
             dwAccess: Default::default(),
@@ -88,7 +88,7 @@ pub struct VkFenceGetWin32HandleInfoKHR {
 impl Default for VkFenceGetWin32HandleInfoKHR {
     fn default() -> Self {
         VkFenceGetWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::FENCE_GET_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             fence: Default::default(),
             handleType: Default::default(),

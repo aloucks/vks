@@ -16,6 +16,7 @@ breaking changes in other sub-sections are prefixed with "**BREAKING**" to incre
 ## Changed
  - The bitflags crate has been reintroduced. All bitflags are now `repr(transparent)` and use
    associated consts.
+ - Regular C enums were converted to newtypes in a similar way.
 
 
 ## [0.21.0] - 2017-10-15

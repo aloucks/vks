@@ -40,7 +40,7 @@ pub struct VkWin32KeyedMutexAcquireReleaseInfoNV {
 impl Default for VkWin32KeyedMutexAcquireReleaseInfoNV {
     fn default() -> Self {
         VkWin32KeyedMutexAcquireReleaseInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV,
+            sType: vk::VkStructureType::WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV,
             pNext: ptr::null(),
             acquireCount: Default::default(),
             pAcquireSyncs: ptr::null(),

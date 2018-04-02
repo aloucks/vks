@@ -129,7 +129,7 @@ pub struct VkDisplayModeCreateInfoKHR {
 impl Default for VkDisplayModeCreateInfoKHR {
     fn default() -> Self {
         VkDisplayModeCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::DISPLAY_MODE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             parameters: Default::default(),
@@ -179,7 +179,7 @@ pub struct VkDisplaySurfaceCreateInfoKHR {
 impl Default for VkDisplaySurfaceCreateInfoKHR {
     fn default() -> Self {
         VkDisplaySurfaceCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::DISPLAY_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             displayMode: Default::default(),

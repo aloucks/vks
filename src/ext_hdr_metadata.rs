@@ -50,7 +50,7 @@ pub struct VkHdrMetadataEXT {
 impl Default for VkHdrMetadataEXT {
     fn default() -> Self {
         VkHdrMetadataEXT {
-            sType: vk::VK_STRUCTURE_TYPE_HDR_METADATA_EXT,
+            sType: vk::VkStructureType::HDR_METADATA_EXT,
             pNext: ptr::null(),
             displayPrimaryRed: Default::default(),
             displayPrimaryGreen: Default::default(),

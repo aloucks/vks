@@ -37,7 +37,7 @@ pub struct VkPhysicalDevice16BitStorageFeaturesKHR {
 impl Default for VkPhysicalDevice16BitStorageFeaturesKHR {
     fn default() -> Self {
         VkPhysicalDevice16BitStorageFeaturesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES_KHR,
             pNext: ptr::null_mut(),
             storageBuffer16BitAccess: Default::default(),
             uniformAndStorageBuffer16BitAccess: Default::default(),

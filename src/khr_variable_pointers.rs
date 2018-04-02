@@ -35,7 +35,7 @@ pub struct VkPhysicalDeviceVariablePointerFeaturesKHR {
 impl Default for VkPhysicalDeviceVariablePointerFeaturesKHR {
     fn default() -> Self {
         VkPhysicalDeviceVariablePointerFeaturesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR,
             pNext: ptr::null_mut(),
             variablePointersStorageBuffer: Default::default(),
             variablePointers: Default::default(),

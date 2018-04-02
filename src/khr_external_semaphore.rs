@@ -48,7 +48,7 @@ pub struct VkExportSemaphoreCreateInfoKHR {
 impl Default for VkExportSemaphoreCreateInfoKHR {
     fn default() -> Self {
         VkExportSemaphoreCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::EXPORT_SEMAPHORE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

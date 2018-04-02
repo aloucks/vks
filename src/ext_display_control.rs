@@ -25,26 +25,28 @@ pub const VK_EXT_DISPLAY_CONTROL_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME: &[u8; 23] = b"VK_EXT_display_control\x00";
 pub const VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME_STR: &str = "VK_EXT_display_control";
 
-cenum!(VkDisplayPowerStateEXT: u32 {
+vks_enum! {
     /// See [`VkDisplayPowerStateEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPowerStateEXT)
-    const VK_DISPLAY_POWER_STATE_OFF_EXT = 0,
+    pub VkDisplayPowerStateEXT: u32 {
+        const OFF_EXT = 0;
+        const SUSPEND_EXT = 1;
+        const ON_EXT = 2;
+    }
+}
 
-    /// See [`VkDisplayPowerStateEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPowerStateEXT)
-    const VK_DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
-
-    /// See [`VkDisplayPowerStateEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPowerStateEXT)
-    const VK_DISPLAY_POWER_STATE_ON_EXT = 2,
-});
-
-cenum!(VkDeviceEventTypeEXT: u32 {
+vks_enum! {
     /// See [`VkDeviceEventTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceEventTypeEXT)
-    const VK_DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT = 0,
-});
+    pub VkDeviceEventTypeEXT: u32 {
+        const DISPLAY_HOTPLUG_EXT = 0;
+    }
+}
 
-cenum!(VkDisplayEventTypeEXT: u32 {
+vks_enum! {
     /// See [`VkDisplayEventTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayEventTypeEXT)
-    const VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT = 0,
-});
+    pub VkDisplayEventTypeEXT: u32 {
+        const FIRST_PIXEL_OUT_EXT = 0;
+    }
+}
 
 /// See [`VkDisplayPowerInfoEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPowerInfoEXT)
 #[repr(C)]
@@ -58,7 +60,7 @@ pub struct VkDisplayPowerInfoEXT {
 impl Default for VkDisplayPowerInfoEXT {
     fn default() -> Self {
         VkDisplayPowerInfoEXT {
-            sType: vk::VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT,
+            sType: vk::VkStructureType::DISPLAY_POWER_INFO_EXT,
             pNext: ptr::null(),
             powerState: Default::default(),
         }
@@ -77,7 +79,7 @@ pub struct VkDeviceEventInfoEXT {
 impl Default for VkDeviceEventInfoEXT {
     fn default() -> Self {
         VkDeviceEventInfoEXT {
-            sType: vk::VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT,
+            sType: vk::VkStructureType::DEVICE_EVENT_INFO_EXT,
             pNext: ptr::null(),
             deviceEvent: Default::default(),
         }
@@ -96,7 +98,7 @@ pub struct VkDisplayEventInfoEXT {
 impl Default for VkDisplayEventInfoEXT {
     fn default() -> Self {
         VkDisplayEventInfoEXT {
-            sType: vk::VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT,
+            sType: vk::VkStructureType::DISPLAY_EVENT_INFO_EXT,
             pNext: ptr::null(),
             displayEvent: Default::default(),
         }
@@ -115,7 +117,7 @@ pub struct VkSwapchainCounterCreateInfoEXT {
 impl Default for VkSwapchainCounterCreateInfoEXT {
     fn default() -> Self {
         VkSwapchainCounterCreateInfoEXT {
-            sType: vk::VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT,
+            sType: vk::VkStructureType::SWAPCHAIN_COUNTER_CREATE_INFO_EXT,
             pNext: ptr::null(),
             surfaceCounters: Default::default(),
         }

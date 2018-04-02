@@ -184,2144 +184,1217 @@ pub const VK_MAX_MEMORY_HEAPS: usize = 16;
 pub const VK_MAX_EXTENSION_NAME_SIZE: usize = 256;
 pub const VK_MAX_DESCRIPTION_SIZE: usize = 256;
 
-cenum!(VkPipelineCacheHeaderVersion: u32 {
+vks_enum! {
     /// See [`VkPipelineCacheHeaderVersion`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCacheHeaderVersion)
-    const VK_PIPELINE_CACHE_HEADER_VERSION_ONE = 1,
-});
+    pub VkPipelineCacheHeaderVersion: u32 {
+        const ONE = 1;
+    }
+}
 
-cenum!(VkResult: i32 {
+vks_enum! {
     /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_SUCCESS = 0,
+    pub VkResult: i32 {
+        const SUCCESS = 0;
+        const NOT_READY = 1;
+        const TIMEOUT = 2;
+        const EVENT_SET = 3;
+        const EVENT_RESET = 4;
+        const INCOMPLETE = 5;
+        const ERROR_OUT_OF_HOST_MEMORY = -1;
+        const ERROR_OUT_OF_DEVICE_MEMORY = -2;
+        const ERROR_INITIALIZATION_FAILED = -3;
+        const ERROR_DEVICE_LOST = -4;
+        const ERROR_MEMORY_MAP_FAILED = -5;
+        const ERROR_LAYER_NOT_PRESENT = -6;
+        const ERROR_EXTENSION_NOT_PRESENT = -7;
+        const ERROR_FEATURE_NOT_PRESENT = -8;
+        const ERROR_INCOMPATIBLE_DRIVER = -9;
+        const ERROR_TOO_MANY_OBJECTS = -10;
+        const ERROR_FORMAT_NOT_SUPPORTED = -11;
+        const ERROR_FRAGMENTED_POOL = -12;
+
+        /// See extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+        const ERROR_SURFACE_LOST_KHR = -1000000000;
+
+        /// See extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+        const ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001;
+
+        /// See extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const SUBOPTIMAL_KHR = 1000001003;
+
+        /// See extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const ERROR_OUT_OF_DATE_KHR = -1000001004;
+
+        /// See extension [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
+        const ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001;
+
+        /// See extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
+        const ERROR_VALIDATION_FAILED_EXT = -1000011001;
+
+        /// See extension [`VK_NV_glsl_shader`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_glsl_shader)
+        const ERROR_INVALID_SHADER_NV = -1000012000;
+
+        /// See extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
+        const ERROR_OUT_OF_POOL_MEMORY_KHR = -1000069000;
+
+        /// See extensions [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory) and
+        /// [`VK_KHR_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore)
+        const ERROR_INVALID_EXTERNAL_HANDLE_KHR = -1000072003;
+    }
+}
+
+vks_enum! {
+    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
+    pub VkStructureType: u32 {
+        const APPLICATION_INFO = 0;
+        const INSTANCE_CREATE_INFO = 1;
+        const DEVICE_QUEUE_CREATE_INFO = 2;
+        const DEVICE_CREATE_INFO = 3;
+        const SUBMIT_INFO = 4;
+        const MEMORY_ALLOCATE_INFO = 5;
+        const MAPPED_MEMORY_RANGE = 6;
+        const BIND_SPARSE_INFO = 7;
+        const FENCE_CREATE_INFO = 8;
+        const SEMAPHORE_CREATE_INFO = 9;
+        const EVENT_CREATE_INFO = 10;
+        const QUERY_POOL_CREATE_INFO = 11;
+        const BUFFER_CREATE_INFO = 12;
+        const BUFFER_VIEW_CREATE_INFO = 13;
+        const IMAGE_CREATE_INFO = 14;
+        const IMAGE_VIEW_CREATE_INFO = 15;
+        const SHADER_MODULE_CREATE_INFO = 16;
+        const PIPELINE_CACHE_CREATE_INFO = 17;
+        const PIPELINE_SHADER_STAGE_CREATE_INFO = 18;
+        const PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO = 19;
+        const PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO = 20;
+        const PIPELINE_TESSELLATION_STATE_CREATE_INFO = 21;
+        const PIPELINE_VIEWPORT_STATE_CREATE_INFO = 22;
+        const PIPELINE_RASTERIZATION_STATE_CREATE_INFO = 23;
+        const PIPELINE_MULTISAMPLE_STATE_CREATE_INFO = 24;
+        const PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO = 25;
+        const PIPELINE_COLOR_BLEND_STATE_CREATE_INFO = 26;
+        const PIPELINE_DYNAMIC_STATE_CREATE_INFO = 27;
+        const GRAPHICS_PIPELINE_CREATE_INFO = 28;
+        const COMPUTE_PIPELINE_CREATE_INFO = 29;
+        const PIPELINE_LAYOUT_CREATE_INFO = 30;
+        const SAMPLER_CREATE_INFO = 31;
+        const DESCRIPTOR_SET_LAYOUT_CREATE_INFO = 32;
+        const DESCRIPTOR_POOL_CREATE_INFO = 33;
+        const DESCRIPTOR_SET_ALLOCATE_INFO = 34;
+        const WRITE_DESCRIPTOR_SET = 35;
+        const COPY_DESCRIPTOR_SET = 36;
+        const FRAMEBUFFER_CREATE_INFO = 37;
+        const RENDER_PASS_CREATE_INFO = 38;
+        const COMMAND_POOL_CREATE_INFO = 39;
+        const COMMAND_BUFFER_ALLOCATE_INFO = 40;
+        const COMMAND_BUFFER_INHERITANCE_INFO = 41;
+        const COMMAND_BUFFER_BEGIN_INFO = 42;
+        const RENDER_PASS_BEGIN_INFO = 43;
+        const BUFFER_MEMORY_BARRIER = 44;
+        const IMAGE_MEMORY_BARRIER = 45;
+        const MEMORY_BARRIER = 46;
+        const LOADER_INSTANCE_CREATE_INFO = 47;
+        const LOADER_DEVICE_CREATE_INFO = 48;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_NOT_READY = 1,
+        /// See extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const SWAPCHAIN_CREATE_INFO_KHR = 1000001000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_TIMEOUT = 2,
+        /// See extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const PRESENT_INFO_KHR = 1000001001;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_EVENT_SET = 3,
+        /// See extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+        const DISPLAY_MODE_CREATE_INFO_KHR = 1000002000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_EVENT_RESET = 4,
+        /// See extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+        const DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_INCOMPLETE = 5,
+        /// See extension [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
+        const DISPLAY_PRESENT_INFO_KHR = 1000003000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_OUT_OF_HOST_MEMORY = -1,
+        /// See extension [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
+        const XLIB_SURFACE_CREATE_INFO_KHR = 1000004000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_OUT_OF_DEVICE_MEMORY = -2,
+        /// See extension [`VK_KHR_xcb_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xcb_surface)
+        const XCB_SURFACE_CREATE_INFO_KHR = 1000005000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_INITIALIZATION_FAILED = -3,
+        /// See extension [`VK_KHR_wayland_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_wayland_surface)
+        const WAYLAND_SURFACE_CREATE_INFO_KHR = 1000006000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_DEVICE_LOST = -4,
+        /// See extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
+        const MIR_SURFACE_CREATE_INFO_KHR = 1000007000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_MEMORY_MAP_FAILED = -5,
+        /// See extension [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
+        const ANDROID_SURFACE_CREATE_INFO_KHR = 1000008000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_LAYER_NOT_PRESENT = -6,
+        /// See extension [`VK_KHR_win32_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_win32_surface)
+        const WIN32_SURFACE_CREATE_INFO_KHR = 1000009000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_EXTENSION_NOT_PRESENT = -7,
+        /// See extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
+        const DEBUG_REPORT_CREATE_INFO_EXT = 1000011000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_FEATURE_NOT_PRESENT = -8,
+        /// See extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
+        const DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT = 1000011000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_INCOMPATIBLE_DRIVER = -9,
+        /// See extension [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
+        const PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_TOO_MANY_OBJECTS = -10,
+        /// See extension [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
+        const DEBUG_MARKER_OBJECT_NAME_INFO_EXT = 1000022000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_FORMAT_NOT_SUPPORTED = -11,
+        /// See extension [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
+        const DEBUG_MARKER_OBJECT_TAG_INFO_EXT = 1000022001;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    const VK_ERROR_FRAGMENTED_POOL = -12,
+        /// See extension [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
+        const DEBUG_MARKER_MARKER_INFO_EXT = 1000022002;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
-    const VK_ERROR_SURFACE_LOST_KHR = -1000000000,
+        /// See extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
+        const DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV = 1000026000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
-    const VK_ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001,
+        /// See extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
+        const DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV = 1000026001;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    const VK_SUBOPTIMAL_KHR = 1000001003,
+        /// See extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
+        const DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV = 1000026002;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    const VK_ERROR_OUT_OF_DATE_KHR = -1000001004,
+        /// See extension [`VK_AMD_texture_gather_bias_lod`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod)
+        const TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD = 1000041000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
-    const VK_ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001,
+        /// See extension [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
+        const EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV = 1000056000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-    const VK_ERROR_VALIDATION_FAILED_EXT = -1000011001,
+        /// See extension [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
+        const EXPORT_MEMORY_ALLOCATE_INFO_NV = 1000056001;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_NV_glsl_shader`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_glsl_shader)
-    const VK_ERROR_INVALID_SHADER_NV = -1000012000,
+        /// See extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
+        const IMPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057000;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extension [`VK_KHR_maintenance1`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1)
-    const VK_ERROR_OUT_OF_POOL_MEMORY_KHR = -1000069000,
+        /// See extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
+        const EXPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057001;
 
-    /// See [`VkResult`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkResult)
-    /// and extensions [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory),
-    /// [`VK_KHR_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore)
-    const VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR = -1000072003,
-});
+        /// See extension [`VK_NV_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_win32_keyed_mutex)
+        const WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV = 1000058000;
 
-cenum!(VkStructureType: u32 {
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_APPLICATION_INFO = 0,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO = 1,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO = 2,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO = 3,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_SUBMIT_INFO = 4,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO = 5,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE = 6,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_BIND_SPARSE_INFO = 7,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_FENCE_CREATE_INFO = 8,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO = 9,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_EVENT_CREATE_INFO = 10,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO = 11,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO = 12,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO = 13,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO = 14,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO = 15,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO = 16,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO = 17,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO = 18,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO = 19,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO = 20,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO = 21,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO = 22,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO = 23,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO = 24,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO = 25,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO = 26,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO = 27,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO = 28,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO = 29,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO = 30,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO = 31,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO = 32,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO = 33,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO = 34,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET = 35,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET = 36,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO = 37,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO = 38,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO = 39,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO = 40,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO = 41,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO = 42,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO = 43,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER = 44,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER = 45,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_MEMORY_BARRIER = 46,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO = 47,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    const VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO = 48,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    const VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR = 1000001000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    const VK_STRUCTURE_TYPE_PRESENT_INFO_KHR = 1000001001,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    const VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR = 1000002000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    const VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_display_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display_swapchain)
-    const VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR = 1000003000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_xlib_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xlib_surface)
-    const VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR = 1000004000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_xcb_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_xcb_surface)
-    const VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR = 1000005000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_wayland_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_wayland_surface)
-    const VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR = 1000006000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_mir_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_mir_surface)
-    const VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR = 1000007000,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const PHYSICAL_DEVICE_FEATURES_2_KHR = 1000059000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_android_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface)
-    const VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR = 1000008000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_win32_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_win32_surface)
-    const VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR = 1000009000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-    const VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT = 1000011000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-    const VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT = 1000011000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_AMD_rasterization_order`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order)
-    const VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
-    const VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT = 1000022000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
-    const VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT = 1000022001,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_debug_marker`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_marker)
-    const VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT = 1000022002,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
-    const VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV = 1000026000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
-    const VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV = 1000026001,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation)
-    const VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV = 1000026002,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_AMD_texture_gather_bias_lod`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod)
-    const VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD = 1000041000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
-    const VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV = 1000056000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory)
-    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV = 1000056001,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
-    const VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_external_memory_win32)
-    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057001,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_win32_keyed_mutex)
-    const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV = 1000058000,
-
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR = 1000059000,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const PHYSICAL_DEVICE_PROPERTIES_2_KHR = 1000059001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR = 1000059001,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const FORMAT_PROPERTIES_2_KHR = 1000059002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR = 1000059002,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const IMAGE_FORMAT_PROPERTIES_2_KHR = 1000059003;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR = 1000059003,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR = 1000059004;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR = 1000059004,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const QUEUE_FAMILY_PROPERTIES_2_KHR = 1000059005;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR = 1000059005,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR = 1000059006;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR = 1000059006,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR = 1000059007;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR = 1000059007,
+        /// See extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
+        const PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR = 1000059008;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_physical_device_properties2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR = 1000059008,
+        /// See extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
+        const VALIDATION_FLAGS_EXT = 1000061000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_validation_flags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_validation_flags)
-    const VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT = 1000061000,
+        /// See extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
+        const VI_SURFACE_CREATE_INFO_NN = 1000062000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NN_vi_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface)
-    const VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN = 1000062000,
+        /// See extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+        const PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR = 1000071000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR = 1000071000,
+        /// See extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+        const EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHR = 1000071001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
-    const VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHR = 1000071001,
+        /// See extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+        const PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR = 1000071002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR = 1000071002,
+        /// See extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
+        const EXTERNAL_BUFFER_PROPERTIES_KHR = 1000071003;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities)
-    const VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHR = 1000071003,
+        /// See extensions [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities),
+        /// [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities), and
+        /// [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
+        const PHYSICAL_DEVICE_ID_PROPERTIES_KHR = 1000071004;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extensions [`VK_KHR_external_memory_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities),
-    /// [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities),
-    /// [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHR = 1000071004,
+        /// See extension [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
+        const EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR = 1000072000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
-    const VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR = 1000072000,
+        /// See extension [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
+        const EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR = 1000072001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
-    const VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR = 1000072001,
+        /// See extension [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
+        const EXPORT_MEMORY_ALLOCATE_INFO_KHR = 1000072002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory)
-    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHR = 1000072002,
+        /// See extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+        const IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR = 1000073000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
-    const VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR = 1000073000,
+        /// See extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+        const EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR = 1000073001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
-    const VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR = 1000073001,
+        /// See extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+        const MEMORY_WIN32_HANDLE_PROPERTIES_KHR = 1000073002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
-    const VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR = 1000073002,
+        /// See extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
+        const MEMORY_GET_WIN32_HANDLE_INFO_KHR = 1000073003;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_win32)
-    const VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR = 1000073003,
+        /// See extension [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
+        const IMPORT_MEMORY_FD_INFO_KHR = 1000074000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
-    const VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR = 1000074000,
+        /// See extension [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
+        const MEMORY_FD_PROPERTIES_KHR = 1000074001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
-    const VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR = 1000074001,
+        /// See extension [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
+        const MEMORY_GET_FD_INFO_KHR = 1000074002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_memory_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_fd)
-    const VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR = 1000074002,
+        /// See extension [`VK_KHR_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#win32_keyed_mutex)
+        const WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR = 1000075000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_win32_keyed_mutex`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#win32_keyed_mutex)
-    const VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR = 1000075000,
+        /// See extension [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
+        const PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR = 1000076000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR = 1000076000,
+        /// See extension [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
+        const EXTERNAL_SEMAPHORE_PROPERTIES_KHR = 1000076001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities)
-    const VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHR = 1000076001,
+        /// See extension [`VK_KHR_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore)
+        const EXPORT_SEMAPHORE_CREATE_INFO_KHR = 1000077000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore)
-    const VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHR = 1000077000,
+        /// See extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
+        const IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR = 1000078000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
-    const VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR = 1000078000,
+        /// See extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
+        const EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR = 1000078001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
-    const VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR = 1000078001,
+        /// See extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
+        const D3D12_FENCE_SUBMIT_INFO_KHR = 1000078002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
-    const VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR = 1000078002,
+        /// See extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
+        const SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR = 1000078003;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_win32)
-    const VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR = 1000078003,
+        /// See extension [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
+        const IMPORT_SEMAPHORE_FD_INFO_KHR = 1000079000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
-    const VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR = 1000079000,
+        /// See extension [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
+        const SEMAPHORE_GET_FD_INFO_KHR = 1000079001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_semaphore_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd)
-    const VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR = 1000079001,
+        /// See extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
+        const PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_push_descriptor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR = 1000080000,
+        /// See extension [`VK_KHR_16bit_storage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_16bit_storage)
+        const PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES_KHR = 1000083000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_16bit_storage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_16bit_storage)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES_KHR = 1000083000,
+        /// See extension [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
+        const PRESENT_REGIONS_KHR = 1000084000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_incremental_present`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present)
-    const VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR = 1000084000,
+        /// See extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
+        const DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR = 1000085000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
-    const VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR = 1000085000,
+        /// See extension [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
+        const PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV = 1000087000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
-    const VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV = 1000087000,
+        /// See extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
+        const SURFACE_CAPABILITIES_2_EXT = 1000090000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
-    const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT = 1000090000,
+        /// See extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
+        const SURFACE_CAPABILITIES2_EXT = 1000090000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_display_surface_counter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_surface_counter)
-    const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT = 1000090000,
+        /// See extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
+        const DISPLAY_POWER_INFO_EXT = 1000091000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    const VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT = 1000091000,
+        /// See extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
+        const DEVICE_EVENT_INFO_EXT = 1000091001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    const VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT = 1000091001,
+        /// See extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
+        const DISPLAY_EVENT_INFO_EXT = 1000091002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    const VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT = 1000091002,
+        /// See extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
+        const SWAPCHAIN_COUNTER_CREATE_INFO_EXT = 1000091003;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_display_control`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_display_control)
-    const VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT = 1000091003,
+        /// See extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
+        const PRESENT_TIMES_INFO_GOOGLE = 1000092000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing)
-    const VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE = 1000092000,
+        /// See extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
+        const PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_viewport_swizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_viewport_swizzle)
-    const VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000,
+        /// See extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
+        const PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT = 1000099000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT = 1000099000,
+        /// See extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
+        const PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT = 1000099001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_discard_rectangles)
-    const VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT = 1000099001,
+        /// See extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
+        const HDR_METADATA_EXT = 1000105000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_hdr_metadata`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata)
-    const VK_STRUCTURE_TYPE_HDR_METADATA_EXT = 1000105000,
+        /// See extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
+        const SHARED_PRESENT_SURFACE_CAPABILITIES_KHR = 1000111000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
-    const VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR = 1000111000,
+        /// See extension [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
+        const PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR = 1000112000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR = 1000112000,
+        /// See extension [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
+        const EXTERNAL_FENCE_PROPERTIES_KHR = 1000112001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_capabilities`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_capabilities)
-    const VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR = 1000112001,
+        /// See extension [`VK_KHR_external_fence`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence)
+        const EXPORT_FENCE_CREATE_INFO_KHR = 1000113000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence)
-    const VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO_KHR = 1000113000,
+        /// See extension [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
+        const IMPORT_FENCE_WIN32_HANDLE_INFO_KHR = 1000114000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
-    const VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR = 1000114000,
+        /// See extension [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
+        const EXPORT_FENCE_WIN32_HANDLE_INFO_KHR = 1000114001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
-    const VK_STRUCTURE_TYPE_EXPORT_FENCE_WIN32_HANDLE_INFO_KHR = 1000114001,
+        /// See extension [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
+        const FENCE_GET_WIN32_HANDLE_INFO_KHR = 1000114002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_win32`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_win32)
-    const VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR = 1000114002,
+        /// See extension [`VK_KHR_external_fence_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_fd)
+        const IMPORT_FENCE_FD_INFO_KHR = 1000115000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_fd)
-    const VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR = 1000115000,
+        /// See extension [`VK_KHR_external_fence_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_fd)
+        const FENCE_GET_FD_INFO_KHR = 1000115001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_external_fence_fd`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence_fd)
-    const VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR = 1000115001,
+        /// See extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
+        const PHYSICAL_DEVICE_SURFACE_INFO_2_KHR = 1000119000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR = 1000119000,
+        /// See extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
+        const SURFACE_CAPABILITIES_2_KHR = 1000119001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-    const VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR = 1000119001,
+        /// See extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
+        const SURFACE_FORMAT_2_KHR = 1000119002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_surface_capabilities2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2)
-    const VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR = 1000119002,
+        /// See extension [`VK_KHR_variable_pointers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_variable_pointers)
+        const PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR = 1000120000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_variable_pointers`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_variable_pointers)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR = 1000120000,
+        /// See extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
+        const IOS_SURFACE_CREATE_INFO_MVK = 1000122000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_MVK_ios_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_ios_surface)
-    const VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK = 1000122000,
+        /// See extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
+        const MACOS_SURFACE_CREATE_INFO_MVK = 1000123000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_MVK_macos_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_MVK_macos_surface)
-    const VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK = 1000123000,
+        /// See extension [`VK_KHR_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation)
+        const MEMORY_DEDICATED_REQUIREMENTS_KHR = 1000127000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation)
-    const VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS_KHR = 1000127000,
+        /// See extension [`VK_KHR_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation)
+        const MEMORY_DEDICATED_ALLOCATE_INFO_KHR = 1000127001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_dedicated_allocation`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation)
-    const VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_KHR = 1000127001,
+        /// See extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
+        const PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT = 1000130000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT = 1000130000,
+        /// See extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
+        const SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT = 1000130001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_sampler_filter_minmax`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_sampler_filter_minmax)
-    const VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT = 1000130001,
+        /// See extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+        const BUFFER_MEMORY_REQUIREMENTS_INFO_2_KHR = 1000146000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
-    const VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2_KHR = 1000146000,
+        /// See extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+        const IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR = 1000146001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
-    const VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR = 1000146001,
+        /// See extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+        const IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2_KHR = 1000146002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
-    const VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2_KHR = 1000146002,
+        /// See extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+        const MEMORY_REQUIREMENTS_2_KHR = 1000146003;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
-    const VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2_KHR = 1000146003,
+        /// See extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
+        const SPARSE_IMAGE_MEMORY_REQUIREMENTS_2_KHR = 1000146004;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_KHR_get_memory_requirements2`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_memory_requirements2)
-    const VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2_KHR = 1000146004,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT = 1000148000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT = 1000148000,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT = 1000148001;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT = 1000148001,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT = 1000148002;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT = 1000148002,
+        /// See extension [`VK_NV_fragment_coverage_to_color`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fragment_coverage_to_color)
+        const PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV = 1000149000;
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_fragment_coverage_to_color`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fragment_coverage_to_color)
-    const VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV = 1000149000,
+        /// See extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
+        const PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV = 1000152000;
+    }
+}
 
-    /// See [`VkStructureType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStructureType)
-    /// and extension [`VK_NV_framebuffer_mixed_samples`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_framebuffer_mixed_samples)
-    const VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV = 1000152000,
-});
-
-cenum!(VkSystemAllocationScope: u32 {
+vks_enum! {
     /// See [`VkSystemAllocationScope`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSystemAllocationScope)
-    const VK_SYSTEM_ALLOCATION_SCOPE_COMMAND = 0,
+    pub VkSystemAllocationScope: u32 {
+        const COMMAND = 0;
+        const OBJECT = 1;
+        const CACHE = 2;
+        const DEVICE = 3;
+        const INSTANCE = 4;
+    }
+}
 
-    /// See [`VkSystemAllocationScope`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSystemAllocationScope)
-    const VK_SYSTEM_ALLOCATION_SCOPE_OBJECT = 1,
-
-    /// See [`VkSystemAllocationScope`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSystemAllocationScope)
-    const VK_SYSTEM_ALLOCATION_SCOPE_CACHE = 2,
-
-    /// See [`VkSystemAllocationScope`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSystemAllocationScope)
-    const VK_SYSTEM_ALLOCATION_SCOPE_DEVICE = 3,
-
-    /// See [`VkSystemAllocationScope`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSystemAllocationScope)
-    const VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE = 4,
-});
-
-cenum!(VkInternalAllocationType: u32 {
+vks_enum! {
     /// See [`VkInternalAllocationType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInternalAllocationType)
-    const VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE = 0,
-});
-
-cenum!(VkFormat: u32 {
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_UNDEFINED = 0,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R4G4_UNORM_PACK8 = 1,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R4G4B4A4_UNORM_PACK16 = 2,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B4G4R4A4_UNORM_PACK16 = 3,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R5G6B5_UNORM_PACK16 = 4,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B5G6R5_UNORM_PACK16 = 5,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R5G5B5A1_UNORM_PACK16 = 6,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B5G5R5A1_UNORM_PACK16 = 7,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A1R5G5B5_UNORM_PACK16 = 8,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_UNORM = 9,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_SNORM = 10,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_USCALED = 11,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_SSCALED = 12,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_UINT = 13,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_SINT = 14,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8_SRGB = 15,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_UNORM = 16,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_SNORM = 17,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_USCALED = 18,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_SSCALED = 19,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_UINT = 20,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_SINT = 21,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8_SRGB = 22,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_UNORM = 23,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_SNORM = 24,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_USCALED = 25,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_SSCALED = 26,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_UINT = 27,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_SINT = 28,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8_SRGB = 29,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_UNORM = 30,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_SNORM = 31,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_USCALED = 32,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_SSCALED = 33,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_UINT = 34,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_SINT = 35,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8_SRGB = 36,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_UNORM = 37,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_SNORM = 38,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_USCALED = 39,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_SSCALED = 40,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_UINT = 41,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_SINT = 42,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R8G8B8A8_SRGB = 43,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_UNORM = 44,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_SNORM = 45,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_USCALED = 46,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_SSCALED = 47,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_UINT = 48,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_SINT = 49,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B8G8R8A8_SRGB = 50,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_UNORM_PACK32 = 51,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_SNORM_PACK32 = 52,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_USCALED_PACK32 = 53,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_SSCALED_PACK32 = 54,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_UINT_PACK32 = 55,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_SINT_PACK32 = 56,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A8B8G8R8_SRGB_PACK32 = 57,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2R10G10B10_UNORM_PACK32 = 58,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2R10G10B10_SNORM_PACK32 = 59,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2R10G10B10_USCALED_PACK32 = 60,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2R10G10B10_SSCALED_PACK32 = 61,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2R10G10B10_UINT_PACK32 = 62,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2R10G10B10_SINT_PACK32 = 63,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2B10G10R10_UNORM_PACK32 = 64,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2B10G10R10_SNORM_PACK32 = 65,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2B10G10R10_USCALED_PACK32 = 66,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2B10G10R10_SSCALED_PACK32 = 67,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2B10G10R10_UINT_PACK32 = 68,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_A2B10G10R10_SINT_PACK32 = 69,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_UNORM = 70,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_SNORM = 71,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_USCALED = 72,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_SSCALED = 73,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_UINT = 74,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_SINT = 75,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16_SFLOAT = 76,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_UNORM = 77,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_SNORM = 78,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_USCALED = 79,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_SSCALED = 80,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_UINT = 81,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_SINT = 82,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16_SFLOAT = 83,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_UNORM = 84,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_SNORM = 85,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_USCALED = 86,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_SSCALED = 87,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_UINT = 88,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_SINT = 89,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16_SFLOAT = 90,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_UNORM = 91,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_SNORM = 92,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_USCALED = 93,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_SSCALED = 94,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_UINT = 95,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_SINT = 96,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R16G16B16A16_SFLOAT = 97,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32_UINT = 98,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32_SINT = 99,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32_SFLOAT = 100,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32_UINT = 101,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32_SINT = 102,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32_SFLOAT = 103,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32B32_UINT = 104,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32B32_SINT = 105,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32B32_SFLOAT = 106,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32B32A32_UINT = 107,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32B32A32_SINT = 108,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R32G32B32A32_SFLOAT = 109,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64_UINT = 110,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64_SINT = 111,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64_SFLOAT = 112,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64_UINT = 113,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64_SINT = 114,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64_SFLOAT = 115,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64B64_UINT = 116,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64B64_SINT = 117,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64B64_SFLOAT = 118,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64B64A64_UINT = 119,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64B64A64_SINT = 120,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_R64G64B64A64_SFLOAT = 121,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_B10G11R11_UFLOAT_PACK32 = 122,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_E5B9G9R9_UFLOAT_PACK32 = 123,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_D16_UNORM = 124,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_X8_D24_UNORM_PACK32 = 125,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_D32_SFLOAT = 126,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_S8_UINT = 127,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_D16_UNORM_S8_UINT = 128,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_D24_UNORM_S8_UINT = 129,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_D32_SFLOAT_S8_UINT = 130,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC1_RGB_UNORM_BLOCK = 131,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC1_RGB_SRGB_BLOCK = 132,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC1_RGBA_UNORM_BLOCK = 133,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC1_RGBA_SRGB_BLOCK = 134,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC2_UNORM_BLOCK = 135,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC2_SRGB_BLOCK = 136,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC3_UNORM_BLOCK = 137,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC3_SRGB_BLOCK = 138,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC4_UNORM_BLOCK = 139,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC4_SNORM_BLOCK = 140,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC5_UNORM_BLOCK = 141,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC5_SNORM_BLOCK = 142,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC6H_UFLOAT_BLOCK = 143,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC6H_SFLOAT_BLOCK = 144,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC7_UNORM_BLOCK = 145,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_BC7_SRGB_BLOCK = 146,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK = 147,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK = 148,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK = 149,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK = 150,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK = 151,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK = 152,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_EAC_R11_UNORM_BLOCK = 153,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_EAC_R11_SNORM_BLOCK = 154,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_EAC_R11G11_UNORM_BLOCK = 155,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_EAC_R11G11_SNORM_BLOCK = 156,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_4x4_UNORM_BLOCK = 157,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_4x4_SRGB_BLOCK = 158,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_5x4_UNORM_BLOCK = 159,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_5x4_SRGB_BLOCK = 160,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_5x5_UNORM_BLOCK = 161,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_5x5_SRGB_BLOCK = 162,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_6x5_UNORM_BLOCK = 163,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_6x5_SRGB_BLOCK = 164,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_6x6_UNORM_BLOCK = 165,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_6x6_SRGB_BLOCK = 166,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_8x5_UNORM_BLOCK = 167,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_8x5_SRGB_BLOCK = 168,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_8x6_UNORM_BLOCK = 169,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_8x6_SRGB_BLOCK = 170,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_8x8_UNORM_BLOCK = 171,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_8x8_SRGB_BLOCK = 172,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x5_UNORM_BLOCK = 173,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x5_SRGB_BLOCK = 174,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x6_UNORM_BLOCK = 175,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x6_SRGB_BLOCK = 176,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x8_UNORM_BLOCK = 177,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x8_SRGB_BLOCK = 178,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x10_UNORM_BLOCK = 179,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_10x10_SRGB_BLOCK = 180,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_12x10_UNORM_BLOCK = 181,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_12x10_SRGB_BLOCK = 182,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_12x12_UNORM_BLOCK = 183,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    const VK_FORMAT_ASTC_12x12_SRGB_BLOCK = 184,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC2_2BPP_UNORM_BLOCK_IMG = 1000054002,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC2_4BPP_UNORM_BLOCK_IMG = 1000054003,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC1_2BPP_SRGB_BLOCK_IMG = 1000054004,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC1_4BPP_SRGB_BLOCK_IMG = 1000054005,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC2_2BPP_SRGB_BLOCK_IMG = 1000054006,
-
-    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
-    /// and extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
-    const VK_FORMAT_PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
-});
-
-cenum!(VkImageType: u32 {
+    pub VkInternalAllocationType: u32 {
+        const EXECUTABLE = 0;
+    }
+}
+
+vks_enum! {
+    /// See [`VkFormat`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFormat)
+    pub VkFormat: u32 {
+        const UNDEFINED = 0;
+        const R4G4_UNORM_PACK8 = 1;
+        const R4G4B4A4_UNORM_PACK16 = 2;
+        const B4G4R4A4_UNORM_PACK16 = 3;
+        const R5G6B5_UNORM_PACK16 = 4;
+        const B5G6R5_UNORM_PACK16 = 5;
+        const R5G5B5A1_UNORM_PACK16 = 6;
+        const B5G5R5A1_UNORM_PACK16 = 7;
+        const A1R5G5B5_UNORM_PACK16 = 8;
+        const R8_UNORM = 9;
+        const R8_SNORM = 10;
+        const R8_USCALED = 11;
+        const R8_SSCALED = 12;
+        const R8_UINT = 13;
+        const R8_SINT = 14;
+        const R8_SRGB = 15;
+        const R8G8_UNORM = 16;
+        const R8G8_SNORM = 17;
+        const R8G8_USCALED = 18;
+        const R8G8_SSCALED = 19;
+        const R8G8_UINT = 20;
+        const R8G8_SINT = 21;
+        const R8G8_SRGB = 22;
+        const R8G8B8_UNORM = 23;
+        const R8G8B8_SNORM = 24;
+        const R8G8B8_USCALED = 25;
+        const R8G8B8_SSCALED = 26;
+        const R8G8B8_UINT = 27;
+        const R8G8B8_SINT = 28;
+        const R8G8B8_SRGB = 29;
+        const B8G8R8_UNORM = 30;
+        const B8G8R8_SNORM = 31;
+        const B8G8R8_USCALED = 32;
+        const B8G8R8_SSCALED = 33;
+        const B8G8R8_UINT = 34;
+        const B8G8R8_SINT = 35;
+        const B8G8R8_SRGB = 36;
+        const R8G8B8A8_UNORM = 37;
+        const R8G8B8A8_SNORM = 38;
+        const R8G8B8A8_USCALED = 39;
+        const R8G8B8A8_SSCALED = 40;
+        const R8G8B8A8_UINT = 41;
+        const R8G8B8A8_SINT = 42;
+        const R8G8B8A8_SRGB = 43;
+        const B8G8R8A8_UNORM = 44;
+        const B8G8R8A8_SNORM = 45;
+        const B8G8R8A8_USCALED = 46;
+        const B8G8R8A8_SSCALED = 47;
+        const B8G8R8A8_UINT = 48;
+        const B8G8R8A8_SINT = 49;
+        const B8G8R8A8_SRGB = 50;
+        const A8B8G8R8_UNORM_PACK32 = 51;
+        const A8B8G8R8_SNORM_PACK32 = 52;
+        const A8B8G8R8_USCALED_PACK32 = 53;
+        const A8B8G8R8_SSCALED_PACK32 = 54;
+        const A8B8G8R8_UINT_PACK32 = 55;
+        const A8B8G8R8_SINT_PACK32 = 56;
+        const A8B8G8R8_SRGB_PACK32 = 57;
+        const A2R10G10B10_UNORM_PACK32 = 58;
+        const A2R10G10B10_SNORM_PACK32 = 59;
+        const A2R10G10B10_USCALED_PACK32 = 60;
+        const A2R10G10B10_SSCALED_PACK32 = 61;
+        const A2R10G10B10_UINT_PACK32 = 62;
+        const A2R10G10B10_SINT_PACK32 = 63;
+        const A2B10G10R10_UNORM_PACK32 = 64;
+        const A2B10G10R10_SNORM_PACK32 = 65;
+        const A2B10G10R10_USCALED_PACK32 = 66;
+        const A2B10G10R10_SSCALED_PACK32 = 67;
+        const A2B10G10R10_UINT_PACK32 = 68;
+        const A2B10G10R10_SINT_PACK32 = 69;
+        const R16_UNORM = 70;
+        const R16_SNORM = 71;
+        const R16_USCALED = 72;
+        const R16_SSCALED = 73;
+        const R16_UINT = 74;
+        const R16_SINT = 75;
+        const R16_SFLOAT = 76;
+        const R16G16_UNORM = 77;
+        const R16G16_SNORM = 78;
+        const R16G16_USCALED = 79;
+        const R16G16_SSCALED = 80;
+        const R16G16_UINT = 81;
+        const R16G16_SINT = 82;
+        const R16G16_SFLOAT = 83;
+        const R16G16B16_UNORM = 84;
+        const R16G16B16_SNORM = 85;
+        const R16G16B16_USCALED = 86;
+        const R16G16B16_SSCALED = 87;
+        const R16G16B16_UINT = 88;
+        const R16G16B16_SINT = 89;
+        const R16G16B16_SFLOAT = 90;
+        const R16G16B16A16_UNORM = 91;
+        const R16G16B16A16_SNORM = 92;
+        const R16G16B16A16_USCALED = 93;
+        const R16G16B16A16_SSCALED = 94;
+        const R16G16B16A16_UINT = 95;
+        const R16G16B16A16_SINT = 96;
+        const R16G16B16A16_SFLOAT = 97;
+        const R32_UINT = 98;
+        const R32_SINT = 99;
+        const R32_SFLOAT = 100;
+        const R32G32_UINT = 101;
+        const R32G32_SINT = 102;
+        const R32G32_SFLOAT = 103;
+        const R32G32B32_UINT = 104;
+        const R32G32B32_SINT = 105;
+        const R32G32B32_SFLOAT = 106;
+        const R32G32B32A32_UINT = 107;
+        const R32G32B32A32_SINT = 108;
+        const R32G32B32A32_SFLOAT = 109;
+        const R64_UINT = 110;
+        const R64_SINT = 111;
+        const R64_SFLOAT = 112;
+        const R64G64_UINT = 113;
+        const R64G64_SINT = 114;
+        const R64G64_SFLOAT = 115;
+        const R64G64B64_UINT = 116;
+        const R64G64B64_SINT = 117;
+        const R64G64B64_SFLOAT = 118;
+        const R64G64B64A64_UINT = 119;
+        const R64G64B64A64_SINT = 120;
+        const R64G64B64A64_SFLOAT = 121;
+        const B10G11R11_UFLOAT_PACK32 = 122;
+        const E5B9G9R9_UFLOAT_PACK32 = 123;
+        const D16_UNORM = 124;
+        const X8_D24_UNORM_PACK32 = 125;
+        const D32_SFLOAT = 126;
+        const S8_UINT = 127;
+        const D16_UNORM_S8_UINT = 128;
+        const D24_UNORM_S8_UINT = 129;
+        const D32_SFLOAT_S8_UINT = 130;
+        const BC1_RGB_UNORM_BLOCK = 131;
+        const BC1_RGB_SRGB_BLOCK = 132;
+        const BC1_RGBA_UNORM_BLOCK = 133;
+        const BC1_RGBA_SRGB_BLOCK = 134;
+        const BC2_UNORM_BLOCK = 135;
+        const BC2_SRGB_BLOCK = 136;
+        const BC3_UNORM_BLOCK = 137;
+        const BC3_SRGB_BLOCK = 138;
+        const BC4_UNORM_BLOCK = 139;
+        const BC4_SNORM_BLOCK = 140;
+        const BC5_UNORM_BLOCK = 141;
+        const BC5_SNORM_BLOCK = 142;
+        const BC6H_UFLOAT_BLOCK = 143;
+        const BC6H_SFLOAT_BLOCK = 144;
+        const BC7_UNORM_BLOCK = 145;
+        const BC7_SRGB_BLOCK = 146;
+        const ETC2_R8G8B8_UNORM_BLOCK = 147;
+        const ETC2_R8G8B8_SRGB_BLOCK = 148;
+        const ETC2_R8G8B8A1_UNORM_BLOCK = 149;
+        const ETC2_R8G8B8A1_SRGB_BLOCK = 150;
+        const ETC2_R8G8B8A8_UNORM_BLOCK = 151;
+        const ETC2_R8G8B8A8_SRGB_BLOCK = 152;
+        const EAC_R11_UNORM_BLOCK = 153;
+        const EAC_R11_SNORM_BLOCK = 154;
+        const EAC_R11G11_UNORM_BLOCK = 155;
+        const EAC_R11G11_SNORM_BLOCK = 156;
+        const ASTC_4x4_UNORM_BLOCK = 157;
+        const ASTC_4x4_SRGB_BLOCK = 158;
+        const ASTC_5x4_UNORM_BLOCK = 159;
+        const ASTC_5x4_SRGB_BLOCK = 160;
+        const ASTC_5x5_UNORM_BLOCK = 161;
+        const ASTC_5x5_SRGB_BLOCK = 162;
+        const ASTC_6x5_UNORM_BLOCK = 163;
+        const ASTC_6x5_SRGB_BLOCK = 164;
+        const ASTC_6x6_UNORM_BLOCK = 165;
+        const ASTC_6x6_SRGB_BLOCK = 166;
+        const ASTC_8x5_UNORM_BLOCK = 167;
+        const ASTC_8x5_SRGB_BLOCK = 168;
+        const ASTC_8x6_UNORM_BLOCK = 169;
+        const ASTC_8x6_SRGB_BLOCK = 170;
+        const ASTC_8x8_UNORM_BLOCK = 171;
+        const ASTC_8x8_SRGB_BLOCK = 172;
+        const ASTC_10x5_UNORM_BLOCK = 173;
+        const ASTC_10x5_SRGB_BLOCK = 174;
+        const ASTC_10x6_UNORM_BLOCK = 175;
+        const ASTC_10x6_SRGB_BLOCK = 176;
+        const ASTC_10x8_UNORM_BLOCK = 177;
+        const ASTC_10x8_SRGB_BLOCK = 178;
+        const ASTC_10x10_UNORM_BLOCK = 179;
+        const ASTC_10x10_SRGB_BLOCK = 180;
+        const ASTC_12x10_UNORM_BLOCK = 181;
+        const ASTC_12x10_SRGB_BLOCK = 182;
+        const ASTC_12x12_UNORM_BLOCK = 183;
+        const ASTC_12x12_SRGB_BLOCK = 184;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC2_2BPP_UNORM_BLOCK_IMG = 1000054002;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC2_4BPP_UNORM_BLOCK_IMG = 1000054003;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC1_2BPP_SRGB_BLOCK_IMG = 1000054004;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC1_4BPP_SRGB_BLOCK_IMG = 1000054005;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC2_2BPP_SRGB_BLOCK_IMG = 1000054006;
+
+        /// See extension [`VK_IMG_format_pvrtc`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_IMG_format_pvrtc)
+        const PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007;
+    }
+}
+
+vks_enum! {
     /// See [`VkImageType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageType)
-    const VK_IMAGE_TYPE_1D = 0,
+    pub VkImageType: u32 {
+        const V_1D = 0;
+        const V_2D = 1;
+        const V_3D = 2;
+    }
+}
 
-    /// See [`VkImageType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageType)
-    const VK_IMAGE_TYPE_2D = 1,
-
-    /// See [`VkImageType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageType)
-    const VK_IMAGE_TYPE_3D = 2,
-});
-
-cenum!(VkImageTiling: u32 {
+vks_enum! {
     /// See [`VkImageTiling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageTiling)
-    const VK_IMAGE_TILING_OPTIMAL = 0,
+    pub VkImageTiling: u32 {
+        const OPTIMAL = 0;
+        const LINEAR = 1;
+    }
+}
 
-    /// See [`VkImageTiling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageTiling)
-    const VK_IMAGE_TILING_LINEAR = 1,
-});
-
-cenum!(VkPhysicalDeviceType: u32 {
+vks_enum! {
     /// See [`VkPhysicalDeviceType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceType)
-    const VK_PHYSICAL_DEVICE_TYPE_OTHER = 0,
+    pub VkPhysicalDeviceType: u32 {
+        const OTHER = 0;
+        const INTEGRATED_GPU = 1;
+        const DISCRETE_GPU = 2;
+        const VIRTUAL_GPU = 3;
+        const CPU = 4;
+    }
+}
 
-    /// See [`VkPhysicalDeviceType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceType)
-    const VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU = 1,
-
-    /// See [`VkPhysicalDeviceType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceType)
-    const VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU = 2,
-
-    /// See [`VkPhysicalDeviceType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceType)
-    const VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU = 3,
-
-    /// See [`VkPhysicalDeviceType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceType)
-    const VK_PHYSICAL_DEVICE_TYPE_CPU = 4,
-});
-
-cenum!(VkQueryType: u32 {
+vks_enum! {
     /// See [`VkQueryType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryType)
-    const VK_QUERY_TYPE_OCCLUSION = 0,
+    pub VkQueryType: u32 {
+        const OCCLUSION = 0;
+        const PIPELINE_STATISTICS = 1;
+        const TIMESTAMP = 2;
+    }
+}
 
-    /// See [`VkQueryType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryType)
-    const VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
-
-    /// See [`VkQueryType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryType)
-    const VK_QUERY_TYPE_TIMESTAMP = 2,
-});
-
-cenum!(VkSharingMode: u32 {
+vks_enum! {
     /// See [`VkSharingMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharingMode)
-    const VK_SHARING_MODE_EXCLUSIVE = 0,
+    pub VkSharingMode: u32 {
+        const EXCLUSIVE = 0;
+        const CONCURRENT = 1;
+    }
+}
 
-    /// See [`VkSharingMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharingMode)
-    const VK_SHARING_MODE_CONCURRENT = 1,
-});
-
-cenum!(VkImageLayout: u32 {
+vks_enum! {
     /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_UNDEFINED = 0,
+    pub VkImageLayout: u32 {
+        const UNDEFINED = 0;
+        const GENERAL = 1;
+        const COLOR_ATTACHMENT_OPTIMAL = 2;
+        const DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3;
+        const DEPTH_STENCIL_READ_ONLY_OPTIMAL = 4;
+        const SHADER_READ_ONLY_OPTIMAL = 5;
+        const TRANSFER_SRC_OPTIMAL = 6;
+        const TRANSFER_DST_OPTIMAL = 7;
+        const PREINITIALIZED = 8;
 
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_GENERAL = 1,
+        /// See extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const PRESENT_SRC_KHR = 1000001002;
 
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL = 2,
+        /// See extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
+        const SHARED_PRESENT_KHR = 1000111000;
+    }
+}
 
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL = 4,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL = 5,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL = 6,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL = 7,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    const VK_IMAGE_LAYOUT_PREINITIALIZED = 8,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    const VK_IMAGE_LAYOUT_PRESENT_SRC_KHR = 1000001002,
-
-    /// See [`VkImageLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageLayout)
-    /// and extension [`VK_KHR_shared_presentable_image`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSharedPresentSurfaceCapabilitiesKHR)
-    const VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR = 1000111000,
-});
-
-cenum!(VkImageViewType: u32 {
+vks_enum! {
     /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_1D = 0,
+    pub VkImageViewType: u32 {
+        const V_1D = 0;
+        const V_2D = 1;
+        const V_3D = 2;
+        const CUBE = 3;
+        const V_1D_ARRAY = 4;
+        const V_2D_ARRAY = 5;
+        const CUBE_ARRAY = 6;
+    }
+}
 
-    /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_2D = 1,
-
-    /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_3D = 2,
-
-    /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_CUBE = 3,
-
-    /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_1D_ARRAY = 4,
-
-    /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_2D_ARRAY = 5,
-
-    /// See [`VkImageViewType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageViewType)
-    const VK_IMAGE_VIEW_TYPE_CUBE_ARRAY = 6,
-});
-
-cenum!(VkComponentSwizzle: u32 {
+vks_enum! {
     /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_IDENTITY = 0,
+    pub VkComponentSwizzle: u32 {
+        const IDENTITY = 0;
+        const ZERO = 1;
+        const ONE = 2;
+        const R = 3;
+        const G = 4;
+        const B = 5;
+        const A = 6;
+    }
+}
 
-    /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_ZERO = 1,
-
-    /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_ONE = 2,
-
-    /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_R = 3,
-
-    /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_G = 4,
-
-    /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_B = 5,
-
-    /// See [`VkComponentSwizzle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkComponentSwizzle)
-    const VK_COMPONENT_SWIZZLE_A = 6,
-});
-
-cenum!(VkVertexInputRate: u32 {
+vks_enum! {
     /// See [`VkVertexInputRate`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkVertexInputRate)
-    const VK_VERTEX_INPUT_RATE_VERTEX = 0,
+    pub VkVertexInputRate: u32 {
+        const VERTEX = 0;
+        const INSTANCE = 1;
+    }
+}
 
-    /// See [`VkVertexInputRate`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkVertexInputRate)
-    const VK_VERTEX_INPUT_RATE_INSTANCE = 1,
-});
-
-cenum!(VkPrimitiveTopology: u32 {
+vks_enum! {
     /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_POINT_LIST = 0,
+    pub VkPrimitiveTopology: u32 {
+        const POINT_LIST = 0;
+        const LINE_LIST = 1;
+        const LINE_STRIP = 2;
+        const TRIANGLE_LIST = 3;
+        const TRIANGLE_STRIP = 4;
+        const TRIANGLE_FAN = 5;
+        const LINE_LIST_WITH_ADJACENCY = 6;
+        const LINE_STRIP_WITH_ADJACENCY = 7;
+        const TRIANGLE_LIST_WITH_ADJACENCY = 8;
+        const TRIANGLE_STRIP_WITH_ADJACENCY = 9;
+        const PATCH_LIST = 10;
+    }
+}
 
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_LINE_LIST = 1,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_LINE_STRIP = 2,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST = 3,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP = 4,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN = 5,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY = 6,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY = 7,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY = 8,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY = 9,
-
-    /// See [`VkPrimitiveTopology`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPrimitiveTopology)
-    const VK_PRIMITIVE_TOPOLOGY_PATCH_LIST = 10,
-});
-
-cenum!(VkPolygonMode: u32 {
+vks_enum! {
     /// See [`VkPolygonMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPolygonMode)
-    const VK_POLYGON_MODE_FILL = 0,
+    pub VkPolygonMode: u32 {
+        const FILL = 0;
+        const LINE = 1;
+        const POINT = 2;
 
-    /// See [`VkPolygonMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPolygonMode)
-    const VK_POLYGON_MODE_LINE = 1,
+        /// See extension [`VK_NV_fill_rectangle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fill_rectangle)
+        const RECTANGLE_NV = 1000153000;
+    }
+}
 
-    /// See [`VkPolygonMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPolygonMode)
-    const VK_POLYGON_MODE_POINT = 2,
-
-    /// See [`VkPolygonMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPolygonMode)
-    /// and extension [`VK_NV_fill_rectangle`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_fill_rectangle)
-    const VK_POLYGON_MODE_FILL_RECTANGLE_NV = 1000153000,
-});
-
-cenum!(VkFrontFace: u32 {
+vks_enum! {
     /// See [`VkFrontFace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFrontFace)
-    const VK_FRONT_FACE_COUNTER_CLOCKWISE = 0,
+    pub VkFrontFace: u32 {
+        const COUNTER_CLOCKWISE = 0;
+        const CLOCKWISE = 1;
+    }
+}
 
-    /// See [`VkFrontFace`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFrontFace)
-    const VK_FRONT_FACE_CLOCKWISE = 1,
-});
-
-cenum!(VkCompareOp: u32 {
+vks_enum! {
     /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_NEVER = 0,
+    pub VkCompareOp: u32 {
+        const NEVER = 0;
+        const LESS = 1;
+        const EQUAL = 2;
+        const LESS_OR_EQUAL = 3;
+        const GREATER = 4;
+        const NOT_EQUAL = 5;
+        const GREATER_OR_EQUAL = 6;
+        const ALWAYS = 7;
+    }
+}
 
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_LESS = 1,
-
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_EQUAL = 2,
-
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_LESS_OR_EQUAL = 3,
-
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_GREATER = 4,
-
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_NOT_EQUAL = 5,
-
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_GREATER_OR_EQUAL = 6,
-
-    /// See [`VkCompareOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCompareOp)
-    const VK_COMPARE_OP_ALWAYS = 7,
-});
-
-cenum!(VkStencilOp: u32 {
+vks_enum! {
     /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_KEEP = 0,
+    pub VkStencilOp: u32 {
+        const KEEP = 0;
+        const ZERO = 1;
+        const REPLACE = 2;
+        const INCREMENT_AND_CLAMP = 3;
+        const DECREMENT_AND_CLAMP = 4;
+        const INVERT = 5;
+        const INCREMENT_AND_WRAP = 6;
+        const DECREMENT_AND_WRAP = 7;
+    }
+}
 
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_ZERO = 1,
-
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_REPLACE = 2,
-
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_INCREMENT_AND_CLAMP = 3,
-
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_DECREMENT_AND_CLAMP = 4,
-
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_INVERT = 5,
-
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_INCREMENT_AND_WRAP = 6,
-
-    /// See [`VkStencilOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkStencilOp)
-    const VK_STENCIL_OP_DECREMENT_AND_WRAP = 7,
-});
-
-cenum!(VkLogicOp: u32 {
+vks_enum! {
     /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_CLEAR = 0,
+    pub VkLogicOp: u32 {
+        const CLEAR = 0;
+        const AND = 1;
+        const AND_REVERSE = 2;
+        const COPY = 3;
+        const AND_INVERTED = 4;
+        const NO_OP = 5;
+        const XOR = 6;
+        const OR = 7;
+        const NOR = 8;
+        const EQUIVALENT = 9;
+        const INVERT = 10;
+        const OR_REVERSE = 11;
+        const COPY_INVERTED = 12;
+        const OR_INVERTED = 13;
+        const NAND = 14;
+        const SET = 15;
+    }
+}
 
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_AND = 1,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_AND_REVERSE = 2,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_COPY = 3,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_AND_INVERTED = 4,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_NO_OP = 5,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_XOR = 6,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_OR = 7,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_NOR = 8,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_EQUIVALENT = 9,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_INVERT = 10,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_OR_REVERSE = 11,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_COPY_INVERTED = 12,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_OR_INVERTED = 13,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_NAND = 14,
-
-    /// See [`VkLogicOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkLogicOp)
-    const VK_LOGIC_OP_SET = 15,
-});
-
-cenum!(VkBlendFactor: u32 {
+vks_enum! {
     /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ZERO = 0,
+    pub VkBlendFactor: u32 {
+        const ZERO = 0;
+        const ONE = 1;
+        const SRC_COLOR = 2;
+        const ONE_MINUS_SRC_COLOR = 3;
+        const DST_COLOR = 4;
+        const ONE_MINUS_DST_COLOR = 5;
+        const SRC_ALPHA = 6;
+        const ONE_MINUS_SRC_ALPHA = 7;
+        const DST_ALPHA = 8;
+        const ONE_MINUS_DST_ALPHA = 9;
+        const CONSTANT_COLOR = 10;
+        const ONE_MINUS_CONSTANT_COLOR = 11;
+        const CONSTANT_ALPHA = 12;
+        const ONE_MINUS_CONSTANT_ALPHA = 13;
+        const SRC_ALPHA_SATURATE = 14;
+        const SRC1_COLOR = 15;
+        const ONE_MINUS_SRC1_COLOR = 16;
+        const SRC1_ALPHA = 17;
+        const ONE_MINUS_SRC1_ALPHA = 18;
+    }
+}
 
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE = 1,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_SRC_COLOR = 2,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR = 3,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_DST_COLOR = 4,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR = 5,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_SRC_ALPHA = 6,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA = 7,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_DST_ALPHA = 8,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA = 9,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_CONSTANT_COLOR = 10,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR = 11,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_CONSTANT_ALPHA = 12,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA = 13,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_SRC_ALPHA_SATURATE = 14,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_SRC1_COLOR = 15,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR = 16,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_SRC1_ALPHA = 17,
-
-    /// See [`VkBlendFactor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendFactor)
-    const VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA = 18,
-});
-
-cenum!(VkBlendOp: u32 {
+vks_enum! {
     /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    const VK_BLEND_OP_ADD = 0,
+    pub VkBlendOp: u32 {
+        const ADD = 0;
+        const SUBTRACT = 1;
+        const REVERSE_SUBTRACT = 2;
+        const MIN = 3;
+        const MAX = 4;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    const VK_BLEND_OP_SUBTRACT = 1,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const ZERO_EXT = 1000148000;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    const VK_BLEND_OP_REVERSE_SUBTRACT = 2,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SRC_EXT = 1000148001;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    const VK_BLEND_OP_MIN = 3,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DST_EXT = 1000148002;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    const VK_BLEND_OP_MAX = 4,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SRC_OVER_EXT = 1000148003;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_ZERO_EXT = 1000148000,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DST_OVER_EXT = 1000148004;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SRC_EXT = 1000148001,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SRC_IN_EXT = 1000148005;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DST_EXT = 1000148002,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DST_IN_EXT = 1000148006;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SRC_OVER_EXT = 1000148003,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SRC_OUT_EXT = 1000148007;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DST_OVER_EXT = 1000148004,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DST_OUT_EXT = 1000148008;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SRC_IN_EXT = 1000148005,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SRC_ATOP_EXT = 1000148009;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DST_IN_EXT = 1000148006,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DST_ATOP_EXT = 1000148010;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SRC_OUT_EXT = 1000148007,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const XOR_EXT = 1000148011;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DST_OUT_EXT = 1000148008,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const MULTIPLY_EXT = 1000148012;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SRC_ATOP_EXT = 1000148009,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SCREEN_EXT = 1000148013;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DST_ATOP_EXT = 1000148010,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const OVERLAY_EXT = 1000148014;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_XOR_EXT = 1000148011,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DARKEN_EXT = 1000148015;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_MULTIPLY_EXT = 1000148012,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const LIGHTEN_EXT = 1000148016;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SCREEN_EXT = 1000148013,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const COLORDODGE_EXT = 1000148017;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_OVERLAY_EXT = 1000148014,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const COLORBURN_EXT = 1000148018;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DARKEN_EXT = 1000148015,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const HARDLIGHT_EXT = 1000148019;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_LIGHTEN_EXT = 1000148016,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const SOFTLIGHT_EXT = 1000148020;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_COLORDODGE_EXT = 1000148017,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const DIFFERENCE_EXT = 1000148021;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_COLORBURN_EXT = 1000148018,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const EXCLUSION_EXT = 1000148022;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_HARDLIGHT_EXT = 1000148019,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const INVERT_EXT = 1000148023;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_SOFTLIGHT_EXT = 1000148020,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const INVERT_RGB_EXT = 1000148024;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_DIFFERENCE_EXT = 1000148021,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const LINEARDODGE_EXT = 1000148025;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_EXCLUSION_EXT = 1000148022,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const LINEARBURN_EXT = 1000148026;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_INVERT_EXT = 1000148023,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const VIVIDLIGHT_EXT = 1000148027;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_INVERT_RGB_EXT = 1000148024,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const LINEARLIGHT_EXT = 1000148028;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_LINEARDODGE_EXT = 1000148025,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PINLIGHT_EXT = 1000148029;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_LINEARBURN_EXT = 1000148026,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const HARDMIX_EXT = 1000148030;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_VIVIDLIGHT_EXT = 1000148027,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const HSL_HUE_EXT = 1000148031;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_LINEARLIGHT_EXT = 1000148028,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const HSL_SATURATION_EXT = 1000148032;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_PINLIGHT_EXT = 1000148029,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const HSL_COLOR_EXT = 1000148033;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_HARDMIX_EXT = 1000148030,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const HSL_LUMINOSITY_EXT = 1000148034;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_HSL_HUE_EXT = 1000148031,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PLUS_EXT = 1000148035;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_HSL_SATURATION_EXT = 1000148032,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PLUS_CLAMPED_EXT = 1000148036;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_HSL_COLOR_EXT = 1000148033,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PLUS_CLAMPED_ALPHA_EXT = 1000148037;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_HSL_LUMINOSITY_EXT = 1000148034,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const PLUS_DARKER_EXT = 1000148038;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_PLUS_EXT = 1000148035,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const MINUS_EXT = 1000148039;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_PLUS_CLAMPED_EXT = 1000148036,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const MINUS_CLAMPED_EXT = 1000148040;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_PLUS_CLAMPED_ALPHA_EXT = 1000148037,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const CONTRAST_EXT = 1000148041;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_PLUS_DARKER_EXT = 1000148038,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const INVERT_OVG_EXT = 1000148042;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_MINUS_EXT = 1000148039,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const RED_EXT = 1000148043;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_MINUS_CLAMPED_EXT = 1000148040,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const GREEN_EXT = 1000148044;
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_CONTRAST_EXT = 1000148041,
+        /// See extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
+        const BLUE_EXT = 1000148045;
+    }
+}
 
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_INVERT_OVG_EXT = 1000148042,
-
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_RED_EXT = 1000148043,
-
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_GREEN_EXT = 1000148044,
-
-    /// See [`VkBlendOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBlendOp)
-    /// and extension [`VK_EXT_blend_operation_advanced`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_blend_operation_advanced)
-    const VK_BLEND_OP_BLUE_EXT = 1000148045,
-});
-
-cenum!(VkDynamicState: u32 {
+vks_enum! {
     /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_VIEWPORT = 0,
+    pub VkDynamicState: u32 {
+        const VIEWPORT = 0;
+        const SCISSOR = 1;
+        const LINE_WIDTH = 2;
+        const DEPTH_BIAS = 3;
+        const BLEND_CONSTANTS = 4;
+        const DEPTH_BOUNDS = 5;
+        const STENCIL_COMPARE_MASK = 6;
+        const STENCIL_WRITE_MASK = 7;
+        const STENCIL_REFERENCE = 8;
 
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_SCISSOR = 1,
+        /// See extension [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
+        const VIEWPORT_W_SCALING_NV = 1000087000;
 
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_LINE_WIDTH = 2,
+        /// See extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#EXT_discard_rectangles)
+        const DISCARD_RECTANGLE_EXT = 1000099000;
+    }
+}
 
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_DEPTH_BIAS = 3,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_BLEND_CONSTANTS = 4,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_DEPTH_BOUNDS = 5,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 6,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_STENCIL_WRITE_MASK = 7,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    const VK_DYNAMIC_STATE_STENCIL_REFERENCE = 8,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    /// and extension [`VK_NV_clip_space_w_scaling`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_clip_space_w_scaling)
-    const VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV = 1000087000,
-
-    /// See [`VkDynamicState`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDynamicState)
-    /// and extension [`VK_EXT_discard_rectangles`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#EXT_discard_rectangles)
-    const VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT = 1000099000,
-});
-
-cenum!(VkFilter: u32 {
+vks_enum! {
     /// See [`VkFilter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFilter)
-    const VK_FILTER_NEAREST = 0,
+    pub VkFilter: u32 {
+        const NEAREST = 0;
+        const LINEAR = 1;
 
-    /// See [`VkFilter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFilter)
-    const VK_FILTER_LINEAR = 1,
+        /// See extension [`VK_IMG_filter_cubic`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#IMG_filter_cubic)
+        const CUBIC_IMG = 1000015000;
+    }
+}
 
-    /// See [`VkFilter`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFilter)
-    /// and extension [`VK_IMG_filter_cubic`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#IMG_filter_cubic)
-    const VK_FILTER_CUBIC_IMG = 1000015000,
-});
-
-cenum!(VkSamplerMipmapMode: u32 {
+vks_enum! {
     /// See [`VkSamplerMipmapMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerMipmapMode)
-    const VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
+    pub VkSamplerMipmapMode: u32 {
+        const NEAREST = 0;
+        const LINEAR = 1;
+    }
+}
 
-    /// See [`VkSamplerMipmapMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerMipmapMode)
-    const VK_SAMPLER_MIPMAP_MODE_LINEAR = 1,
-});
-
-cenum!(VkSamplerAddressMode: u32 {
+vks_enum! {
     /// See [`VkSamplerAddressMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerAddressMode)
-    const VK_SAMPLER_ADDRESS_MODE_REPEAT = 0,
+    pub VkSamplerAddressMode: u32 {
+        const REPEAT = 0;
+        const MIRRORED_REPEAT = 1;
+        const CLAMP_TO_EDGE = 2;
+        const CLAMP_TO_BORDER = 3;
 
-    /// See [`VkSamplerAddressMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerAddressMode)
-    const VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 1,
+        /// and extension [`VK_KHR_sampler_mirror_clamp_to_edge`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_sampler_mirror_clamp_to_edge)
+        const MIRROR_CLAMP_TO_EDGE = 4;
+    }
+}
 
-    /// See [`VkSamplerAddressMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerAddressMode)
-    const VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE = 2,
-
-    /// See [`VkSamplerAddressMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerAddressMode)
-    const VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 3,
-
-    /// See [`VkSamplerAddressMode`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerAddressMode)
-    /// and extension [`VK_KHR_sampler_mirror_clamp_to_edge`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_sampler_mirror_clamp_to_edge)
-    const VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
-});
-
-cenum!(VkBorderColor: u32 {
+vks_enum! {
     /// See [`VkBorderColor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBorderColor)
-    const VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
+    pub VkBorderColor: u32 {
+        const FLOAT_TRANSPARENT_BLACK = 0;
+        const INT_TRANSPARENT_BLACK = 1;
+        const FLOAT_OPAQUE_BLACK = 2;
+        const INT_OPAQUE_BLACK = 3;
+        const FLOAT_OPAQUE_WHITE = 4;
+        const INT_OPAQUE_WHITE = 5;
+    }
+}
 
-    /// See [`VkBorderColor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBorderColor)
-    const VK_BORDER_COLOR_INT_TRANSPARENT_BLACK = 1,
-
-    /// See [`VkBorderColor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBorderColor)
-    const VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK = 2,
-
-    /// See [`VkBorderColor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBorderColor)
-    const VK_BORDER_COLOR_INT_OPAQUE_BLACK = 3,
-
-    /// See [`VkBorderColor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBorderColor)
-    const VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE = 4,
-
-    /// See [`VkBorderColor`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBorderColor)
-    const VK_BORDER_COLOR_INT_OPAQUE_WHITE = 5,
-});
-
-cenum!(VkDescriptorType: u32 {
+vks_enum! {
     /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_SAMPLER = 0,
+    pub VkDescriptorType: u32 {
+        const SAMPLER = 0;
+        const COMBINED_IMAGE_SAMPLER = 1;
+        const SAMPLED_IMAGE = 2;
+        const STORAGE_IMAGE = 3;
+        const UNIFORM_TEXEL_BUFFER = 4;
+        const STORAGE_TEXEL_BUFFER = 5;
+        const UNIFORM_BUFFER = 6;
+        const STORAGE_BUFFER = 7;
+        const UNIFORM_BUFFER_DYNAMIC = 8;
+        const STORAGE_BUFFER_DYNAMIC = 9;
+        const INPUT_ATTACHMENT = 10;
+    }
+}
 
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER = 1,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE = 2,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_STORAGE_IMAGE = 3,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER = 4,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER = 5,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER = 6,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_STORAGE_BUFFER = 7,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC = 8,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC = 9,
-
-    /// See [`VkDescriptorType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorType)
-    const VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT = 10,
-});
-
-cenum!(VkAttachmentLoadOp: u32 {
+vks_enum! {
     /// See [`VkAttachmentLoadOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentLoadOp)
-    const VK_ATTACHMENT_LOAD_OP_LOAD = 0,
+    pub VkAttachmentLoadOp: u32 {
+        const LOAD = 0;
+        const CLEAR = 1;
+        const DONT_CARE = 2;
+    }
+}
 
-    /// See [`VkAttachmentLoadOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentLoadOp)
-    const VK_ATTACHMENT_LOAD_OP_CLEAR = 1,
-
-    /// See [`VkAttachmentLoadOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentLoadOp)
-    const VK_ATTACHMENT_LOAD_OP_DONT_CARE = 2,
-});
-
-cenum!(VkAttachmentStoreOp: u32 {
+vks_enum! {
     /// See [`VkAttachmentStoreOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentStoreOp)
-    const VK_ATTACHMENT_STORE_OP_STORE = 0,
+    pub VkAttachmentStoreOp: u32 {
+        const STORE = 0;
+        const DONT_CARE = 1;
+    }
+}
 
-    /// See [`VkAttachmentStoreOp`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkAttachmentStoreOp)
-    const VK_ATTACHMENT_STORE_OP_DONT_CARE = 1,
-});
-
-cenum!(VkPipelineBindPoint: u32 {
+vks_enum! {
     /// See [`VkPipelineBindPoint`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineBindPoint)
-    const VK_PIPELINE_BIND_POINT_GRAPHICS = 0,
+    pub VkPipelineBindPoint: u32 {
+        const GRAPHICS = 0;
+        const COMPUTE = 1;
+    }
+}
 
-    /// See [`VkPipelineBindPoint`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineBindPoint)
-    const VK_PIPELINE_BIND_POINT_COMPUTE = 1,
-});
-
-cenum!(VkCommandBufferLevel: u32 {
+vks_enum! {
     /// See [`VkCommandBufferLevel`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel)
-    const VK_COMMAND_BUFFER_LEVEL_PRIMARY = 0,
+    pub VkCommandBufferLevel: u32 {
+        const PRIMARY = 0;
+        const SECONDARY = 1;
+    }
+}
 
-    /// See [`VkCommandBufferLevel`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel)
-    const VK_COMMAND_BUFFER_LEVEL_SECONDARY = 1,
-});
-
-cenum!(VkIndexType: u32 {
+vks_enum! {
     /// See [`VkIndexType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndexType)
-    const VK_INDEX_TYPE_UINT16 = 0,
+    pub VkIndexType: u32 {
+        const UINT16 = 0;
+        const UINT32 = 1;
+    }
+}
 
-    /// See [`VkIndexType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkIndexType)
-    const VK_INDEX_TYPE_UINT32 = 1,
-});
-
-cenum!(VkSubpassContents: u32 {
+vks_enum! {
     /// See [`VkSubpassContents`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_SUBPASS_CONTENTS_INLINE = 0,
+    pub VkSubpassContents: u32 {
+        const INLINE = 0;
+        const SECONDARY_COMMAND_BUFFERS = 1;
+    }
+}
 
-    /// See [`VkSubpassContents`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
-});
-
-cenum!(VkObjectType: u32 {
+vks_enum! {
     /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_UNKNOWN = 0,
+    pub VkObjectType: u32 {
+        const UNKNOWN = 0;
+        const INSTANCE = 1;
+        const PHYSICAL_DEVICE = 2;
+        const DEVICE = 3;
+        const QUEUE = 4;
+        const SEMAPHORE = 5;
+        const COMMAND_BUFFER = 6;
+        const FENCE = 7;
+        const DEVICE_MEMORY = 8;
+        const BUFFER = 9;
+        const IMAGE = 10;
+        const EVENT = 11;
+        const QUERY_POOL = 12;
+        const BUFFER_VIEW = 13;
+        const IMAGE_VIEW = 14;
+        const SHADER_MODULE = 15;
+        const PIPELINE_CACHE = 16;
+        const PIPELINE_LAYOUT = 17;
+        const RENDER_PASS = 18;
+        const PIPELINE = 19;
+        const DESCRIPTOR_SET_LAYOUT = 20;
+        const SAMPLER = 21;
+        const DESCRIPTOR_POOL = 22;
+        const DESCRIPTOR_SET = 23;
+        const FRAMEBUFFER = 24;
+        const COMMAND_POOL = 25;
 
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_INSTANCE = 1,
+        /// See extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
+        const SURFACE_KHR = 1000000000;
 
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_PHYSICAL_DEVICE = 2,
+        /// See extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
+        const SWAPCHAIN_KHR = 1000001000;
 
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_DEVICE = 3,
+        /// See extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+        const DISPLAY_KHR = 1000002000;
 
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_QUEUE = 4,
+        /// See extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
+        const DISPLAY_MODE_KHR = 1000002001;
 
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_SEMAPHORE = 5,
+        /// See extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
+        const DEBUG_REPORT_CALLBACK_EXT = 1000011000;
 
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_COMMAND_BUFFER = 6,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_FENCE = 7,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_DEVICE_MEMORY = 8,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_BUFFER = 9,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_IMAGE = 10,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_EVENT = 11,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_QUERY_POOL = 12,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_BUFFER_VIEW = 13,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_IMAGE_VIEW = 14,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_SHADER_MODULE = 15,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_PIPELINE_CACHE = 16,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_PIPELINE_LAYOUT = 17,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_RENDER_PASS = 18,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_PIPELINE = 19,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT = 20,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_SAMPLER = 21,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_DESCRIPTOR_POOL = 22,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_DESCRIPTOR_SET = 23,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_FRAMEBUFFER = 24,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    const VK_OBJECT_TYPE_COMMAND_POOL = 25,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    /// and extension [`VK_KHR_surface`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface)
-    const VK_OBJECT_TYPE_SURFACE_KHR = 1000000000,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    /// and extension [`VK_KHR_swapchain`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain)
-    const VK_OBJECT_TYPE_SWAPCHAIN_KHR = 1000001000,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    const VK_OBJECT_TYPE_DISPLAY_KHR = 1000002000,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    /// and extension [`VK_KHR_display`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display)
-    const VK_OBJECT_TYPE_DISPLAY_MODE_KHR = 1000002001,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    /// and extension [`VK_EXT_debug_report`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report)
-    const VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT = 1000011000,
-
-    /// See [`VkObjectType`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSubpassContents)
-    /// and extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
-    const VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR = 1000085000,
-});
+        /// See extension [`VK_KHR_descriptor_update_template`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_descriptor_update_template)
+        const DESCRIPTOR_UPDATE_TEMPLATE_KHR = 1000085000;
+    }
+}
 
 bitflags! {
     /// See [`VkInstanceCreateFlags`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstanceCreateFlags)
@@ -3220,7 +2293,7 @@ pub struct VkApplicationInfo {
 impl Default for VkApplicationInfo {
     fn default() -> Self {
         VkApplicationInfo {
-            sType: VK_STRUCTURE_TYPE_APPLICATION_INFO,
+            sType: VkStructureType::APPLICATION_INFO,
             pNext: ptr::null(),
             pApplicationName: ptr::null(),
             applicationVersion: Default::default(),
@@ -3248,7 +2321,7 @@ pub struct VkInstanceCreateInfo {
 impl Default for VkInstanceCreateInfo {
     fn default() -> Self {
         VkInstanceCreateInfo {
-            sType: VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+            sType: VkStructureType::INSTANCE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             pApplicationInfo: ptr::null(),
@@ -3631,7 +2704,7 @@ pub struct VkDeviceQueueCreateInfo {
 impl Default for VkDeviceQueueCreateInfo {
     fn default() -> Self {
         VkDeviceQueueCreateInfo {
-            sType: VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO,
+            sType: VkStructureType::DEVICE_QUEUE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             queueFamilyIndex: Default::default(),
@@ -3660,7 +2733,7 @@ pub struct VkDeviceCreateInfo {
 impl Default for VkDeviceCreateInfo {
     fn default() -> Self {
         VkDeviceCreateInfo {
-            sType: VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO,
+            sType: VkStructureType::DEVICE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             queueCreateInfoCount: Default::default(),
@@ -3788,7 +2861,7 @@ pub struct VkSubmitInfo {
 impl Default for VkSubmitInfo {
     fn default() -> Self {
         VkSubmitInfo {
-            sType: VK_STRUCTURE_TYPE_SUBMIT_INFO,
+            sType: VkStructureType::SUBMIT_INFO,
             pNext: ptr::null(),
             waitSemaphoreCount: Default::default(),
             pWaitSemaphores: ptr::null(),
@@ -3814,7 +2887,7 @@ pub struct VkMemoryAllocateInfo {
 impl Default for VkMemoryAllocateInfo {
     fn default() -> Self {
         VkMemoryAllocateInfo {
-            sType: VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
+            sType: VkStructureType::MEMORY_ALLOCATE_INFO,
             pNext: ptr::null(),
             allocationSize: Default::default(),
             memoryTypeIndex: Default::default(),
@@ -3836,7 +2909,7 @@ pub struct VkMappedMemoryRange {
 impl Default for VkMappedMemoryRange {
     fn default() -> Self {
         VkMappedMemoryRange {
-            sType: VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
+            sType: VkStructureType::MAPPED_MEMORY_RANGE,
             pNext: ptr::null(),
             memory: Default::default(),
             offset: Default::default(),
@@ -4018,7 +3091,7 @@ pub struct VkBindSparseInfo {
 impl Default for VkBindSparseInfo {
     fn default() -> Self {
         VkBindSparseInfo {
-            sType: VK_STRUCTURE_TYPE_BIND_SPARSE_INFO,
+            sType: VkStructureType::BIND_SPARSE_INFO,
             pNext: ptr::null(),
             waitSemaphoreCount: Default::default(),
             pWaitSemaphores: ptr::null(),
@@ -4046,7 +3119,7 @@ pub struct VkFenceCreateInfo {
 impl Default for VkFenceCreateInfo {
     fn default() -> Self {
         VkFenceCreateInfo {
-            sType: VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
+            sType: VkStructureType::FENCE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
         }
@@ -4065,7 +3138,7 @@ pub struct VkSemaphoreCreateInfo {
 impl Default for VkSemaphoreCreateInfo {
     fn default() -> Self {
         VkSemaphoreCreateInfo {
-            sType: VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
+            sType: VkStructureType::SEMAPHORE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
         }
@@ -4084,7 +3157,7 @@ pub struct VkEventCreateInfo {
 impl Default for VkEventCreateInfo {
     fn default() -> Self {
         VkEventCreateInfo {
-            sType: VK_STRUCTURE_TYPE_EVENT_CREATE_INFO,
+            sType: VkStructureType::EVENT_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
         }
@@ -4106,7 +3179,7 @@ pub struct VkQueryPoolCreateInfo {
 impl Default for VkQueryPoolCreateInfo {
     fn default() -> Self {
         VkQueryPoolCreateInfo {
-            sType: VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO,
+            sType: VkStructureType::QUERY_POOL_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             queryType: Default::default(),
@@ -4133,7 +3206,7 @@ pub struct VkBufferCreateInfo {
 impl Default for VkBufferCreateInfo {
     fn default() -> Self {
         VkBufferCreateInfo {
-            sType: VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
+            sType: VkStructureType::BUFFER_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             size: Default::default(),
@@ -4161,7 +3234,7 @@ pub struct VkBufferViewCreateInfo {
 impl Default for VkBufferViewCreateInfo {
     fn default() -> Self {
         VkBufferViewCreateInfo {
-            sType: VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO,
+            sType: VkStructureType::BUFFER_VIEW_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             buffer: Default::default(),
@@ -4196,7 +3269,7 @@ pub struct VkImageCreateInfo {
 impl Default for VkImageCreateInfo {
     fn default() -> Self {
         VkImageCreateInfo {
-            sType: VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
+            sType: VkStructureType::IMAGE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             imageType: Default::default(),
@@ -4264,7 +3337,7 @@ pub struct VkImageViewCreateInfo {
 impl Default for VkImageViewCreateInfo {
     fn default() -> Self {
         VkImageViewCreateInfo {
-            sType: VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO,
+            sType: VkStructureType::IMAGE_VIEW_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             image: Default::default(),
@@ -4290,7 +3363,7 @@ pub struct VkShaderModuleCreateInfo {
 impl Default for VkShaderModuleCreateInfo {
     fn default() -> Self {
         VkShaderModuleCreateInfo {
-            sType: VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO,
+            sType: VkStructureType::SHADER_MODULE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             codeSize: Default::default(),
@@ -4313,7 +3386,7 @@ pub struct VkPipelineCacheCreateInfo {
 impl Default for VkPipelineCacheCreateInfo {
     fn default() -> Self {
         VkPipelineCacheCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_CACHE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             initialDataSize: Default::default(),
@@ -4368,7 +3441,7 @@ pub struct VkPipelineShaderStageCreateInfo {
 impl Default for VkPipelineShaderStageCreateInfo {
     fn default() -> Self {
         VkPipelineShaderStageCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_SHADER_STAGE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             stage: Default::default(),
@@ -4414,7 +3487,7 @@ pub struct VkPipelineVertexInputStateCreateInfo {
 impl Default for VkPipelineVertexInputStateCreateInfo {
     fn default() -> Self {
         VkPipelineVertexInputStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             vertexBindingDescriptionCount: Default::default(),
@@ -4439,7 +3512,7 @@ pub struct VkPipelineInputAssemblyStateCreateInfo {
 impl Default for VkPipelineInputAssemblyStateCreateInfo {
     fn default() -> Self {
         VkPipelineInputAssemblyStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             topology: Default::default(),
@@ -4461,7 +3534,7 @@ pub struct VkPipelineTessellationStateCreateInfo {
 impl Default for VkPipelineTessellationStateCreateInfo {
     fn default() -> Self {
         VkPipelineTessellationStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_TESSELLATION_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             patchControlPoints: Default::default(),
@@ -4521,7 +3594,7 @@ pub struct VkPipelineViewportStateCreateInfo {
 impl Default for VkPipelineViewportStateCreateInfo {
     fn default() -> Self {
         VkPipelineViewportStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_VIEWPORT_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             viewportCount: Default::default(),
@@ -4554,7 +3627,7 @@ pub struct VkPipelineRasterizationStateCreateInfo {
 impl Default for VkPipelineRasterizationStateCreateInfo {
     fn default() -> Self {
         VkPipelineRasterizationStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_RASTERIZATION_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             depthClampEnable: Default::default(),
@@ -4589,7 +3662,7 @@ pub struct VkPipelineMultisampleStateCreateInfo {
 impl Default for VkPipelineMultisampleStateCreateInfo {
     fn default() -> Self {
         VkPipelineMultisampleStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_MULTISAMPLE_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             rasterizationSamples: Default::default(),
@@ -4636,7 +3709,7 @@ pub struct VkPipelineDepthStencilStateCreateInfo {
 impl Default for VkPipelineDepthStencilStateCreateInfo {
     fn default() -> Self {
         VkPipelineDepthStencilStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             depthTestEnable: Default::default(),
@@ -4683,7 +3756,7 @@ pub struct VkPipelineColorBlendStateCreateInfo {
 impl Default for VkPipelineColorBlendStateCreateInfo {
     fn default() -> Self {
         VkPipelineColorBlendStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_COLOR_BLEND_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             logicOpEnable: Default::default(),
@@ -4709,7 +3782,7 @@ pub struct VkPipelineDynamicStateCreateInfo {
 impl Default for VkPipelineDynamicStateCreateInfo {
     fn default() -> Self {
         VkPipelineDynamicStateCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_DYNAMIC_STATE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             dynamicStateCount: Default::default(),
@@ -4746,7 +3819,7 @@ pub struct VkGraphicsPipelineCreateInfo {
 impl Default for VkGraphicsPipelineCreateInfo {
     fn default() -> Self {
         VkGraphicsPipelineCreateInfo {
-            sType: VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO,
+            sType: VkStructureType::GRAPHICS_PIPELINE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             stageCount: Default::default(),
@@ -4785,7 +3858,7 @@ pub struct VkComputePipelineCreateInfo {
 impl Default for VkComputePipelineCreateInfo {
     fn default() -> Self {
         VkComputePipelineCreateInfo {
-            sType: VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO,
+            sType: VkStructureType::COMPUTE_PIPELINE_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             stage: Default::default(),
@@ -4821,7 +3894,7 @@ pub struct VkPipelineLayoutCreateInfo {
 impl Default for VkPipelineLayoutCreateInfo {
     fn default() -> Self {
         VkPipelineLayoutCreateInfo {
-            sType: VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO,
+            sType: VkStructureType::PIPELINE_LAYOUT_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             setLayoutCount: Default::default(),
@@ -4859,7 +3932,7 @@ pub struct VkSamplerCreateInfo {
 impl Default for VkSamplerCreateInfo {
     fn default() -> Self {
         VkSamplerCreateInfo {
-            sType: VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO,
+            sType: VkStructureType::SAMPLER_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             magFilter: Default::default(),
@@ -4918,7 +3991,7 @@ pub struct VkDescriptorSetLayoutCreateInfo {
 impl Default for VkDescriptorSetLayoutCreateInfo {
     fn default() -> Self {
         VkDescriptorSetLayoutCreateInfo {
-            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO,
+            sType: VkStructureType::DESCRIPTOR_SET_LAYOUT_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             bindingCount: Default::default(),
@@ -4950,7 +4023,7 @@ pub struct VkDescriptorPoolCreateInfo {
 impl Default for VkDescriptorPoolCreateInfo {
     fn default() -> Self {
         VkDescriptorPoolCreateInfo {
-            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO,
+            sType: VkStructureType::DESCRIPTOR_POOL_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             maxSets: Default::default(),
@@ -4974,7 +4047,7 @@ pub struct VkDescriptorSetAllocateInfo {
 impl Default for VkDescriptorSetAllocateInfo {
     fn default() -> Self {
         VkDescriptorSetAllocateInfo {
-            sType: VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO,
+            sType: VkStructureType::DESCRIPTOR_SET_ALLOCATE_INFO,
             pNext: ptr::null(),
             descriptorPool: Default::default(),
             descriptorSetCount: Default::default(),
@@ -5020,7 +4093,7 @@ pub struct VkWriteDescriptorSet {
 impl Default for VkWriteDescriptorSet {
     fn default() -> Self {
         VkWriteDescriptorSet {
-            sType: VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET,
+            sType: VkStructureType::WRITE_DESCRIPTOR_SET,
             pNext: ptr::null(),
             dstSet: Default::default(),
             dstBinding: Default::default(),
@@ -5052,7 +4125,7 @@ pub struct VkCopyDescriptorSet {
 impl Default for VkCopyDescriptorSet {
     fn default() -> Self {
         VkCopyDescriptorSet {
-            sType: VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET,
+            sType: VkStructureType::COPY_DESCRIPTOR_SET,
             pNext: ptr::null(),
             srcSet: Default::default(),
             srcBinding: Default::default(),
@@ -5083,7 +4156,7 @@ pub struct VkFramebufferCreateInfo {
 impl Default for VkFramebufferCreateInfo {
     fn default() -> Self {
         VkFramebufferCreateInfo {
-            sType: VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO,
+            sType: VkStructureType::FRAMEBUFFER_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             renderPass: Default::default(),
@@ -5183,7 +4256,7 @@ pub struct VkRenderPassCreateInfo {
 impl Default for VkRenderPassCreateInfo {
     fn default() -> Self {
         VkRenderPassCreateInfo {
-            sType: VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO,
+            sType: VkStructureType::RENDER_PASS_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             attachmentCount: Default::default(),
@@ -5209,7 +4282,7 @@ pub struct VkCommandPoolCreateInfo {
 impl Default for VkCommandPoolCreateInfo {
     fn default() -> Self {
         VkCommandPoolCreateInfo {
-            sType: VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO,
+            sType: VkStructureType::COMMAND_POOL_CREATE_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             queueFamilyIndex: Default::default(),
@@ -5231,7 +4304,7 @@ pub struct VkCommandBufferAllocateInfo {
 impl Default for VkCommandBufferAllocateInfo {
     fn default() -> Self {
         VkCommandBufferAllocateInfo {
-            sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
+            sType: VkStructureType::COMMAND_BUFFER_ALLOCATE_INFO,
             pNext: ptr::null(),
             commandPool: Default::default(),
             level: Default::default(),
@@ -5257,7 +4330,7 @@ pub struct VkCommandBufferInheritanceInfo {
 impl Default for VkCommandBufferInheritanceInfo {
     fn default() -> Self {
         VkCommandBufferInheritanceInfo {
-            sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO,
+            sType: VkStructureType::COMMAND_BUFFER_INHERITANCE_INFO,
             pNext: ptr::null(),
             renderPass: Default::default(),
             subpass: Default::default(),
@@ -5282,7 +4355,7 @@ pub struct VkCommandBufferBeginInfo {
 impl Default for VkCommandBufferBeginInfo {
     fn default() -> Self {
         VkCommandBufferBeginInfo {
-            sType: VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
+            sType: VkStructureType::COMMAND_BUFFER_BEGIN_INFO,
             pNext: ptr::null(),
             flags: Default::default(),
             pInheritanceInfo: ptr::null(),
@@ -5448,7 +4521,7 @@ pub struct VkMemoryBarrier {
 impl Default for VkMemoryBarrier {
     fn default() -> Self {
         VkMemoryBarrier {
-            sType: VK_STRUCTURE_TYPE_MEMORY_BARRIER,
+            sType: VkStructureType::MEMORY_BARRIER,
             pNext: ptr::null(),
             srcAccessMask: Default::default(),
             dstAccessMask: Default::default(),
@@ -5474,7 +4547,7 @@ pub struct VkBufferMemoryBarrier {
 impl Default for VkBufferMemoryBarrier {
     fn default() -> Self {
         VkBufferMemoryBarrier {
-            sType: VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER,
+            sType: VkStructureType::BUFFER_MEMORY_BARRIER,
             pNext: ptr::null(),
             srcAccessMask: Default::default(),
             dstAccessMask: Default::default(),
@@ -5506,7 +4579,7 @@ pub struct VkImageMemoryBarrier {
 impl Default for VkImageMemoryBarrier {
     fn default() -> Self {
         VkImageMemoryBarrier {
-            sType: VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
+            sType: VkStructureType::IMAGE_MEMORY_BARRIER,
             pNext: ptr::null(),
             srcAccessMask: Default::default(),
             dstAccessMask: Default::default(),
@@ -5536,7 +4609,7 @@ pub struct VkRenderPassBeginInfo {
 impl Default for VkRenderPassBeginInfo {
     fn default() -> Self {
         VkRenderPassBeginInfo {
-            sType: VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO,
+            sType: VkStructureType::RENDER_PASS_BEGIN_INFO,
             pNext: ptr::null(),
             renderPass: Default::default(),
             framebuffer: Default::default(),

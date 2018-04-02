@@ -22,13 +22,13 @@ pub const VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME: &[u8; 26] = b"VK_EXT_discard_rectangles\x00";
 pub const VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME_STR: &str = "VK_EXT_discard_rectangles";
 
-cenum!(VkDiscardRectangleModeEXT: u32 {
+vks_enum! {
     /// See [`VkDiscardRectangleModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDiscardRectangleModeEXT)
-    const VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT = 0,
-
-    /// See [`VkDiscardRectangleModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDiscardRectangleModeEXT)
-    const VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT = 1,
-});
+    pub VkDiscardRectangleModeEXT: u32 {
+        const INCLUSIVE_EXT = 0;
+        const EXCLUSIVE_EXT = 1;
+    }
+}
 
 bitflags! {
     /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
@@ -54,7 +54,7 @@ pub struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
 impl Default for VkPhysicalDeviceDiscardRectanglePropertiesEXT {
     fn default() -> Self {
         VkPhysicalDeviceDiscardRectanglePropertiesEXT {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             maxDiscardRectangles: Default::default(),
         }
@@ -76,7 +76,7 @@ pub struct VkPipelineDiscardRectangleStateCreateInfoEXT {
 impl Default for VkPipelineDiscardRectangleStateCreateInfoEXT {
     fn default() -> Self {
         VkPipelineDiscardRectangleStateCreateInfoEXT {
-            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT,
+            sType: vk::VkStructureType::PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             flags: Default::default(),
             discardRectangleMode: Default::default(),

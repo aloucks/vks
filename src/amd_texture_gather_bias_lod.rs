@@ -34,7 +34,7 @@ pub struct VkTextureLODGatherFormatPropertiesAMD {
 impl Default for VkTextureLODGatherFormatPropertiesAMD {
     fn default() -> Self {
         VkTextureLODGatherFormatPropertiesAMD {
-            sType: vk::VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD,
+            sType: vk::VkStructureType::TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD,
             pNext: ptr::null_mut(),
             supportsTextureGatherLODBiasAMD: Default::default(),
         }

@@ -39,7 +39,7 @@ pub struct VkImportSemaphoreFdInfoKHR {
 impl Default for VkImportSemaphoreFdInfoKHR {
     fn default() -> Self {
         VkImportSemaphoreFdInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR,
+            sType: vk::VkStructureType::IMPORT_SEMAPHORE_FD_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -62,7 +62,7 @@ pub struct VkSemaphoreGetFdInfoKHR {
 impl Default for VkSemaphoreGetFdInfoKHR {
     fn default() -> Self {
         VkSemaphoreGetFdInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR,
+            sType: vk::VkStructureType::SEMAPHORE_GET_FD_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             handleType: Default::default(),

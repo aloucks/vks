@@ -22,13 +22,13 @@ pub const VK_EXT_VALIDATION_FLAGS_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME: &[u8; 24] = b"VK_EXT_validation_flags\x00";
 pub const VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME_STR: &str = "VK_EXT_validation_flags";
 
-cenum!(VkValidationCheckEXT: u32 {
+vks_enum! {
     /// See [`VkValidationCheckEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationCheckEXT)
-    const VK_VALIDATION_CHECK_ALL_EXT = 0,
-
-    /// See [`VkValidationCheckEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationCheckEXT)
-    const VK_VALIDATION_CHECK_SHADERS_EXT = 1,
-});
+    pub VkValidationCheckEXT: u32 {
+        const ALL_EXT = 0;
+        const SHADERS_EXT = 1;
+    }
+}
 
 /// See [`VkValidationFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkValidationFlagsEXT)
 #[repr(C)]
@@ -43,7 +43,7 @@ pub struct VkValidationFlagsEXT {
 impl Default for VkValidationFlagsEXT {
     fn default() -> Self {
         VkValidationFlagsEXT {
-            sType: vk::VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT,
+            sType: vk::VkStructureType::VALIDATION_FLAGS_EXT,
             pNext: ptr::null(),
             disabledValidationCheckCount: Default::default(),
             pDisabledValidationChecks: ptr::null_mut(),

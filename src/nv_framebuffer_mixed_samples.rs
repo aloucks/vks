@@ -22,20 +22,15 @@ pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_SPEC_VERSION: u32 = 1;
 pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME: &[u8; 32] = b"VK_NV_framebuffer_mixed_samples\x00";
 pub const VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME_STR: &str = "VK_NV_framebuffer_mixed_samples";
 
-/// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-cenum!(VkCoverageModulationModeNV: u32 {
+vks_enum! {
     /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    const VK_COVERAGE_MODULATION_MODE_NONE_NV = 0,
-
-    /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    const VK_COVERAGE_MODULATION_MODE_RGB_NV = 1,
-
-    /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    const VK_COVERAGE_MODULATION_MODE_ALPHA_NV = 2,
-
-    /// See [`VkCoverageModulationModeNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCoverageModulationModeNV)
-    const VK_COVERAGE_MODULATION_MODE_RGBA_NV = 3,
-});
+    pub VkCoverageModulationModeNV: u32 {
+        const NONE_NV = 0;
+        const RGB_NV = 1;
+        const ALPHA_NV = 2;
+        const RGBA_NV = 3;
+    }
+}
 
 bitflags! {
     /// See [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateFlagsNV)
@@ -65,7 +60,7 @@ pub struct VkPipelineCoverageModulationStateCreateInfoNV {
 impl Default for VkPipelineCoverageModulationStateCreateInfoNV {
     fn default() -> Self {
         VkPipelineCoverageModulationStateCreateInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV,
+            sType: vk::VkStructureType::PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV,
             pNext: ptr::null(),
             flags: Default::default(),
             coverageModulationMode: Default::default(),

@@ -36,7 +36,7 @@ pub struct VkImportMemoryFdInfoKHR {
 impl Default for VkImportMemoryFdInfoKHR {
     fn default() -> Self {
         VkImportMemoryFdInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR,
+            sType: vk::VkStructureType::IMPORT_MEMORY_FD_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
             fd: Default::default(),
@@ -56,7 +56,7 @@ pub struct VkMemoryFdPropertiesKHR {
 impl Default for VkMemoryFdPropertiesKHR {
     fn default() -> Self {
         VkMemoryFdPropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR,
+            sType: vk::VkStructureType::MEMORY_FD_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             memoryTypeBits: Default::default(),
         }
@@ -76,7 +76,7 @@ pub struct VkMemoryGetFdInfoKHR {
 impl Default for VkMemoryGetFdInfoKHR {
     fn default() -> Self {
         VkMemoryGetFdInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR,
+            sType: vk::VkStructureType::MEMORY_GET_FD_INFO_KHR,
             pNext: ptr::null(),
             memory: Default::default(),
             handleType: Default::default(),

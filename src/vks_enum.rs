@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Dennis Hamester <dennis.hamester@startmail.com>
+// Copyright (c) 2018, Dennis Hamester <dennis.hamester@startmail.com>
 //
 // Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -12,22 +12,26 @@
 // OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
 
-macro_rules! cenum {
+macro_rules! vks_enum {
     (
         $(#[$attr:meta])*
-        $name:ident: $ty:ty {
+        pub $name:ident: $ty:ty {
             $(
                 $(#[$symbol_attr:meta])*
-                const $symbol:ident = $value:expr,
+                const $symbol:ident = $value:expr;
             )*
         }
     ) => (
         $(#[$attr])*
-        pub type $name = $ty;
+        #[repr(transparent)]
+        #[derive(Copy, Clone, Debug, Default)]
+        pub struct $name(pub $ty);
 
-        $(
-            $(#[$symbol_attr])*
-            pub const $symbol: $name = $value;
-        )*
+        impl $name {
+            $(
+                $(#[$symbol_attr])*
+                pub const $symbol: $name = $name($value);
+            )*
+        }
     )
 }

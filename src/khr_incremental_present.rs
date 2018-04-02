@@ -61,7 +61,7 @@ pub struct VkPresentRegionsKHR {
 impl Default for VkPresentRegionsKHR {
     fn default() -> Self {
         VkPresentRegionsKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR,
+            sType: vk::VkStructureType::PRESENT_REGIONS_KHR,
             pNext: ptr::null(),
             swapchainCount: Default::default(),
             pRegions: ptr::null(),

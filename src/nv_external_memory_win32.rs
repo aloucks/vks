@@ -37,7 +37,7 @@ pub struct VkImportMemoryWin32HandleInfoNV {
 impl Default for VkImportMemoryWin32HandleInfoNV {
     fn default() -> Self {
         VkImportMemoryWin32HandleInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV,
+            sType: vk::VkStructureType::IMPORT_MEMORY_WIN32_HANDLE_INFO_NV,
             pNext: ptr::null(),
             handleType: Default::default(),
             handle: ptr::null_mut(),
@@ -58,7 +58,7 @@ pub struct VkExportMemoryWin32HandleInfoNV {
 impl Default for VkExportMemoryWin32HandleInfoNV {
     fn default() -> Self {
         VkExportMemoryWin32HandleInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV,
+            sType: vk::VkStructureType::EXPORT_MEMORY_WIN32_HANDLE_INFO_NV,
             pNext: ptr::null(),
             pAttributes: ptr::null(),
             dwAccess: Default::default(),

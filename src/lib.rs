@@ -32,10 +32,10 @@ extern crate bitflags;
 extern crate libc;
 
 #[macro_use]
-mod cenum;
+mod handle;
 
 #[macro_use]
-mod handle;
+mod vks_enum;
 
 pub mod device_proc_addr_loader;
 pub mod instance_proc_addr_loader;

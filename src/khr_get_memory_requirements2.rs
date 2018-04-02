@@ -34,7 +34,7 @@ pub struct VkBufferMemoryRequirementsInfo2KHR {
 impl Default for VkBufferMemoryRequirementsInfo2KHR {
     fn default() -> Self {
         VkBufferMemoryRequirementsInfo2KHR {
-            sType: vk::VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2_KHR,
+            sType: vk::VkStructureType::BUFFER_MEMORY_REQUIREMENTS_INFO_2_KHR,
             pNext: ptr::null(),
             buffer: Default::default(),
         }
@@ -53,7 +53,7 @@ pub struct VkImageMemoryRequirementsInfo2KHR {
 impl Default for VkImageMemoryRequirementsInfo2KHR {
     fn default() -> Self {
         VkImageMemoryRequirementsInfo2KHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR,
+            sType: vk::VkStructureType::IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR,
             pNext: ptr::null(),
             image: Default::default(),
         }
@@ -72,7 +72,7 @@ pub struct VkImageSparseMemoryRequirementsInfo2KHR {
 impl Default for VkImageSparseMemoryRequirementsInfo2KHR {
     fn default() -> Self {
         VkImageSparseMemoryRequirementsInfo2KHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2_KHR,
+            sType: vk::VkStructureType::IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2_KHR,
             pNext: ptr::null(),
             image: Default::default(),
         }
@@ -91,7 +91,7 @@ pub struct VkMemoryRequirements2KHR {
 impl Default for VkMemoryRequirements2KHR {
     fn default() -> Self {
         VkMemoryRequirements2KHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2_KHR,
+            sType: vk::VkStructureType::MEMORY_REQUIREMENTS_2_KHR,
             pNext: ptr::null_mut(),
             memoryRequirements: Default::default(),
         }
@@ -110,7 +110,7 @@ pub struct VkSparseImageMemoryRequirements2KHR {
 impl Default for VkSparseImageMemoryRequirements2KHR {
     fn default() -> Self {
         VkSparseImageMemoryRequirements2KHR {
-            sType: vk::VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2_KHR,
+            sType: vk::VkStructureType::SPARSE_IMAGE_MEMORY_REQUIREMENTS_2_KHR,
             pNext: ptr::null_mut(),
             memoryRequirements: Default::default(),
         }

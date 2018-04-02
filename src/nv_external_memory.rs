@@ -35,7 +35,7 @@ pub struct VkExternalMemoryImageCreateInfoNV {
 impl Default for VkExternalMemoryImageCreateInfoNV {
     fn default() -> Self {
         VkExternalMemoryImageCreateInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
+            sType: vk::VkStructureType::EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -54,7 +54,7 @@ pub struct VkExportMemoryAllocateInfoNV {
 impl Default for VkExportMemoryAllocateInfoNV {
     fn default() -> Self {
         VkExportMemoryAllocateInfoNV {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV,
+            sType: vk::VkStructureType::EXPORT_MEMORY_ALLOCATE_INFO_NV,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

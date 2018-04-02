@@ -49,7 +49,7 @@ pub struct VkAndroidSurfaceCreateInfoKHR {
 impl Default for VkAndroidSurfaceCreateInfoKHR {
     fn default() -> Self {
         VkAndroidSurfaceCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::ANDROID_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             window: ptr::null_mut(),

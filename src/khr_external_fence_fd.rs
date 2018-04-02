@@ -39,7 +39,7 @@ pub struct VkImportFenceFdInfoKHR {
 impl Default for VkImportFenceFdInfoKHR {
     fn default() -> Self {
         VkImportFenceFdInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR,
+            sType: vk::VkStructureType::IMPORT_FENCE_FD_INFO_KHR,
             pNext: ptr::null(),
             fence: Default::default(),
             flags: Default::default(),
@@ -62,7 +62,7 @@ pub struct VkFenceGetFdInfoKHR {
 impl Default for VkFenceGetFdInfoKHR {
     fn default() -> Self {
         VkFenceGetFdInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR,
+            sType: vk::VkStructureType::FENCE_GET_FD_INFO_KHR,
             pNext: ptr::null(),
             fence: Default::default(),
             handleType: Default::default(),

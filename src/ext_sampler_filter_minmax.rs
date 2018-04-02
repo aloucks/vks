@@ -22,17 +22,14 @@ pub const VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME: &[u8; 29] = b"VK_EXT_sampler_filter_minmax\x00";
 pub const VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME_STR: &str = "VK_EXT_sampler_filter_minmax";
 
-/// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-cenum!(VkSamplerReductionModeEXT: u32 {
+vks_enum! {
     /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-    const VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_EXT = 0,
-
-    /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-    const VK_SAMPLER_REDUCTION_MODE_MIN_EXT = 1,
-
-    /// See [`VkSamplerReductionModeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeEXT)
-    const VK_SAMPLER_REDUCTION_MODE_MAX_EXT = 2,
-});
+    pub VkSamplerReductionModeEXT: u32 {
+        const WEIGHTED_AVERAGE_EXT = 0;
+        const MIN_EXT = 1;
+        const MAX_EXT = 2;
+    }
+}
 
 /// See [`VkSamplerReductionModeCreateInfoEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSamplerReductionModeCreateInfoEXT)
 #[repr(C)]
@@ -46,7 +43,7 @@ pub struct VkSamplerReductionModeCreateInfoEXT {
 impl Default for VkSamplerReductionModeCreateInfoEXT {
     fn default() -> Self {
         VkSamplerReductionModeCreateInfoEXT {
-            sType: vk::VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT,
+            sType: vk::VkStructureType::SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT,
             pNext: ptr::null(),
             reductionMode: Default::default(),
         }
@@ -66,7 +63,7 @@ pub struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
 impl Default for VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
     fn default() -> Self {
         VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT,
             pNext: ptr::null_mut(),
             filterMinmaxSingleComponentFormats: Default::default(),
             filterMinmaxImageComponentMapping: Default::default(),

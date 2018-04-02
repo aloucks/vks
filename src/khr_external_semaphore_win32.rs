@@ -41,7 +41,7 @@ pub struct VkImportSemaphoreWin32HandleInfoKHR {
 impl Default for VkImportSemaphoreWin32HandleInfoKHR {
     fn default() -> Self {
         VkImportSemaphoreWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -66,7 +66,7 @@ pub struct VkExportSemaphoreWin32HandleInfoKHR {
 impl Default for VkExportSemaphoreWin32HandleInfoKHR {
     fn default() -> Self {
         VkExportSemaphoreWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             pAttributes: ptr::null(),
             dwAccess: Default::default(),
@@ -90,7 +90,7 @@ pub struct VkD3D12FenceSubmitInfoKHR {
 impl Default for VkD3D12FenceSubmitInfoKHR {
     fn default() -> Self {
         VkD3D12FenceSubmitInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR,
+            sType: vk::VkStructureType::D3D12_FENCE_SUBMIT_INFO_KHR,
             pNext: ptr::null(),
             waitSemaphoreValuesCount: Default::default(),
             pWaitSemaphoreValues: ptr::null(),
@@ -113,7 +113,7 @@ pub struct VkSemaphoreGetWin32HandleInfoKHR {
 impl Default for VkSemaphoreGetWin32HandleInfoKHR {
     fn default() -> Self {
         VkSemaphoreGetWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             semaphore: Default::default(),
             handleType: Default::default(),

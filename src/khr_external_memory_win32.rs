@@ -38,7 +38,7 @@ pub struct VkImportMemoryWin32HandleInfoKHR {
 impl Default for VkImportMemoryWin32HandleInfoKHR {
     fn default() -> Self {
         VkImportMemoryWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
             handle: ptr::null_mut(),
@@ -61,7 +61,7 @@ pub struct VkExportMemoryWin32HandleInfoKHR {
 impl Default for VkExportMemoryWin32HandleInfoKHR {
     fn default() -> Self {
         VkExportMemoryWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             pAttributes: ptr::null(),
             dwAccess: Default::default(),
@@ -82,7 +82,7 @@ pub struct VkMemoryWin32HandlePropertiesKHR {
 impl Default for VkMemoryWin32HandlePropertiesKHR {
     fn default() -> Self {
         VkMemoryWin32HandlePropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR,
+            sType: vk::VkStructureType::MEMORY_WIN32_HANDLE_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             memoryTypeBits: Default::default(),
         }
@@ -102,7 +102,7 @@ pub struct VkMemoryGetWin32HandleInfoKHR {
 impl Default for VkMemoryGetWin32HandleInfoKHR {
     fn default() -> Self {
         VkMemoryGetWin32HandleInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR,
+            sType: vk::VkStructureType::MEMORY_GET_WIN32_HANDLE_INFO_KHR,
             pNext: ptr::null(),
             memory: Default::default(),
             handleType: Default::default(),

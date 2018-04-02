@@ -50,7 +50,7 @@ pub struct VkXlibSurfaceCreateInfoKHR {
 impl Default for VkXlibSurfaceCreateInfoKHR {
     fn default() -> Self {
         VkXlibSurfaceCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::XLIB_SURFACE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             flags: Default::default(),
             dpy: ptr::null_mut(),

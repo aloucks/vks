@@ -37,7 +37,7 @@ pub struct VkExternalMemoryImageCreateInfoKHR {
 impl Default for VkExternalMemoryImageCreateInfoKHR {
     fn default() -> Self {
         VkExternalMemoryImageCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -56,7 +56,7 @@ pub struct VkExternalMemoryBufferCreateInfoKHR {
 impl Default for VkExternalMemoryBufferCreateInfoKHR {
     fn default() -> Self {
         VkExternalMemoryBufferCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }
@@ -75,7 +75,7 @@ pub struct VkExportMemoryAllocateInfoKHR {
 impl Default for VkExportMemoryAllocateInfoKHR {
     fn default() -> Self {
         VkExportMemoryAllocateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHR,
+            sType: vk::VkStructureType::EXPORT_MEMORY_ALLOCATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

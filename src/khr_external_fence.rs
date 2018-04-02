@@ -48,7 +48,7 @@ pub struct VkExportFenceCreateInfoKHR {
 impl Default for VkExportFenceCreateInfoKHR {
     fn default() -> Self {
         VkExportFenceCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::EXPORT_FENCE_CREATE_INFO_KHR,
             pNext: ptr::null(),
             handleTypes: Default::default(),
         }

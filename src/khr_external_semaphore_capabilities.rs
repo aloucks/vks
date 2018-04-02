@@ -70,7 +70,7 @@ pub struct VkPhysicalDeviceExternalSemaphoreInfoKHR {
 impl Default for VkPhysicalDeviceExternalSemaphoreInfoKHR {
     fn default() -> Self {
         VkPhysicalDeviceExternalSemaphoreInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR,
+            sType: vk::VkStructureType::PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR,
             pNext: ptr::null(),
             handleType: Default::default(),
         }
@@ -91,7 +91,7 @@ pub struct VkExternalSemaphorePropertiesKHR {
 impl Default for VkExternalSemaphorePropertiesKHR {
     fn default() -> Self {
         VkExternalSemaphorePropertiesKHR {
-            sType: vk::VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHR,
+            sType: vk::VkStructureType::EXTERNAL_SEMAPHORE_PROPERTIES_KHR,
             pNext: ptr::null_mut(),
             exportFromImportedHandleTypes: Default::default(),
             compatibleHandleTypes: Default::default(),

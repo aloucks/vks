@@ -27,13 +27,13 @@ define_non_dispatchable_handle!(
     struct VkDescriptorUpdateTemplateKHR;
 );
 
-cenum!(VkDescriptorUpdateTemplateTypeKHR: u32 {
+vks_enum! {
     /// See [`VkDescriptorUpdateTemplateTypeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateTypeKHR)
-    const VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET_KHR = 0,
-
-    /// See [`VkDescriptorUpdateTemplateTypeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateTypeKHR)
-    const VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS_KHR = 1,
-});
+    pub VkDescriptorUpdateTemplateTypeKHR: u32 {
+        const DESCRIPTOR_SET_KHR = 0;
+        const PUSH_DESCRIPTORS_KHR = 1;
+    }
+}
 
 bitflags! {
     /// See [`VkDescriptorUpdateTemplateCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateCreateFlagsKHR)
@@ -78,7 +78,7 @@ pub struct VkDescriptorUpdateTemplateCreateInfoKHR {
 impl Default for VkDescriptorUpdateTemplateCreateInfoKHR {
     fn default() -> Self {
         VkDescriptorUpdateTemplateCreateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,
+            sType: vk::VkStructureType::DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,
             pNext: ptr::null_mut(),
             flags: Default::default(),
             descriptorUpdateEntryCount: Default::default(),

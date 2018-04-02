@@ -35,7 +35,7 @@ pub struct VkMemoryDedicatedRequirementsKHR {
 impl Default for VkMemoryDedicatedRequirementsKHR {
     fn default() -> Self {
         VkMemoryDedicatedRequirementsKHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS_KHR,
+            sType: vk::VkStructureType::MEMORY_DEDICATED_REQUIREMENTS_KHR,
             pNext: ptr::null_mut(),
             prefersDedicatedAllocation: Default::default(),
             requiresDedicatedAllocation: Default::default(),
@@ -56,7 +56,7 @@ pub struct VkMemoryDedicatedAllocateInfoKHR {
 impl Default for VkMemoryDedicatedAllocateInfoKHR {
     fn default() -> Self {
         VkMemoryDedicatedAllocateInfoKHR {
-            sType: vk::VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_KHR,
+            sType: vk::VkStructureType::MEMORY_DEDICATED_ALLOCATE_INFO_KHR,
             pNext: ptr::null(),
             image: Default::default(),
             buffer: Default::default(),

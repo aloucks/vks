@@ -48,7 +48,7 @@ pub struct VkIOSSurfaceCreateInfoMVK {
 impl Default for VkIOSSurfaceCreateInfoMVK {
     fn default() -> Self {
         VkIOSSurfaceCreateInfoMVK {
-            sType: vk::VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK,
+            sType: vk::VkStructureType::IOS_SURFACE_CREATE_INFO_MVK,
             pNext: ptr::null(),
             flags: Default::default(),
             pView: ptr::null(),
