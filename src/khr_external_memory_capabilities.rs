@@ -24,52 +24,34 @@ pub const VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME_STR: &str = "VK_KHR
 
 pub const VK_LUID_SIZE_KHR: usize = 8;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkExternalMemoryHandleTypeFlagsKHR: u32 {
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHR = 0x00000001;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR = 0x00000002;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR = 0x00000004;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHR = 0x00000008;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHR = 0x00000010;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHR = 0x00000020;
-
-        /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHR = 0x00000040;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const OPAQUE_FD_BIT_KHR = 0x00000001;
+        const OPAQUE_WIN32_BIT_KHR = 0x00000002;
+        const OPAQUE_WIN32_KMT_BIT_KHR = 0x00000004;
+        const D3D11_TEXTURE_BIT_KHR = 0x00000008;
+        const D3D11_TEXTURE_KMT_BIT_KHR = 0x00000010;
+        const D3D12_HEAP_BIT_KHR = 0x00000020;
+        const D3D12_RESOURCE_BIT_KHR = 0x00000040;
     }
 }
 
 /// See [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryHandleTypeFlagBitsKHR)
 pub type VkExternalMemoryHandleTypeFlagBitsKHR = VkExternalMemoryHandleTypeFlagsKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkExternalMemoryFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryFeatureFlagBitsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkExternalMemoryFeatureFlagsKHR: u32 {
-        /// See [`VkExternalMemoryFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryFeatureFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_FEATURE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkExternalMemoryFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryFeatureFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR = 0x00000001;
-
-        /// See [`VkExternalMemoryFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryFeatureFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHR = 0x00000002;
-
-        /// See [`VkExternalMemoryFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalMemoryFeatureFlagBitsKHR)
-        const VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR = 0x00000004;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const DEDICATED_ONLY_BIT_KHR = 0x00000001;
+        const EXPORTABLE_BIT_KHR = 0x00000002;
+        const IMPORTABLE_BIT_KHR = 0x00000004;
     }
 }
 

@@ -27,40 +27,30 @@ pub use khr_external_memory_capabilities::VK_LUID_SIZE_KHR;
 /// See [`VkPhysicalDeviceIDPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceIDPropertiesKHR)
 pub use khr_external_memory_capabilities::VkPhysicalDeviceIDPropertiesKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkExternalFenceHandleTypeFlagsKHR: u32 {
-        /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_FENCE_HANDLE_TYPE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR = 0x00000001;
-
-        /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR = 0x00000002;
-
-        /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR = 0x00000004;
-
-        /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR = 0x00000008;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const OPAQUE_FD_BIT_KHR = 0x00000001;
+        const OPAQUE_WIN32_BIT_KHR = 0x00000002;
+        const OPAQUE_WIN32_KMT_BIT_KHR = 0x00000004;
+        const SYNC_FD_BIT_KHR = 0x00000008;
     }
 }
 
 /// See [`VkExternalFenceHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceHandleTypeFlagBitsKHR)
 pub type VkExternalFenceHandleTypeFlagBitsKHR = VkExternalFenceHandleTypeFlagsKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkExternalFenceFeatureFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceFeatureFlagsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkExternalFenceFeatureFlagsKHR: u32 {
-        /// See [`VkExternalFenceFeatureFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceFeatureFlagsKHR)
-        const VK_EXTERNAL_FENCE_FEATURE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkExternalFenceFeatureFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceFeatureFlagsKHR)
-        const VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT_KHR = 0x00000001;
-
-        /// See [`VkExternalFenceFeatureFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalFenceFeatureFlagsKHR)
-        const VK_EXTERNAL_FENCE_FEATURE_IMPORTABLE_BIT_KHR = 0x00000002;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const EXPORTABLE_BIT_KHR = 0x00000001;
+        const IMPORTABLE_BIT_KHR = 0x00000002;
     }
 }
 

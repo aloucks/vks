@@ -13,6 +13,10 @@ breaking changes in other sub-sections are prefixed with "**BREAKING**" to incre
 ## Removed
  - Support for experimental extensions was removed.
 
+## Changed
+ - The bitflags crate has been reintroduced. All bitflags are now `repr(transparent)` and use
+   associated consts.
+
 
 ## [0.21.0] - 2017-10-15
 This release contains breaking changes.

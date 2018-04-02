@@ -142,28 +142,17 @@ cenum!(VkDebugReportErrorEXT: u32 {
     const VK_DEBUG_REPORT_ERROR_CALLBACK_REF_EXT = 1,
 });
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkDebugReportFlagsEXT: u32 {
-        /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-        const VK_DEBUG_REPORT_FLAG_BITS_MAX_ENUM_EXT = 0x7fffffff;
-
-        /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-        const VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001;
-
-        /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-        const VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002;
-
-        /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-        const VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x00000004;
-
-        /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-        const VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x00000008;
-
-        /// See [`VkDebugReportFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportFlagBitsEXT)
-        const VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x00000010;
+        const MAX_ENUM_EXT = 0x7fffffff;
+        const INFORMATION_BIT_EXT = 0x00000001;
+        const WARNING_BIT_EXT = 0x00000002;
+        const PERFORMANCE_WARNING_BIT_EXT = 0x00000004;
+        const ERROR_BIT_EXT = 0x00000008;
+        const DEBUG_BIT_EXT = 0x00000010;
     }
 }
 

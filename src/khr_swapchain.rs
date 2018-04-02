@@ -28,13 +28,12 @@ define_non_dispatchable_handle!(
     struct VkSwapchainKHR;
 );
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkSwapchainCreateFlagsKHR: u32 {
-        /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
-        const VK_SWAPCHAIN_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+        const MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

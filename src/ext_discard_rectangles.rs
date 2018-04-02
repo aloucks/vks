@@ -30,13 +30,12 @@ cenum!(VkDiscardRectangleModeEXT: u32 {
     const VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT = 1,
 });
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkPipelineDiscardRectangleStateCreateFlagsEXT: u32 {
-        /// See [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateFlagsEXT)
-        const VK_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_FLAG_BITS_MAX_ENUM_EXT = 0x7fffffff;
+        const MAX_ENUM_EXT = 0x7fffffff;
     }
 }
 

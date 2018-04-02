@@ -23,14 +23,13 @@ pub const VK_KHR_EXTERNAL_FENCE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_FENCE_EXTENSION_NAME: &[u8; 22] = b"VK_KHR_external_fence\x00";
 pub const VK_KHR_EXTERNAL_FENCE_EXTENSION_NAME_STR: &str = "VK_KHR_external_fence";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkFenceImportFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceImportFlagsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkFenceImportFlagsKHR: u32 {
-        /// See [`VkFenceImportFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceImportFlagsKHR)
-        const VK_FENCE_IMPORT_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkFenceImportFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFenceImportFlagsKHR)
-        const VK_FENCE_IMPORT_TEMPORARY_BIT_KHR = 0x00000001;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const TEMPORARY_BIT_KHR = 0x00000001;
     }
 }
 

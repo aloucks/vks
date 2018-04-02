@@ -37,13 +37,12 @@ cenum!(VkCoverageModulationModeNV: u32 {
     const VK_COVERAGE_MODULATION_MODE_RGBA_NV = 3,
 });
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateFlagsNV)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkPipelineCoverageModulationStateCreateFlagsNV: u32 {
-        /// See [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageModulationStateCreateFlagsNV)
-        const VK_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_FLAG_BITS_MAX_ENUM_NV = 0x7fffffff;
+        const MAX_ENUM_NV = 0x7fffffff;
     }
 }
 

@@ -27,43 +27,31 @@ pub use khr_external_memory_capabilities::VK_LUID_SIZE_KHR;
 /// See [`VkPhysicalDeviceIDPropertiesKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDeviceIDPropertiesKHR)
 pub use khr_external_memory_capabilities::VkPhysicalDeviceIDPropertiesKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkExternalSemaphoreHandleTypeFlagsKHR: u32 {
-        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR = 0x00000001;
-
-        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR = 0x00000002;
-
-        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR = 0x00000004;
-
-        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR = 0x00000008;
-
-        /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT_KHR = 0x00000010;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const OPAQUE_FD_BIT_KHR = 0x00000001;
+        const OPAQUE_WIN32_BIT_KHR = 0x00000002;
+        const OPAQUE_WIN32_KMT_BIT_KHR = 0x00000004;
+        const D3D12_FENCE_BIT_KHR = 0x00000008;
+        const SYNC_FD_BIT_KHR = 0x00000010;
     }
 }
 
 /// See [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreHandleTypeFlagBitsKHR)
 pub type VkExternalSemaphoreHandleTypeFlagBitsKHR = VkExternalSemaphoreHandleTypeFlagsKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkExternalSemaphoreFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkExternalSemaphoreFeatureFlagsKHR: u32 {
-        /// See [`VkExternalSemaphoreFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_FEATURE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkExternalSemaphoreFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHR = 0x00000001;
-
-        /// See [`VkExternalSemaphoreFeatureFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkExternalSemaphoreFeatureFlagBitsKHR)
-        const VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT_KHR = 0x00000002;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const EXPORTABLE_BIT_KHR = 0x00000001;
+        const IMPORTABLE_BIT_KHR = 0x00000002;
     }
 }
 

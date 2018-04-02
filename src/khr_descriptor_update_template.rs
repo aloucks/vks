@@ -35,13 +35,12 @@ cenum!(VkDescriptorUpdateTemplateTypeKHR: u32 {
     const VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS_KHR = 1,
 });
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkDescriptorUpdateTemplateCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateCreateFlagsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkDescriptorUpdateTemplateCreateFlagsKHR: u32 {
-        /// See [`VkDescriptorUpdateTemplateCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateCreateFlagsKHR)
-        const VK_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+        const MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

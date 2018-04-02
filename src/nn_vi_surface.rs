@@ -23,13 +23,12 @@ pub const VK_NN_VI_SURFACE_SPEC_VERSION: u32 = 1;
 pub const VK_NN_VI_SURFACE_EXTENSION_NAME: &[u8; 17] = b"VK_NN_vi_surface\x00";
 pub const VK_NN_VI_SURFACE_EXTENSION_NAME_STR: &str = "VK_NN_vi_surface";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkViSurfaceCreateFlagsNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateFlagsNN)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkViSurfaceCreateFlagsNN: u32 {
-        /// See [`VkViSurfaceCreateFlagsNN`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkViSurfaceCreateFlagsNN)
-        const VK_VI_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_NN = 0x7fffffff;
+        const MAX_ENUM_NN = 0x7fffffff;
     }
 }
 

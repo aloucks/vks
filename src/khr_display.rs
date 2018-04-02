@@ -33,51 +33,40 @@ define_non_dispatchable_handle!(
     struct VkDisplayModeKHR;
 );
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkDisplayPlaneAlphaFlagsKHR: u32 {
-        /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
-        const VK_DISPLAY_PLANE_ALPHA_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
-        const VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 0x00000001;
-
-        /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
-        const VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR = 0x00000002;
-
-        /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
-        const VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR = 0x00000004;
-
-        /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
-        const VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x00000008;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const OPAQUE_BIT_KHR = 0x00000001;
+        const GLOBAL_BIT_KHR = 0x00000002;
+        const PER_PIXEL_BIT_KHR = 0x00000004;
+        const PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x00000008;
     }
 }
 
 /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)
 pub type VkDisplayPlaneAlphaFlagBitsKHR = VkDisplayPlaneAlphaFlagsKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkDisplayModeCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeCreateFlagsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkDisplayModeCreateFlagsKHR: u32 {
-        /// See [`VkDisplayModeCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeCreateFlagsKHR)
-        const VK_DISPLAY_MODE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+        const MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 
 /// See [`VkDisplayModeCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeCreateFlagsKHR)
 pub type VkDisplayModeCreateFlagBitsKHR = VkDisplayModeCreateFlagsKHR;
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkDisplaySurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplaySurfaceCreateFlagsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkDisplaySurfaceCreateFlagsKHR: u32 {
-        /// See [`VkDisplaySurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplaySurfaceCreateFlagsKHR)
-        const VK_DISPLAY_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+        const MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

@@ -20,7 +20,8 @@ exclude = [
 gitlab = { repository = "dennis-hamester/vks" }
 
 [dependencies]
-libc = "0.2"
+bitflags = "1.0.1"
+libc = "0.2.40"
 
 [features]
 function_prototypes = [ ]

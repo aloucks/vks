@@ -24,13 +24,12 @@ pub const VK_KHR_MIR_SURFACE_SPEC_VERSION: u32 = 4;
 pub const VK_KHR_MIR_SURFACE_EXTENSION_NAME: &[u8; 19] = b"VK_KHR_mir_surface\x00";
 pub const VK_KHR_MIR_SURFACE_EXTENSION_NAME_STR: &str = "VK_KHR_mir_surface";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkMirSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMirSurfaceCreateFlagsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkMirSurfaceCreateFlagsKHR: u32 {
-        /// See [`VkMirSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMirSurfaceCreateFlagsKHR)
-        const VK_MIR_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+        const MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

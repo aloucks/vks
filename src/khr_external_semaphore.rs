@@ -23,14 +23,13 @@ pub const VK_KHR_EXTERNAL_SEMAPHORE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME: &[u8; 26] = b"VK_KHR_external_semaphore\x00";
 pub const VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME_STR: &str = "VK_KHR_external_semaphore";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkSemaphoreImportFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphoreImportFlagBitsKHR)
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkSemaphoreImportFlagsKHR: u32 {
-        /// See [`VkSemaphoreImportFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphoreImportFlagBitsKHR)
-        const VK_SEMAPHORE_IMPORT_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
-
-        /// See [`VkSemaphoreImportFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphoreImportFlagBitsKHR)
-        const VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR = 0x00000001;
+        const MAX_ENUM_KHR = 0x7fffffff;
+        const TEMPORARY_BIT_KHR = 0x00000001;
     }
 }
 

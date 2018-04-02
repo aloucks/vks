@@ -23,16 +23,13 @@ pub const VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION: u32 = 1;
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME: &[u8; 31] = b"VK_EXT_display_surface_counter\x00";
 pub const VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME_STR: &str = "VK_EXT_display_surface_counter";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkSurfaceCounterFlagsEXT: u32 {
-        /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
-        const VK_SURFACE_COUNTER_FLAG_BITS_MAX_ENUM_EXT = 0x7fffffff;
-
-        /// See [`VkSurfaceCounterFlagBitsEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
-        const VK_SURFACE_COUNTER_VBLANK_EXT = 0x00000001;
+        const MAX_ENUM_EXT = 0x7fffffff;
+        const VBLANK_EXT = 0x00000001;
     }
 }
 

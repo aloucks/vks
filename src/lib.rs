@@ -20,11 +20,15 @@
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
 
+#![feature(repr_transparent)]
+
 #![cfg_attr(feature = "cargo-clippy", allow(unreadable_literal))]
 
 // https://github.com/rust-lang-nursery/rust-clippy/issues/1254
 #![cfg_attr(feature = "cargo-clippy", allow(expl_impl_clone_on_copy))]
 
+#[macro_use]
+extern crate bitflags;
 extern crate libc;
 
 #[macro_use]
@@ -32,9 +36,6 @@ mod cenum;
 
 #[macro_use]
 mod handle;
-
-#[macro_use]
-mod vks_bitflags;
 
 pub mod device_proc_addr_loader;
 pub mod instance_proc_addr_loader;

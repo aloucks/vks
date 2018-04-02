@@ -24,13 +24,12 @@ pub const VK_KHR_WAYLAND_SURFACE_SPEC_VERSION: u32 = 6;
 pub const VK_KHR_WAYLAND_SURFACE_EXTENSION_NAME: &[u8; 23] = b"VK_KHR_wayland_surface\x00";
 pub const VK_KHR_WAYLAND_SURFACE_EXTENSION_NAME_STR: &str = "VK_KHR_wayland_surface";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkWaylandSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWaylandSurfaceCreateFlagsKHR)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkWaylandSurfaceCreateFlagsKHR: u32 {
-        /// See [`VkWaylandSurfaceCreateFlagsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkWaylandSurfaceCreateFlagsKHR)
-        const VK_WAYLAND_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_KHR = 0x7fffffff;
+        const MAX_ENUM_KHR = 0x7fffffff;
     }
 }
 

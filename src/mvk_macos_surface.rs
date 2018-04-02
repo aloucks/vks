@@ -23,13 +23,12 @@ pub const VK_MVK_MACOS_SURFACE_SPEC_VERSION: u32 = 2;
 pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME: &[u8; 21] = b"VK_MVK_macos_surface\x00";
 pub const VK_MVK_MACOS_SURFACE_EXTENSION_NAME_STR: &str = "VK_MVK_macos_surface";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkMacOSSurfaceCreateFlagsMVK: u32 {
-        /// See [`VkMacOSSurfaceCreateFlagsMVK`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkMacOSSurfaceCreateFlagsMVK)
-        const VK_MAC_OS_SURFACE_CREATE_FLAG_BITS_MAX_ENUM_MVK = 0x7fffffff;
+        const MAX_ENUM_MVK = 0x7fffffff;
     }
 }
 

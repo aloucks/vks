@@ -22,13 +22,12 @@ pub const VK_NV_FRAGMENT_COVERAGE_TO_COLOR_SPEC_VERSION: u32 = 1;
 pub const VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME: &[u8; 33] = b"VK_NV_fragment_coverage_to_color\x00";
 pub const VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME_STR: &str = "VK_NV_fragment_coverage_to_color";
 
-vks_bitflags! {
+bitflags! {
     /// See [`VkPipelineCoverageToColorStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageToColorStateCreateFlagsNV)
-    // #[repr(C)]
-    // #[derive(Default)]
+    #[repr(transparent)]
+    #[derive(Default)]
     pub struct VkPipelineCoverageToColorStateCreateFlagsNV: u32 {
-        /// See [`VkPipelineCoverageToColorStateCreateFlagsNV`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCoverageToColorStateCreateFlagsNV)
-        const VK_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_FLAG_BITS_MAX_ENUM_NV = 0x7fffffff;
+        const MAX_ENUM_NV = 0x7fffffff;
     }
 }
 
