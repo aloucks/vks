@@ -22,10 +22,10 @@ pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION: u32 = 1;
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME: &[u8; 34] = b"VK_KHR_descriptor_update_template\x00";
 pub const VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME_STR: &str = "VK_KHR_descriptor_update_template";
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDescriptorUpdateTemplateKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateKHR)
     struct VkDescriptorUpdateTemplateKHR;
-);
+}
 
 vks_enum! {
     /// See [`VkDescriptorUpdateTemplateTypeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorUpdateTemplateTypeKHR)

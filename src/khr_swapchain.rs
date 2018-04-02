@@ -23,10 +23,10 @@ pub const VK_KHR_SWAPCHAIN_SPEC_VERSION: u32 = 68;
 pub const VK_KHR_SWAPCHAIN_EXTENSION_NAME: &[u8; 17] = b"VK_KHR_swapchain\x00";
 pub const VK_KHR_SWAPCHAIN_EXTENSION_NAME_STR: &str = "VK_KHR_swapchain";
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkSwapchainKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainKHR)
     struct VkSwapchainKHR;
-);
+}
 
 bitflags! {
     /// See [`VkSwapchainCreateFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)

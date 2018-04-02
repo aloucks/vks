@@ -23,15 +23,15 @@ pub const VK_KHR_DISPLAY_SPEC_VERSION: u32 = 21;
 pub const VK_KHR_DISPLAY_EXTENSION_NAME: &[u8; 15] = b"VK_KHR_display\x00";
 pub const VK_KHR_DISPLAY_EXTENSION_NAME_STR: &str = "VK_KHR_display";
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDisplayKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayKHR)
     struct VkDisplayKHR;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDisplayModeKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayModeKHR)
     struct VkDisplayModeKHR;
-);
+}
 
 bitflags! {
     /// See [`VkDisplayPlaneAlphaFlagBitsKHR`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDisplayPlaneAlphaFlagBitsKHR)

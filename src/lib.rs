@@ -15,15 +15,11 @@
 //! Vulkan FFI bindings and symbol loader
 
 #![no_std]
-
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
-
 #![feature(repr_transparent)]
-
 #![cfg_attr(feature = "cargo-clippy", allow(unreadable_literal))]
-
 // https://github.com/rust-lang-nursery/rust-clippy/issues/1254
 #![cfg_attr(feature = "cargo-clippy", allow(expl_impl_clone_on_copy))]
 
@@ -40,7 +36,6 @@ mod vks_enum;
 pub mod device_proc_addr_loader;
 pub mod instance_proc_addr_loader;
 
-pub mod vk;
 pub mod amd_draw_indirect_count;
 pub mod amd_gcn_shader;
 pub mod amd_gpu_shader_half_float;
@@ -128,6 +123,7 @@ pub mod nv_sample_mask_override_coverage;
 pub mod nv_viewport_array2;
 pub mod nv_viewport_swizzle;
 pub mod nv_win32_keyed_mutex;
+pub mod vk;
 
 pub mod android_types;
 pub mod mir_types;

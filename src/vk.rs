@@ -28,145 +28,145 @@ pub type VkDeviceSize = u64;
 /// See [`VkSampleMask`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampleMask)
 pub type VkSampleMask = u32;
 
-define_handle!(
+define_handle! {
     /// See [`VkInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstance)
     type VkInstance;
 
     /// See [`VkInstance`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkInstance)
     struct VkInstance_T;
-);
+}
 
-define_handle!(
+define_handle! {
     /// See [`VkPhysicalDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevice)
     type VkPhysicalDevice;
 
     /// See [`VkPhysicalDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPhysicalDevice)
     struct VkPhysicalDevice_T;
-);
+}
 
-define_handle!(
+define_handle! {
     /// See [`VkDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDevice)
     type VkDevice;
 
     /// See [`VkDevice`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDevice)
     struct VkDevice_T;
-);
+}
 
-define_handle!(
+define_handle! {
     /// See [`VkQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueue)
     type VkQueue;
 
     /// See [`VkQueue`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueue)
     struct VkQueue_T;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkSemaphore`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSemaphore)
     struct VkSemaphore;
-);
+}
 
-define_handle!(
+define_handle! {
     /// See [`VkCommandBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBuffer)
     type VkCommandBuffer;
 
     /// See [`VkCommandBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBuffer)
     struct VkCommandBuffer_T;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkFence`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFence)
     struct VkFence;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDeviceMemory`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDeviceMemory)
     struct VkDeviceMemory;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkBuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBuffer)
     struct VkBuffer;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkImage`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImage)
     struct VkImage;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkEvent`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkEvent)
     struct VkEvent;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkQueryPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueryPool)
     struct VkQueryPool;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkBufferView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkBufferView)
     struct VkBufferView;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkImageView`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkImageView)
     struct VkImageView;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkShaderModule`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkShaderModule)
     struct VkShaderModule;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkPipelineCache`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineCache)
     struct VkPipelineCache;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkPipelineLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipelineLayout)
     struct VkPipelineLayout;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkRenderPass`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkRenderPass)
     struct VkRenderPass;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkPipeline`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkPipeline)
     struct VkPipeline;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDescriptorSetLayout`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSetLayout)
     struct VkDescriptorSetLayout;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkSampler`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkSampler)
     struct VkSampler;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDescriptorPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorPool)
     struct VkDescriptorPool;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDescriptorSet`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDescriptorSet)
     struct VkDescriptorSet;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkFramebuffer`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkFramebuffer)
     struct VkFramebuffer;
-);
+}
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkCommandPool`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandPool)
     struct VkCommandPool;
-);
+}
 
 pub const VK_LOD_CLAMP_NONE: f32 = 1000.0;
 pub const VK_REMAINING_MIP_LEVELS: u32 = 0xffffffff;
@@ -2605,7 +2605,7 @@ pub struct VkPhysicalDeviceProperties {
     pub sparseProperties: VkPhysicalDeviceSparseProperties,
 }
 
-impl Copy for VkPhysicalDeviceProperties { }
+impl Copy for VkPhysicalDeviceProperties {}
 
 impl Clone for VkPhysicalDeviceProperties {
     fn clone(&self) -> Self {
@@ -2754,7 +2754,7 @@ pub struct VkExtensionProperties {
     pub specVersion: u32,
 }
 
-impl Copy for VkExtensionProperties { }
+impl Copy for VkExtensionProperties {}
 
 impl Clone for VkExtensionProperties {
     fn clone(&self) -> Self {
@@ -2797,7 +2797,7 @@ pub struct VkLayerProperties {
     pub description: [c_char; VK_MAX_DESCRIPTION_SIZE],
 }
 
-impl Copy for VkLayerProperties { }
+impl Copy for VkLayerProperties {}
 
 impl Clone for VkLayerProperties {
     fn clone(&self) -> Self {
@@ -4438,9 +4438,7 @@ impl fmt::Debug for VkClearColorValue {
 
 impl Default for VkClearColorValue {
     fn default() -> Self {
-        VkClearColorValue {
-            uint32: Default::default(),
-        }
+        VkClearColorValue { uint32: Default::default() }
     }
 }
 
@@ -4473,9 +4471,7 @@ impl fmt::Debug for VkClearValue {
 
 impl Default for VkClearValue {
     fn default() -> Self {
-        VkClearValue {
-            color: Default::default(),
-        }
+        VkClearValue { color: Default::default() }
     }
 }
 

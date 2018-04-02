@@ -13,19 +13,16 @@ fn main() {
 
             if target.contains("x86_64") {
                 vulkan_sdk_path.push("Lib");
-            }
-            else {
+            } else {
                 vulkan_sdk_path.push("Lib32");
             }
 
             println!("cargo:rustc-link-search=native={}", vulkan_sdk_path.to_str().unwrap());
         }
-    }
-    else {
+    } else {
         println!("cargo:rustc-link-lib=dylib=vulkan");
     }
 }
 
 #[cfg(not(feature = "function_prototypes"))]
-fn main() {
-}
+fn main() {}

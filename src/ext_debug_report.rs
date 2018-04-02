@@ -23,10 +23,10 @@ pub const VK_EXT_DEBUG_REPORT_SPEC_VERSION: u32 = 8;
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME: &[u8; 20] = b"VK_EXT_debug_report\x00";
 pub const VK_EXT_DEBUG_REPORT_EXTENSION_NAME_STR: &str = "VK_EXT_debug_report";
 
-define_non_dispatchable_handle!(
+define_non_dispatchable_handle! {
     /// See [`VkDebugReportCallbackEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportCallbackEXT)
     struct VkDebugReportCallbackEXT;
-);
+}
 
 vks_enum! {
     /// See [`VkDebugReportObjectTypeEXT`](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkDebugReportObjectTypeEXT)
@@ -116,7 +116,7 @@ pub struct VkDebugReportCallbackCreateInfoEXT {
     pub pUserData: *mut c_void,
 }
 
-impl Copy for VkDebugReportCallbackCreateInfoEXT { }
+impl Copy for VkDebugReportCallbackCreateInfoEXT {}
 
 impl Clone for VkDebugReportCallbackCreateInfoEXT {
     fn clone(&self) -> Self {
